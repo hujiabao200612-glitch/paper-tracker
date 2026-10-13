@@ -16,6 +16,10 @@ main{max-width:880px;margin:0 auto;padding:20px}
 #search{width:100%;padding:11px 15px;font-size:15px;border:1px solid var(--border);border-radius:9px;margin-bottom:12px;background:#fff}
 #search:focus{outline:2px solid var(--accent);border-color:var(--accent)}
 .stats{color:var(--muted);font-size:13px;margin-bottom:14px}
+.catbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.catbar button{border:1px solid var(--border);background:#fff;color:var(--text);border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer}
+.catbar button:hover{border-color:var(--accent);color:var(--accent)}
+.catbar button.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:18px 20px;margin-bottom:14px}
 .card h2{margin:0 0 9px;font-size:17px;line-height:1.55;font-weight:650}
 .card h2 a{color:var(--text);text-decoration:none}
@@ -23,6 +27,7 @@ main{max-width:880px;margin:0 auto;padding:20px}
 .meta{font-size:13px;color:var(--muted);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
 .badge{display:inline-block;background:#eef4ff;color:var(--accent);border-radius:5px;padding:2px 9px;font-size:12px;font-family:ui-monospace,Menlo,Consolas,monospace}
 .badge.venue{background:#e7f6ec;color:#137333;font-family:inherit}
+.badge.cat{background:#f3e8ff;color:#6d28d9;font-family:inherit}
 .summary{font-size:14.5px;line-height:1.8;color:#374151;margin:0}
 .empty{color:var(--muted);text-align:center;padding:40px 0}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 16px;line-height:1.8}
@@ -36,14 +41,16 @@ footer a{color:var(--muted)}
 </div></header>
 <main>
 <input id="search" placeholder="按标题 / 作者 / 简介 / arXiv ID 搜索…" autocomplete="off">
+<div class="catbar" id="catbar"></div>
 <div class="stats" id="stats"></div>
 <div id="list"></div>
 </main>
 <footer>数据来源 arXiv · 由论文追踪自动更新<br><a href="https://arxiv.org" target="_blank" rel="noopener">arxiv.org</a></footer>
 <script>
-let papers=[], updatedAt='';
+let papers=[], updatedAt='', activeCat='全部';
 fetch('papers.json').then(r=>r.json()).then(d=>{
   papers=d.papers||[]; updatedAt=d.updated_at||'';
+  buildCatbar();
   render('');
 }).catch(()=>{document.getElementById('list').innerHTML='<p class="empty">数据加载失败</p>';});
 document.getElementById('search').addEventListener('input',e=>render(e.target.value.trim().toLowerCase()));
@@ -52,16 +59,32 @@ function venueBadge(summary){
   const m=summary.match(/^(已接收[^，。；]*|已发表[^，。；]*)/);
   return m?`<span class="badge venue">${esc(m[1])}</span>`:'';
 }
+function buildCatbar(){
+  const counts={};
+  papers.forEach(p=>{const c=p.category||'其他';counts[c]=(counts[c]||0)+1;});
+  const cats=['全部',...Object.keys(counts).sort((a,b)=>counts[b]-counts[a])];
+  document.getElementById('catbar').innerHTML=cats.map(c=>
+    `<button class="${c===activeCat?'active':''}" data-cat="${esc(c)}">${esc(c)}${c==='全部'?'':' '+counts[c]}</button>`
+  ).join('');
+  document.getElementById('catbar').addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    activeCat=b.dataset.cat;
+    document.querySelectorAll('#catbar button').forEach(x=>x.classList.toggle('active',x===b));
+    render(document.getElementById('search').value.trim().toLowerCase());
+  });
+}
 function render(q){
-  const items=papers.filter(p=>!q||
-    p.title.toLowerCase().includes(q)||p.zhSummary.toLowerCase().includes(q)||
-    p.authors.join(' ').toLowerCase().includes(q)||p.arxivId.toLowerCase().includes(q));
-  document.getElementById('stats').textContent=`共 ${papers.length} 篇`+(q?` · 匹配 ${items.length} 篇`:'')+(updatedAt?` · 更新于 ${updatedAt}`:'');
+  const items=papers.filter(p=>
+    (activeCat==='全部'||(p.category||'其他')===activeCat) &&
+    (!q||p.title.toLowerCase().includes(q)||p.zhSummary.toLowerCase().includes(q)||
+    p.authors.join(' ').toLowerCase().includes(q)||p.arxivId.toLowerCase().includes(q)));
+  document.getElementById('stats').textContent=`共 ${papers.length} 篇`+(activeCat!=='全部'?` · ${activeCat} ${items.length} 篇`:'')+(q?` · 搜索匹配 ${items.length} 篇`:'')+(updatedAt?` · 更新于 ${updatedAt}`:'');
   document.getElementById('list').innerHTML=items.map(p=>`
     <article class="card">
       <h2><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></h2>
       <div class="meta">
         <span class="badge">arXiv:${esc(p.arxivId)}</span>${venueBadge(p.zhSummary)}
+        ${p.category?`<span class="badge cat">${esc(p.category)}</span>`:''}
         <span>${esc(p.publishedAt)}</span>
         <span>${esc(p.authors.slice(0,5).join(', '))}${p.authors.length>5?' 等':''}</span>
       </div>
@@ -71,4 +94,3 @@ function render(q){
 </script>
 </body>
 </html>
- 

@@ -15,7 +15,8 @@
    "publishedAt": "2026-10-09",
    "title": "Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark",
    "url": "https://arxiv.org/abs/2610.13947",
-   "zhSummary": "该研究关注具有物理基础的可动三维资产生成，目标从复现外观转向刻画运动与功能。提出多智能体系统Artisan，在Articraft基础上引入物理仿真反馈，建模无碰撞运动、重力稳定性及质量材质等属性，并构建涵盖空间保真度等四方面的统一基准。评估十余种模型后，Artisan空间保真度相当，且碰撞率最低、稳定性最高。"
+   "zhSummary": "该研究关注具有物理基础的可动三维资产生成，目标从复现外观转向刻画运动与功能。提出多智能体系统Artisan，在Articraft基础上引入物理仿真反馈，建模无碰撞运动、重力稳定性及质量材质等属性，并构建涵盖空间保真度等四方面的统一基准。评估十余种模型后，Artisan空间保真度相当，且碰撞率最低、稳定性最高。",
+   "category": "智能体"
   },
   {
    "arxivId": "2610.13945",
@@ -30,7 +31,8 @@
    "publishedAt": "2026-10-09",
    "title": "Splat2Act: From Captured Scenes to Personalized VLA Manipulation",
    "url": "https://arxiv.org/abs/2610.13945",
-   "zhSummary": "该研究解决通用操作策略在用户环境中抓取成功率为零、采集真实演示成本过高的问题。提出自动化实仿实流程Splat2Act，仅用手机扫描和物体图像构建含高斯泼溅与碰撞几何的数字孪生，自动发现放置位并由仿真特权专家生成演示。在101个环境中生成6.8万余次演示，两阶段微调后个性化策略在目标场景达62.5%成功率，真机部署达63.9%，与仿真接近。"
+   "zhSummary": "该研究解决通用操作策略在用户环境中抓取成功率为零、采集真实演示成本过高的问题。提出自动化实仿实流程Splat2Act，仅用手机扫描和物体图像构建含高斯泼溅与碰撞几何的数字孪生，自动发现放置位并由仿真特权专家生成演示。在101个环境中生成6.8万余次演示，两阶段微调后个性化策略在目标场景达62.5%成功率，真机部署达63.9%，与仿真接近。",
+   "category": "具身智能与机器人"
   },
   {
    "arxivId": "2610.13944",
@@ -47,7 +49,8 @@
    "publishedAt": "2026-10-09",
    "title": "InstantFusion: A Shared Latent Interface for Heterogeneous Image Generators",
    "url": "https://arxiv.org/abs/2610.13944",
-   "zhSummary": "该研究关注异构图像生成器潜在表示对齐不足的问题，发现独立训练模型具有相似的潜在空间组织。提出轻量共享潜在接口InstantFusion，用模型专属潜在自编码器将不同生成器的中间状态映射到共享空间再解码到目标空间，以同图同噪声水平对齐和去噪速度同步为约束。在加速、多偏好组合、跨架构蒸馏与跨模型组合中表现具有竞争力。"
+   "zhSummary": "该研究关注异构图像生成器潜在表示对齐不足的问题，发现独立训练模型具有相似的潜在空间组织。提出轻量共享潜在接口InstantFusion，用模型专属潜在自编码器将不同生成器的中间状态映射到共享空间再解码到目标空间，以同图同噪声水平对齐和去噪速度同步为约束。在加速、多偏好组合、跨架构蒸馏与跨模型组合中表现具有竞争力。",
+   "category": "图像视频生成"
   },
   {
    "arxivId": "2610.13943",
@@ -63,7 +66,8 @@
    "publishedAt": "2026-10-09",
    "title": "Noise Space Learning for VLA Adaptation",
    "url": "https://arxiv.org/abs/2610.13943",
-   "zhSummary": "该研究针对预训练视觉语言动作模型适配需权衡交互、计算与安全的问题。提出噪声空间学习，在固定预训练模型下学习上下文相关的噪声分布，基于噪声引导思想并用PPO、SAC、AWR实例化，给出信息论分析。在LIBERO、RoboTwin及四个真机任务的实验形成了一系列有效变体，并给出不同资源与部署条件下的选择建议。"
+   "zhSummary": "该研究针对预训练视觉语言动作模型适配需权衡交互、计算与安全的问题。提出噪声空间学习，在固定预训练模型下学习上下文相关的噪声分布，基于噪声引导思想并用PPO、SAC、AWR实例化，给出信息论分析。在LIBERO、RoboTwin及四个真机任务的实验形成了一系列有效变体，并给出不同资源与部署条件下的选择建议。",
+   "category": "具身智能与机器人"
   },
   {
    "arxivId": "2610.13941",
@@ -77,7 +81,8 @@
    "publishedAt": "2026-10-09",
    "title": "Images Talk Back: Guiding MMDiTs by Suppressing Image-to-Text Feedback",
    "url": "https://arxiv.org/abs/2610.13941",
-   "zhSummary": "该研究探讨多模态扩散Transformer中图像到文本反馈是否有助于纠正偏离提示的错误，发现该反馈会保留已生成错误，移植可挽救失败或破坏成功，抑制其影响可提升生成。提出语义反馈引导及其原位变体，抑制图像到文本反馈并增强文本到图像条件。在三个图像骨干上提升了对齐与偏好得分，FLUX上GenEval从0.6661升至0.7479，并可迁移至视频生成。"
+   "zhSummary": "该研究探讨多模态扩散Transformer中图像到文本反馈是否有助于纠正偏离提示的错误，发现该反馈会保留已生成错误，移植可挽救失败或破坏成功，抑制其影响可提升生成。提出语义反馈引导及其原位变体，抑制图像到文本反馈并增强文本到图像条件。在三个图像骨干上提升了对齐与偏好得分，FLUX上GenEval从0.6661升至0.7479，并可迁移至视频生成。",
+   "category": "图像视频生成"
   },
   {
    "arxivId": "2610.13935",
@@ -90,7 +95,8 @@
    "publishedAt": "2026-10-09",
    "title": "Hide and Seek: HIDE Concepts to SEEK explanations for black box models",
    "url": "https://arxiv.org/abs/2610.13935",
-   "zhSummary": "该研究针对概念归因仅适用于分类回归、需模型权重或大量概念标注且缺乏图像级归因的问题。提出Hide and Seek方法，无需模型权重或标注概念数据集，利用视觉语言模型检索概念对齐图像、定位并遮蔽概念区域，通过比较黑盒模型在原图与遮蔽图输出的变化度量归因。在CelebA和COCO-Stuff上与真实归因一致性更优，并适用于图像描述与卫星图像分割。"
+   "zhSummary": "该研究针对概念归因仅适用于分类回归、需模型权重或大量概念标注且缺乏图像级归因的问题。提出Hide and Seek方法，无需模型权重或标注概念数据集，利用视觉语言模型检索概念对齐图像、定位并遮蔽概念区域，通过比较黑盒模型在原图与遮蔽图输出的变化度量归因。在CelebA和COCO-Stuff上与真实归因一致性更优，并适用于图像描述与卫星图像分割。",
+   "category": "AI 安全与可解释性"
   },
   {
    "arxivId": "2610.13929",
@@ -102,7 +108,8 @@
    "publishedAt": "2026-10-09",
    "title": "Chronos Policy: Learning Robot Policies on Physical Time",
    "url": "https://arxiv.org/abs/2610.13929",
-   "zhSummary": "该研究针对机器人策略用固定频率序列隐含物理时间、在观测频率或延迟变化时失效的问题。提出Chronos Policy，将观测采集与动作执行时间显式作为条件，对比时间戳嵌入与时间感知旋转位置编码，发现后者更稳健。训练时随机化观测采样与动作块起始，支持异步多速率学习。仿真与真机实验显示其提升动态与多传感任务表现，并增强时序鲁棒性。"
+   "zhSummary": "该研究针对机器人策略用固定频率序列隐含物理时间、在观测频率或延迟变化时失效的问题。提出Chronos Policy，将观测采集与动作执行时间显式作为条件，对比时间戳嵌入与时间感知旋转位置编码，发现后者更稳健。训练时随机化观测采样与动作块起始，支持异步多速率学习。仿真与真机实验显示其提升动态与多传感任务表现，并增强时序鲁棒性。",
+   "category": "具身智能与机器人"
   },
   {
    "arxivId": "2610.13925",
@@ -116,7 +123,8 @@
    "publishedAt": "2026-10-09",
    "title": "Can machines reason non-verbally?",
    "url": "https://arxiv.org/abs/2610.13925",
-   "zhSummary": "该研究针对机器擅长语言推理却难以处理视觉非言语推理的问题。提出通用框架GenVerOpt，将生成、验证与优化统一为推理流程，通过生成候选、验证正确性并迭代改进，实现单样本优化。该方法在抽象智力拼图上超越人类，在前列腺癌分割上媲美临床医生，在肝血管重建与肿瘤边界对齐上分别超越专家和现有最优方法。"
+   "zhSummary": "该研究针对机器擅长语言推理却难以处理视觉非言语推理的问题。提出通用框架GenVerOpt，将生成、验证与优化统一为推理流程，通过生成候选、验证正确性并迭代改进，实现单样本优化。该方法在抽象智力拼图上超越人类，在前列腺癌分割上媲美临床医生，在肝血管重建与肿瘤边界对齐上分别超越专家和现有最优方法。",
+   "category": "推理"
   },
   {
    "arxivId": "2610.13923",
@@ -129,7 +137,8 @@
    "publishedAt": "2026-10-09",
    "title": "Goal-Oriented Bundle Management and Flow Control for Deep-Space Communications via Reinforcement Learning",
    "url": "https://arxiv.org/abs/2610.13923",
-   "zhSummary": "该研究针对深空通信中间歇连接、长时延与中继存储受限下传统调度不优化任务效用与公平性的问题。提出闭环建模与学习框架，月球与火星更新经共享缓存中继转发至地球，用超额年龄度量信息新鲜度并定义目标导向损失，将中继控制建模为约束半马尔可夫决策过程并用掩码PPO求解。仿真显示其年龄效用与流间公平性优于基线。"
+   "zhSummary": "该研究针对深空通信中间歇连接、长时延与中继存储受限下传统调度不优化任务效用与公平性的问题。提出闭环建模与学习框架，月球与火星更新经共享缓存中继转发至地球，用超额年龄度量信息新鲜度并定义目标导向损失，将中继控制建模为约束半马尔可夫决策过程并用掩码PPO求解。仿真显示其年龄效用与流间公平性优于基线。",
+   "category": "强化学习"
   },
   {
    "arxivId": "2610.13917",
@@ -148,7 +157,8 @@
    "publishedAt": "2026-10-09",
    "title": "Designing Protein Structures from Natural Language",
    "url": "https://arxiv.org/abs/2610.13917",
-   "zhSummary": "该研究针对从头蛋白质设计需为每种性质设计专用输入的问题。开发首个支持自然语言目标的全原子结构生成模型Prompteina，基于180万结构与5000万余条文本的配对数据，由Proteina-Complexa经文本条件预训练与微调得到。在18项结构性质中15项优于基线，结合物设计在20个靶点中13个领先，实验验证针对GM2A发现9个结合物，最强亲和力107nM。"
+   "zhSummary": "该研究针对从头蛋白质设计需为每种性质设计专用输入的问题。开发首个支持自然语言目标的全原子结构生成模型Prompteina，基于180万结构与5000万余条文本的配对数据，由Proteina-Complexa经文本条件预训练与微调得到。在18项结构性质中15项优于基线，结合物设计在20个靶点中13个领先，实验验证针对GM2A发现9个结合物，最强亲和力107nM。",
+   "category": "AI for Science"
   },
   {
    "arxivId": "2610.13915",
@@ -159,7 +169,8 @@
    "publishedAt": "2026-10-09",
    "title": "Where to Look Matters: Rethinking Sub-Volume Sampling in 3D Medical Self-supervised Learning",
    "url": "https://arxiv.org/abs/2610.13915",
-   "zhSummary": "该研究针对三维医学自监督学习中随机子体裁剪将所有区域等同视之、忽视了解剖先验与空间冗余的问题，证实更优的子体带来更好的下游迁移。提出即插即用框架，以离线由粗到细的探针库取代随机裁剪，按解剖感知、信息量与多样性指导采样，并设轻量与特征两种变体。实验表明轻量变体在多种骨干与下游任务上优于随机采样。"
+   "zhSummary": "该研究针对三维医学自监督学习中随机子体裁剪将所有区域等同视之、忽视了解剖先验与空间冗余的问题，证实更优的子体带来更好的下游迁移。提出即插即用框架，以离线由粗到细的探针库取代随机裁剪，按解剖感知、信息量与多样性指导采样，并设轻量与特征两种变体。实验表明轻量变体在多种骨干与下游任务上优于随机采样。",
+   "category": "AI for Science"
   },
   {
    "arxivId": "2610.13912",
@@ -179,7 +190,8 @@
    "publishedAt": "2026-10-09",
    "title": "RSI-Anything: Unlocking Recursive Self-Improvement with World Models",
    "url": "https://arxiv.org/abs/2610.13912",
-   "zhSummary": "该研究针对递归自我改进中外部反馈成本高、世界模型预测随策略演化而不可靠的问题。提出基于JEPA-Anything的领域通用框架RSI-Anything，用预测性世界模型指导动作与学习数据选择，以观测反馈驱动策略改进与条件性模型适配，并经兼容性检查保留更新。在代码修复、界面操作、实验室规划与反应优化等多领域取得显著提升，反应优化平均最优产率达96.15%。"
+   "zhSummary": "该研究针对递归自我改进中外部反馈成本高、世界模型预测随策略演化而不可靠的问题。提出基于JEPA-Anything的领域通用框架RSI-Anything，用预测性世界模型指导动作与学习数据选择，以观测反馈驱动策略改进与条件性模型适配，并经兼容性检查保留更新。在代码修复、界面操作、实验室规划与反应优化等多领域取得显著提升，反应优化平均最优产率达96.15%。",
+   "category": "递归自改进 RSI"
   },
   {
    "arxivId": "2610.13635",
@@ -193,7 +205,8 @@
    "publishedAt": "2026-10-09",
    "title": "PANDA: Prior-guided Attentional Dual-path Architecture",
    "url": "https://arxiv.org/abs/2610.13635",
-   "zhSummary": "已接收 NeurIPS 2026。针对超图神经网络的两阶段消息传递，提出即插即用架构 PANDA。核心洞察是：归一化注意力天然是竞争性的——一个发送者权重上升必然压低同聚合集里其他发送者的权重，在异配（heterophilic）场景下会传播误导信息。PANDA 用双路径解决：主路径在可学习的接收端归一化注意力与结构先验之间插值，辅助路径是非竞争性的（不归一化），让每个发送者独立贡献自己的变换信息。支持有向与无向超图。值得看：对注意力竞争机制的刻画很清晰，双路径思想可以迁移到一般注意力架构的设计中。"
+   "zhSummary": "已接收 NeurIPS 2026。针对超图神经网络的两阶段消息传递，提出即插即用架构 PANDA。核心洞察是：归一化注意力天然是竞争性的——一个发送者权重上升必然压低同聚合集里其他发送者的权重，在异配（heterophilic）场景下会传播误导信息。PANDA 用双路径解决：主路径在可学习的接收端归一化注意力与结构先验之间插值，辅助路径是非竞争性的（不归一化），让每个发送者独立贡献自己的变换信息。支持有向与无向超图。值得看：对注意力竞争机制的刻画很清晰，双路径思想可以迁移到一般注意力架构的设计中。",
+   "category": "机器学习理论与优化"
   },
   {
    "arxivId": "2610.13369",
@@ -207,7 +220,8 @@
    "publishedAt": "2026-10-09",
    "title": "Opening the Black Box of Classifier-Free Guidance via Information Bottleneck",
    "url": "https://arxiv.org/abs/2610.13369",
-   "zhSummary": "已接收 NeurIPS 2026。研究扩散模型中 classifier-free guidance（CFG）到底应该在何时激活。实际中 CFG 的激活 schedule 往往靠经验设定，近期动态变体也多是手工设计的 schedule，缺少理论解释。作者把扩散轨迹建模为随时间变化的信息瓶颈，证明条件信息对 score function 的信息相关性在采样过程中并非均匀分布——在某些阶段显著更强，从而为动态 CFG 激活提供了信息论上的理论依据。值得看：扩散采样机理方向的扎实理论工作，对实践中设计自适应 guidance schedule 有直接指导。"
+   "zhSummary": "已接收 NeurIPS 2026。研究扩散模型中 classifier-free guidance（CFG）到底应该在何时激活。实际中 CFG 的激活 schedule 往往靠经验设定，近期动态变体也多是手工设计的 schedule，缺少理论解释。作者把扩散轨迹建模为随时间变化的信息瓶颈，证明条件信息对 score function 的信息相关性在采样过程中并非均匀分布——在某些阶段显著更强，从而为动态 CFG 激活提供了信息论上的理论依据。值得看：扩散采样机理方向的扎实理论工作，对实践中设计自适应 guidance schedule 有直接指导。",
+   "category": "图像视频生成"
   },
   {
    "arxivId": "2610.13330",
@@ -220,7 +234,8 @@
    "publishedAt": "2026-10-09",
    "title": "Masked Diffusion Language Agents for Tool-Integrated Chemical Reasoning",
    "url": "https://arxiv.org/abs/2610.13330",
-   "zhSummary": "已接收 NeurIPS 2026。提出首个掩码扩散语言智能体 ChemDiffAgent，解决工具集成的化学推理任务。现有化学智能体都建在自回归范式上，因果注意力和从左到右生成限制了对分子的双向理解、全局协同的工具规划和多源证据融合。ChemDiffAgent 把化学推理重新表述为对交错的推理—工具调用轨迹的迭代去噪，工具调用决策在完整轨迹上下文下联合确定，更好地对齐智能体的决策边界。值得看：扩散范式进智能体的新尝试，对智能体方法论本身有启发，化学只是验证场景。"
+   "zhSummary": "已接收 NeurIPS 2026。提出首个掩码扩散语言智能体 ChemDiffAgent，解决工具集成的化学推理任务。现有化学智能体都建在自回归范式上，因果注意力和从左到右生成限制了对分子的双向理解、全局协同的工具规划和多源证据融合。ChemDiffAgent 把化学推理重新表述为对交错的推理—工具调用轨迹的迭代去噪，工具调用决策在完整轨迹上下文下联合确定，更好地对齐智能体的决策边界。值得看：扩散范式进智能体的新尝试，对智能体方法论本身有启发，化学只是验证场景。",
+   "category": "智能体"
   },
   {
    "arxivId": "2610.13549",
@@ -234,7 +249,8 @@
    "publishedAt": "2026-10-09",
    "title": "ELMA: Benchmarking Anaphoric Compositions for Long-Term Text-to-Motion Generation",
    "url": "https://arxiv.org/abs/2610.13549",
-   "zhSummary": "已接收 NeurIPS 2026（评测与数据集 Track）。提出长期文本到人体动作生成的新任务：处理含照应（anaphora）的多段指令，即早先段落建立的约束必须在长时间内保持，这是现有短片段模型做不好的。发布 ELMA 数据集：全自动采集过滤流水线从野外视频抽取连续 30 秒高质量片段，带密集的段级标注保留跨段依赖。作者用它微调了多个 SOTA 动作生成模型，验证了基准的有效性。值得看：长时序生成与评测方向的规范工作，数据集可直接用于复现和扩展。"
+   "zhSummary": "已接收 NeurIPS 2026（评测与数据集 Track）。提出长期文本到人体动作生成的新任务：处理含照应（anaphora）的多段指令，即早先段落建立的约束必须在长时间内保持，这是现有短片段模型做不好的。发布 ELMA 数据集：全自动采集过滤流水线从野外视频抽取连续 30 秒高质量片段，带密集的段级标注保留跨段依赖。作者用它微调了多个 SOTA 动作生成模型，验证了基准的有效性。值得看：长时序生成与评测方向的规范工作，数据集可直接用于复现和扩展。",
+   "category": "评测基准"
   },
   {
    "arxivId": "2610.13328",
@@ -248,7 +264,8 @@
    "publishedAt": "2026-10-09",
    "title": "DuoRate: Two-Rate Per-Expert Precision Allocation for Mixture-of-Experts Serving",
    "url": "https://arxiv.org/abs/2610.13328",
-   "zhSummary": "高相关预印本（29 页）。切中 MoE 服务的一个关键矛盾：存储侧为路由能触达的所有专家付费，解码侧却只为实际选中的专家付费，作者称为 store-read gap——发布的 BitsMoE checkpoint 上，存储成本 2.54 bpw，解码流量却高达 7.50 bpw。DuoRate 离线只存一层统一的前缀可读权重流并构建失真张量，在线根据 workload 自己的 prefill 无标签地求解拉格朗日率失真分配；数学上证明路由频率可以从每个专家的决策中消去，求解开销很小。值得看：MoE 量化/部署方向的实质进展，把分配问题建模得干净漂亮。"
+   "zhSummary": "高相关预印本（29 页）。切中 MoE 服务的一个关键矛盾：存储侧为路由能触达的所有专家付费，解码侧却只为实际选中的专家付费，作者称为 store-read gap——发布的 BitsMoE checkpoint 上，存储成本 2.54 bpw，解码流量却高达 7.50 bpw。DuoRate 离线只存一层统一的前缀可读权重流并构建失真张量，在线根据 workload 自己的 prefill 无标签地求解拉格朗日率失真分配；数学上证明路由频率可以从每个专家的决策中消去，求解开销很小。值得看：MoE 量化/部署方向的实质进展，把分配问题建模得干净漂亮。",
+   "category": "高效推理与部署"
   },
   {
    "arxivId": "2610.13376",
@@ -262,7 +279,8 @@
    "publishedAt": "2026-10-09",
    "title": "EndoRSI: Physical-Evidence-Driven Recursive Improvement of Endoscopic Robot Policies",
    "url": "https://arxiv.org/abs/2610.13376",
-   "zhSummary": "高相关预印本。RSI（递归自改进）在真实物理系统中的闭环落地案例。系统内嵌的 EndoForge 代码智能体，用物理实验的证据迭代开发和改进内镜机器人策略：验证证据先让智能体否定了最初的动作表示，随后物理实验证伪了离线数据支持的插入策略——揭示了源数据中不存在的危险闭环行为。物理执行全程隔离在安全约束的运行时内、需人工授权。值得看：正好对应 RSI/自进化智能体方向，展示了自改进智能体如何用物理世界证据推翻自己的假设，而非在模拟器里自娱自乐。"
+   "zhSummary": "高相关预印本。RSI（递归自改进）在真实物理系统中的闭环落地案例。系统内嵌的 EndoForge 代码智能体，用物理实验的证据迭代开发和改进内镜机器人策略：验证证据先让智能体否定了最初的动作表示，随后物理实验证伪了离线数据支持的插入策略——揭示了源数据中不存在的危险闭环行为。物理执行全程隔离在安全约束的运行时内、需人工授权。值得看：正好对应 RSI/自进化智能体方向，展示了自改进智能体如何用物理世界证据推翻自己的假设，而非在模拟器里自娱自乐。",
+   "category": "递归自改进 RSI"
   },
   {
    "arxivId": "2610.13438",
@@ -276,7 +294,8 @@
    "publishedAt": "2026-10-09",
    "title": "Rollout-Time Intervention: Unlocking Agentic Reinforcement Learning Beyond Policy Limits",
    "url": "https://arxiv.org/abs/2610.13438",
-   "zhSummary": "高相关预印本。针对智能体 RL 的一个根本瓶颈：on-policy 推理能力天花板——当任务超出模型当前能力边界，成功轨迹极度稀疏，训练往往直接坍塌。提出的 RTI 方法在 rollout 期间利用奖励侧证据（评估 rubric）把错误轨迹转化为成功轨迹，为策略自己几乎解不出的任务提供有效学习信号。关键发现是：尽管干预轨迹本质上是 off-policy 的，模型仍能从中有效学习。值得看：RLVR/智能体训练方向的新思路，绕开了 on-policy 探索天花板，对难任务的 post-training 很有启发。"
+   "zhSummary": "高相关预印本。针对智能体 RL 的一个根本瓶颈：on-policy 推理能力天花板——当任务超出模型当前能力边界，成功轨迹极度稀疏，训练往往直接坍塌。提出的 RTI 方法在 rollout 期间利用奖励侧证据（评估 rubric）把错误轨迹转化为成功轨迹，为策略自己几乎解不出的任务提供有效学习信号。关键发现是：尽管干预轨迹本质上是 off-policy 的，模型仍能从中有效学习。值得看：RLVR/智能体训练方向的新思路，绕开了 on-policy 探索天花板，对难任务的 post-training 很有启发。",
+   "category": "强化学习"
   },
   {
    "arxivId": "2610.13570",
@@ -290,7 +309,8 @@
    "publishedAt": "2026-10-09",
    "title": "Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models",
    "url": "https://arxiv.org/abs/2610.13570",
-   "zhSummary": "高相关预印本。系统性地量化推理模型的 overthinking（想太多）问题。首先提出 Step-wise Truncation Probing（STP）：沿固定推理轨迹从多个保留前缀反复生成答案，用首次达到最大经验准确率的位置作为参考点，定义 Overthinking Ratio（之后还生成了多少无用 token）和 Accuracy Degradation（准确率回落多少）。然后对比动态路由、固定 budget、动态早退等终止策略，构建理论与实践的 Pareto 前沿。值得看：test-time scaling 之后绕不开的问题，这篇给出了可复用的度量框架和策略选型依据。"
+   "zhSummary": "高相关预印本。系统性地量化推理模型的 overthinking（想太多）问题。首先提出 Step-wise Truncation Probing（STP）：沿固定推理轨迹从多个保留前缀反复生成答案，用首次达到最大经验准确率的位置作为参考点，定义 Overthinking Ratio（之后还生成了多少无用 token）和 Accuracy Degradation（准确率回落多少）。然后对比动态路由、固定 budget、动态早退等终止策略，构建理论与实践的 Pareto 前沿。值得看：test-time scaling 之后绕不开的问题，这篇给出了可复用的度量框架和策略选型依据。",
+   "category": "推理"
   },
   {
    "arxivId": "2610.13605",
@@ -304,7 +324,8 @@
    "publishedAt": "2026-10-09",
    "title": "zip2zip++: Towards Inference-Time Token Compression with Minimal Quality Loss",
    "url": "https://arxiv.org/abs/2610.13605",
-   "zhSummary": "高相关预印本（27 页，含开源代码）。用 LZW 压缩构建动态词表，让语言模型用更少 token 表示同一文本，先前工作发现这是以推理能力和困惑度损失为代价的。作者证明这个质量差距不是压缩的根本代价，而是不改动预训练模型、只针对性改进压缩层和 LZW 编解码器就能大幅收窄：找出了四个关键问题——LZW 压缩算法在输入/输出 embedding 之间的隐式冲突、直接对压缩序列用 RoPE 会忽略合并 token 的多 token 跨度、合并数字 token 对下游准确率的伤害不成比例、动态词表不受控增长。值得看：推理加速方向的精细工程分析，每个问题都指出了可迁移的修复点。"
+   "zhSummary": "高相关预印本（27 页，含开源代码）。用 LZW 压缩构建动态词表，让语言模型用更少 token 表示同一文本，先前工作发现这是以推理能力和困惑度损失为代价的。作者证明这个质量差距不是压缩的根本代价，而是不改动预训练模型、只针对性改进压缩层和 LZW 编解码器就能大幅收窄：找出了四个关键问题——LZW 压缩算法在输入/输出 embedding 之间的隐式冲突、直接对压缩序列用 RoPE 会忽略合并 token 的多 token 跨度、合并数字 token 对下游准确率的伤害不成比例、动态词表不受控增长。值得看：推理加速方向的精细工程分析，每个问题都指出了可迁移的修复点。",
+   "category": "高效推理与部署"
   }
  ]
 }
