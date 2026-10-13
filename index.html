@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论文追踪 · AI 论文更新</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#1a1a1a;--muted:#6b7280;--accent:#0a66c2;--border:#e5e7eb}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+header{background:#101418;color:#fff;padding:30px 20px}
+header .wrap{max-width:880px;margin:0 auto}
+header h1{margin:0 0 8px;font-size:26px;letter-spacing:1px}
+header p{margin:0;color:#9ca3af;font-size:14px;line-height:1.7}
+main{max-width:880px;margin:0 auto;padding:20px}
+#search{width:100%;padding:11px 15px;font-size:15px;border:1px solid var(--border);border-radius:9px;margin-bottom:12px;background:#fff}
+#search:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.stats{color:var(--muted);font-size:13px;margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:18px 20px;margin-bottom:14px}
+.card h2{margin:0 0 9px;font-size:17px;line-height:1.55;font-weight:650}
+.card h2 a{color:var(--text);text-decoration:none}
+.card h2 a:hover{color:var(--accent)}
+.meta{font-size:13px;color:var(--muted);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.badge{display:inline-block;background:#eef4ff;color:var(--accent);border-radius:5px;padding:2px 9px;font-size:12px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.badge.venue{background:#e7f6ec;color:#137333;font-family:inherit}
+.summary{font-size:14.5px;line-height:1.8;color:#374151;margin:0}
+.empty{color:var(--muted);text-align:center;padding:40px 0}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 16px;line-height:1.8}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>论文追踪</h1>
+<p>AI 论文持续更新 · 聚焦 CCF-A 会议 · 每 12 小时抓取 arXiv 新增<br>覆盖大模型 / 推理 / 多模态 / Agent / 具身智能 / AI for Science / RSI 等方向</p>
+</div></header>
+<main>
+<input id="search" placeholder="按标题 / 作者 / 简介 / arXiv ID 搜索…" autocomplete="off">
+<div class="stats" id="stats"></div>
+<div id="list"></div>
+</main>
+<footer>数据来源 arXiv · 由论文追踪自动更新<br><a href="https://arxiv.org" target="_blank" rel="noopener">arxiv.org</a></footer>
+<script>
+let papers=[], updatedAt='';
+fetch('papers.json').then(r=>r.json()).then(d=>{
+  papers=d.papers||[]; updatedAt=d.updated_at||'';
+  render('');
+}).catch(()=>{document.getElementById('list').innerHTML='<p class="empty">数据加载失败</p>';});
+document.getElementById('search').addEventListener('input',e=>render(e.target.value.trim().toLowerCase()));
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function venueBadge(summary){
+  const m=summary.match(/^(已接收[^，。；]*|已发表[^，。；]*)/);
+  return m?`<span class="badge venue">${esc(m[1])}</span>`:'';
+}
+function render(q){
+  const items=papers.filter(p=>!q||
+    p.title.toLowerCase().includes(q)||p.zhSummary.toLowerCase().includes(q)||
+    p.authors.join(' ').toLowerCase().includes(q)||p.arxivId.toLowerCase().includes(q));
+  document.getElementById('stats').textContent=`共 ${papers.length} 篇`+(q?` · 匹配 ${items.length} 篇`:'')+(updatedAt?` · 更新于 ${updatedAt}`:'');
+  document.getElementById('list').innerHTML=items.map(p=>`
+    <article class="card">
+      <h2><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></h2>
+      <div class="meta">
+        <span class="badge">arXiv:${esc(p.arxivId)}</span>${venueBadge(p.zhSummary)}
+        <span>${esc(p.publishedAt)}</span>
+        <span>${esc(p.authors.slice(0,5).join(', '))}${p.authors.length>5?' 等':''}</span>
+      </div>
+      <p class="summary">${esc(p.zhSummary)}</p>
+    </article>`).join('')||'<p class="empty">没有匹配的论文</p>';
+}
+</script>
+</body>
+</html>
