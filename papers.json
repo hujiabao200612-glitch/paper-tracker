@@ -1,6 +1,129 @@
 {
  "papers": [
   {
+   "arxivId": "2610.18638",
+   "authors": [
+    "Fabian Gröger",
+    "Petar Damjanović",
+    "Maria Brbić"
+   ],
+   "category": "后训练与对齐",
+   "publishedAt": "2026-10-13",
+   "title": "To Align or Not To Align: Check Your COMPASS Before You Train",
+   "url": "https://arxiv.org/abs/2610.18638",
+   "zhSummary": "已接收 NeurIPS 2026。把预训练模型组合起来用很常见（视觉编码器对齐到语言模型、合并多个微调 checkpoint），但哪两对模型兼容、过去只能训练完才知道，靠昂贵的试错。这篇提出 COMPASS（兼容性评估分数）：理论上有动机，基于“表示收敛最稳健的是局部邻域层面”这一观察，把兼容性拆成两个廉价可算的轴——pair-specific ease 和 model-specific alignment。训练前先算一分，就能预判对齐/合并是否值得做，省掉大量试错成本。值得看是因为它是模型合并玩家的实用诊断工具，“先诊断再动手”的思路很对味。"
+  },
+  {
+   "arxivId": "2610.18658",
+   "authors": [
+    "Mengyu Li",
+    "Qianqian Qu",
+    "Jun S. Liu"
+   ],
+   "category": "图像视频生成",
+   "publishedAt": "2026-10-13",
+   "title": "BridgeTwist: Twisting Schrödinger Bridges for Training-Free Conditional Sampling",
+   "url": "https://arxiv.org/abs/2610.18658",
+   "zhSummary": "已接收 NeurIPS 2026。生成模型常要服务多个下游条件任务，但为每个任务重训不现实；训练无关（training-free）采样器在 diffusion/flow 模型上已有研究，而 Schrödinger bridge（SB）模型这一环一直缺席——尽管 SB 作为灵活的随机输运模型正受关注。这篇提出 BridgeTwist：把温控 twisted 序贯蒙特卡洛方案套在预训练的无条件 SB 模型上，与任务似然结合，从后验中做条件采样，全程不训练。填补了 SB 模型训练无关条件采样的空白。值得看是因为它补齐了 SB 模型实用化的一块拼图，方法本身也通用。"
+  },
+  {
+   "arxivId": "2610.18656",
+   "authors": [
+    "Weida Liang",
+    "Kenji Kawaguchi"
+   ],
+   "category": "推理",
+   "publishedAt": "2026-10-13",
+   "title": "Bayesian Test-Time Inference of Task-Aligned Similarity from Weak Interactive Feedback",
+   "url": "https://arxiv.org/abs/2610.18656",
+   "zhSummary": "已接收 NeurIPS 2026。语言模型系统在测试时反复做“相似度比较”决策：检索示例、排序候选、修订回答。但“相似”可以是词面、语义、结构或风格，任务对齐的相似标准还随实例变化。这篇提出 BASIS：用测试时的弱反馈（标量分数、成对偏好、验证器输出）做贝叶斯推断，从给定的任务相关准则库中推断当前决策该用哪一套标准，维护候选目标与准则的联合后验并在线更新。全程训练无关。值得看是因为它把测试时自适应形式化成一个干净的贝叶斯问题，检索/排序/重写场景都直接用得上。"
+  },
+  {
+   "arxivId": "2610.18856",
+   "authors": [
+    "Mattie Ji",
+    "Indradyumna Roy",
+    "Vikas Garg"
+   ],
+   "category": "图像视频生成",
+   "publishedAt": "2026-10-13",
+   "title": "Exact Topological Compliance: Generating Persistence-Equivalent Graphs",
+   "url": "https://arxiv.org/abs/2610.18856",
+   "zhSummary": "已接收 NeurIPS 2026。拓扑感知生成模型想让生成图的拓扑（持续同调图 PD）匹配目标描述子，但过去都靠软正则，只能做到近似相似。这篇首次系统研究“精确实现”问题：提出局部（基于度数的迭代构建）和全局两套方法，并证明每个输出都精确实现目标 PD，且所有度数基的 PD 等价图都能被枚举出来。把拓扑合规从“差不多”推进到“精确可证”。值得看是因为它把 TDA 图生成做成了有证明的构造性理论，图生成/分子生成方向会引用它。"
+  },
+  {
+   "arxivId": "2610.18813",
+   "authors": [
+    "Chuyang Wei",
+    "Haoxiang Guan",
+    "Minghang Zhu",
+    "Kexin Zhou",
+    "Jiyan He"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-10-13",
+   "title": "Self-Evolving Agent Harness",
+   "url": "https://arxiv.org/abs/2610.18813",
+   "zhSummary": "递归自改进（RSI）方向。Harness 自进化的思路是：模型权重固定不动，只进化 agent 的软件脚手架——prompt、记忆、工作流、可执行组件，被接受的修改跨运行持久保留。这篇把反馈驱动过程形式化：分离更新目标与提议/准入机制，区分解释态修改和工具/代码、仓库级控制逻辑、插件组合的修改，并用进化优化刻画搜索空间；在显式假设下给出期望泛化界与保留界，经由持续 PAC 学习论证可靠性。值得看是因为它给“权重不动、脚手架自进化”这条 RSI 子路线搭了第一套形式化框架。"
+  },
+  {
+   "arxivId": "2610.18874",
+   "authors": [
+    "Bingxin Xu",
+    "Wenrui Bao",
+    "Xinxin Liu",
+    "Jiawei Zhou",
+    "Yuzhang Shang"
+   ],
+   "category": "具身智能与机器人",
+   "publishedAt": "2026-10-13",
+   "title": "ChunkAct: Action Chunking for Agentic Robotics",
+   "url": "https://arxiv.org/abs/2610.18874",
+   "zhSummary": "具身智能方向。Agentic robotics 把 LLM agent 放进机器人控制环，用记忆指导组合感知、运动、VLA 工具，零重训泛化新任务；代价是每个 primitive 动作都要对全交互历史做一轮 LLM 推理，单集成本随动作数线性增长。这篇发现这种推理大多是冗余的：子目标一旦选定，后续 primitive 已被记忆规定好。于是提出 action chunking：一次调用发射一整段动作块，把效率瓶颈从“每步推理”降到“每块推理”。值得看是因为它是 agentic 机器人落地的关键效率补丁，思路简单直接。"
+  },
+  {
+   "arxivId": "2610.18862",
+   "authors": [
+    "Minghao Luo",
+    "Liang Chen"
+   ],
+   "category": "推理",
+   "publishedAt": "2026-10-13",
+   "title": "DoubtLess: Training-Free Contrastive Decoding for Efficient Reasoning",
+   "url": "https://arxiv.org/abs/2610.18862",
+   "zhSummary": "推理方向。推理模型靠长思维链（CoT）拿高分，但经常花冤枉 token；现有缩短 CoT 的方法要么逐个模型重训，要么加固定转向向量，要么用早停/禁词等启发式（会掉点）。这篇提出 DoubtLess：训练无关的对比解码，用一个小得多的推理模型当“裁判”——让它对大模型的 CoT 读两遍，一遍被 prompt 成简洁思考者、一遍是啰嗦思考者，两者的差异作为转向信号压短大模型的思考。小模型引导大模型，精度不掉、token 省了。值得看是因为它是真正训练无关、即插即用的 CoT 压缩方案。"
+  },
+  {
+   "arxivId": "2610.18735",
+   "authors": [
+    "Yuqi Huang",
+    "Xingyao Li",
+    "Yunlong Hou",
+    "Fengzhuo Zhang",
+    "Jiachun Pan"
+   ],
+   "category": "高效推理与部署",
+   "publishedAt": "2026-10-13",
+   "title": "SP$^2$ec: Adaptive Self-Speculative Decoding for Vision-Language Models",
+   "url": "https://arxiv.org/abs/2610.18735",
+   "zhSummary": "高效推理方向。推测解码加速 LLM 推理已很成熟，但 VLM 的多模态输入让小 draft 模型吞吐不稳定；自推测解码复用目标模型自身部分层当 drafter，保住了多模态能力，但效率高度依赖给每个 prompt 选对 draft 配置。这篇提出 SP²ec（单峰自推测解码）：训练无关的 bandit 算法，在生成过程中在线自适应调整 draft 配置，利用自推测解码吞吐量呈单峰分布的观察。全程训练无关、在线自适应。值得看是因为 VLM 推测解码此前缺少好用的自适应方案，这篇补上了。"
+  },
+  {
+   "arxivId": "2610.18869",
+   "authors": [
+    "Mingxuan Yan",
+    "Litian Gong",
+    "Dihong Huang",
+    "Zhixu Li",
+    "Tianyu Zhang"
+   ],
+   "category": "具身智能与机器人",
+   "publishedAt": "2026-10-13",
+   "title": "What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study",
+   "url": "https://arxiv.org/abs/2610.18869",
+   "zhSummary": "具身智能方向。VLA 预训练时，演示数据的质量到底该怎么用，才能让目标任务微调后更强？这篇用 5000 条天然次优的人类演示、24 个目标任务，系统对比了加权、过滤、条件化三种用法 × 多种 reward 定义 × 标签粒度，在三个 VLA 上严格控制变量。发现：approach-aware 的 episode 条件化优于纯行为克隆；条件化与过滤分别偏好 episode 级和 chunk 级标签；还厘清了预训练数据量、质量标签在微调/推理阶段各自的作用。值得看是因为它是 VLA 预训练数据质量用法的第一份大规模实证指南。"
+  },
+  {
    "arxivId": "2610.12914",
    "title": "OGPO: Offline Goal-conditioned Policy Optimization for Recoverable Vision-Language-Action Models",
    "authors": [
