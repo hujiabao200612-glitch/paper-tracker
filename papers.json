@@ -1,6 +1,157 @@
 {
  "papers": [
   {
+   "arxivId": "2610.20363",
+   "title": "Fractional is Better: Learnable Derivative Orders in Neural Operator Learning",
+   "authors": [
+    "Fares B. Mehouachi",
+    "Saif Eddin Jabari"
+   ],
+   "url": "https://arxiv.org/abs/2610.20363",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 ICML 2026。神经算子学习函数空间之间的映射，可作 PDE 的快速代理求解器；作者追问：主流方法都只把原始坐标-函数值对当输入，是否浪费了 PDE 的微分结构？他们从 Picard 迭代出发证明：解算子里显式出现输入的导数，给网络提供导数特征可把逼近界从 O(W^-(s-m)/d) 提升到 O(W^-s/d)。核心惊喜是：最优导数阶数 β* 严格小于 PDE 阶数 m——这是频谱空间中偏差-方差权衡的结果，从数据中学习 β 相当于自动频谱正则化。由此提出架构无关的 ∂-NO：给任意神经算子主干加上可学习的分数阶导数特征，在多个基准和架构上一致提升预测精度。值得看：把\"特征工程\"的工程直觉做成了可证明的理论，且即插即用。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2610.20350",
+   "title": "Lifted State Policy Optimization: Internalizing Self-Correction through Transition Geometry",
+   "authors": [
+    "Ren Zhuang",
+    "Ben Wang",
+    "Shuifa Sun"
+   ],
+   "url": "https://arxiv.org/abs/2610.20350",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026（原标题\"Self-Correction as Transition Geometry\"）。偏好优化只对最终答案排序、轨迹 RL 只最大化总回报，都没有给\"把错误推理状态变好\"的那一步局部转变得信用。作者提出 LSPO：给每条文本答案配一个学得的连续坐标形成\"提升状态\"，能量函数对其排序，用塑形奖励驱动能量下降（扣除编辑与步数成本），再用内化损失把选出的低能量答案吸收进直接生成器。在 Qwen3.5-27B 上，单次前向策略在数学、科学、代码、逻辑基准上达到 71.8% 总准确率，与测试时反思（71.9%）持平，但延迟低 28%、token 少 25.8%，在 dense 和 MoE 主干上都成立。值得看：把\"自我纠正\"从推理时技巧内化为训练目标，是 test-time scaling 向训练侧搬运的典型思路。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.20335",
+   "title": "Read, Parse, Describe: Unified Document Parsing with Visual Element Description Generation",
+   "authors": [
+    "Yuheng Chen",
+    "Yufan Chen",
+    "Zhuojun Cai",
+    "Ruiping Liu",
+    "Junwei Zheng",
+    "Jiale Wei",
+    "Di Wen",
+    "Weijia Fan",
+    "Kunyu Peng",
+    "Jiaming Zhang",
+    "Rainer Stiefelhagen"
+   ],
+   "url": "https://arxiv.org/abs/2610.20335",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。文档理解长期被拆成版式分析、OCR、阅读顺序预测、图像描述等孤立模块，科学图表和视觉语义始终连不起来。作者发布 Read-Parse-Describe 统一数据集：给定页面图像，模型要一次性输出带包围盒、语义标签、阅读顺序、识别文本和视觉元素替代文本的完整页面解析——共 2402 篇文档、18163 连续页、12.5 万版式元素。还提出即插即用的空间感知增强器：复用多层视觉特征、把网格感知的空间引导注入视觉-语言 token。实验显示现有系统仍难以同时恢复阅读顺序与视觉语义，而他们增强的模型联合性能最强。值得看：文档解析评测第一次把\"结构正确\"和\"语义可读\"放在同一张考卷里。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.20319",
+   "title": "Beyond Static Cues: Unified Dynamic Detection of MLLM Backdoors via Dual-Flow Trajectory Analysis",
+   "authors": [
+    "Yinzhen Huang",
+    "Jiahe Xie",
+    "Yitong Sun",
+    "Ruochen Zhang",
+    "Xingxing Wei"
+   ],
+   "url": "https://arxiv.org/abs/2610.20319",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 ACM MM 2026（Oral）。MLLM 的后门防御长期依赖静态快照——从视觉补丁线索到无监督的内部注意力统计，面对文本注入、亚感知噪声、跨模态协同触发等未知攻击类型时容易被绕过。作者把诊断范式从静态观察转向动态输出演化：成功的攻击必然劫持模型的解码轨迹——生成早期内部模态贡献被扭曲，且输入扰动下输出异常不变。提出 EVO-Detect：通过\"注意力流\"和\"Logits 流\"两个通道监测早期解码步中内部信号的动态演化，实现与攻击类型无关的统一检测。值得看：第一次把\"后门检测\"做成对解码过程的动态监测，而非对输入或权重的静态扫描。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.20318",
+   "title": "Efficient Test-Time Adaptation For Robot Policies",
+   "authors": [
+    "Motasem Alfarra",
+    "Pietro Mazzaglia",
+    "Markus Peschl",
+    "Daniel Dijkman",
+    "Christos Louizos"
+   ],
+   "url": "https://arxiv.org/abs/2610.20318",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。机器人运动的 RL 策略在部署时遇到地形变化、负载变化、感知退化就会掉链子，而设备端延迟和内存限制下重训或手动校准都不现实。作者研究机器人控制的测试时自适应：在执行过程中无奖励、在线、自监督地微调预训练策略。提出 TEMPO：以冻结的预训练 critic 做部署时性能代理、只更新 actor；加熵正则抑制 critic 过度自信的外推，配基于分数的记忆机制（优先回放思想）聚焦最有信息量的\"困难\"观测。在 MuJoCo Playground 的 Go1/Go2/G1 四类偏移下一致提升，单设备最高提升 80%，还在真实 Unitree Go2 加小腿负载上验证。值得看：把测试时自适应从视觉分类搬到机器人控制，且有真机验证。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.20474",
+   "title": "AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents",
+   "authors": [
+    "Peidong Wang",
+    "Ying Chang",
+    "Zhiming Ma",
+    "Xiaocui Yang",
+    "Shi Feng",
+    "Daqi Liu",
+    "Yuzhe Yang",
+    "Xu Cao",
+    "Chuang Wang",
+    "Jian Su",
+    "Daling Wang"
+   ],
+   "url": "https://arxiv.org/abs/2610.20474",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "预印本。预训练的 VLA 在没见过的长程任务中途失败是常态，递归自改进（RSI）是解药，但现有具身 RSI 要么只优化冻结执行器外围的 harness（加不了缺失的动作），要么在持续失败上盲目微调。AdaRSI 提出\"按需\"RSI：先用 coding agent 改进技能和 harness，再从保存的状态重试失败子步骤做失败归因，只微调仍不可靠的子步骤——演示数据自己采集，经验跨任务迁移。在 RoboCasa365 全部 50 个目标任务上（GR00T N1.5 为执行器、零人工演示），未见过的复合任务成功率从 4.6% 提到 13.8%，且只用全量微调 28% 的 GPU 时间和 22% 的自采演示。值得看：RSI 第一次被做成\"先归因、再按需微调\"的精细流程，而非粗放自训练。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.20353",
+   "title": "Beyond Expert Rankings: Contrast Calibration for Mixed-Precision MoE Quantization",
+   "authors": [
+    "Renjie Xie",
+    "Juncheng Yang",
+    "Aoting Hu",
+    "Yan Liang",
+    "Mingxi Zhang",
+    "Zheheng Hong",
+    "Wei Xu",
+    "Yanzhi Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.20353",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "预印本。MoE 大模型每 token 只激活少数专家，但所有专家权重都得存下来；混合精度量化给敏感专家高比特、鲁棒专家低比特，但\"专家排序\"本身决定不了误差该怎么加权。作者提出 NatScale：用模型特定的幂变换把基于梯度的专家权重校准到信息论的对比目标（保持排序），联合评估每个专家的 gate/up/down 配置来估计输出误差，再结合权重谱、方差与精度衰减先验，在存储预算下选择配置。在三个模型、九种设置下相对五个基线取得最低的原生-量化 KL 散度和最高的 top-token 一致性，七种设置下困惑度最低。值得看：MoE 量化的\"配额分配\"第一次有了目标感知的校准框架。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.20497",
+   "title": "Hindsight-Privileged RLVR: Single-Rollout Token Credit Without Group Sampling",
+   "authors": [
+    "Wei Chen",
+    "Yubing Wu",
+    "Zhou Xu",
+    "Haoyue Zhang",
+    "Delu Zeng",
+    "Jiahao Wang",
+    "Junmei Yang",
+    "Pan tiewen",
+    "Jingfeng Liu",
+    "Zhiheng Zhou",
+    "Bo Li",
+    "Min Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.20497",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "预印本。RLVR（可验证奖励的强化学习）用任务结果训练语言模型，但把终端奖励分给每个推理 token 很难；GRPO 这类组相对方法每 prompt 采样多次，当所有尝试结果相同时学习信号就消失了。作者提出 HP-RLVR，只用单次 rollout：让生成策略的快照分别在因果历史和\"后见\"上下文（含已实现未来 + 验证器反馈）下给每个 token 打分，用两者的 Jensen-Shannon 散度做 token 级信用权重——成功和失败的轨迹都有界信用，无需参考答案和学得的 critic。在 Qwen3-8B 配对实验中，训练速度比 GRPO 快 1.21×（数学）、1.46×（代码）、2.30×（ALFWorld），每 prompt 只用八分之一 rollout。值得看：RLVR 的样本效率瓶颈被单次 rollout + 后见信用分配正面击破。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.20518",
+   "title": "The Wealth of Agents: Scaling Agentic AI Across Developers",
+   "authors": [
+    "Austin W. Hanjie",
+    "Carlos E. Jimenez",
+    "Zirui Wang",
+    "Karthik Narasimhan"
+   ],
+   "url": "https://arxiv.org/abs/2610.20518",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "预印本。今天的 agent 系统都是单个开发者全权设计、构建、部署，简化了开发却限制了规模。作者研究多开发者 agent 系统（MDA）：让开发者协作构建 agent 系统，把前沿能力推到任何个人够不到的高度。在 GAIA 通用助手基准上，一群各自不超过 35% 准确率的专业开发者，把各自的 agent 组合进 MDA 后达到 70%，比预算数倍于他们的中位数单开发者系统（SDA）高 12 个百分点。理论模型表明 MDA 能激励专业化、更高效地利用聚合的开发者资源。值得看：把\"agent 规模\"从模型/算力轴搬到\"开发者协作\"轴，是个新鲜的 scaling 视角。",
+   "category": "智能体"
+  },
+  {
    "arxivId": "2610.18638",
    "authors": [
     "Fabian Gröger",
