@@ -1,6 +1,163 @@
 {
  "papers": [
   {
+   "arxivId": "2610.15708",
+   "title": "SpecForge: Recursive Self-Improvement for Coding Agents via Behavioral Specifications",
+   "authors": [
+    "Yutong Cheng",
+    "Haifeng Chen",
+    "Peng Gao",
+    "Wei Cheng"
+   ],
+   "url": "https://arxiv.org/abs/2610.15708",
+   "publishedAt": "2026-10-11",
+   "zhSummary": "已接收 NeurIPS 2026（主会）。冻结权重的编程智能体也能递归自改进吗？SpecForge 把「行为规格」（描述程序实体行为的自然语言文档）作为自改进的载体：智能体按当前规格生成代码、用可执行的测试验证、再根据失败回头修订规格，形成闭环。核心难点是程序实体相互依赖——修好一个实体的规格可能意外拖累其他实体的正确性，作者为此设计了协调修订机制。在真实代码库上的实验显示智能体的代码正确率随迭代轮次稳定提升。值得看：把 RSI 落到可验证的软件工程场景，给「智能体自我改进」提供了一条不碰模型权重的务实路线。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.16343",
+   "title": "Efficient Multi-Agent Reasoning via Confidence-Guided Adaptive Debate",
+   "authors": [
+    "Seungdong Yoa",
+    "Ye Seul Sim",
+    "Suhee Yoon",
+    "Sanghyu Yoon",
+    "Dongmin Kim",
+    "Soonyoung Lee",
+    "Bumsoo Kim",
+    "Junhyun Lee"
+   ],
+   "url": "https://arxiv.org/abs/2610.16343",
+   "publishedAt": "2026-10-12",
+   "zhSummary": "已接收 ICML 2026。多智能体辩论真能提升大模型的推理能力吗？近期理论指出，对称辩论在期望上是中性的，很多时候还不如多数投票。这篇工作认为辩论只在「非中性区间」配合合适的结构才有效，提出 LASE：领导者-支持者非对称架构，只在需要时选择性触发有向信息流动放大有效信号，其余情况退回简单聚合。在多类推理基准上取得一致提升。值得看：给火热的多智能体辩论泼了一盆冷静水，用理论划定了它「何时值得用」的边界。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.19439",
+   "title": "Progress-Aware Distillation for Mitigating Stagnation in Small Language Model Agents",
+   "authors": [
+    "Yuanpu Cao",
+    "Saket Sathe",
+    "Hanyu Wang",
+    "Ziyi Yin",
+    "Fenglong Ma",
+    "Jinghui Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.19439",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。把大模型的智能体能力蒸馏给小语言模型时，交互轨迹一变长，学生智能体就容易「卡住」：困在无效策略的循环里反复试错、毫无进展。作者的系统分析表明这是跨模型、跨任务的普遍现象，并非个例。提出的 Progress-Aware Distillation 在蒸馏中显式建模任务进展信号，让小模型学会识别停滞并主动换策略。值得看：切中了 agent 蒸馏落地时最痛的可靠性问题，对低成本部署智能体有直接参考价值。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.14542",
+   "title": "Are Multimodal Benchmarks Really Useful? Item-Level Multimodal Benchmark Diagnosis via Structure-Response Co-Calibration",
+   "authors": [
+    "Shiqi Zhang",
+    "Weixin Zeng",
+    "Ziheng Zhang",
+    "Jiuyang Tang",
+    "Xiang Zhao"
+   ],
+   "url": "https://arxiv.org/abs/2610.14542",
+   "publishedAt": "2026-10-10",
+   "zhSummary": "已接收 NeurIPS 2026。多模态评测基准真的在测跨模态推理吗？已有研究发现不少题目靠单模态信息或选项规律就能蒙对。这篇提出 SRCoD，一个题目级别的诊断框架：先从题目内容与答案估计样本级的多模态信息结构，再以此为软锚，校准基于模型响应行为的模态依赖判断，把「结构」和「响应」两路信号联合起来做诊断。全文 34 页含附录，诊断粒度细到每一道题。值得看：VLM 评测可信度的「体检仪」，做评测或做模型选型的人都值得看一眼它的方法论。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.16084",
+   "title": "The Sharp Directions Are Against You: Curvature Analysis of Activation Steering",
+   "authors": [
+    "Seyedarmin Azizi",
+    "Arya Fayyazi",
+    "Parsa Razmara",
+    "Erfan Baghaei Potraghloo",
+    "Souvik Kundu",
+    "Massoud Pedram"
+   ],
+   "url": "https://arxiv.org/abs/2610.16084",
+   "publishedAt": "2026-10-12",
+   "zhSummary": "已接收 NeurIPS 2026。Activation steering（推理时给内部表示加一个向量来控制行为）是比微调更轻量的行为控制手段，但经典做法 CAA 很脆：很多输入上会把行为推向反方向。作者从几何角度解释这种脆弱性：引入 steering Hessian（行为损失对 steering 向量的二阶导矩阵），其顶部特征向量是「尖锐方向」——沿着它做微小扰动会引起剧烈而不稳定的行为摆动，底部则是平坦方向。去掉尖锐分量后，steering 的行为控制显著更稳健。值得看：把一个玄学调参问题变成了可计算的几何问题，是对齐与可解释性研究里趁手的分析工具。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.14428",
+   "title": "Frustratingly Easy Agentic RAG via Portable Skills: A Case Study in Customer Support",
+   "authors": [
+    "Istok Bako",
+    "Bonan Min",
+    "Tiffany Shao",
+    "Claire Cheng",
+    "Yashar Mehdad"
+   ],
+   "url": "https://arxiv.org/abs/2610.14428",
+   "publishedAt": "2026-10-10",
+   "zhSummary": "已接收 EMNLP 2026（Industry Track）。企业客服这类场景的 RAG 通常要堆复杂的文档切分、索引、重排、query 改写管线，这篇来自工业界部署的案例研究走了另一条路：一个「可移植技能」——自然语言指令加轻量工具（检索 API、格式检查脚本），再配上 LLM 生成的导航层语料库，就达到了生产级要求。15 页的实战复盘，细节实在。值得看：反常识的「简单打败复杂」，对想把 agent RAG 真正上线的人是很好的降本参考，思路上也与 Agent Skills 异曲同工。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.19802",
+   "title": "Asymptotically Exact Negative Guidance of Diffusion Models via Positive-Unlabeled Learning",
+   "authors": [
+    "Hirohane Takagi",
+    "Masashi Sugiyama"
+   ],
+   "url": "https://arxiv.org/abs/2610.19802",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。扩散模型的 negative guidance（让生成避开不想要的条件）现有方法都是往采样过程里注入局部排斥项，没有显式的目标分布，偏差也无法靠增加算力量化地减小。这篇给出了渐近精确的方法：直接对一个显式目标密度做采样，用 avoidance strength 参数化目标分布本身，同时统一处理参考样本和 score 两种指定方式。关键技术是把每一步「样本属于不想要条件的概率」估计，转化为 Positive-Unlabeled 学习问题。值得看：把 negative guidance 从 trick 变成了有理论保证的采样方法，理论味道很正。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.16261",
+   "title": "Hardware-Friendly Token-Group Activation Quantization for Low-Bit Mamba Super-Resolution",
+   "authors": [
+    "Jinwoo Chung",
+    "Jangho Kim"
+   ],
+   "url": "https://arxiv.org/abs/2610.16261",
+   "publishedAt": "2026-10-12",
+   "zhSummary": "已接收 NeurIPS 2026。Mamba 做超分很高效，但低比特 PTQ 一直难做：selective scan 让不同空间 token 的激活范围差异很大，整层共用一个裁剪区间必然失配。这篇提出 Token-Group Quantization：把偏好裁剪区间相近的 token 分到同一组做组内量化，并用轻量预测器从 scan 前特征预判分组，避免推理时做昂贵的 scan 后分组，对硬件部署友好。代码已开源。值得看：Mamba 系模型部署量化的少见扎实工作，分组量化的思路也可迁移到其他状态空间架构。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.19559",
+   "title": "Learning Visual Speech Representations via Cross-Modal Distillation and Joint Face-Lip Modeling",
+   "authors": [
+    "Jing-Xuan Zhang",
+    "Genshun Wan",
+    "Jianqing Gao",
+    "Jia Pan",
+    "Yumei Zhang",
+    "Lichen Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.19559",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。唇语识别难在视觉语音线索本身模糊，还对头部姿态和视频分辨率敏感。这篇提出 FLARE：用 Whisper 的表征做声学教师信号，经随机投影量化器转成离散蒸馏目标做掩码预测预训练；双流架构同时处理唇部 ROI 和全脸，分别捕捉精细发音动作和整体面部动态，预训练时还引入辅助音频促进跨模态对齐。值得看：把 Whisper 的语义 richness 搬到视觉语音的一次干净实现，是视听跨模态表征学习的参考做法。",
+   "category": "语音"
+  },
+  {
+   "arxivId": "2610.19786",
+   "title": "LiFi: LiDAR Generation from Multi-View Images via Geometric and Semantic Collaborative Guidance",
+   "authors": [
+    "Sizhuo Zhou",
+    "Xiaosong Jia",
+    "Fanrui Zhang",
+    "Qifeng Li",
+    "Junjie Li",
+    "Zirui Wang",
+    "Yukang Feng",
+    "Yu Hong",
+    "Shaofeng Zhang",
+    "Wenlong Liao",
+    "Tao He",
+    "Juyong Zhang",
+    "Junchi Yan"
+   ],
+   "url": "https://arxiv.org/abs/2610.19786",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。从多视角相机图像生成 LiDAR 点云，可用于可控数据合成、跨模态仿真等自动驾驶相关任务。LiFi 用几何与语义双分支引导 latent diffusion：几何分支经反向采样算法和不确定性感知几何编码器（结合 DepthAnything）从图像构建场景特征，语义分支补全类别信息，两路协同保证生成点云在视觉和几何上都对齐。值得看：自动驾驶仿真数据生成的实用框架，几何加语义双引导的设计对多模态条件生成有借鉴意义。",
+   "category": "图像视频生成"
+  },
+  {
    "arxivId": "2610.20363",
    "title": "Fractional is Better: Learnable Derivative Orders in Neural Operator Learning",
    "authors": [
