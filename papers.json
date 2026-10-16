@@ -1,6 +1,173 @@
 {
  "papers": [
   {
+   "arxivId": "2610.22192",
+   "title": "Terminal-RSI: Recursive Self-Improving Terminal Agents via Recursive Self-Rewrite and Policy-Refinement",
+   "authors": [
+    "Junyao Yang",
+    "Zongxia Li",
+    "Yucheng Shi",
+    "Zhongzhi Li",
+    "Ruhan Wang",
+    "Ruiwen Zhou",
+    "Haitao Mi",
+    "Shuicheng Yan",
+    "Leowei Liang"
+   ],
+   "url": "https://arxiv.org/abs/2610.22192",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "终端智能体的递归自改进怎么做？Terminal-RSI 交替执行两步：先用验证器确认的轨迹做递归自重写（RSR），再把评论家继承下去做递归策略精炼（RPR），并配套了跨回合的 GAE 变体（TB-GAE）与家族稠密奖励、成功优先奖励等设计。从 Qwen3.8-27B 出发经过五轮迭代得到 Terminal-RSI-27B，在 Terminal-Bench 2.1 上达到 86.52%、Hard 版 79.00%，SWR100 成功率从 3% 翻倍到 6%。值得看：它是 RSI 方向少见的端到端验证案例——自重写与策略精炼互相接力，把「局部修修补补」推向「严格任务闭环」。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.22319",
+   "title": "A team of Gemini 4 Argon agents beats Minecraft",
+   "authors": [
+    "Maxence Faldor",
+    "Satinder Singh",
+    "Roberta Raileanu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22319",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "四个 Gemini 4 Argon 智能体在沙盒版《我的世界》生存模式里自行组队打败末影龙：每个智能体通过 Mineflayer 控制一个玩家，用游戏内聊天和共享记忆协作，无人指定分工、没人写游戏逻辑，智能体自己规划、编写、调试了 2783 个程序，历时 27 小时 14 分、死了 605 次后通关。据作者称这是 AI 智能体首次端到端自主通关 Minecraft，全程只用标准 Mineflayer 库。值得看：横跨上千个依赖步骤、持续一天以上的长程规划与多智能体协作，正是复杂软件工程任务需要的同种能力，是一次极限压力测试。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22290",
+   "title": "EliteReplay: Preserving Diverse Solutions in RL Post-Training via Quality-Diversity Search",
+   "authors": [
+    "Hanane Nour Moussa",
+    "Doeun Lee",
+    "Sachin Kumar"
+   ],
+   "url": "https://arxiv.org/abs/2610.22290",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "RL 后训练会让模型解法变单一：EliteReplay 把 GRPO 与「精英档案」结合——训练前用冻结的基座模型收集覆盖不同思路的解法构成 quality-diversity 档案，训练时 GRPO 目标加上对档案的重放损失。结果是后训练模型准确率提升的同时保留了更多基座模型的多样解法：在多个 text-to-SQL 任务上 pass@128 超过所有基线，正确策略多样性比最强基线多 77%，在歧义问题集 AmbiQT 上对歧义的覆盖率高出近一倍。值得看：它把「解法多样性」变成了可训练、可优化的目标，对代码生成、数学证明等多解法场景有直接借鉴意义。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22194",
+   "title": "AutoSFT: An Agentic System for Automated Data Research in Supervised Fine-Tuning",
+   "authors": [
+    "Bingxiang He",
+    "Pengqi Sun",
+    "Shihao Peng",
+    "Shaoxuan Li",
+    "Huiyu Xiao",
+    "Hongjian Shi",
+    "Zixuan Fu",
+    "Ziqing Qiao",
+    "Yuxin Zuo",
+    "Cheng Qian",
+    "Xinqiang Yu",
+    "Jiayi Li",
+    "Xiusi Chen",
+    "Yizhen Song",
+    "Xiangyang Wang",
+    "Iofai Lei",
+    "Yudong Wang",
+    "Ning Ding",
+    "Zhiyuan Liu",
+    "Xiaozhi Wang",
+    "Chaojun Xiao"
+   ],
+   "url": "https://arxiv.org/abs/2610.22194",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "SFT 数据工程能不能交给智能体全自动做？AutoSFT 设计了一套数据动作空间（调比例、剪枝、修复、替换、合成），并用多智能体分工解决单智能体上下文被执行输出塞满的问题：执行器与分析器分离、多个独立视角提方案、合成子智能体补数据池缺口。固定模型、训练器与预算做消融：执行器减半上下文丢失、分析子智能体带来 +6.5 IFEval、合成再加 +3.4 IFEval，同一套流程迁移到代码任务上 MBPP+ 提升 +3.7。值得看：结论是自动化 SFT 数据研究的关键在于覆盖多样的数据动作而非某一个强动作，对后训练数据管线设计有启发。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22292",
+   "title": "CAT-alyzing Honesty: Continuous Adversarial Training for Transferable LLM Honesty",
+   "authors": [
+    "Yuan-Chen Chang",
+    "Niklas Herbster",
+    "Gauthier Gidel",
+    "Tommaso Tosato"
+   ],
+   "url": "https://arxiv.org/abs/2610.22292",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "对齐训练后模型仍会说谎：CATCH 把原本用于稳健拒答的连续对抗训练改用到诚实性上——训练模型走向诚实回答、远离不诚实回答，同时用精心挑选的效用数据保住能力。在 Llama-3.3-70B-Instruct 和 Qwen3-3.6-27B 上，仅用数百个自我报告场景构造的目标，学到的诚实行为就能跨基准迁移：在 MASK 上减少压力下的不诚实、在多智能体博弈中增加自首、在 AuditBench 上提高隐藏行为发现率，效果超过 prompt 和 SFT、与诚实性激活转向相当但更好地保住了效用。值得看：诚实性也可以对抗训练的方式内化进权重，对高风险场景的对齐有参考价值。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22289",
+   "title": "Improving Environment-Agnostic Coding Agents: The Role of Scaffolding",
+   "authors": [
+    "Sergey Rodionov"
+   ],
+   "url": "https://arxiv.org/abs/2610.22289",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "模型越强，开发者提供的脚手架还有用吗？作者用一个 Codex 智能体在 ARC-AGI-3、AGI Maze、Terminal-Bench 上测试：只改一条提示词（鼓励上报困难、交还控制权以自动续跑），通用智能体在两个环境上都提升，但仍达不到专用参考智能体的水平；把重置决策交给遵循既有约定的脚本控制器后，补回了部分差距。结论是「信息和工具可用」不等于「用得好」，对测试的模型而言人工提供的流程组织仍然重要。值得看：它给「通用智能体 vs 环境特化」的争论提供了干净的实证，还开源了 EnvTraverse 评估框架。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22146",
+   "title": "FastVLA: Task-Conditioned and Temporally Adaptive Visual Token Compression for Efficient Vision-Language-Action Models",
+   "authors": [
+    "Jiuyi Xu",
+    "Chengyuan Qian",
+    "Zhengzhong Tu",
+    "Yang Sui",
+    "Yangming Shi"
+   ],
+   "url": "https://arxiv.org/abs/2610.22146",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "VLA 模型的闭环部署卡在视觉 token 太多：FastVLA 是免训练的任务感知 token 压缩框架，每步用任务-视觉注意力给 token 打分，并用逆辛普森指标在线自适应设定压缩率（解决各步 token 预算差异大的问题）。在 OpenVLA、OpenVLA-OFT、CogACT 上 LLM 主干 FLOPs 降 35-59%、动作延迟降 9-32%，成功率基本不变；真机 Franka 机械臂上端到端延迟降 20%。值得看：即插即用的训练无关压缩，部署机器人策略时可以直接拿来用，代码已开源。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22178",
+   "title": "REKI: Registering Knowledge in VLAs",
+   "authors": [
+    "Juliette Marrie",
+    "Paul Pacaud",
+    "Adrien Ramanana Rahary",
+    "Shizhe Chen",
+    "Moritz Böhle"
+   ],
+   "url": "https://arxiv.org/abs/2610.22178",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "2.4B 参数的 VLA 模型 REKI 完全用公开数据预训练，在 LIBERO-Plus、RoboTwin、RoboCasa365 上达到新的性能-参数帕累托前沿——只有两倍参数量的模型才能超过它。架构是 VLM 加 flow-matching 动作专家，关键设计是在动作专家里加少量 register token，把每帧 VLM 输出的摘要存进专家缓存，几乎零成本获得近期记忆，使姿态震荡减少约四倍。代码、数据管线、训练推理评估部署全开源，权重全放出。值得看：小参数 VLA 的实用路线图，复现门槛低。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.22324",
+   "title": "Training Reasoning Models to Generate Diverse Scientific Ideas",
+   "authors": [
+    "Manya Wadhwa",
+    "Pranav Narayanan Venkit",
+    "Hiroaki Hayashi",
+    "Yu Li",
+    "Tuhin Chakrabarty",
+    "Chien-Sheng Wu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22324",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "LLM 生成科研点子大多只优化单个点子质量、忽略多样性：作者研究文档锚定的点子生成，用集合级 RL 目标训练——一次生成 K 张结构化点子卡，每张的质量按与之前点子的距离加权，逼模型每张新点子都远离前面的。训练出的 8B 模型在创意效用（质量×多样性）上超过 Claude Opus 4.8 和 GPT-6 Astra，四位专家的盲评认为与 Opus 4.8 相当且独特想法略多；让代码智能体对点子跑验证实验，成功率与 Opus 4.8 相当，多样性没有牺牲可执行性。值得看：科研自动化管线里「发散思维」的可训练化方案。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.22155",
+   "title": "Realtime-Bench: Can Frontier Models Solve Real-time Interactive Problems?",
+   "authors": [
+    "Jingyu Tang",
+    "Xu Yang",
+    "Zhehao Zhang",
+    "Zheng Wang",
+    "Qi Cheng",
+    "Haozhe Zhao",
+    "Manling Li",
+    "Wenxuan Li",
+    "Xide Xia",
+    "Jiaxin Pei"
+   ],
+   "url": "https://arxiv.org/abs/2610.22155",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "实时交互要求智能体在环境不断演化的同时限时行动，但现有评测只测对话质量和流式感知：Realtime-Bench 是一套动态任务集，动作延迟直接影响成败，并用「墙钟 / 暂停钟 / Token 钟」三种计时把推理延迟、模型实时能力、时间感知解耦。结果是前沿模型在墙钟模式下最好成功率仅 44%、Pass^3 仅 36%，更多推理努力在时间压力下效果参半——决策质量与及时行动存在权衡。值得看：给实时多模态智能体指了改进方向（带时间感知 的自适应推理、连续感知-行动），也提醒做 agent 评测时别忽略延迟维度。",
+   "category": "评测基准"
+  },
+  {
    "arxivId": "2610.15708",
    "title": "SpecForge: Recursive Self-Improvement for Coding Agents via Behavioral Specifications",
    "authors": [
