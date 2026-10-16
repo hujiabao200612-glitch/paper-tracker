@@ -1,6 +1,184 @@
 {
  "papers": [
   {
+   "arxivId": "2610.22370",
+   "title": "Which Tokens to Merge? Diffusion Dynamics for Efficient Image Generation",
+   "authors": [
+    "SeungJu Cha",
+    "Ye-Chan Kim",
+    "HyunGee Kim",
+    "Sungho Koh",
+    "Dong-Jin Kim"
+   ],
+   "url": "https://arxiv.org/abs/2610.22370",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 NeurIPS 2026。Token 合并是免训练加速扩散模型的主流手段，但已有方法只按文本相关性保留前景 token，容易破坏背景物体的结构连贯性。这篇提出 Dynamics-aware Token Merging（DaTMe），从扩散去噪动力学出发构建重要性图：结合步间预测变化的时间信号与高频结构信号，区分出“已稳定、可安全合并”的 token 和需要保留的锚点。在 PixArt-α 与 FLUX 上的实验表明，DaTMe 在整幅图像上保持了视觉保真度。值得看的是它把“哪些 token 能合并”的决策问题扎根到了去噪过程本身，为免训练推理加速提供了一个干净的原则。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22232",
+   "title": "WaveLLM: Wavelet-Domain LLM Entropy Modeling for Lossless Image Compression",
+   "authors": [
+    "Yue Yu",
+    "Bowei Kang",
+    "Changsheng Gao",
+    "Dong Liu",
+    "Xiaoyan Sun"
+   ],
+   "url": "https://arxiv.org/abs/2610.22232",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 ACM Multimedia 2026。无损图像压缩的关键在于熵建模，近期流行用 LLM 建模，但直接把像素或残差序列塞进单一预测流会把异质信号模式纠缠在一起。WaveLLM 换了思路：先把图像分解成多级小波子带，把异质的预测问题拆成一组更规整、更均匀的子问题，再用 LoRA 微调的 Llama-3.2-3B（数值接口加任务自适应提示）做自回归概率估计。在 Kodak、CLIC.pro、DIV2K 上达到 2.51、2.24、2.27 bpsp，超越同小波变换的 PixelCNN 基线和近期 LLM 压缩器。这篇的看点在于它论证了“表示的可预测性”与模型容量同样重要。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22186",
+   "title": "EVA-Cap: Optimizing Audiovisual Video Captioning via Event-Centric Alignment",
+   "authors": [
+    "Jiapeng Shi",
+    "Qiuxia Hou",
+    "Jiaqi Leng",
+    "Junke Wang",
+    "Yanhao Zhang",
+    "Haonan Lu",
+    "Ziyi Ye",
+    "Zuxuan Wu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22186",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 NeurIPS 2026。现有音视频字幕方法把字幕当无结构文本生成，忽略了视频本身的语义结构，导致细粒度音画对齐不佳。EVA-Cap 把字幕拆成原子级音视频事件，用事件中心的对齐目标（全局事件完整性、事件内归因、事件间同步）替代无结构监督；训练分 SFT 加 GRPO 两阶段，数据是自建的事件级质检数据集 EVA-Data。实验在 ChronusAV 事件评测上平均提升 9.0%，通用音画字幕基准 WorldSense 上也有 3.3% 提升。对做多模态对齐和 RLVR 的人，这套“把监督结构化”的流程很值得借鉴。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.22355",
+   "title": "OmniVerifier-C1: Decomposed Graded Verifier for Rule-Governed Generative World Modeling",
+   "authors": [
+    "Bowei Liu",
+    "Xinchen Zhang",
+    "Xuhuan Li",
+    "Tianlin Zhang",
+    "Kaian Jiang",
+    "Jingwei Liu",
+    "Congyang Zhao",
+    "Yifei Qian",
+    "Junhong Liu",
+    "Zhiheng Li",
+    "Yujiu Yang",
+    "Yang Cai",
+    "Ling Yang"
+   ],
+   "url": "https://arxiv.org/abs/2610.22355",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "NeurIPS 2026（comment 标注会议）。视觉 verifier 多是二值判断（True/False），在组合式复杂提示下判别信号太粗。OmniVerifier-C1 自动把复杂提示或环境规则拆成细粒度子问题并打连续分，提供更丰富的 critique 信号；训练用 Decoupled RL 策略联合优化子问题二值判断与全局对齐打分。实验显示逐点打分 verifier 在文生图场景显著优于二值 verifier，并推广到迷宫、数独等规则驱动的生成式世界建模任务。作者的核心观点是：从生成模型走向结构化世界建模智能体，关键在于有没有准确的成对分级视觉 verifier。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22372",
+   "title": "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation",
+   "authors": [
+    "Zhixu Li",
+    "Keqian Tang",
+    "Litian Gong",
+    "Jingyu Yao",
+    "Wenqian Zhang",
+    "Tianze Xu",
+    "Zehao Wang",
+    "Yuping Wang",
+    "Junge Zhang",
+    "Jiachen Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.22372",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "NeurIPS 2026（comment 标注会议）。通用机器人进家庭的关键是个性化，但现有研究缺乏把“任务完成”和“偏好满足”分开评测的受控基准。LIBERO-PeRM 基于 LIBERO 构建：5 个任务套件、312 个任务，用程序化管线生成带偏好与不带偏好的成对演示，覆盖运动、技能、用户画像三类语言可表达偏好，围绕五个问题设计评测（零样本偏好跟随、从演示学习、数据效率、跨布局泛化、偏好组合与冲突）。实验发现当前 VLA 策略零样本个性化很弱，SFT 能让偏好可学，但偏好的分解与冲突处理仍是难题。做具身与偏好学习的值得收藏这个 benchmark。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.22353",
+   "title": "Rethinking Routing Exploration in Modern Mixture-of-Experts",
+   "authors": [
+    "Bingcong Li",
+    "Hao Ma",
+    "Michael Muehlebach",
+    "Niao He",
+    "Yi Ma"
+   ],
+   "url": "https://arxiv.org/abs/2610.22353",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "现代 MoE 越来越同时采用细粒度专家切分和共享专家，但两者存在探索困境：共享专家降低 token 表征的方差、削弱路由探索，而细粒度切分又因路由空间组合爆炸更需要探索，导致细粒度带来的表达力在实践中无法兑现。这篇提出 MirrorMoE，用 token 自适应的方式抑制不必要的专家来收缩探索空间，在多个模型规模上稳定提升性能。想理解 MoE 路由行为、设计下一代稀疏架构的人必读。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2610.22347",
+   "title": "Speculative Forcing for Efficient Autoregressive Video Generation",
+   "authors": [
+    "Hyunwook Choi",
+    "Seungryong Kim",
+    "Dongyoon Han",
+    "Sangdoo Yun"
+   ],
+   "url": "https://arxiv.org/abs/2610.22347",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "少步自回归视频生成器支持流式生成，但每个 token 都要跑满全部去噪步，计算浪费严重。Speculative Forcing 把中间的干净估计当作 draft，逐 token 预测何时可以提前接受并冻结，后续只用缓存的 KV 做上下文；verifier 有免训练版和学习版两种。实验在短视频、长视频、世界生成上都保持了全步采样质量：LongLive 上平均每 token 约 1.7 步去噪、提速超 1.5 倍（41.7 与 37.8 fps）。这是 speculative decoding 思想在视频生成上的扎实落地，高效推理方向值得细读。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22344",
+   "title": "MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
+   "authors": [
+    "Shangheng Du",
+    "Jinxin Shi",
+    "Shuaiyu Zhang",
+    "Yiming Wu",
+    "Junpeng Zhao",
+    "Shiyang Feng",
+    "Xin Li",
+    "Liang He",
+    "Xiangchao Yan",
+    "Bo Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.22344",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "把“AI 造 AI”（AI4AI）当作通向递归自改进（RSI）的路径，这篇做了个 35B MoE 的通用机器学习工程智能体 MLExpert。方法是后训练组合拳：分层 agentic SFT 迁移工具使用与代码能力，Windowed Interaction RL（WIRL）把两次实验结果之间的多轮决策当作执行窗口共享基于结果的奖励，异步采集加策略修正支持轨迹结束前就更新。在 MLE-Bench Lite 上奖牌率从基座的 37.9% 提到 72.7%，追平 Kimi-K3、GLM-5.3 等更大前沿模型，且优化能力泛化到 NatureBench 和算法优化任务。附带开源了 Kaggle-MLE Factory 任务构建管线。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22331",
+   "title": "KnowGPO: Knowledge-Grouped Policy Optimization for Search Agents",
+   "authors": [
+    "Siqi Chen",
+    "Zhengxi Lu",
+    "Yuchen Yan",
+    "Xingyu Wu",
+    "Qipeng Chen",
+    "Xin Zhang",
+    "Aiting Liu",
+    "Chao Deng",
+    "Jie Liu",
+    "Jin Ma",
+    "Weiming Lu",
+    "Jun Xiao",
+    "Yongliang Shen"
+   ],
+   "url": "https://arxiv.org/abs/2610.22331",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "深度搜索智能体的信用分配很难：整条轨迹只有一个终端奖励，而检索上下文又长又噪。KnowGPO 不按表面轨迹状态、而按“已获取的任务相关知识”来对齐轨迹：把解题所需信息拆成原子知识条件，用满足的子集表示每步状态，知识状态相同的轨迹组内比较，连续步之间的知识增量作为环境锚定的过程奖励。在 Xbench、BrowseComp-ZH、GAIA 上稳定超过 outcome-only 的 GRPO 和过程监督基线 3.8 到 4.2 个点，8B 模型打平多数 32B 开源系统。做搜索智能体和过程奖励建模的值得看。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22330",
+   "title": "Designing Transformers for Continuous Diffusion Language Models",
+   "authors": [
+    "Weijian Luo",
+    "Yujian Chen",
+    "Hao Jiang",
+    "Guang Cheng",
+    "Tianyang Hu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22330",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "连续扩散语言模型（CDLM）做并行文本生成，但现有工作直接套用因果 LLM 或 DiT 的 transformer 架构，并未针对 CDLM 优化。这篇做了系统性的架构研究，提出 Language Diffusion Transformer（LangDiT）：特征与 QK 归一化、更宽的噪声条件、似然捷径梯度路由与校准、置信门控的自条件训练。在 OpenWebText 1024-token 无条件生成上，1024 NFE 时生成困惑度 21.72（SOTA），128 NFE 时 44.72；Plaid 式变体也刷新纪录。关键结论是：架构设计本身是 CDLM 提升的重要来源，而非训练目标或采样器。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
    "arxivId": "2610.22192",
    "title": "Terminal-RSI: Recursive Self-Improving Terminal Agents via Recursive Self-Rewrite and Policy-Refinement",
    "authors": [
