@@ -1,6 +1,181 @@
 {
   "papers": [
     {
+      "arxivId": "2610.22221",
+      "title": "How Much Physics Can Vision Learn from Audio? Probing and Distilling Damping Structure",
+      "authors": [
+        "Zainab Afolabi",
+        "Vadim Selyutin",
+        "Zhao Gao",
+        "Babs Khalidson",
+        "Mohamed Ghoneim"
+      ],
+      "url": "https://arxiv.org/abs/2610.22221",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "已接收 NeurIPS 2026 两个研讨会（RPS 与 PhysUnderstand）。这篇论文问了一个反直觉的问题：音频能让视觉模型学到物理吗？作者发现物体的敲击声直接编码了阻尼特性（用品质因子 Q 度量）：冻结的音频编码器对冲击按 Q 排序的 Spearman 相关系数达 0.73，而 CLIP 对冲击瞬间单帧编码只有 0.28。随后他们把冻结的音频教师蒸馏到冻结的 CLIP 主干上，在留一材料评估（训练和探针都不看被测材料）下，四帧输入的相关系数从 0.234 提升到 0.338，证实声音确实补上了视觉缺失的物理信号。值得看的是它给“跨模态物理理解”提供了一套干净的探针加蒸馏评测范式。",
+      "category": "语音"
+    },
+    {
+      "arxivId": "2610.22243",
+      "title": "Shortcut Sensitivity in Agent-Safety Evaluations",
+      "authors": [
+        "Hasan Demirkiran",
+        "Jens Ernstberger"
+      ],
+      "url": "https://arxiv.org/abs/2610.22243",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "已接收 NeurIPS 2026 研讨会 TAE 与 AIWILD。这篇论文指出：用来评估智能体安全“守卫”的基准本身可能存在捷径。例如 LinuxArena 里更短的 shell 命令就能预测轨迹标签；AgentHarm-Traj 上 TS-Guard 的 F1 只因换了加权方式就从 0.902 掉到 0.719。作者提出三层捷径审计框架，并用受控干预实验证明：改写一个信息标记就让拦截率下降 8.33 个百分点，而工具别名混淆让它上升 11.46 个百分点——基准的表征方式会实质改变守卫的决策和测得的分数。他们建议用领域分组留出、评估单元指标和安慰剂对照的成对干预来做更可靠的评估。对做 agent 安全评估的人，这是必读的“基准打假”工作。",
+      "category": "AI 安全与可解释性"
+    },
+    {
+      "arxivId": "2610.22244",
+      "title": "Language Is a Security Surface for Agent Guards",
+      "authors": [
+        "Hasan Demirkiran",
+        "Jens Ernstberger"
+      ],
+      "url": "https://arxiv.org/abs/2610.22244",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "已接收 NeurIPS 2026 研讨会 AIWILD。智能体的每一步工具调用前都有“守卫”判断是否安全，但用户用各种语言写请求，而守卫的训练和评测基准几乎全是英文。作者构建了 LinguaGuardBench：把 TS-Bench 的 1220 个标注步骤的用户指令翻译成德语、法语、土耳其语、斯瓦希里语和阿姆哈拉语，工具调用和标签逐字节不变，任何判决变化只能归因于语言。测试 19 个守卫后发现：多数开源、小型和专用守卫在翻译下会改变判决，超出自身噪声；语言越稀有影响越大，9 个 13B 以下守卫中阿姆哈拉语的翻转率比法语高近 3 个百分点。前沿大模型守卫最多偏移约 1 个百分点，最强的 Gemini 3.8 Flash 完全不受影响。这篇揭示了多语言场景下 agent 安全的一个真实盲区。",
+      "category": "AI 安全与可解释性"
+    },
+    {
+      "arxivId": "2610.22200",
+      "title": "OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use",
+      "authors": [
+        "Hanzhang Zhou",
+        "Long Li",
+        "Quyu Kong",
+        "Lei Wang",
+        "Panrong Tong",
+        "Long Chen",
+        "Tianyu Xia",
+        "Gongjie Zhang",
+        "Xu Zhang",
+        "Chen Liu",
+        "Jianan Zhang",
+        "Chenglin Cai",
+        "Zhengwen Zeng",
+        "Steven Hoi",
+        "Yue Wang"
+      ],
+      "url": "https://arxiv.org/abs/2610.22200",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "预印本。通用计算机使用智能体（GCUA）正从纯 GUI 操作转向“视觉加代码”双接口，但 GPT-6 Astra 这类前沿实现都是闭源的。OpenGCUA 项目要把整套技术栈开源给社区，这是第一份报告：核心设计是让智能体能执行代码（中间结果决定后续操作），并把原本写死在 harness 里的观测与任务状态决策“转移”给模型自己做。在 OSWorld-v2 上，全配置让 8 个被测模型（包括 GPT-6 Astra、Claude Opus 5）全部涨分，平均部分得分提升 19.6，单任务步数减少 53%。代码、提示词、全部 8 个模型的评估轨迹、真机 harness 和跨设备 SDK 都已开源。想做 computer-use agent 的人可以直接拿来复现和魔改。",
+      "category": "智能体"
+    },
+    {
+      "arxivId": "2610.22195",
+      "title": "HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration",
+      "authors": [
+        "Yanchen Deng",
+        "Jianguo Huang",
+        "Yao Long Teng",
+        "Yixuan Li",
+        "Handuo Zhang",
+        "Ning Wang",
+        "Liangcai Su",
+        "Xinyu Wang",
+        "Bo An"
+      ],
+      "url": "https://arxiv.org/abs/2610.22195",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "预印本。多智能体协作的编排是个老大难：动态派发灵活但不管子任务层级依赖，预定义工作流有结构但分解在执行前就定死了。HTN-Orchestrate 用分层任务网络（HTN）把两者分开：Planner 维护子任务层级和依赖，等前置结果出来再延迟分解；局部 Orchestrator 调度 worker 执行叶子子任务，结果按 AND 语义向上传播，分解失败时根据已积累的发现重建任务网络。在网页研究、科学推理等 5 个基准上，它用同一基座模型超过了 ReAct、Agent Team 和 DeepSeek Harness：BrowseComp 准确率 89.73%，SUPERChem 73.44%。对多智能体系统设计有直接参考价值。",
+      "category": "智能体"
+    },
+    {
+      "arxivId": "2610.22174",
+      "title": "Mosaic: Multi-Session Agentic Reinforcement Learning",
+      "authors": [
+        "Yilong Xu",
+        "Minrui Xu",
+        "Xinyu Zhou",
+        "Xiang Long",
+        "Haochen Tan",
+        "Zhijiang Guo"
+      ],
+      "url": "https://arxiv.org/abs/2610.22174",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "预印本。现有 agentic RL 都假设单会话轨迹，但上下文压缩、子智能体分叉等技术会产生跨多会话的轨迹，训练假设和推理现实脱节。Mosaic 提出了多会话 agentic RL 设定，并给出无 critic 的分层优化方法：轨迹层把会话使用信号纳入优势估计，会话层按估计的边际贡献塑造每个会话的优势。在 BrowseComp 上用 Qwen3.5-4B 测试，Mosaic 在上下文压缩和子智能体分叉两种场景下都超过了“轨迹级优势广播到所有会话”的常用做法，且平均用的会话更少。做 agent 后训练（尤其是长上下文 agent）的人值得细读它的会话效用分析。",
+      "category": "后训练与对齐"
+    },
+    {
+      "arxivId": "2610.22342",
+      "title": "Spark-0: Scaling Spatially Aligned Tactile Pretraining for Robot Dexterous Manipulation",
+      "authors": [
+        "Tianxing Chen",
+        "Wenwei Lin",
+        "Chuqiao Lyu",
+        "Peicheng Xiang",
+        "Junyuan Tang",
+        "Tian Nian",
+        "Zijian Cai",
+        "Kehe Ye",
+        "Chenze Yu",
+        "Wenxuan Zhu",
+        "Eric J. Chen",
+        "Yan Qin",
+        "Yue Chen",
+        "Tongyu Wu",
+        "Junhao Gong",
+        "Kai-Chong Lei",
+        "Jiahao Zhang",
+        "Kailun Su",
+        "Qiwei Liang",
+        "Renjing Xu",
+        "Ping Luo",
+        "Wenbo Ding"
+      ],
+      "url": "https://arxiv.org/abs/2610.22342",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "预印本。通用机器人策略受益于大规模视觉预训练，但接触丰富的灵巧操作（力、柔顺、打滑前兆）很难从图像里学到。Spark-0 是视觉-触觉-语言-动作（VTLA）模型：预训练时用触觉手套得到的图像空间接触图加冻结 3D 几何教师来监督视觉 token（推理时去掉），同时有一条触觉通路编码区域力历史和 3D taxel 状态来条件化动作专家。为此他们建了 HumanTouch——1000 小时全手触觉人类操作数据，并发布了 SparkArena 评测。关键结论：保留这 1000 小时触觉数据做预训练（对比同等数据算力丢掉触觉），纯视觉部署在 Ego Humanoid 上的成功率从 52.5% 涨到 71.7%——触觉不只是策略输入，更是可扩展的灵巧操作预训练监督信号。",
+      "category": "大模型预训练与 Scaling"
+    },
+    {
+      "arxivId": "2610.22323",
+      "title": "Mem4Act: Learning Effective Latent Memory for Long-Horizon Robotic Manipulation",
+      "authors": [
+        "Yun Zhang",
+        "Zhiyu Huang",
+        "Tianhui Cai",
+        "Chen Tang",
+        "Wei Wang",
+        "Jiaqi Ma"
+      ],
+      "url": "https://arxiv.org/abs/2610.22323",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "预印本。长时程机械臂操作本质上需要记忆，但现有方法要么堆原始历史观测（越来越长），要么用语言摘要（丢信息）。Mem4Act 学习一个固定大小的隐式记忆表示，专为长时程控制优化：多粒度时间聚合覆盖长历史，问答监督加关键帧 DINO 特征重建保留语义和感知互补信息，“记忆优先”的两阶段训练让策略真正用上记忆。在 RoboMME、RMBench 和 4 个真实世界操作任务上达到记忆依赖控制的 SOTA。做长时程具身任务的人可以参考它的记忆设计。",
+      "category": "具身智能与机器人"
+    },
+    {
+      "arxivId": "2610.22340",
+      "title": "Dexterity from Supervised Play",
+      "authors": [
+        "Botao He",
+        "Yiming Dou",
+        "Yiannis Aloimonos",
+        "Jitendra Malik",
+        "Akash Sharma",
+        "Ruoshi Liu"
+      ],
+      "url": "https://arxiv.org/abs/2610.22340",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "预印本。机器人怎么自主收集灵巧操作所需的接触丰富经验？DSP（Dexterity from Supervised Play）：先用几分钟人类“玩耍”做行为克隆学一个玩耍策略，再让它自主运行数小时收集交互数据来训练世界模型；推理时同一个玩耍策略为 MPC 提供候选动作序列，还可以在学到的世界模型里通过自我对弈蒸馏出闭环目标条件策略。在欠驱动推动物体和多指手任意到任意的在手位姿重定向任务上（仿真加真机），真机实验比 hindsight 行为克隆成功率高 69.6%，达到与强化学习相当的成功率但交互数据少 490 倍。亮点是全程不需要任务特定演示，也不需要 sim-to-real 迁移。",
+      "category": "具身智能与机器人"
+    },
+    {
+      "arxivId": "2610.22300",
+      "title": "Knowledge That Is Linear Before Fine-Tuning Generalizes After It",
+      "authors": [
+        "Faridoun Mehri",
+        "Hinrich Schütze"
+      ],
+      "url": "https://arxiv.org/abs/2610.22300",
+      "publishedAt": "2026-10-15",
+      "zhSummary": "预印本。语言模型能记住的事实，并非都支持进一步学习。作者区分“活跃事实”（支持泛化）和“惰性事实”（只能回忆）：把“巴黎→欧洲”重标为“巴黎→螃蟹”，在子集上微调后看模型能否对同答案的未见主体（如慕尼黑）输出“螃蟹”。在 11 个模型、70 种关系上的结论是：原始关系在预训练表示中的线性可读性强烈预测这种泛化（Pearson r=0.87–0.92），控制微调样本数、原关系准确率、主体出现频率后依然成立。核心洞见：新关系能否泛化，不取决于事实记不记得住，而取决于其共享结构在线性探针下有多好读。这对理解微调泛化机制很有启发。",
+      "category": "机器学习理论与优化"
+    },
+    {
       "arxivId": "2610.20965",
       "authors": [
         "Robert Moseley",
