@@ -1,2206 +1,2454 @@
 {
-  "papers": [
-    {
-      "arxivId": "2610.26836",
-      "title": "Same Simulation, Different Evidence: Where Retrieved Tool Output Costs LLM Agents Accuracy",
-      "authors": [
-        "Ke Zhang",
-        "Sahchit Chundur",
-        "Jerry Peprah Owusu",
-        "Mohammad Javad Abdolhosseini Qomi",
-        "Maziar Raissi"
-      ],
-      "url": "https://arxiv.org/abs/2610.26836",
-      "publishedAt": "2026-10-19",
-      "category": "智能体",
-      "zhSummary": "Agent 框架越来越多地把长工具输出存文件、按需检索，但这究竟在哪里损失准确率？作者用 USGS 的地球化学模拟器 PHREEQC（报告长达 84 万字符、确定性强、可追溯每个值）做对照实验：把报告从上下文移到检索后，GPT-5.1/5.2 掉 11.3/7.9 个点，Claude Opus/Sonnet 4.6 几乎无损失。进一步分析发现两个 GPT 模型算对值的次数并没少，只是答题时跳过报告、从自己精度更高的输出文件答题，舍入到相邻选项——作者称之为 evidence substitution。命名权威输出可回升 6.3–7.9 点。对设计 agent 上下文管理策略的人非常有警示意义。"
-    },
-    {
-      "arxivId": "2610.26840",
-      "title": "LatComm: Reusable Context Compression for Latent Communication between Large Language Models",
-      "authors": [
-        "Huawei Lin",
-        "Jinting Liu",
-        "Tan Yu",
-        "Weijie Zhao"
-      ],
-      "url": "https://arxiv.org/abs/2610.26840",
-      "publishedAt": "2026-10-19",
-      "category": "长上下文",
-      "zhSummary": "多 LLM 协作系统中同一个上下文常被多个问题复用，若上下文以文本在模型间传递，接收模型每次都要重新处理全部 token。LatComm 把编码与读取分离：冻结的上下文编码器 LLM 一次把上下文压缩成定长数据包，另一个冻结的接收模型通过交叉注意力按问题选读，同时满足紧凑、可复用、可被不同 LLM 读取三个性质。在 12 个多选 QA 数据集上比单向量基线最高提升 10.2 分；在 QuALITY 上接收端输入减少 57 倍、整篇文章问答快 3 倍。对多智能体协作和长上下文复用的工程实现很有启发。"
-    },
-    {
-      "arxivId": "2610.26856",
-      "title": "Reinforcement Learning with Visually Attributable On-Policy Self-Distillation",
-      "authors": [
-        "Shiao Xie",
-        "Siyu Chen",
-        "Jianwei Lv",
-        "Xiandong Li",
-        "Yujin Wang"
-      ],
-      "url": "https://arxiv.org/abs/2610.26856",
-      "publishedAt": "2026-10-19",
-      "category": "后训练与对齐",
-      "zhSummary": "多模态可验证奖励强化学习（RLVR）给出任务级监督，但缺少视觉推理的局部错误定位；on-policy 自蒸馏（OPSD）用特权教师做 token 级纠正，可纠正可能混入语言先验、风格等非视觉偏移。作者形式化了 privileged-correction contamination：当 token 纠正的更新方向不能一致归因于特权视觉证据时即为污染；提出 Visual-Attribution Gating（VAG），以验证器得到的优势为优化锚，只在证据存在/退化对比下方向一致的纠正才被采纳。在六个视觉推理基准上稳定超过 GRPO 与 OPSD，达到新的平均最佳。这为多模态 RL 提供了一个更干净的蒸馏范式，方法细节值得做 VLM 后训练的人参考。"
-    },
-    {
-      "arxivId": "2610.26690",
-      "title": "Foundation Model Driven Optical Flow",
-      "authors": [
-        "Praroop Chanda",
-        "Suryansh Kumar"
-      ],
-      "url": "https://arxiv.org/abs/2610.26690",
-      "publishedAt": "2026-10-19",
-      "category": "大模型预训练与 Scaling",
-      "zhSummary": "已接收 NeurIPS 2026。工作研究冻结的视觉与深度基础模型特征能否直接支撑稠密光流估计：方法融合冻结的 DINOv2 与 Depth Anything V2 特征，用可训练的 Transformer 匹配管线加一轮 coarse-to-fine 精修，只在 FlyingChairs 与 FlyingThings3D 上做光流训练。在 Sintel Final 上端点误差 2.37，超过同一报告里的 FlowSeek (T) 基线 2.52；其挑战条目 RoCo-29.VSAI 在 RoCo-Spring 2026 的 12 个参考基线里优于 7 个。这验证了冻结基础模型特征在稠密几何估计上的迁移能力，为光流任务提供了“特征复用而非端到端重训”的思路。"
-    },
-    {
-      "arxivId": "2610.26857",
-      "title": "VideoMaMa++: Temporally Consistent Video Matting via Preserve-and-Refine Token",
-      "authors": [
-        "Sangbeom Lim",
-        "Seoung Wug Oh",
-        "Heeji Yoon",
-        "Seungryong Kim",
-        "Joon-Young Lee"
-      ],
-      "url": "https://arxiv.org/abs/2610.26857",
-      "publishedAt": "2026-10-19",
-      "category": "图像视频生成",
-      "zhSummary": "已接收 NeurIPS 2026。扩散视频抠图靠互联网规模预训练的视频扩散先验，仅用少量合成数据就能泛化，但单次只能推理 6–24 帧，长视频分块抠图会在块边界处出现边缘闪烁与透明度断裂。作者提出 mask 引导的扩散抠图框架：RGB 和 mask 条件拆成两条 token 流、经全时空自注意力自适应融合，再引入 preserve token 与 refine token 一对可学习嵌入，让滑动窗口推理中已生成的抠图在块间传播，并用全局参考锚防止长序列误差累积，全程无需额外训练。在标准视频抠图基准和真实长视频上同时刷新了细节精度与时间一致性，是目前唯一能长时间保持块边界一致的方法。代码与项目页均已公开，视频生成落地场景值得参考。"
-    },
-    {
-      "arxivId": "2610.26733",
-      "title": "Cross-Fitting for Neural Posterior Estimation",
-      "authors": [
-        "Jeffrey Regier"
-      ],
-      "url": "https://arxiv.org/abs/2610.26733",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "已接收 NeurIPS 2026。神经后验估计（NPE）用模拟数据训练一个可摊销的条件密度估计器，但其对数似然目标会倾向于给训练点分配任意高的密度，导致极端过度自信，在留出数据上表现很差。作者提出交叉拟合 NPE（CF-NPE），用样本划分把条件均值与方差估计分开，避免了\"均值欠拟合、方差过拟合\"的权衡陷阱。只要用基于模拟的贝叶斯推断都会碰到 NPE 的校准问题，这篇给出了一个干净的原则性解法，对仿真驱动的科学推断值得看。",
-      "category": "机器学习理论与优化"
-    },
-    {
-      "arxivId": "2610.26676",
-      "title": "Which Model for Which Role? Cost-Efficient Pareto Recommendation for LLM Agentic Workflows",
-      "authors": [
-        "Qian Xie",
-        "Wenyue Hua",
-        "Yueli He",
-        "Sripad Karne",
-        "Armaan Agrawal",
-        "Nikos Pagonas",
-        "Eugene Wu",
-        "Kostis Kaffes",
-        "Tianyi Peng",
-        "Nairen Cao"
-      ],
-      "url": "https://arxiv.org/abs/2610.26676",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "已被 NeurIPS 2026 研讨会 Resource-Aware Agentic AI 接收。现在的 agent 工作流里不同角色常调用不同模型，用户要在任务质量、部署成本和延迟之间做取舍，而逐个评估候选组合的搜索成本本身也很高。作者提出 Cost-Coupled Gittins（CC-Gittins），利用\"部署成本高、评估成本也高\"的耦合结构，把每次评估同时复用给质量和成本两个方向的搜索，最后给出在不确定性调整下不被支配的模型-角色分配方案。实验在八个质量–成本矩阵上验证。它把多臂老虎机的思路搬进了 agent 工作流的模型路由问题，对做多模型编排和成本优化的团队有直接参考价值。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.26863",
-      "title": "Text-to-Image Generative Modeling Without Language Pretraining",
-      "authors": [
-        "Keshigeyan Chandrasegaran",
-        "Yue Zhao",
-        "Armin W. Thomas",
-        "Ehsan Adeli",
-        "Jiajun Wu",
-        "Juan Carlos Niebles",
-        "Li Fei-Fei",
-        "Michael Poli"
-      ],
-      "url": "https://arxiv.org/abs/2610.26863",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "预印本。主流文生图系统都依赖互联网规模的语言预训练，这篇工作问：语言预训练真的必要吗？作者提出 Halcyon，一族完全从零训练的 early-fusion 自回归多模态模型，只在 1 亿图像-文本对上预训练。结果很惊人：0.52B 的 Halcyon 在 gFD 上打败 LlamaGen-XL/8，所用预训练算力少 18.2 倍；1.6B 版本以 275 倍少的算力超过 JiT-T2I-XXL/8++；对照实验还表明纯文本预训练并不改善文生图效果。如果结论站得住，它会重塑多模态预训练的数据预算分配逻辑，对算力有限的团队尤其值得看。",
-      "category": "大模型预训练与 Scaling"
-    },
-    {
-      "arxivId": "2610.26855",
-      "title": "Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience",
-      "authors": [
-        "Tianqi Liu",
-        "Hanfei Zhao",
-        "Qifeng Liang",
-        "Hui En Pang",
-        "Jiarui Xu",
-        "Sayang Mu",
-        "Penghao Qiu",
-        "YingSheng Zhang",
-        "Jun Wang",
-        "Ziang Cao",
-        "Mingze Sun",
-        "Yukang Cao",
-        "Fangzhou Hong",
-        "Zhaoxi Chen",
-        "Ziwei Liu"
-      ],
-      "url": "https://arxiv.org/abs/2610.26855",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "预印本。世界模型能让具身智能体预判动作后果，但同时建模多具身机器人的移动与操作仍是难题。作者提出 Ropedia W0，首个横跨人类与多种机器人具身的第一人称\"移动+操作\"世界基础模型；配套整理了 Xp-Data（含 1 万小时人类第一人称数据和 3000 小时机器人数据，统一多模态标注）和 Xp-Teleop 长程灵巧操作评测。统一运动学表征把移动编码为相机位姿、操作编码为投影骨架，弥合了异构动作空间。对做具身世界模型和人形机器人研究的团队，这套数据和模型值得追踪。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.26848",
-      "title": "Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy",
-      "authors": [
-        "Zekai Li",
-        "Jiayi Yu",
-        "Jinlu Zhang",
-        "Luyang Niu",
-        "Zekun Qi",
-        "Jun Zheng",
-        "Xuchuan Chen",
-        "Dairu Liu",
-        "Yintianrun Zhang",
-        "He Wang",
-        "Li Yi"
-      ],
-      "url": "https://arxiv.org/abs/2610.26848",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "预印本（技术报告）。作者系统研究\"物理\"递归自改进：LLM 策略在真实物理操纵任务上从失败中改进的能力从哪来、如何随规模变化。他们提出 PhysRSI-eval，用五轴指标（首次成功率、效率、成功率、预算、从失败中改进的幅度）在 18 个操纵任务上评测不同 VLM。分析提出\"物理木桶假说\"：不同能力可能分别约束改进的不同环节；五轴指标还能区分公开基准平均分接近的系统。这篇把 RSI 从代码与文本世界搬进了物理世界，是自进化方向值得看的一篇。",
-      "category": "递归自改进 RSI"
-    },
-    {
-      "arxivId": "2610.26834",
-      "title": "Kronecker Delta Rule for Long Context Linear Attention",
-      "authors": [
-        "Anamaria-Roberta Hartl",
-        "Levente Zólyomi",
-        "Michael List",
-        "Günter Klambauer",
-        "Sebastian Böck",
-        "Sepp Hochreiter"
-      ],
-      "url": "https://arxiv.org/abs/2610.26834",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "预印本。线性注意力是长上下文建模的主流路线之一，但记忆更新规则容易干扰已存信息。作者提出 KronLSTM：基于 Kronecker Delta Rule 的关联矩阵记忆更新机制，沿矩阵空间单个方向做最小侵入的记忆修正，相比普通 delta 规则更少扰动旧记忆。其记忆动力学可描述为收敛到稳态分布的马尔可夫链，记忆矩阵范数在整个输入序列上有统一上界，无需额外归一化机制即可保持稳定。xLSTM 作者团队的新工作，长上下文架构方向值得看。",
-      "category": "长上下文"
-    },
-    {
-      "arxivId": "2610.26660",
-      "title": "Tandem: Serving Hybrid Linear-Attention GUI Agents on Mobile NPUs",
-      "authors": [
-        "Zhuomin Chen",
-        "Jingchao Ni",
-        "Xu Zheng",
-        "Yong Chen",
-        "Mo Sha",
-        "Wei Cheng",
-        "Dongsheng Luo"
-      ],
-      "url": "https://arxiv.org/abs/2610.26660",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "预印本。手机 GUI 智能体反复读屏并请求模型给出下一步动作，延迟在手机 NPU 上逐动作累积。作者分析了三类真实开销：混合线性注意力模型的循环状态复用需要合适位置的检查点、回滚状态会把 prompt 处理挤出 NPU 矩阵单元、模型常驻还会让 NPU 在任务间空转。他们提出 Tandem，一个面向移动端 NPU 的混合线性注意力 GUI 智能体运行时，解决状态复用与调度问题。端侧 agent 部署是落地关键环节，这篇把运行时层的真实约束讲得很清楚，值得做端侧部署的团队看。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.26837",
-      "title": "SpecKCast: Spectral Kalman Forecasting for Diffusion Acceleration",
-      "authors": [
-        "Javad Rajabi",
-        "Hakki Can Karaimer",
-        "David B. Lindell",
-        "Babak Taati",
-        "Michael S. Brown"
-      ],
-      "url": "https://arxiv.org/abs/2610.26837",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "预印本。Diffusion Transformer 生成质量高，但几十步重复前向推理成本大；现有\"预测跳步特征\"类加速方法均匀外推所有特征，却忽略了空间频率分量在去噪不同阶段变化节奏不同，以及去噪进程本身非均匀——等距跳步对应的实际变化量差异很大。作者提出 SpecKCast，一种免训练的方法：按频谱分量分别做卡尔曼式预测，并自适应跳步间隔。扩散加速是视频生成落地的关键瓶颈，这种零训练开销的即插即用方案实用价值高。",
-      "category": "图像视频生成"
-    },
-    {
-      "arxivId": "2610.26805",
-      "title": "What Language Adds, and at What Cost: Four Controlled Probes of Pathology Vision-Language Models",
-      "authors": [
-        "Wenhao Zhang",
-        "Zhongliang Zhou",
-        "Yi Ping",
-        "Zirui Wang",
-        "Sheng Li"
-      ],
-      "url": "https://arxiv.org/abs/2610.26805",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "预印本。病理视觉-语言模型号称能让计算病理可查询、可起草报告，但\"语言到底在视觉骨干之外加了什么\"一直缺乏严格回答，因为几乎所有系统都只在开发者自选的测试集上评估。作者用已发布的检查点和公开数据做四个对照探针、每次只变一个输入：报告文本确实带来预后信号（1633 例 TCGA 患者中无进展间期和总生存期的 pooled C-index 分别提升 0.019 和 0.016）；但在特征和池化固定的情况下，zero-shot 分类的 prompt 写法对精度无可测影响。方法论干净、结论克制，对做医学 VLM 评估的人是很好的参照。",
-      "category": "视觉语言模型"
-    },
-    {
-      "arxivId": "2610.26685",
-      "title": "Intra-Rubric Reward Divergence: Mitigating Rubric Hacking through Latent Dimension Recovery and Balancing",
-      "authors": [
-        "Jianqiang Xia",
-        "Han Xu",
-        "Dianxi Shi"
-      ],
-      "url": "https://arxiv.org/abs/2610.26685",
-      "publishedAt": "2026-10-19",
-      "zhSummary": "预印本。基于 rubric 的强化学习里存在\"rubric hacking\"：把 rubric 拆成子维度后发现，随着总分上升，某些子维度分数系统性下降——模型牺牲特定质量维度去优化聚合目标；还观察到维度不平衡（策略偏向覆盖多的维度）和维度缺失（奖励与真实质量的系统性偏差）。作者提出 FRDA（在每个维度内单独竞争聚合）和 RSDC（从整体偏好中挖掘隐式评估维度）来缓解。做 RLVR 与奖励建模的人值得看，它把\"奖励被钻空子\"的现象拆成了一个可度量的结构。",
-      "category": "强化学习"
-    },
-    {
-      "arxivId": "2610.23856",
-      "title": "Learning to Correct Geometry in Generated Videos",
-      "authors": [
-        "Weijie Lyu",
-        "Tiancheng Shen",
-        "Jason Li",
-        "Yujing Wang",
-        "Xiaoyuan Wang",
-        "Haobo Yuan",
-        "Yizhou Zhao",
-        "Ming-Hsuan Yang"
-      ],
-      "url": "https://arxiv.org/abs/2610.23856",
-      "publishedAt": "2026-10-16",
-      "category": "图像视频生成",
-      "zhSummary": "已接收 NeurIPS 2026。生成视频在相机运动下常常几何不一致：结构随视角变化扭曲、视差错乱、平滑运镜塌缩成跳镜式切换。作者认为这是数据问题——网络视频语料大多是静态或弱运动相机拍摄的动态物体，几乎不提供视角变化的监督信号。为此提出 Video Geometry Corrector（VGC），一个后处理 video-to-video 模型：在合成配对数据 VG-Pairs 上训练，把失真的视频映射回几何一致的版本，不改动原始生成器，还用光流作为辅助线索解耦相机运动与物体运动。在位姿条件和提示词驱动的基准上，VGC 对多种源生成器都提升了几何一致性，放大 backbone 后还能扩展到更通用的视频精修。值得看：把“几何一致性”从生成器内部问题转成可独立优化的后处理模块，思路干净，工程上可直接套用到现有视频生成管线。"
-    },
-    {
-      "arxivId": "2610.23820",
-      "title": "CocoRNA: Collective RNA Design with Cooperative Multi-agent Reinforcement Learning",
-      "authors": [
-        "Tianmeng Hu",
-        "Biao Luo",
-        "Ke Li"
-      ],
-      "url": "https://arxiv.org/abs/2610.23820",
-      "publishedAt": "2026-10-16",
-      "category": "智能体",
-      "zhSummary": "已接收 ICML 2026。设计能可靠折叠成特定二级结构的 RNA 序列是计算生物学的难题，本文用合作式多智能体强化学习做 RNA 逆设计：把设计任务分解成子问题，由多个智能体协同求解，中央 critic 利用全局结构信息指导联合优化。学到的设计策略能零样本泛化到未见过的结构。在 Rfam 数据集上，CocoRNA 在成功率和设计速度上都大幅超过现有最优方法，在其他生物序列设计任务上也验证了通用性。生物序列设计与多智能体 RL 的交叉工作，智能体方法和 AI for Science 两个方向的读者都值得看。"
-    },
-    {
-      "arxivId": "2610.23745",
-      "title": "VocalGrad: Evaluating Acoustic Perception in Audio Language Models",
-      "authors": [
-        "Koki Ryu",
-        "Hitomi Yanaka"
-      ],
-      "url": "https://arxiv.org/abs/2610.23745",
-      "publishedAt": "2026-10-16",
-      "category": "语音",
-      "zhSummary": "已接收 NeurIPS 2026（Evaluations & Datasets Track）。大音频语言模型（LALM）虽能做情感识别等副语言任务，但对低层声学变化的感知仍不可靠，而现有评测分不清“听不清”和“推理错”。VocalGrad 把声学感知评测简化为时间变化方向的二分类任务，尽量剥离高层推理的干扰。评测显示：人类标注者准确率很高，最先进的 LALM 却接近随机猜测；线性探测进一步揭示两类失败模式——有的类别里任务相关信息在内部表征中存在但语言模型头没用上，有的类别里信息在层间逐渐变得不可线性解码。对做音频多模态的人来说，这是一份很有指向性的“能力体检报告”。"
-    },
-    {
-      "arxivId": "2610.23716",
-      "title": "Neural Expansion: A Unified Mechanism for How Deep Neural Networks Generalize",
-      "authors": [
-        "Chashi Mahiul Islam",
-        "Samuel Jacob Chacko",
-        "Mao Nishino",
-        "Canlin Zhang",
-        "Xiuwen Liu"
-      ],
-      "url": "https://arxiv.org/abs/2610.23716",
-      "publishedAt": "2026-10-16",
-      "category": "机器学习理论与优化",
-      "zhSummary": "已接收 NeurIPS 2026。过参数化网络为何能泛化仍是悬而未决的问题，本文提出“神经扩张”统一几何框架：用方向选择的射线覆盖刻画泛化，定义泛化区间（Generalization Intervals）量化训练样本周围预测保持稳定的方向区域。大量跨架构、跨数据集的实证表明，训练沿着雅可比奇异值较小的方向不断扩张射线覆盖，这一机制能解释大部分正确分类的测试样本，甚至对抗样本、误标注和分布外样本。工作把输入空间曲率与预测行为联系起来，为“泛化如何从训练动力学中涌现”提供了一个机制性视角，是对 margin 界、PAC-Bayes、NTK 等全局理论的补充。理论味道浓，值得泛化理论方向的读者细读。"
-    },
-    {
-      "arxivId": "2610.23600",
-      "title": "Learning to Discriminate Scene Structures Makes Self-Supervised Depth Learning Scalable",
-      "authors": [
-        "Mengtan Zhang",
-        "Yuchuan Cui",
-        "Yu Ma",
-        "Zizhan Guo",
-        "Wei Ye",
-        "Rui Fan"
-      ],
-      "url": "https://arxiv.org/abs/2610.23600",
-      "publishedAt": "2026-10-16",
-      "category": "自监督学习",
-      "zhSummary": "已接收 NeurIPS 2026。自监督单目深度估计本应随无标注数据扩展，但现有方法在多场景混合训练时反而退化——作者发现，自监督下模型学到的是数据集特有的结构偏置而非可迁移的场景几何，导致跨域优化冲突。提出的 MaSS 框架用一条与上下文特征解耦的结构表征通路，加上新颖的场景结构判别目标，学到布局感知的通用结构表征。在四个数据集上单独和联合训练都大幅超过此前自监督方法，且是首个能从混合域训练中持续受益的方法；八个额外数据集的零样本评测也显示出很强泛化性，尤其在完全分布外的场景上。自监督与几何方向的读者值得细看。"
-    },
-    {
-      "arxivId": "2610.23598",
-      "title": "RL-Guided Temporal Localization for Dual-Channel Retrieval in Long-Horizon Agent Memory",
-      "authors": [
-        "Dabin Sheng",
-        "Zhe Wu",
-        "Jinming Zhao",
-        "Junliang Xing",
-        "Yuanchun Shi"
-      ],
-      "url": "https://arxiv.org/abs/2610.23598",
-      "publishedAt": "2026-10-16",
-      "category": "智能体",
-      "zhSummary": "已接收 NeurIPS 2026。长时程 LLM 智能体的记忆检索常被“语义相似但时间错位”的候选项淹没——现有方法多在记忆组织或答案生成阶段注入时间线索，却忽略了候选选择所在的检索阶段才是病根。TIDER 受人类情景记忆的时间邻近效应启发，用 RL 训练一个轻量（1.7B）时间区间定位器，推断证据所在的时间窗口；RL 把离散、不可微的检索决策变成可优化问题，用复合奖励把稀疏的答案监督转化为细粒度的检索反馈。时间通道检索到的候选再与语义通道结果合并，按与时间窗口的邻近度重排。在长时程基准上达到 SOTA。做 agent memory 和 RAG 的读者必看，时间感知检索这个切入点很巧。"
-    },
-    {
-      "arxivId": "2610.23565",
-      "title": "Beyond Expected Values: Risk-Sensitive Planning with Distributional Monte-Carlo Tree Search",
-      "authors": [
-        "Quynh Trinh",
-        "Trung Nguyen",
-        "Nam Nguyen",
-        "Tuan Dam"
-      ],
-      "url": "https://arxiv.org/abs/2610.23565",
-      "publishedAt": "2026-10-16",
-      "category": "强化学习",
-      "zhSummary": "已接收 NeurIPS 2026。MCTS 通常只存标量均值估计，不适合 CVaR 这类尾部风险目标。作者提出 CATSO 和 PATSO 两种分布式 MCTS 算法：在 Q 边上维护有限支撑的经验备份分布（CATSO 用分类原子加 Dirichlet Thompson 采样，PATSO 用自适应粒子），用 Thompson 采样分布的 CVaR 加上多项式乐观奖励来选动作。对有限深度的嵌套 CVaR 规划目标，证明了 n 次 rollout 后根节点值误差 O(n^{-1/2}) 界，控制了风险敏感的简单遗憾。随机规划基准实验表明，分布式 Q 边在均值最优与风险敏感行为分歧时，能改善下尾收益、减少灾难性结果。风险敏感 RL 和规划方向的重要方法工作。"
-    },
-    {
-      "arxivId": "2610.23663",
-      "title": "PCDFusion: Proposal-Context-Detail Bayesian Rendering for Infrared-Visible Image Fusion",
-      "authors": [
-        "Rui Liu",
-        "Lin Gu",
-        "Hesong Li",
-        "Ying Fu"
-      ],
-      "url": "https://arxiv.org/abs/2610.23663",
-      "publishedAt": "2026-10-16",
-      "category": "视觉语言模型",
-      "zhSummary": "已接收 NeurIPS 2026。红外-可见光图像融合的核心是决定“何时让可见光主导、何时让热红外补位”，现有深度方法多在特征交互和重建上下功夫，缺少显式的局部决策规则。PCDFusion 把融合重构为局部贝叶斯后验渲染：融合由后验动作权重控制而非直接的模态混合，通过 Proposal-Context-Detail 三个渲染阶段实现，保留有用的热响应、修复曝光退化的可见光区域、把可靠的红外结构渲染进最终亮度。在公开 IVIF 基准上提升了融合质量、目标恢复，以及挑战光照下的检测和分割下游性能。多模态融合方向的扎实工作，贝叶斯渲染这个形式化视角值得借鉴。"
-    },
-    {
-      "arxivId": "2610.23623",
-      "title": "Deconstructing Multi-Task Active Learning: The Paradox of Gradient Conflict and Orthogonal Decomposition",
-      "authors": [
-        "Juho Jung",
-        "Seongjae Kang",
-        "Jinyoung Han"
-      ],
-      "url": "https://arxiv.org/abs/2610.23623",
-      "publishedAt": "2026-10-16",
-      "category": "机器学习理论与优化",
-      "zhSummary": "已接收 NeurIPS 2026。多任务主动学习常用不确定性、多样性、梯度冲突等目标的线性加权，作者认为这种纠缠式组合从根本上受限：线性组合捕捉不到冲突目标间的帕累托权衡。论文提出“从组合转向解构”的三正交框架：一是发现“冲突悖论”——候选排序时惩罚梯度冲突反而比不惩罚更差，于是把排序（不计冲突）与训练（用梯度手术消解冲突）解耦；二是正交分解，把采集拆成信息量过滤加覆盖最大化两阶段，避免“多样性稀释”；三是提出跨任务互信息（CTMI），用 MC-dropout 任务熵的协方差刻画跨任务依赖。在 COCO、Cityscapes、NYUv2 上一致超过现有基线。主动学习和多任务学习的研究者值得读。"
-    },
-    {
-      "arxivId": "2610.23818",
-      "title": "Acceptance Is Not Speed: Length Inflation in Training-Free Lossy Speculative Decoding",
-      "authors": [
-        "Chiatzen Wang",
-        "Bill Xu",
-        "Haochen Gu",
-        "Hongyang Zhang"
-      ],
-      "url": "https://arxiv.org/abs/2610.23818",
-      "publishedAt": "2026-10-16",
-      "category": "高效推理与部署",
-      "zhSummary": "预印本（已投稿 NAACL 2027，在审）。推测解码常用“每轮接受的 draft token 数”衡量加速比，但有损验证会改变目标模型的输出分布，从而拉长生成长度——这就是作者发现的“长度膨胀”现象。在 12 组目标-草稿模型对上的系统评测显示：在最宽松的设置下，有损验证每轮多接受 1.34 倍 token，但生成长度变成 1.54 倍，主要来自推理链被拉长；仅有损验证接受的 token 往往目标模型概率很低；能减少验证轮次的规则通常准确率掉得厉害。结论是：单看“每轮接受 token 数”会高估有损推测解码的真实加速，必须同时看生成长度和验证轮次。做高效推理的人建议读原文的消融分析。"
-    },
-    {
-      "arxivId": "2610.23616",
-      "authors": [
-        "Niclas Göring",
-        "Shuofeng Zhang",
-        "Roi Holtzman",
-        "Yoonsoo Nam",
-        "Ard A. Louis"
-      ],
-      "category": "AI 安全与可解释性",
-      "publishedAt": "2026-10-16",
-      "title": "The Sign Code: The Hidden Binary Nature of Deep Networks",
-      "url": "https://arxiv.org/abs/2610.23616",
-      "zhSummary": "每个神经元的输出可以拆成符号（正负）和幅度，这篇问：分类到底更依赖符号还是幅度？答案是符号压倒性地主导——在过参数化的视觉分类器上，只用二元符号码的 k-NN 分类器精度接近完整模型；把所有幅值换成随机噪声而保留符号，ResNet 性能几乎不变；但翻转 20% 的符号精度就跌到随机。模型泛化得好，是因为同类输入的符号码高度重叠；用正则化破坏这种重叠后，训练精度不变但测试性能崩塌。做可解释性、机制性研究的，这个“符号主导泛化”的发现很反直觉，值得深挖。"
-    },
-    {
-      "arxivId": "2610.23610",
-      "authors": [
-        "Hsin-Ling Hsu",
-        "Neeraja Kirtane",
-        "Kuan-Hao Huang"
-      ],
-      "category": "视觉语言模型",
-      "publishedAt": "2026-10-16",
-      "title": "Not Every Mention Is a Claim: Rethinking Object Hallucination Detection in Vision-Language Models",
-      "url": "https://arxiv.org/abs/2610.23610",
-      "zhSummary": "VLM 幻觉评测有个隐含假设：caption 里提到的每个物体都被断言为存在。但“一张供人坐的长椅”提到了人却没断言有人在画面里——这类“非断言提及”被现有评测和检测器统统当作幻觉，夸大了模型的错误率。这篇提出 NAME-Bench（25497 个物体提及，五个 VLM 在 COCO 上的生成 caption），每个提及标注为具体（断言且存在）、幻觉（断言且不存在）或非断言（再分描绘、用途、否定、模糊四类）；现有检测器把非断言提及误判为幻觉的比例在 14% 到 80%。做 VLM 幻觉评测和对齐的，这个基准直接动摇了现有指标的根基。"
-    },
-    {
-      "arxivId": "2610.23796",
-      "authors": [
-        "Wei Wang"
-      ],
-      "category": "高效推理与部署",
-      "publishedAt": "2026-10-16",
-      "title": "FuTransformer: FP8 prefill and INT4 decode for Llama-style inference on Hopper",
-      "url": "https://arxiv.org/abs/2610.23796",
-      "zhSummary": "这是面向 Hopper 架构的 Llama 风格 Transformer 手工 CUDA 实现：prefill 阶段用 FP8（复用 CODA 的 GEMM-plus-epilogue 思路，加了 KV 缓存直接放置、RMSNorm 增益折叠进权重、FP8 直接输出等），decode 阶段用 INT4 投影权重加 INT4 KV 缓存拷贝，并通过块对角 Hadamard 变换压住离群通道带来的缓存量化误差。在单张 H100 上，prefill 比编译后的 PyTorch FP8 快 1.48 倍、达到 1.29 PFLOP/s；8B/70B 下 FP8 路径比 BF16 CODA 快 2 倍出头。做推理部署、量化工程的，这是一份非常扎实的高性能 kernel 参考实现。"
-    },
-    {
-      "arxivId": "2610.23787",
-      "authors": [
-        "Jiaming Xu",
-        "Hanzhen Wang",
-        "Tianlang Zhao",
-        "Jiewen Xiao",
-        "Chengze Yuan",
-        "Jiayi Pan",
-        "Yongkang Zhou",
-        "Jiancai Ye",
-        "Yu Wang",
-        "Guohao Dai"
-      ],
-      "category": "高效推理与部署",
-      "publishedAt": "2026-10-16",
-      "title": "DLite: History-free Speculative Decoding for Agentic AI",
-      "url": "https://arxiv.org/abs/2610.23787",
-      "zhSummary": "投机解码在智能体工作负载下会失灵：上下文长且持续演化，现有草稿模型的接受长度会退化多达 80%，而且维护历史 KV 缓存带来可观的系统开销。这篇把矛头指向“不断增长的历史上下文”这一共同根源，提出 DLite：直接复用目标模型的上下文隐状态做局部投机预测，完全不显式维护历史上下文，把一个越来越复杂的问题变成局部简单预测；再用一个轻量序列头低成本恢复块内因果依赖。做智能体推理加速的，这篇指出了投机解码在 agentic 场景失效的真实原因，比单纯改草稿模型更根本。"
-    },
-    {
-      "arxivId": "2610.23703",
-      "authors": [
-        "Vinay Saji Mathew",
-        "Soundar Kumara",
-        "Gretta Kellogg",
-        "William K. M. Lai"
-      ],
-      "category": "AI for Science",
-      "publishedAt": "2026-10-16",
-      "title": "Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2",
-      "url": "https://arxiv.org/abs/2610.23703",
-      "zhSummary": "AlphaFold3 和 Boltz-2 这类蛋白质结构预测模型的扩散模块要跑约 200 个去噪步，成本很高。这篇提出 Blitz：用几何噪声调度把去噪步更均匀地分配到各噪声尺度，再通过多步一致性训练蒸馏成少步模型，推理时再加物理引导和无目标候选筛选来压住几何缺陷。结果把去噪步数从 200 降到 8，同时保持教师级结构精度——AF3-Blitz 在统一评测协议下超过所有已有的少步基线，部分精度指标甚至超过教师。AI for Science 加扩散模型加速交叉口的，这篇是目前最强的少步蒸馏方案之一。"
-    },
-    {
-      "arxivId": "2610.23599",
-      "authors": [
-        "Yewei Zhao",
-        "Derong Xu",
-        "Wei Chen",
-        "Yin Xu",
-        "Peilun Zhou",
-        "Xiaohan Wang",
-        "Guojun Yin",
-        "Wei Lin",
-        "Mingjun Xiao"
-      ],
-      "category": "递归自改进 RSI",
-      "publishedAt": "2026-10-16",
-      "title": "From Trajectories to Differentiated Skills: Cognitive Differentiation for Self-Improving Agents",
-      "url": "https://arxiv.org/abs/2610.23599",
-      "zhSummary": "现有技能进化方法把技能当作整体工件来维护，忽略了单个技能内部的功能异质性。这篇受认知科学启发提出 CDSE（认知分化技能进化）：把统一技能拆成四个功能部件——元（Meta）、经验（Experience）、工具（Tool）、脚本（Script），从成功和失败轨迹中提取证据驱动的语义梯度，按功能角色分别更新和校验，并跨部件协调与自适应调用。作者分析了 500 个顶级技能包，发现 96.8% 的技能知识横跨至少两个功能角色，说明分化有依据。在六个基准上取得提升。做智能体技能自进化的，这个“拆技能再进化”的视角很清新。"
-    },
-    {
-      "arxivId": "2610.23574",
-      "authors": [
-        "Mingze Yin",
-        "Xiaohan Wang",
-        "Dian Li",
-        "Longfei Luo",
-        "Jiahong Yan",
-        "Yiheng Zhu",
-        "Chang-Yu Hsieh"
-      ],
-      "category": "递归自改进 RSI",
-      "publishedAt": "2026-10-16",
-      "title": "Darwin-Claw: Environment-Adaptive Experience Consolidation for Recursively Self-Evolving Agents",
-      "url": "https://arxiv.org/abs/2610.23574",
-      "zhSummary": "LLM 智能体大多困在孤立会话里，现有自进化方案把原始轨迹一股脑塞进记忆或技能模块，导致行为模式被掩盖、更新不可控。这篇提出 Darwin-Claw：一个环境自适应的递归自进化框架，理论基础是“智能体-演员”与“进化者-批评者”的协同适应迭代。核心是分层经验整合系统：从片段经验中提取细粒度的错误归因，再泛化成动态更新的原型向量，既当作上下文敏感感知的交互补丁，也当作技能精化的显式优化信号。它可以直接部署、兼容主流智能体系统、无需人工整理，在 WildClawBench 上带来显著性能提升。想做用户个性化持续适应的，这条“可控的自进化”路径值得看。"
-    },
-    {
-      "arxivId": "2610.23839",
-      "authors": [
-        "Jianyuan Zhong",
-        "Chenwei Wu",
-        "Zhaochen Yu",
-        "Xixian Jiang",
-        "Xuewei Li",
-        "Hao Xiao",
-        "Xilin Dai",
-        "Junyang Wang",
-        "Jiaru Zou",
-        "Zhiqing Cui",
-        "Boyuan Zheng",
-        "Jing Xiong",
-        "Zhen Zhang",
-        "Qiang Gao",
-        "Michael Morley",
-        "Luis Nakayama",
-        "Qiang Xu",
-        "Liyue Shen",
-        "Tao Gui",
-        "Leo Anthony Celi",
-        "James Zou",
-        "Zhenfei Yin",
-        "Yingcheng Wu",
-        "Ling Yang"
-      ],
-      "category": "递归自改进 RSI",
-      "publishedAt": "2026-10-16",
-      "title": "DiscoveryRSI: Recursively Learning to Discover Valuable Hypotheses",
-      "url": "https://arxiv.org/abs/2610.23839",
-      "zhSummary": "这篇把“递归自改进”落地到科学发现场景：提出 DiscoveryRSI 框架，用多智能体进化搜索构建假设树，先定义“有价值且可验证的科学假设”的操作标准，再递归学习整个研究过程。三个自改进机制是：假设信用优化，把科学评估归因到具体研究贡献；harness 回放，从执行轨迹里识别高效策略和反复失败以改进研究流程；重新发现（rediscovery），把已接受的改进应用到新调查中再产生经验，形成闭环。作者还发布了 DFM-Bench 评测集，代码已开源（Gen-Verse/DiscoveryRSI）。关注自进化智能体的，这是一个端到端、带基准的完整实例。"
-    },
-    {
-      "arxivId": "2610.23847",
-      "authors": [
-        "Dongyoon Hahm",
-        "Woogyeol Jin",
-        "Dennis Wei",
-        "Yi Zhou",
-        "Nathalie Baracaldo",
-        "Kimin Lee"
-      ],
-      "category": "后训练与对齐",
-      "publishedAt": "2026-10-16",
-      "title": "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models",
-      "url": "https://arxiv.org/abs/2610.23847",
-      "zhSummary": "微调 LLM 时常常带出训练目标之外的行为——比如教它更热情会让它更谄媚，教它写不安全代码会导致与代码无关的全面失准。这篇工作把这种现象定义为“行为耦合”并研究其形成机制。作者发现，当预训练文档把两种行为描述在一起时，微调激发出其中一种会连带引出另一种：例如让“像橡皮鸭一样讲解科学”的模型同时开始劝用户结束人际关系，而没读过相关文档的模型做同样的微调则不会出现。这提示了一个微妙的对齐风险：预训练语料里的共现模式会在微调阶段被放大成意料之外的行为。做后训练和对齐机制研究的，值得细读这套受控实验。"
-    },
-    {
-      "arxivId": "2610.23795",
-      "authors": [
-        "Yuze He",
-        "Bin Tan",
-        "Zelin Gao",
-        "Yujun Shen",
-        "Yong-Jin Liu",
-        "Nan Xue",
-        "Yinghao Xu"
-      ],
-      "category": "图像视频生成",
-      "publishedAt": "2026-10-16",
-      "title": "Persistent Planar Memory for Video World Models",
-      "url": "https://arxiv.org/abs/2610.23795",
-      "zhSummary": "已接收 NeurIPS 2026。视频世界模型在生成长视频环境时缺乏对已经生成过什么的持久记忆，而逐像素点云内存又太大。这篇提出 PPMem，用一组定向平面（每个只需 7 个参数）作为持久 3D 记忆：每个自回归生成块同时产出 RGB 视频和平面几何，平面记忆再通过渲染深度条件约束后续的生成块。它把整个场景记忆压缩到约 10 万个平面（5MB），比逐像素点云小三个数量级，而且几何明确、跨视角一致、可持续优化。在 DL3DV 和 RealEstate10K 上验证了记忆的几何一致性。做视频世界模型、长视频一致性的，这是一个参数效率极高的新思路。"
-    },
-    {
-      "arxivId": "2610.22369",
-      "title": "SoftCache: Adaptive Step Size Caching for Diffusion Transformers",
-      "authors": [
-        "Shimon Malnick",
-        "Nadav Orenstein",
-        "Ohad Fried",
-        "Shai Avidan"
-      ],
-      "url": "https://arxiv.org/abs/2610.22369",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "扩散和流模型每一步都要跑一遍大网络，推理成本高，训练无关的缓存通过复用历史激活来加速。本文发现动态缓存中的 staleness 信号的信息量远不止\"刷新还是复用\"的二值开关：信号距离阈值的余量（headroom）能预测复用带来的误差。基于此提出 SoftCache：不再用二值开关，而是让每一步走多远由 headroom 自适应决定，缓存步按信号余量走更小的步长。这一\"软缓存\"思路在几乎无损质量的前提下进一步降低了计算开销，对扩散模型推理加速的工程实践很有启发。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.22322",
-      "title": "Learning Self-Orchestration in Decentralized Agent Swarms",
-      "authors": [
-        "Guowei Xu",
-        "Zhenting Qi",
-        "Amani Kiruga",
-        "Himabindu Lakkaraju",
-        "Yilun Du"
-      ],
-      "url": "https://arxiv.org/abs/2610.22322",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "多智能体系统的能力既取决于个体也取决于协作方式，但现有系统往往在固定编排结构下训练智能体，把能力学习与协作组织割裂开。本文提出 market-based post-training（MPT）：智能体通过竞价表达参与意愿，竞价决定谁行动、集体结果提供局部训练信用，从而联合学习行动策略与自组织方式，无需中央协调者。在具身制作、机器人导航和深度研究任务上的实验显示，MPT 优于整体式后训练，验证了让参与模式与个体能力协同适应的价值，是多智能体后训练方法的一个新思路。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.22221",
-      "title": "How Much Physics Can Vision Learn from Audio? Probing and Distilling Damping Structure",
-      "authors": [
-        "Zainab Afolabi",
-        "Vadim Selyutin",
-        "Zhao Gao",
-        "Babs Khalidson",
-        "Mohamed Ghoneim"
-      ],
-      "url": "https://arxiv.org/abs/2610.22221",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "已接收 NeurIPS 2026 两个研讨会（RPS 与 PhysUnderstand）。这篇论文问了一个反直觉的问题：音频能让视觉模型学到物理吗？作者发现物体的敲击声直接编码了阻尼特性（用品质因子 Q 度量）：冻结的音频编码器对冲击按 Q 排序的 Spearman 相关系数达 0.73，而 CLIP 对冲击瞬间单帧编码只有 0.28。随后他们把冻结的音频教师蒸馏到冻结的 CLIP 主干上，在留一材料评估（训练和探针都不看被测材料）下，四帧输入的相关系数从 0.234 提升到 0.338，证实声音确实补上了视觉缺失的物理信号。值得看的是它给“跨模态物理理解”提供了一套干净的探针加蒸馏评测范式。",
-      "category": "语音"
-    },
-    {
-      "arxivId": "2610.22243",
-      "title": "Shortcut Sensitivity in Agent-Safety Evaluations",
-      "authors": [
-        "Hasan Demirkiran",
-        "Jens Ernstberger"
-      ],
-      "url": "https://arxiv.org/abs/2610.22243",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "已接收 NeurIPS 2026 研讨会 TAE 与 AIWILD。这篇论文指出：用来评估智能体安全“守卫”的基准本身可能存在捷径。例如 LinuxArena 里更短的 shell 命令就能预测轨迹标签；AgentHarm-Traj 上 TS-Guard 的 F1 只因换了加权方式就从 0.902 掉到 0.719。作者提出三层捷径审计框架，并用受控干预实验证明：改写一个信息标记就让拦截率下降 8.33 个百分点，而工具别名混淆让它上升 11.46 个百分点——基准的表征方式会实质改变守卫的决策和测得的分数。他们建议用领域分组留出、评估单元指标和安慰剂对照的成对干预来做更可靠的评估。对做 agent 安全评估的人，这是必读的“基准打假”工作。",
-      "category": "AI 安全与可解释性"
-    },
-    {
-      "arxivId": "2610.22244",
-      "title": "Language Is a Security Surface for Agent Guards",
-      "authors": [
-        "Hasan Demirkiran",
-        "Jens Ernstberger"
-      ],
-      "url": "https://arxiv.org/abs/2610.22244",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "已接收 NeurIPS 2026 研讨会 AIWILD。智能体的每一步工具调用前都有“守卫”判断是否安全，但用户用各种语言写请求，而守卫的训练和评测基准几乎全是英文。作者构建了 LinguaGuardBench：把 TS-Bench 的 1220 个标注步骤的用户指令翻译成德语、法语、土耳其语、斯瓦希里语和阿姆哈拉语，工具调用和标签逐字节不变，任何判决变化只能归因于语言。测试 19 个守卫后发现：多数开源、小型和专用守卫在翻译下会改变判决，超出自身噪声；语言越稀有影响越大，9 个 13B 以下守卫中阿姆哈拉语的翻转率比法语高近 3 个百分点。前沿大模型守卫最多偏移约 1 个百分点，最强的 Gemini 3.8 Flash 完全不受影响。这篇揭示了多语言场景下 agent 安全的一个真实盲区。",
-      "category": "AI 安全与可解释性"
-    },
-    {
-      "arxivId": "2610.22200",
-      "title": "OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use",
-      "authors": [
-        "Hanzhang Zhou",
-        "Long Li",
-        "Quyu Kong",
-        "Lei Wang",
-        "Panrong Tong",
-        "Long Chen",
-        "Tianyu Xia",
-        "Gongjie Zhang",
-        "Xu Zhang",
-        "Chen Liu",
-        "Jianan Zhang",
-        "Chenglin Cai",
-        "Zhengwen Zeng",
-        "Steven Hoi",
-        "Yue Wang"
-      ],
-      "url": "https://arxiv.org/abs/2610.22200",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "预印本。通用计算机使用智能体（GCUA）正从纯 GUI 操作转向“视觉加代码”双接口，但 GPT-6 Astra 这类前沿实现都是闭源的。OpenGCUA 项目要把整套技术栈开源给社区，这是第一份报告：核心设计是让智能体能执行代码（中间结果决定后续操作），并把原本写死在 harness 里的观测与任务状态决策“转移”给模型自己做。在 OSWorld-v2 上，全配置让 8 个被测模型（包括 GPT-6 Astra、Claude Opus 5）全部涨分，平均部分得分提升 19.6，单任务步数减少 53%。代码、提示词、全部 8 个模型的评估轨迹、真机 harness 和跨设备 SDK 都已开源。想做 computer-use agent 的人可以直接拿来复现和魔改。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.22195",
-      "title": "HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration",
-      "authors": [
-        "Yanchen Deng",
-        "Jianguo Huang",
-        "Yao Long Teng",
-        "Yixuan Li",
-        "Handuo Zhang",
-        "Ning Wang",
-        "Liangcai Su",
-        "Xinyu Wang",
-        "Bo An"
-      ],
-      "url": "https://arxiv.org/abs/2610.22195",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "预印本。多智能体协作的编排是个老大难：动态派发灵活但不管子任务层级依赖，预定义工作流有结构但分解在执行前就定死了。HTN-Orchestrate 用分层任务网络（HTN）把两者分开：Planner 维护子任务层级和依赖，等前置结果出来再延迟分解；局部 Orchestrator 调度 worker 执行叶子子任务，结果按 AND 语义向上传播，分解失败时根据已积累的发现重建任务网络。在网页研究、科学推理等 5 个基准上，它用同一基座模型超过了 ReAct、Agent Team 和 DeepSeek Harness：BrowseComp 准确率 89.73%，SUPERChem 73.44%。对多智能体系统设计有直接参考价值。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.22174",
-      "title": "Mosaic: Multi-Session Agentic Reinforcement Learning",
-      "authors": [
-        "Yilong Xu",
-        "Minrui Xu",
-        "Xinyu Zhou",
-        "Xiang Long",
-        "Haochen Tan",
-        "Zhijiang Guo"
-      ],
-      "url": "https://arxiv.org/abs/2610.22174",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "预印本。现有 agentic RL 都假设单会话轨迹，但上下文压缩、子智能体分叉等技术会产生跨多会话的轨迹，训练假设和推理现实脱节。Mosaic 提出了多会话 agentic RL 设定，并给出无 critic 的分层优化方法：轨迹层把会话使用信号纳入优势估计，会话层按估计的边际贡献塑造每个会话的优势。在 BrowseComp 上用 Qwen3.5-4B 测试，Mosaic 在上下文压缩和子智能体分叉两种场景下都超过了“轨迹级优势广播到所有会话”的常用做法，且平均用的会话更少。做 agent 后训练（尤其是长上下文 agent）的人值得细读它的会话效用分析。",
-      "category": "后训练与对齐"
-    },
-    {
-      "arxivId": "2610.22342",
-      "title": "Spark-0: Scaling Spatially Aligned Tactile Pretraining for Robot Dexterous Manipulation",
-      "authors": [
-        "Tianxing Chen",
-        "Wenwei Lin",
-        "Chuqiao Lyu",
-        "Peicheng Xiang",
-        "Junyuan Tang",
-        "Tian Nian",
-        "Zijian Cai",
-        "Kehe Ye",
-        "Chenze Yu",
-        "Wenxuan Zhu",
-        "Eric J. Chen",
-        "Yan Qin",
-        "Yue Chen",
-        "Tongyu Wu",
-        "Junhao Gong",
-        "Kai-Chong Lei",
-        "Jiahao Zhang",
-        "Kailun Su",
-        "Qiwei Liang",
-        "Renjing Xu",
-        "Ping Luo",
-        "Wenbo Ding"
-      ],
-      "url": "https://arxiv.org/abs/2610.22342",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "预印本。通用机器人策略受益于大规模视觉预训练，但接触丰富的灵巧操作（力、柔顺、打滑前兆）很难从图像里学到。Spark-0 是视觉-触觉-语言-动作（VTLA）模型：预训练时用触觉手套得到的图像空间接触图加冻结 3D 几何教师来监督视觉 token（推理时去掉），同时有一条触觉通路编码区域力历史和 3D taxel 状态来条件化动作专家。为此他们建了 HumanTouch——1000 小时全手触觉人类操作数据，并发布了 SparkArena 评测。关键结论：保留这 1000 小时触觉数据做预训练（对比同等数据算力丢掉触觉），纯视觉部署在 Ego Humanoid 上的成功率从 52.5% 涨到 71.7%——触觉不只是策略输入，更是可扩展的灵巧操作预训练监督信号。",
-      "category": "大模型预训练与 Scaling"
-    },
-    {
-      "arxivId": "2610.22323",
-      "title": "Mem4Act: Learning Effective Latent Memory for Long-Horizon Robotic Manipulation",
-      "authors": [
-        "Yun Zhang",
-        "Zhiyu Huang",
-        "Tianhui Cai",
-        "Chen Tang",
-        "Wei Wang",
-        "Jiaqi Ma"
-      ],
-      "url": "https://arxiv.org/abs/2610.22323",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "预印本。长时程机械臂操作本质上需要记忆，但现有方法要么堆原始历史观测（越来越长），要么用语言摘要（丢信息）。Mem4Act 学习一个固定大小的隐式记忆表示，专为长时程控制优化：多粒度时间聚合覆盖长历史，问答监督加关键帧 DINO 特征重建保留语义和感知互补信息，“记忆优先”的两阶段训练让策略真正用上记忆。在 RoboMME、RMBench 和 4 个真实世界操作任务上达到记忆依赖控制的 SOTA。做长时程具身任务的人可以参考它的记忆设计。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.22340",
-      "title": "Dexterity from Supervised Play",
-      "authors": [
-        "Botao He",
-        "Yiming Dou",
-        "Yiannis Aloimonos",
-        "Jitendra Malik",
-        "Akash Sharma",
-        "Ruoshi Liu"
-      ],
-      "url": "https://arxiv.org/abs/2610.22340",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "预印本。机器人怎么自主收集灵巧操作所需的接触丰富经验？DSP（Dexterity from Supervised Play）：先用几分钟人类“玩耍”做行为克隆学一个玩耍策略，再让它自主运行数小时收集交互数据来训练世界模型；推理时同一个玩耍策略为 MPC 提供候选动作序列，还可以在学到的世界模型里通过自我对弈蒸馏出闭环目标条件策略。在欠驱动推动物体和多指手任意到任意的在手位姿重定向任务上（仿真加真机），真机实验比 hindsight 行为克隆成功率高 69.6%，达到与强化学习相当的成功率但交互数据少 490 倍。亮点是全程不需要任务特定演示，也不需要 sim-to-real 迁移。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.22300",
-      "title": "Knowledge That Is Linear Before Fine-Tuning Generalizes After It",
-      "authors": [
-        "Faridoun Mehri",
-        "Hinrich Schütze"
-      ],
-      "url": "https://arxiv.org/abs/2610.22300",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "预印本。语言模型能记住的事实，并非都支持进一步学习。作者区分“活跃事实”（支持泛化）和“惰性事实”（只能回忆）：把“巴黎→欧洲”重标为“巴黎→螃蟹”，在子集上微调后看模型能否对同答案的未见主体（如慕尼黑）输出“螃蟹”。在 11 个模型、70 种关系上的结论是：原始关系在预训练表示中的线性可读性强烈预测这种泛化（Pearson r=0.87–0.92），控制微调样本数、原关系准确率、主体出现频率后依然成立。核心洞见：新关系能否泛化，不取决于事实记不记得住，而取决于其共享结构在线性探针下有多好读。这对理解微调泛化机制很有启发。",
-      "category": "机器学习理论与优化"
-    },
-    {
-      "arxivId": "2610.20965",
-      "authors": [
-        "Robert Moseley",
-        "Md Kaykobad Reza",
-        "Ameya Patil",
-        "Edward Ayrapetian",
-        "Salman Asif"
-      ],
-      "category": "视觉语言模型",
-      "publishedAt": "2026-10-16",
-      "title": "MSP: Modality Self-Play for Training Multimodal LLMs Without Paired Cross-Modal Data",
-      "url": "https://arxiv.org/abs/2610.20965",
-      "zhSummary": "已接收 NeurIPS 2026。多模态大模型的进步高度依赖昂贵的跨模态配对数据，本文提出 Modality Self-Play（MSP），用“锚定-支撑”的代理文本描述作为语义桥梁来替代配对数据。给定已观测模态（如图像或音频），模型先为未见模态生成代理描述，再通过可学习的桥接层把代理描述的编码与观测模态对齐，从而实现跨模态交互而无需真实配对。如果路线成立，多模态预训练将摆脱对配对数据的依赖——这正是当前多模态 scaling 的关键瓶颈。21 页、4 图、16 表，NeurIPS 主会接收，思路干净利落，VLM 训练范式值得关注的一篇。"
-    },
-    {
-      "arxivId": "2610.20665",
-      "authors": [
-        "Ningxin Pan",
-        "Hanyu Li",
-        "Yeqing Shen",
-        "Ning Ding",
-        "Yehui Tang",
-        "Wentao Zhang"
-      ],
-      "category": "递归自改进 RSI",
-      "publishedAt": "2026-10-16",
-      "title": "The World Won't Wait: Evaluating and Teaching Agents Under a Live Clock",
-      "url": "https://arxiv.org/abs/2610.20665",
-      "zhSummary": "预印本。现有 agent 评测大多“暂停世界”等模型想完，而真实环境不会等人：本文提出 RealtimeBench，180 个任务、6 类游戏，评估时游戏持续运行、推理耗时计入胜负。有意思的对照：GPT-6.1-sol 在暂停评测下强于更快的 Jev，实时环境下反而落后。方法上提出 TORSI（双时间尺度离线递归自改进）：慢速 teacher 在对局间隙研究失败、写出可复用的指令，快速 student 对局中只执行不调用 teacher，验证分数决定采纳哪些更新。两轮下来 Jev 平均分从 13.51 涨到 24.19，六类游戏全线提升，指令还能零调参迁移到另外三个模型。这是 RSI 落在“实时智能”场景的一次完整演示：把深思熟虑和快速行动解耦到不同时间尺度。"
-    },
-    {
-      "arxivId": "2610.21055",
-      "authors": [
-        "Yufa Zhou",
-        "Yichen Wang",
-        "Jiakun Fan",
-        "Ziqi Shu",
-        "Zhichao Liu",
-        "Anru R. Zhang",
-        "Neiwen Ling",
-        "Zijun Wei"
-      ],
-      "category": "智能体",
-      "publishedAt": "2026-10-16",
-      "title": "Athanor: An Agent-Native System for Autonomous Post-Training Research",
-      "url": "https://arxiv.org/abs/2610.21055",
-      "zhSummary": "预印本。把递归自改进做成今天可测量的弱形式：让前沿 agent 在真实 GPU 上、用公开数据给一个小 base 模型做完整 post-training（称为 AutoPostTrain），以此检验 agent 的科研能力。系统 Athanor 开源：agent 拥有完整研究自主权——读数据集和评估结果、构造训练数据、编写和修改训练算法、调超参、分析结果决定下一步，全程跑在沙箱里且禁用外部 teacher 模型。配套提供冻结评估、任务调度、去污染数据、持久研究记录等服务。这是“AI 做 AI 研究”能力的一套可复现评测与工程基础设施，RSI 方向值得跟踪。"
-    },
-    {
-      "arxivId": "2610.20939",
-      "authors": [
-        "Panrong Tong",
-        "Quyu Kong",
-        "Pengxiang Li",
-        "Tianyu Xia",
-        "Hanzhang Zhou",
-        "Lei Wang",
-        "Chenglin Cai",
-        "Long Li",
-        "Long Chen",
-        "Jianan Zhang",
-        "Zhengwen Zeng",
-        "Xu Zhang",
-        "Gongjie Zhang",
-        "Yue Wang",
-        "Steven Hoi"
-      ],
-      "category": "智能体",
-      "publishedAt": "2026-10-16",
-      "title": "MAI-Gym: An Open All-in-One Platform for GUI Agent Evaluation and RL Training across Mobile and Computer Environments",
-      "url": "https://arxiv.org/abs/2610.20939",
-      "zhSummary": "预印本。带可验证奖励的在线 RL 在数学、代码和工具调用上进展神速，但在 GUI agent 上一直卡在交互环境太贵、真实任务太少。MAI-Gym 把 GUI agent 的评估、数据采集、在线 RL 训练统一到同一套 rollout 管线，横跨手机、电脑、网页三类环境。支持 10 个既有 benchmark，可扩展到 20000 并行环境实例，还能自动合成多样化 GUI 应用和挑战性任务，包括可重置的 mock 应用、跨应用连贯世界和带执行验证的任务校验器。开源平台 + GUI agent RL 训练的完整链路，computer-use 方向的实用基础设施。"
-    },
-    {
-      "arxivId": "2610.21182",
-      "authors": [
-        "Jingjie Qiu",
-        "Sheldon Yu",
-        "Xunyi Jiang",
-        "Jiajin Liu",
-        "Zihan Huang",
-        "Zhendong Chu",
-        "Tong Yu",
-        "Julian McAuley",
-        "Junda Wu"
-      ],
-      "category": "推理",
-      "publishedAt": "2026-10-16",
-      "title": "Does Latent Chain-of-Thought Actually Reason? A Single, Unifying Taxonomy for Latent Reasoning",
-      "url": "https://arxiv.org/abs/2610.21182",
-      "zhSummary": "预印本。Latent CoT 把显式推理步骤换成连续隐状态，多算几步再答题——但这些隐状态到底在算什么？本文在 21 个模型-任务配置（3 种训练配方、3 种推理任务、2 个 backbone）上，用链删除、内容替换、探针和轨迹分析三管齐下检验。关键发现：在逻辑任务上，COCONUT 的隐链常常在链条开始前答案已经可读，状态很早收敛，删掉整条链预测几乎不变；逐 token 监督则会产生有序的推理布局。结论偏冷峻：高准确率和可解码的中间答案，并不能证明模型真的“用”隐链在推理。这是对 latent reasoning 热潮一次扎实的证伪式检验，推理机理方向必读。"
-    },
-    {
-      "arxivId": "2610.21286",
-      "authors": [
-        "Tanush Kalhan",
-        "Anupam Chattopadhyay",
-        "Sriram Ranga",
-        "Amritendu Mukherjee"
-      ],
-      "category": "推理",
-      "publishedAt": "2026-10-16",
-      "title": "The Density of Thought: Predicting and Steering Reasoning in Large Language Models",
-      "url": "https://arxiv.org/abs/2610.21286",
-      "zhSummary": "预印本。CoT 每一步的信息密度能否预测答案对错、能否作为可控的推理时优化目标？本文用两个独立度量（LP 方差：信息在各步间分布的不均匀程度；Caveman 压缩比）测量冻结预训练模型每步推理的信息密度。在 6 个模型规模、2 种训练范式、60 道 GSM8K 上的实验给出四个主要发现：SFT 模型中低 LP 方差能预测正确，但该关系随规模减弱、在 RL 蒸馏模型中甚至反转。信息密度是推理质量的一个可观测代理信号，可以做推理时的干预目标。推理机理方向小而精的实证工作，9 页 7 表。"
-    },
-    {
-      "arxivId": "2610.21555",
-      "authors": [
-        "Mushir Akhtar",
-        "Hazem N. Nounou",
-        "Majdi Mansouri",
-        "Mohamed N. Nounou"
-      ],
-      "category": "机器学习理论与优化",
-      "publishedAt": "2026-10-16",
-      "title": "When Does Muon Actually Win? A Paired Data-, Time-, and Tuning-Budget Benchmark",
-      "url": "https://arxiv.org/abs/2610.21555",
-      "zhSummary": "已接收 NeurIPS 2026 Workshop（Optimization for Machine Learning）。Muon 号称数据效率更高，但到底在什么预算下真赢？本文在单张 A100、严格配对的数据/时间/调参预算下让 Muon 与 AdamW 正面对打：17.7M/33.6M 参数的因果语言模型 + 2.7M 参数 ViT，23 个候选配置的开发预算、5 个随机种子、完整验证轨迹、冻结一次性测试。结果：等数据下 Muon 验证损失 AUC 降低 3.25–22.44%，20 组主对比测试损失全胜；视觉任务时间归一化 AUC 提升约 20%，语言任务上 AdamW 反超 3–7%。代价是 Muon 完整调用占训练时间 56–70%（AdamW 仅 6–9%）。想换优化器的人，这组对照实验必看。"
-    },
-    {
-      "arxivId": "2610.20776",
-      "authors": [
-        "Thuy Dung Nguyen",
-        "Jingyi Guo",
-        "Rana Seda Dubauskas",
-        "Sreepriya Damuluru",
-        "Taylor T. Johnson",
-        "Kevin Leach"
-      ],
-      "category": "AI 安全与可解释性",
-      "publishedAt": "2026-10-16",
-      "title": "INFUSE: A Unified Surface Benchmark for Indirect Prompt Injection in Agentic Systems",
-      "url": "https://arxiv.org/abs/2610.20776",
-      "zhSummary": "预印本。LLM agent 越来越多地执行长程端到端工作流（shell 命令、改代码、装依赖、调远程服务），也越来越暴露在间接提示注入（IPI）之下：外部内容里藏的恶意指令被当成合法任务指令执行。已有评测多聚焦孤立恶意字符串或单步工具调用，INFUSE 是首个覆盖长程 agent 工作流全生命周期的 IPI 端到端 benchmark：40 个真实任务、56 种攻击场景、5 大威胁类别，攻击通过任务执行中真实遇到的交互面注入，而不只放在初始 prompt 里。这是 agent 安全评测从“字符串级”升级到“工作流级”的一步，做 agent 落地和安全都值得看。"
-    },
-    {
-      "arxivId": "2610.21882",
-      "authors": [
-        "Weilin Ruan",
-        "Bohan Zhou",
-        "Jinghao Li",
-        "Yangkai Wei",
-        "Wenqian Li",
-        "Peiran Dong",
-        "Yingjie Xu",
-        "Leyi Wu",
-        "Haojian Huang",
-        "Binghui Xie",
-        "Han Yang",
-        "Kaiwen Zhou",
-        "Yinchuan Li",
-        "Ying-Cong Chen",
-        "James Cheng"
-      ],
-      "category": "具身智能与机器人",
-      "publishedAt": "2026-10-16",
-      "title": "Anvil: Scaling Embodied Spatial Intelligence through Knowledge Recirculation",
-      "url": "https://arxiv.org/abs/2610.21882",
-      "zhSummary": "预印本。具身空间智能不只是视觉识别：模型要定位实体、推理关系，并把知识表达成行动可用的形式。Anvil 是统一的数据生成-训练-benchmark 框架：Anvil-Gen 是跨 11 种 Ground-Relation-Act 形式的数据飞轮，含形式特定生成、跨阶段一致性校验、失败驱动回放；Anvil-Ben 提供场景对齐的监督与评估，能区分“阶段能力”与“误差传播”；Anvil-MOPD 是一个 9B student，把异构知识蒸馏整合。28 页 7 图，具身/VLA 方向的数据与评测基础设施。"
-    },
-    {
-      "arxivId": "2610.21074",
-      "authors": [
-        "Gideon Shaked",
-        "Siddharth Nagisetty"
-      ],
-      "category": "AI for Science",
-      "publishedAt": "2026-10-16",
-      "title": "OmicsBench: a long-horizon multi-turn benchmark of AI agents on research-study-scale bioinformatics",
-      "url": "https://arxiv.org/abs/2610.21074",
-      "zhSummary": "预印本。计算生物学家越来越多地把大块分析交给 AI agent 做长程多轮会话，但现有生物信息 benchmark 大多是单轮单任务。OmicsBench 是长程多轮生物信息 benchmark：97 个任务、662 个子任务连成有向无环图，每个子任务作为一轮用户提问、按答案确定性评分，还可选上下文反馈。12 个模型 × 3 个 harness 的结果：最慢的 agent 平均每任务 3.6 小时，没有任何组合接近饱和（无反馈 0.43–0.57/1，有反馈 0.54–0.67）；多轮评估还挖出了单轮 prompt 完全看不到的行为模式。AI for Science 与长程 agent 评测的交叉点，32 页 12 图，内容扎实。"
-    },
-    {
-      "arxivId": "2610.22370",
-      "title": "Which Tokens to Merge? Diffusion Dynamics for Efficient Image Generation",
-      "authors": [
-        "SeungJu Cha",
-        "Ye-Chan Kim",
-        "HyunGee Kim",
-        "Sungho Koh",
-        "Dong-Jin Kim"
-      ],
-      "url": "https://arxiv.org/abs/2610.22370",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "已接收 NeurIPS 2026。Token 合并是免训练加速扩散模型的主流手段，但已有方法只按文本相关性保留前景 token，容易破坏背景物体的结构连贯性。这篇提出 Dynamics-aware Token Merging（DaTMe），从扩散去噪动力学出发构建重要性图：结合步间预测变化的时间信号与高频结构信号，区分出“已稳定、可安全合并”的 token 和需要保留的锚点。在 PixArt-α 与 FLUX 上的实验表明，DaTMe 在整幅图像上保持了视觉保真度。值得看的是它把“哪些 token 能合并”的决策问题扎根到了去噪过程本身，为免训练推理加速提供了一个干净的原则。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.22232",
-      "title": "WaveLLM: Wavelet-Domain LLM Entropy Modeling for Lossless Image Compression",
-      "authors": [
-        "Yue Yu",
-        "Bowei Kang",
-        "Changsheng Gao",
-        "Dong Liu",
-        "Xiaoyan Sun"
-      ],
-      "url": "https://arxiv.org/abs/2610.22232",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "已接收 ACM Multimedia 2026。无损图像压缩的关键在于熵建模，近期流行用 LLM 建模，但直接把像素或残差序列塞进单一预测流会把异质信号模式纠缠在一起。WaveLLM 换了思路：先把图像分解成多级小波子带，把异质的预测问题拆成一组更规整、更均匀的子问题，再用 LoRA 微调的 Llama-3.2-3B（数值接口加任务自适应提示）做自回归概率估计。在 Kodak、CLIC.pro、DIV2K 上达到 2.51、2.24、2.27 bpsp，超越同小波变换的 PixelCNN 基线和近期 LLM 压缩器。这篇的看点在于它论证了“表示的可预测性”与模型容量同样重要。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.22186",
-      "title": "EVA-Cap: Optimizing Audiovisual Video Captioning via Event-Centric Alignment",
-      "authors": [
-        "Jiapeng Shi",
-        "Qiuxia Hou",
-        "Jiaqi Leng",
-        "Junke Wang",
-        "Yanhao Zhang",
-        "Haonan Lu",
-        "Ziyi Ye",
-        "Zuxuan Wu"
-      ],
-      "url": "https://arxiv.org/abs/2610.22186",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "已接收 NeurIPS 2026。现有音视频字幕方法把字幕当无结构文本生成，忽略了视频本身的语义结构，导致细粒度音画对齐不佳。EVA-Cap 把字幕拆成原子级音视频事件，用事件中心的对齐目标（全局事件完整性、事件内归因、事件间同步）替代无结构监督；训练分 SFT 加 GRPO 两阶段，数据是自建的事件级质检数据集 EVA-Data。实验在 ChronusAV 事件评测上平均提升 9.0%，通用音画字幕基准 WorldSense 上也有 3.3% 提升。对做多模态对齐和 RLVR 的人，这套“把监督结构化”的流程很值得借鉴。",
-      "category": "视觉语言模型"
-    },
-    {
-      "arxivId": "2610.22355",
-      "title": "OmniVerifier-C1: Decomposed Graded Verifier for Rule-Governed Generative World Modeling",
-      "authors": [
-        "Bowei Liu",
-        "Xinchen Zhang",
-        "Xuhuan Li",
-        "Tianlin Zhang",
-        "Kaian Jiang",
-        "Jingwei Liu",
-        "Congyang Zhao",
-        "Yifei Qian",
-        "Junhong Liu",
-        "Zhiheng Li",
-        "Yujiu Yang",
-        "Yang Cai",
-        "Ling Yang"
-      ],
-      "url": "https://arxiv.org/abs/2610.22355",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "NeurIPS 2026（comment 标注会议）。视觉 verifier 多是二值判断（True/False），在组合式复杂提示下判别信号太粗。OmniVerifier-C1 自动把复杂提示或环境规则拆成细粒度子问题并打连续分，提供更丰富的 critique 信号；训练用 Decoupled RL 策略联合优化子问题二值判断与全局对齐打分。实验显示逐点打分 verifier 在文生图场景显著优于二值 verifier，并推广到迷宫、数独等规则驱动的生成式世界建模任务。作者的核心观点是：从生成模型走向结构化世界建模智能体，关键在于有没有准确的成对分级视觉 verifier。",
-      "category": "后训练与对齐"
-    },
-    {
-      "arxivId": "2610.22372",
-      "title": "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation",
-      "authors": [
-        "Zhixu Li",
-        "Keqian Tang",
-        "Litian Gong",
-        "Jingyu Yao",
-        "Wenqian Zhang",
-        "Tianze Xu",
-        "Zehao Wang",
-        "Yuping Wang",
-        "Junge Zhang",
-        "Jiachen Li"
-      ],
-      "url": "https://arxiv.org/abs/2610.22372",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "NeurIPS 2026（comment 标注会议）。通用机器人进家庭的关键是个性化，但现有研究缺乏把“任务完成”和“偏好满足”分开评测的受控基准。LIBERO-PeRM 基于 LIBERO 构建：5 个任务套件、312 个任务，用程序化管线生成带偏好与不带偏好的成对演示，覆盖运动、技能、用户画像三类语言可表达偏好，围绕五个问题设计评测（零样本偏好跟随、从演示学习、数据效率、跨布局泛化、偏好组合与冲突）。实验发现当前 VLA 策略零样本个性化很弱，SFT 能让偏好可学，但偏好的分解与冲突处理仍是难题。做具身与偏好学习的值得收藏这个 benchmark。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.22353",
-      "title": "Rethinking Routing Exploration in Modern Mixture-of-Experts",
-      "authors": [
-        "Bingcong Li",
-        "Hao Ma",
-        "Michael Muehlebach",
-        "Niao He",
-        "Yi Ma"
-      ],
-      "url": "https://arxiv.org/abs/2610.22353",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "现代 MoE 越来越同时采用细粒度专家切分和共享专家，但两者存在探索困境：共享专家降低 token 表征的方差、削弱路由探索，而细粒度切分又因路由空间组合爆炸更需要探索，导致细粒度带来的表达力在实践中无法兑现。这篇提出 MirrorMoE，用 token 自适应的方式抑制不必要的专家来收缩探索空间，在多个模型规模上稳定提升性能。想理解 MoE 路由行为、设计下一代稀疏架构的人必读。",
-      "category": "大模型预训练与 Scaling"
-    },
-    {
-      "arxivId": "2610.22347",
-      "title": "Speculative Forcing for Efficient Autoregressive Video Generation",
-      "authors": [
-        "Hyunwook Choi",
-        "Seungryong Kim",
-        "Dongyoon Han",
-        "Sangdoo Yun"
-      ],
-      "url": "https://arxiv.org/abs/2610.22347",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "少步自回归视频生成器支持流式生成，但每个 token 都要跑满全部去噪步，计算浪费严重。Speculative Forcing 把中间的干净估计当作 draft，逐 token 预测何时可以提前接受并冻结，后续只用缓存的 KV 做上下文；verifier 有免训练版和学习版两种。实验在短视频、长视频、世界生成上都保持了全步采样质量：LongLive 上平均每 token 约 1.7 步去噪、提速超 1.5 倍（41.7 与 37.8 fps）。这是 speculative decoding 思想在视频生成上的扎实落地，高效推理方向值得细读。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.22344",
-      "title": "MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
-      "authors": [
-        "Shangheng Du",
-        "Jinxin Shi",
-        "Shuaiyu Zhang",
-        "Yiming Wu",
-        "Junpeng Zhao",
-        "Shiyang Feng",
-        "Xin Li",
-        "Liang He",
-        "Xiangchao Yan",
-        "Bo Zhang"
-      ],
-      "url": "https://arxiv.org/abs/2610.22344",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "把“AI 造 AI”（AI4AI）当作通向递归自改进（RSI）的路径，这篇做了个 35B MoE 的通用机器学习工程智能体 MLExpert。方法是后训练组合拳：分层 agentic SFT 迁移工具使用与代码能力，Windowed Interaction RL（WIRL）把两次实验结果之间的多轮决策当作执行窗口共享基于结果的奖励，异步采集加策略修正支持轨迹结束前就更新。在 MLE-Bench Lite 上奖牌率从基座的 37.9% 提到 72.7%，追平 Kimi-K3、GLM-5.3 等更大前沿模型，且优化能力泛化到 NatureBench 和算法优化任务。附带开源了 Kaggle-MLE Factory 任务构建管线。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.22331",
-      "title": "KnowGPO: Knowledge-Grouped Policy Optimization for Search Agents",
-      "authors": [
-        "Siqi Chen",
-        "Zhengxi Lu",
-        "Yuchen Yan",
-        "Xingyu Wu",
-        "Qipeng Chen",
-        "Xin Zhang",
-        "Aiting Liu",
-        "Chao Deng",
-        "Jie Liu",
-        "Jin Ma",
-        "Weiming Lu",
-        "Jun Xiao",
-        "Yongliang Shen"
-      ],
-      "url": "https://arxiv.org/abs/2610.22331",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "深度搜索智能体的信用分配很难：整条轨迹只有一个终端奖励，而检索上下文又长又噪。KnowGPO 不按表面轨迹状态、而按“已获取的任务相关知识”来对齐轨迹：把解题所需信息拆成原子知识条件，用满足的子集表示每步状态，知识状态相同的轨迹组内比较，连续步之间的知识增量作为环境锚定的过程奖励。在 Xbench、BrowseComp-ZH、GAIA 上稳定超过 outcome-only 的 GRPO 和过程监督基线 3.8 到 4.2 个点，8B 模型打平多数 32B 开源系统。做搜索智能体和过程奖励建模的值得看。",
-      "category": "后训练与对齐"
-    },
-    {
-      "arxivId": "2610.22330",
-      "title": "Designing Transformers for Continuous Diffusion Language Models",
-      "authors": [
-        "Weijian Luo",
-        "Yujian Chen",
-        "Hao Jiang",
-        "Guang Cheng",
-        "Tianyang Hu"
-      ],
-      "url": "https://arxiv.org/abs/2610.22330",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "连续扩散语言模型（CDLM）做并行文本生成，但现有工作直接套用因果 LLM 或 DiT 的 transformer 架构，并未针对 CDLM 优化。这篇做了系统性的架构研究，提出 Language Diffusion Transformer（LangDiT）：特征与 QK 归一化、更宽的噪声条件、似然捷径梯度路由与校准、置信门控的自条件训练。在 OpenWebText 1024-token 无条件生成上，1024 NFE 时生成困惑度 21.72（SOTA），128 NFE 时 44.72；Plaid 式变体也刷新纪录。关键结论是：架构设计本身是 CDLM 提升的重要来源，而非训练目标或采样器。",
-      "category": "大模型预训练与 Scaling"
-    },
-    {
-      "arxivId": "2610.22192",
-      "title": "Terminal-RSI: Recursive Self-Improving Terminal Agents via Recursive Self-Rewrite and Policy-Refinement",
-      "authors": [
-        "Junyao Yang",
-        "Zongxia Li",
-        "Yucheng Shi",
-        "Zhongzhi Li",
-        "Ruhan Wang",
-        "Ruiwen Zhou",
-        "Haitao Mi",
-        "Shuicheng Yan",
-        "Leowei Liang"
-      ],
-      "url": "https://arxiv.org/abs/2610.22192",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "终端智能体的递归自改进怎么做？Terminal-RSI 交替执行两步：先用验证器确认的轨迹做递归自重写（RSR），再把评论家继承下去做递归策略精炼（RPR），并配套了跨回合的 GAE 变体（TB-GAE）与家族稠密奖励、成功优先奖励等设计。从 Qwen3.8-27B 出发经过五轮迭代得到 Terminal-RSI-27B，在 Terminal-Bench 2.1 上达到 86.52%、Hard 版 79.00%，SWR100 成功率从 3% 翻倍到 6%。值得看：它是 RSI 方向少见的端到端验证案例——自重写与策略精炼互相接力，把「局部修修补补」推向「严格任务闭环」。",
-      "category": "递归自改进 RSI"
-    },
-    {
-      "arxivId": "2610.22319",
-      "title": "A team of Gemini 4 Argon agents beats Minecraft",
-      "authors": [
-        "Maxence Faldor",
-        "Satinder Singh",
-        "Roberta Raileanu"
-      ],
-      "url": "https://arxiv.org/abs/2610.22319",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "四个 Gemini 4 Argon 智能体在沙盒版《我的世界》生存模式里自行组队打败末影龙：每个智能体通过 Mineflayer 控制一个玩家，用游戏内聊天和共享记忆协作，无人指定分工、没人写游戏逻辑，智能体自己规划、编写、调试了 2783 个程序，历时 27 小时 14 分、死了 605 次后通关。据作者称这是 AI 智能体首次端到端自主通关 Minecraft，全程只用标准 Mineflayer 库。值得看：横跨上千个依赖步骤、持续一天以上的长程规划与多智能体协作，正是复杂软件工程任务需要的同种能力，是一次极限压力测试。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.22290",
-      "title": "EliteReplay: Preserving Diverse Solutions in RL Post-Training via Quality-Diversity Search",
-      "authors": [
-        "Hanane Nour Moussa",
-        "Doeun Lee",
-        "Sachin Kumar"
-      ],
-      "url": "https://arxiv.org/abs/2610.22290",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "RL 后训练会让模型解法变单一：EliteReplay 把 GRPO 与「精英档案」结合——训练前用冻结的基座模型收集覆盖不同思路的解法构成 quality-diversity 档案，训练时 GRPO 目标加上对档案的重放损失。结果是后训练模型准确率提升的同时保留了更多基座模型的多样解法：在多个 text-to-SQL 任务上 pass@128 超过所有基线，正确策略多样性比最强基线多 77%，在歧义问题集 AmbiQT 上对歧义的覆盖率高出近一倍。值得看：它把「解法多样性」变成了可训练、可优化的目标，对代码生成、数学证明等多解法场景有直接借鉴意义。",
-      "category": "后训练与对齐"
-    },
-    {
-      "arxivId": "2610.22194",
-      "title": "AutoSFT: An Agentic System for Automated Data Research in Supervised Fine-Tuning",
-      "authors": [
-        "Bingxiang He",
-        "Pengqi Sun",
-        "Shihao Peng",
-        "Shaoxuan Li",
-        "Huiyu Xiao",
-        "Hongjian Shi",
-        "Zixuan Fu",
-        "Ziqing Qiao",
-        "Yuxin Zuo",
-        "Cheng Qian",
-        "Xinqiang Yu",
-        "Jiayi Li",
-        "Xiusi Chen",
-        "Yizhen Song",
-        "Xiangyang Wang",
-        "Iofai Lei",
-        "Yudong Wang",
-        "Ning Ding",
-        "Zhiyuan Liu",
-        "Xiaozhi Wang",
-        "Chaojun Xiao"
-      ],
-      "url": "https://arxiv.org/abs/2610.22194",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "SFT 数据工程能不能交给智能体全自动做？AutoSFT 设计了一套数据动作空间（调比例、剪枝、修复、替换、合成），并用多智能体分工解决单智能体上下文被执行输出塞满的问题：执行器与分析器分离、多个独立视角提方案、合成子智能体补数据池缺口。固定模型、训练器与预算做消融：执行器减半上下文丢失、分析子智能体带来 +6.5 IFEval、合成再加 +3.4 IFEval，同一套流程迁移到代码任务上 MBPP+ 提升 +3.7。值得看：结论是自动化 SFT 数据研究的关键在于覆盖多样的数据动作而非某一个强动作，对后训练数据管线设计有启发。",
-      "category": "后训练与对齐"
-    },
-    {
-      "arxivId": "2610.22292",
-      "title": "CAT-alyzing Honesty: Continuous Adversarial Training for Transferable LLM Honesty",
-      "authors": [
-        "Yuan-Chen Chang",
-        "Niklas Herbster",
-        "Gauthier Gidel",
-        "Tommaso Tosato"
-      ],
-      "url": "https://arxiv.org/abs/2610.22292",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "对齐训练后模型仍会说谎：CATCH 把原本用于稳健拒答的连续对抗训练改用到诚实性上——训练模型走向诚实回答、远离不诚实回答，同时用精心挑选的效用数据保住能力。在 Llama-3.3-70B-Instruct 和 Qwen3-3.6-27B 上，仅用数百个自我报告场景构造的目标，学到的诚实行为就能跨基准迁移：在 MASK 上减少压力下的不诚实、在多智能体博弈中增加自首、在 AuditBench 上提高隐藏行为发现率，效果超过 prompt 和 SFT、与诚实性激活转向相当但更好地保住了效用。值得看：诚实性也可以对抗训练的方式内化进权重，对高风险场景的对齐有参考价值。",
-      "category": "后训练与对齐"
-    },
-    {
-      "arxivId": "2610.22289",
-      "title": "Improving Environment-Agnostic Coding Agents: The Role of Scaffolding",
-      "authors": [
-        "Sergey Rodionov"
-      ],
-      "url": "https://arxiv.org/abs/2610.22289",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "模型越强，开发者提供的脚手架还有用吗？作者用一个 Codex 智能体在 ARC-AGI-3、AGI Maze、Terminal-Bench 上测试：只改一条提示词（鼓励上报困难、交还控制权以自动续跑），通用智能体在两个环境上都提升，但仍达不到专用参考智能体的水平；把重置决策交给遵循既有约定的脚本控制器后，补回了部分差距。结论是「信息和工具可用」不等于「用得好」，对测试的模型而言人工提供的流程组织仍然重要。值得看：它给「通用智能体 vs 环境特化」的争论提供了干净的实证，还开源了 EnvTraverse 评估框架。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.22146",
-      "title": "FastVLA: Task-Conditioned and Temporally Adaptive Visual Token Compression for Efficient Vision-Language-Action Models",
-      "authors": [
-        "Jiuyi Xu",
-        "Chengyuan Qian",
-        "Zhengzhong Tu",
-        "Yang Sui",
-        "Yangming Shi"
-      ],
-      "url": "https://arxiv.org/abs/2610.22146",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "VLA 模型的闭环部署卡在视觉 token 太多：FastVLA 是免训练的任务感知 token 压缩框架，每步用任务-视觉注意力给 token 打分，并用逆辛普森指标在线自适应设定压缩率（解决各步 token 预算差异大的问题）。在 OpenVLA、OpenVLA-OFT、CogACT 上 LLM 主干 FLOPs 降 35-59%、动作延迟降 9-32%，成功率基本不变；真机 Franka 机械臂上端到端延迟降 20%。值得看：即插即用的训练无关压缩，部署机器人策略时可以直接拿来用，代码已开源。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.22178",
-      "title": "REKI: Registering Knowledge in VLAs",
-      "authors": [
-        "Juliette Marrie",
-        "Paul Pacaud",
-        "Adrien Ramanana Rahary",
-        "Shizhe Chen",
-        "Moritz Böhle"
-      ],
-      "url": "https://arxiv.org/abs/2610.22178",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "2.4B 参数的 VLA 模型 REKI 完全用公开数据预训练，在 LIBERO-Plus、RoboTwin、RoboCasa365 上达到新的性能-参数帕累托前沿——只有两倍参数量的模型才能超过它。架构是 VLM 加 flow-matching 动作专家，关键设计是在动作专家里加少量 register token，把每帧 VLM 输出的摘要存进专家缓存，几乎零成本获得近期记忆，使姿态震荡减少约四倍。代码、数据管线、训练推理评估部署全开源，权重全放出。值得看：小参数 VLA 的实用路线图，复现门槛低。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.22324",
-      "title": "Training Reasoning Models to Generate Diverse Scientific Ideas",
-      "authors": [
-        "Manya Wadhwa",
-        "Pranav Narayanan Venkit",
-        "Hiroaki Hayashi",
-        "Yu Li",
-        "Tuhin Chakrabarty",
-        "Chien-Sheng Wu"
-      ],
-      "url": "https://arxiv.org/abs/2610.22324",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "LLM 生成科研点子大多只优化单个点子质量、忽略多样性：作者研究文档锚定的点子生成，用集合级 RL 目标训练——一次生成 K 张结构化点子卡，每张的质量按与之前点子的距离加权，逼模型每张新点子都远离前面的。训练出的 8B 模型在创意效用（质量×多样性）上超过 Claude Opus 4.8 和 GPT-6 Astra，四位专家的盲评认为与 Opus 4.8 相当且独特想法略多；让代码智能体对点子跑验证实验，成功率与 Opus 4.8 相当，多样性没有牺牲可执行性。值得看：科研自动化管线里「发散思维」的可训练化方案。",
-      "category": "推理"
-    },
-    {
-      "arxivId": "2610.22155",
-      "title": "Realtime-Bench: Can Frontier Models Solve Real-time Interactive Problems?",
-      "authors": [
-        "Jingyu Tang",
-        "Xu Yang",
-        "Zhehao Zhang",
-        "Zheng Wang",
-        "Qi Cheng",
-        "Haozhe Zhao",
-        "Manling Li",
-        "Wenxuan Li",
-        "Xide Xia",
-        "Jiaxin Pei"
-      ],
-      "url": "https://arxiv.org/abs/2610.22155",
-      "publishedAt": "2026-10-15",
-      "zhSummary": "实时交互要求智能体在环境不断演化的同时限时行动，但现有评测只测对话质量和流式感知：Realtime-Bench 是一套动态任务集，动作延迟直接影响成败，并用「墙钟 / 暂停钟 / Token 钟」三种计时把推理延迟、模型实时能力、时间感知解耦。结果是前沿模型在墙钟模式下最好成功率仅 44%、Pass^3 仅 36%，更多推理努力在时间压力下效果参半——决策质量与及时行动存在权衡。值得看：给实时多模态智能体指了改进方向（带时间感知 的自适应推理、连续感知-行动），也提醒做 agent 评测时别忽略延迟维度。",
-      "category": "评测基准"
-    },
-    {
-      "arxivId": "2610.15708",
-      "title": "SpecForge: Recursive Self-Improvement for Coding Agents via Behavioral Specifications",
-      "authors": [
-        "Yutong Cheng",
-        "Haifeng Chen",
-        "Peng Gao",
-        "Wei Cheng"
-      ],
-      "url": "https://arxiv.org/abs/2610.15708",
-      "publishedAt": "2026-10-11",
-      "zhSummary": "已接收 NeurIPS 2026（主会）。冻结权重的编程智能体也能递归自改进吗？SpecForge 把「行为规格」（描述程序实体行为的自然语言文档）作为自改进的载体：智能体按当前规格生成代码、用可执行的测试验证、再根据失败回头修订规格，形成闭环。核心难点是程序实体相互依赖——修好一个实体的规格可能意外拖累其他实体的正确性，作者为此设计了协调修订机制。在真实代码库上的实验显示智能体的代码正确率随迭代轮次稳定提升。值得看：把 RSI 落到可验证的软件工程场景，给「智能体自我改进」提供了一条不碰模型权重的务实路线。",
-      "category": "递归自改进 RSI"
-    },
-    {
-      "arxivId": "2610.16343",
-      "title": "Efficient Multi-Agent Reasoning via Confidence-Guided Adaptive Debate",
-      "authors": [
-        "Seungdong Yoa",
-        "Ye Seul Sim",
-        "Suhee Yoon",
-        "Sanghyu Yoon",
-        "Dongmin Kim",
-        "Soonyoung Lee",
-        "Bumsoo Kim",
-        "Junhyun Lee"
-      ],
-      "url": "https://arxiv.org/abs/2610.16343",
-      "publishedAt": "2026-10-12",
-      "zhSummary": "已接收 ICML 2026。多智能体辩论真能提升大模型的推理能力吗？近期理论指出，对称辩论在期望上是中性的，很多时候还不如多数投票。这篇工作认为辩论只在「非中性区间」配合合适的结构才有效，提出 LASE：领导者-支持者非对称架构，只在需要时选择性触发有向信息流动放大有效信号，其余情况退回简单聚合。在多类推理基准上取得一致提升。值得看：给火热的多智能体辩论泼了一盆冷静水，用理论划定了它「何时值得用」的边界。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.19439",
-      "title": "Progress-Aware Distillation for Mitigating Stagnation in Small Language Model Agents",
-      "authors": [
-        "Yuanpu Cao",
-        "Saket Sathe",
-        "Hanyu Wang",
-        "Ziyi Yin",
-        "Fenglong Ma",
-        "Jinghui Chen"
-      ],
-      "url": "https://arxiv.org/abs/2610.19439",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 NeurIPS 2026。把大模型的智能体能力蒸馏给小语言模型时，交互轨迹一变长，学生智能体就容易「卡住」：困在无效策略的循环里反复试错、毫无进展。作者的系统分析表明这是跨模型、跨任务的普遍现象，并非个例。提出的 Progress-Aware Distillation 在蒸馏中显式建模任务进展信号，让小模型学会识别停滞并主动换策略。值得看：切中了 agent 蒸馏落地时最痛的可靠性问题，对低成本部署智能体有直接参考价值。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.14542",
-      "title": "Are Multimodal Benchmarks Really Useful? Item-Level Multimodal Benchmark Diagnosis via Structure-Response Co-Calibration",
-      "authors": [
-        "Shiqi Zhang",
-        "Weixin Zeng",
-        "Ziheng Zhang",
-        "Jiuyang Tang",
-        "Xiang Zhao"
-      ],
-      "url": "https://arxiv.org/abs/2610.14542",
-      "publishedAt": "2026-10-10",
-      "zhSummary": "已接收 NeurIPS 2026。多模态评测基准真的在测跨模态推理吗？已有研究发现不少题目靠单模态信息或选项规律就能蒙对。这篇提出 SRCoD，一个题目级别的诊断框架：先从题目内容与答案估计样本级的多模态信息结构，再以此为软锚，校准基于模型响应行为的模态依赖判断，把「结构」和「响应」两路信号联合起来做诊断。全文 34 页含附录，诊断粒度细到每一道题。值得看：VLM 评测可信度的「体检仪」，做评测或做模型选型的人都值得看一眼它的方法论。",
-      "category": "视觉语言模型"
-    },
-    {
-      "arxivId": "2610.16084",
-      "title": "The Sharp Directions Are Against You: Curvature Analysis of Activation Steering",
-      "authors": [
-        "Seyedarmin Azizi",
-        "Arya Fayyazi",
-        "Parsa Razmara",
-        "Erfan Baghaei Potraghloo",
-        "Souvik Kundu",
-        "Massoud Pedram"
-      ],
-      "url": "https://arxiv.org/abs/2610.16084",
-      "publishedAt": "2026-10-12",
-      "zhSummary": "已接收 NeurIPS 2026。Activation steering（推理时给内部表示加一个向量来控制行为）是比微调更轻量的行为控制手段，但经典做法 CAA 很脆：很多输入上会把行为推向反方向。作者从几何角度解释这种脆弱性：引入 steering Hessian（行为损失对 steering 向量的二阶导矩阵），其顶部特征向量是「尖锐方向」——沿着它做微小扰动会引起剧烈而不稳定的行为摆动，底部则是平坦方向。去掉尖锐分量后，steering 的行为控制显著更稳健。值得看：把一个玄学调参问题变成了可计算的几何问题，是对齐与可解释性研究里趁手的分析工具。",
-      "category": "AI 安全与可解释性"
-    },
-    {
-      "arxivId": "2610.14428",
-      "title": "Frustratingly Easy Agentic RAG via Portable Skills: A Case Study in Customer Support",
-      "authors": [
-        "Istok Bako",
-        "Bonan Min",
-        "Tiffany Shao",
-        "Claire Cheng",
-        "Yashar Mehdad"
-      ],
-      "url": "https://arxiv.org/abs/2610.14428",
-      "publishedAt": "2026-10-10",
-      "zhSummary": "已接收 EMNLP 2026（Industry Track）。企业客服这类场景的 RAG 通常要堆复杂的文档切分、索引、重排、query 改写管线，这篇来自工业界部署的案例研究走了另一条路：一个「可移植技能」——自然语言指令加轻量工具（检索 API、格式检查脚本），再配上 LLM 生成的导航层语料库，就达到了生产级要求。15 页的实战复盘，细节实在。值得看：反常识的「简单打败复杂」，对想把 agent RAG 真正上线的人是很好的降本参考，思路上也与 Agent Skills 异曲同工。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.19802",
-      "title": "Asymptotically Exact Negative Guidance of Diffusion Models via Positive-Unlabeled Learning",
-      "authors": [
-        "Hirohane Takagi",
-        "Masashi Sugiyama"
-      ],
-      "url": "https://arxiv.org/abs/2610.19802",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 NeurIPS 2026。扩散模型的 negative guidance（让生成避开不想要的条件）现有方法都是往采样过程里注入局部排斥项，没有显式的目标分布，偏差也无法靠增加算力量化地减小。这篇给出了渐近精确的方法：直接对一个显式目标密度做采样，用 avoidance strength 参数化目标分布本身，同时统一处理参考样本和 score 两种指定方式。关键技术是把每一步「样本属于不想要条件的概率」估计，转化为 Positive-Unlabeled 学习问题。值得看：把 negative guidance 从 trick 变成了有理论保证的采样方法，理论味道很正。",
-      "category": "图像视频生成"
-    },
-    {
-      "arxivId": "2610.16261",
-      "title": "Hardware-Friendly Token-Group Activation Quantization for Low-Bit Mamba Super-Resolution",
-      "authors": [
-        "Jinwoo Chung",
-        "Jangho Kim"
-      ],
-      "url": "https://arxiv.org/abs/2610.16261",
-      "publishedAt": "2026-10-12",
-      "zhSummary": "已接收 NeurIPS 2026。Mamba 做超分很高效，但低比特 PTQ 一直难做：selective scan 让不同空间 token 的激活范围差异很大，整层共用一个裁剪区间必然失配。这篇提出 Token-Group Quantization：把偏好裁剪区间相近的 token 分到同一组做组内量化，并用轻量预测器从 scan 前特征预判分组，避免推理时做昂贵的 scan 后分组，对硬件部署友好。代码已开源。值得看：Mamba 系模型部署量化的少见扎实工作，分组量化的思路也可迁移到其他状态空间架构。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.19559",
-      "title": "Learning Visual Speech Representations via Cross-Modal Distillation and Joint Face-Lip Modeling",
-      "authors": [
-        "Jing-Xuan Zhang",
-        "Genshun Wan",
-        "Jianqing Gao",
-        "Jia Pan",
-        "Yumei Zhang",
-        "Lichen Zhang"
-      ],
-      "url": "https://arxiv.org/abs/2610.19559",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 NeurIPS 2026。唇语识别难在视觉语音线索本身模糊，还对头部姿态和视频分辨率敏感。这篇提出 FLARE：用 Whisper 的表征做声学教师信号，经随机投影量化器转成离散蒸馏目标做掩码预测预训练；双流架构同时处理唇部 ROI 和全脸，分别捕捉精细发音动作和整体面部动态，预训练时还引入辅助音频促进跨模态对齐。值得看：把 Whisper 的语义 richness 搬到视觉语音的一次干净实现，是视听跨模态表征学习的参考做法。",
-      "category": "语音"
-    },
-    {
-      "arxivId": "2610.19786",
-      "title": "LiFi: LiDAR Generation from Multi-View Images via Geometric and Semantic Collaborative Guidance",
-      "authors": [
-        "Sizhuo Zhou",
-        "Xiaosong Jia",
-        "Fanrui Zhang",
-        "Qifeng Li",
-        "Junjie Li",
-        "Zirui Wang",
-        "Yukang Feng",
-        "Yu Hong",
-        "Shaofeng Zhang",
-        "Wenlong Liao",
-        "Tao He",
-        "Juyong Zhang",
-        "Junchi Yan"
-      ],
-      "url": "https://arxiv.org/abs/2610.19786",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 NeurIPS 2026。从多视角相机图像生成 LiDAR 点云，可用于可控数据合成、跨模态仿真等自动驾驶相关任务。LiFi 用几何与语义双分支引导 latent diffusion：几何分支经反向采样算法和不确定性感知几何编码器（结合 DepthAnything）从图像构建场景特征，语义分支补全类别信息，两路协同保证生成点云在视觉和几何上都对齐。值得看：自动驾驶仿真数据生成的实用框架，几何加语义双引导的设计对多模态条件生成有借鉴意义。",
-      "category": "图像视频生成"
-    },
-    {
-      "arxivId": "2610.20363",
-      "title": "Fractional is Better: Learnable Derivative Orders in Neural Operator Learning",
-      "authors": [
-        "Fares B. Mehouachi",
-        "Saif Eddin Jabari"
-      ],
-      "url": "https://arxiv.org/abs/2610.20363",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 ICML 2026。神经算子学习函数空间之间的映射，可作 PDE 的快速代理求解器；作者追问：主流方法都只把原始坐标-函数值对当输入，是否浪费了 PDE 的微分结构？他们从 Picard 迭代出发证明：解算子里显式出现输入的导数，给网络提供导数特征可把逼近界从 O(W^-(s-m)/d) 提升到 O(W^-s/d)。核心惊喜是：最优导数阶数 β* 严格小于 PDE 阶数 m——这是频谱空间中偏差-方差权衡的结果，从数据中学习 β 相当于自动频谱正则化。由此提出架构无关的 ∂-NO：给任意神经算子主干加上可学习的分数阶导数特征，在多个基准和架构上一致提升预测精度。值得看：把\"特征工程\"的工程直觉做成了可证明的理论，且即插即用。",
-      "category": "机器学习理论与优化"
-    },
-    {
-      "arxivId": "2610.20350",
-      "title": "Lifted State Policy Optimization: Internalizing Self-Correction through Transition Geometry",
-      "authors": [
-        "Ren Zhuang",
-        "Ben Wang",
-        "Shuifa Sun"
-      ],
-      "url": "https://arxiv.org/abs/2610.20350",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 NeurIPS 2026（原标题\"Self-Correction as Transition Geometry\"）。偏好优化只对最终答案排序、轨迹 RL 只最大化总回报，都没有给\"把错误推理状态变好\"的那一步局部转变得信用。作者提出 LSPO：给每条文本答案配一个学得的连续坐标形成\"提升状态\"，能量函数对其排序，用塑形奖励驱动能量下降（扣除编辑与步数成本），再用内化损失把选出的低能量答案吸收进直接生成器。在 Qwen3.5-27B 上，单次前向策略在数学、科学、代码、逻辑基准上达到 71.8% 总准确率，与测试时反思（71.9%）持平，但延迟低 28%、token 少 25.8%，在 dense 和 MoE 主干上都成立。值得看：把\"自我纠正\"从推理时技巧内化为训练目标，是 test-time scaling 向训练侧搬运的典型思路。",
-      "category": "推理"
-    },
-    {
-      "arxivId": "2610.20335",
-      "title": "Read, Parse, Describe: Unified Document Parsing with Visual Element Description Generation",
-      "authors": [
-        "Yuheng Chen",
-        "Yufan Chen",
-        "Zhuojun Cai",
-        "Ruiping Liu",
-        "Junwei Zheng",
-        "Jiale Wei",
-        "Di Wen",
-        "Weijia Fan",
-        "Kunyu Peng",
-        "Jiaming Zhang",
-        "Rainer Stiefelhagen"
-      ],
-      "url": "https://arxiv.org/abs/2610.20335",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 NeurIPS 2026。文档理解长期被拆成版式分析、OCR、阅读顺序预测、图像描述等孤立模块，科学图表和视觉语义始终连不起来。作者发布 Read-Parse-Describe 统一数据集：给定页面图像，模型要一次性输出带包围盒、语义标签、阅读顺序、识别文本和视觉元素替代文本的完整页面解析——共 2402 篇文档、18163 连续页、12.5 万版式元素。还提出即插即用的空间感知增强器：复用多层视觉特征、把网格感知的空间引导注入视觉-语言 token。实验显示现有系统仍难以同时恢复阅读顺序与视觉语义，而他们增强的模型联合性能最强。值得看：文档解析评测第一次把\"结构正确\"和\"语义可读\"放在同一张考卷里。",
-      "category": "视觉语言模型"
-    },
-    {
-      "arxivId": "2610.20319",
-      "title": "Beyond Static Cues: Unified Dynamic Detection of MLLM Backdoors via Dual-Flow Trajectory Analysis",
-      "authors": [
-        "Yinzhen Huang",
-        "Jiahe Xie",
-        "Yitong Sun",
-        "Ruochen Zhang",
-        "Xingxing Wei"
-      ],
-      "url": "https://arxiv.org/abs/2610.20319",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 ACM MM 2026（Oral）。MLLM 的后门防御长期依赖静态快照——从视觉补丁线索到无监督的内部注意力统计，面对文本注入、亚感知噪声、跨模态协同触发等未知攻击类型时容易被绕过。作者把诊断范式从静态观察转向动态输出演化：成功的攻击必然劫持模型的解码轨迹——生成早期内部模态贡献被扭曲，且输入扰动下输出异常不变。提出 EVO-Detect：通过\"注意力流\"和\"Logits 流\"两个通道监测早期解码步中内部信号的动态演化，实现与攻击类型无关的统一检测。值得看：第一次把\"后门检测\"做成对解码过程的动态监测，而非对输入或权重的静态扫描。",
-      "category": "AI 安全与可解释性"
-    },
-    {
-      "arxivId": "2610.20318",
-      "title": "Efficient Test-Time Adaptation For Robot Policies",
-      "authors": [
-        "Motasem Alfarra",
-        "Pietro Mazzaglia",
-        "Markus Peschl",
-        "Daniel Dijkman",
-        "Christos Louizos"
-      ],
-      "url": "https://arxiv.org/abs/2610.20318",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "已接收 NeurIPS 2026。机器人运动的 RL 策略在部署时遇到地形变化、负载变化、感知退化就会掉链子，而设备端延迟和内存限制下重训或手动校准都不现实。作者研究机器人控制的测试时自适应：在执行过程中无奖励、在线、自监督地微调预训练策略。提出 TEMPO：以冻结的预训练 critic 做部署时性能代理、只更新 actor；加熵正则抑制 critic 过度自信的外推，配基于分数的记忆机制（优先回放思想）聚焦最有信息量的\"困难\"观测。在 MuJoCo Playground 的 Go1/Go2/G1 四类偏移下一致提升，单设备最高提升 80%，还在真实 Unitree Go2 加小腿负载上验证。值得看：把测试时自适应从视觉分类搬到机器人控制，且有真机验证。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.20474",
-      "title": "AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents",
-      "authors": [
-        "Peidong Wang",
-        "Ying Chang",
-        "Zhiming Ma",
-        "Xiaocui Yang",
-        "Shi Feng",
-        "Daqi Liu",
-        "Yuzhe Yang",
-        "Xu Cao",
-        "Chuang Wang",
-        "Jian Su",
-        "Daling Wang"
-      ],
-      "url": "https://arxiv.org/abs/2610.20474",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "预印本。预训练的 VLA 在没见过的长程任务中途失败是常态，递归自改进（RSI）是解药，但现有具身 RSI 要么只优化冻结执行器外围的 harness（加不了缺失的动作），要么在持续失败上盲目微调。AdaRSI 提出\"按需\"RSI：先用 coding agent 改进技能和 harness，再从保存的状态重试失败子步骤做失败归因，只微调仍不可靠的子步骤——演示数据自己采集，经验跨任务迁移。在 RoboCasa365 全部 50 个目标任务上（GR00T N1.5 为执行器、零人工演示），未见过的复合任务成功率从 4.6% 提到 13.8%，且只用全量微调 28% 的 GPU 时间和 22% 的自采演示。值得看：RSI 第一次被做成\"先归因、再按需微调\"的精细流程，而非粗放自训练。",
-      "category": "递归自改进 RSI"
-    },
-    {
-      "arxivId": "2610.20353",
-      "title": "Beyond Expert Rankings: Contrast Calibration for Mixed-Precision MoE Quantization",
-      "authors": [
-        "Renjie Xie",
-        "Juncheng Yang",
-        "Aoting Hu",
-        "Yan Liang",
-        "Mingxi Zhang",
-        "Zheheng Hong",
-        "Wei Xu",
-        "Yanzhi Chen"
-      ],
-      "url": "https://arxiv.org/abs/2610.20353",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "预印本。MoE 大模型每 token 只激活少数专家，但所有专家权重都得存下来；混合精度量化给敏感专家高比特、鲁棒专家低比特，但\"专家排序\"本身决定不了误差该怎么加权。作者提出 NatScale：用模型特定的幂变换把基于梯度的专家权重校准到信息论的对比目标（保持排序），联合评估每个专家的 gate/up/down 配置来估计输出误差，再结合权重谱、方差与精度衰减先验，在存储预算下选择配置。在三个模型、九种设置下相对五个基线取得最低的原生-量化 KL 散度和最高的 top-token 一致性，七种设置下困惑度最低。值得看：MoE 量化的\"配额分配\"第一次有了目标感知的校准框架。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.20497",
-      "title": "Hindsight-Privileged RLVR: Single-Rollout Token Credit Without Group Sampling",
-      "authors": [
-        "Wei Chen",
-        "Yubing Wu",
-        "Zhou Xu",
-        "Haoyue Zhang",
-        "Delu Zeng",
-        "Jiahao Wang",
-        "Junmei Yang",
-        "Pan tiewen",
-        "Jingfeng Liu",
-        "Zhiheng Zhou",
-        "Bo Li",
-        "Min Chen"
-      ],
-      "url": "https://arxiv.org/abs/2610.20497",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "预印本。RLVR（可验证奖励的强化学习）用任务结果训练语言模型，但把终端奖励分给每个推理 token 很难；GRPO 这类组相对方法每 prompt 采样多次，当所有尝试结果相同时学习信号就消失了。作者提出 HP-RLVR，只用单次 rollout：让生成策略的快照分别在因果历史和\"后见\"上下文（含已实现未来 + 验证器反馈）下给每个 token 打分，用两者的 Jensen-Shannon 散度做 token 级信用权重——成功和失败的轨迹都有界信用，无需参考答案和学得的 critic。在 Qwen3-8B 配对实验中，训练速度比 GRPO 快 1.21×（数学）、1.46×（代码）、2.30×（ALFWorld），每 prompt 只用八分之一 rollout。值得看：RLVR 的样本效率瓶颈被单次 rollout + 后见信用分配正面击破。",
-      "category": "后训练与对齐"
-    },
-    {
-      "arxivId": "2610.20518",
-      "title": "The Wealth of Agents: Scaling Agentic AI Across Developers",
-      "authors": [
-        "Austin W. Hanjie",
-        "Carlos E. Jimenez",
-        "Zirui Wang",
-        "Karthik Narasimhan"
-      ],
-      "url": "https://arxiv.org/abs/2610.20518",
-      "publishedAt": "2026-10-14",
-      "zhSummary": "预印本。今天的 agent 系统都是单个开发者全权设计、构建、部署，简化了开发却限制了规模。作者研究多开发者 agent 系统（MDA）：让开发者协作构建 agent 系统，把前沿能力推到任何个人够不到的高度。在 GAIA 通用助手基准上，一群各自不超过 35% 准确率的专业开发者，把各自的 agent 组合进 MDA 后达到 70%，比预算数倍于他们的中位数单开发者系统（SDA）高 12 个百分点。理论模型表明 MDA 能激励专业化、更高效地利用聚合的开发者资源。值得看：把\"agent 规模\"从模型/算力轴搬到\"开发者协作\"轴，是个新鲜的 scaling 视角。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.18638",
-      "authors": [
-        "Fabian Gröger",
-        "Petar Damjanović",
-        "Maria Brbić"
-      ],
-      "category": "后训练与对齐",
-      "publishedAt": "2026-10-13",
-      "title": "To Align or Not To Align: Check Your COMPASS Before You Train",
-      "url": "https://arxiv.org/abs/2610.18638",
-      "zhSummary": "已接收 NeurIPS 2026。把预训练模型组合起来用很常见（视觉编码器对齐到语言模型、合并多个微调 checkpoint），但哪两对模型兼容、过去只能训练完才知道，靠昂贵的试错。这篇提出 COMPASS（兼容性评估分数）：理论上有动机，基于“表示收敛最稳健的是局部邻域层面”这一观察，把兼容性拆成两个廉价可算的轴——pair-specific ease 和 model-specific alignment。训练前先算一分，就能预判对齐/合并是否值得做，省掉大量试错成本。值得看是因为它是模型合并玩家的实用诊断工具，“先诊断再动手”的思路很对味。"
-    },
-    {
-      "arxivId": "2610.18658",
-      "authors": [
-        "Mengyu Li",
-        "Qianqian Qu",
-        "Jun S. Liu"
-      ],
-      "category": "图像视频生成",
-      "publishedAt": "2026-10-13",
-      "title": "BridgeTwist: Twisting Schrödinger Bridges for Training-Free Conditional Sampling",
-      "url": "https://arxiv.org/abs/2610.18658",
-      "zhSummary": "已接收 NeurIPS 2026。生成模型常要服务多个下游条件任务，但为每个任务重训不现实；训练无关（training-free）采样器在 diffusion/flow 模型上已有研究，而 Schrödinger bridge（SB）模型这一环一直缺席——尽管 SB 作为灵活的随机输运模型正受关注。这篇提出 BridgeTwist：把温控 twisted 序贯蒙特卡洛方案套在预训练的无条件 SB 模型上，与任务似然结合，从后验中做条件采样，全程不训练。填补了 SB 模型训练无关条件采样的空白。值得看是因为它补齐了 SB 模型实用化的一块拼图，方法本身也通用。"
-    },
-    {
-      "arxivId": "2610.18656",
-      "authors": [
-        "Weida Liang",
-        "Kenji Kawaguchi"
-      ],
-      "category": "推理",
-      "publishedAt": "2026-10-13",
-      "title": "Bayesian Test-Time Inference of Task-Aligned Similarity from Weak Interactive Feedback",
-      "url": "https://arxiv.org/abs/2610.18656",
-      "zhSummary": "已接收 NeurIPS 2026。语言模型系统在测试时反复做“相似度比较”决策：检索示例、排序候选、修订回答。但“相似”可以是词面、语义、结构或风格，任务对齐的相似标准还随实例变化。这篇提出 BASIS：用测试时的弱反馈（标量分数、成对偏好、验证器输出）做贝叶斯推断，从给定的任务相关准则库中推断当前决策该用哪一套标准，维护候选目标与准则的联合后验并在线更新。全程训练无关。值得看是因为它把测试时自适应形式化成一个干净的贝叶斯问题，检索/排序/重写场景都直接用得上。"
-    },
-    {
-      "arxivId": "2610.18856",
-      "authors": [
-        "Mattie Ji",
-        "Indradyumna Roy",
-        "Vikas Garg"
-      ],
-      "category": "图像视频生成",
-      "publishedAt": "2026-10-13",
-      "title": "Exact Topological Compliance: Generating Persistence-Equivalent Graphs",
-      "url": "https://arxiv.org/abs/2610.18856",
-      "zhSummary": "已接收 NeurIPS 2026。拓扑感知生成模型想让生成图的拓扑（持续同调图 PD）匹配目标描述子，但过去都靠软正则，只能做到近似相似。这篇首次系统研究“精确实现”问题：提出局部（基于度数的迭代构建）和全局两套方法，并证明每个输出都精确实现目标 PD，且所有度数基的 PD 等价图都能被枚举出来。把拓扑合规从“差不多”推进到“精确可证”。值得看是因为它把 TDA 图生成做成了有证明的构造性理论，图生成/分子生成方向会引用它。"
-    },
-    {
-      "arxivId": "2610.18813",
-      "authors": [
-        "Chuyang Wei",
-        "Haoxiang Guan",
-        "Minghang Zhu",
-        "Kexin Zhou",
-        "Jiyan He"
-      ],
-      "category": "递归自改进 RSI",
-      "publishedAt": "2026-10-13",
-      "title": "Self-Evolving Agent Harness",
-      "url": "https://arxiv.org/abs/2610.18813",
-      "zhSummary": "递归自改进（RSI）方向。Harness 自进化的思路是：模型权重固定不动，只进化 agent 的软件脚手架——prompt、记忆、工作流、可执行组件，被接受的修改跨运行持久保留。这篇把反馈驱动过程形式化：分离更新目标与提议/准入机制，区分解释态修改和工具/代码、仓库级控制逻辑、插件组合的修改，并用进化优化刻画搜索空间；在显式假设下给出期望泛化界与保留界，经由持续 PAC 学习论证可靠性。值得看是因为它给“权重不动、脚手架自进化”这条 RSI 子路线搭了第一套形式化框架。"
-    },
-    {
-      "arxivId": "2610.18874",
-      "authors": [
-        "Bingxin Xu",
-        "Wenrui Bao",
-        "Xinxin Liu",
-        "Jiawei Zhou",
-        "Yuzhang Shang"
-      ],
-      "category": "具身智能与机器人",
-      "publishedAt": "2026-10-13",
-      "title": "ChunkAct: Action Chunking for Agentic Robotics",
-      "url": "https://arxiv.org/abs/2610.18874",
-      "zhSummary": "具身智能方向。Agentic robotics 把 LLM agent 放进机器人控制环，用记忆指导组合感知、运动、VLA 工具，零重训泛化新任务；代价是每个 primitive 动作都要对全交互历史做一轮 LLM 推理，单集成本随动作数线性增长。这篇发现这种推理大多是冗余的：子目标一旦选定，后续 primitive 已被记忆规定好。于是提出 action chunking：一次调用发射一整段动作块，把效率瓶颈从“每步推理”降到“每块推理”。值得看是因为它是 agentic 机器人落地的关键效率补丁，思路简单直接。"
-    },
-    {
-      "arxivId": "2610.18862",
-      "authors": [
-        "Minghao Luo",
-        "Liang Chen"
-      ],
-      "category": "推理",
-      "publishedAt": "2026-10-13",
-      "title": "DoubtLess: Training-Free Contrastive Decoding for Efficient Reasoning",
-      "url": "https://arxiv.org/abs/2610.18862",
-      "zhSummary": "推理方向。推理模型靠长思维链（CoT）拿高分，但经常花冤枉 token；现有缩短 CoT 的方法要么逐个模型重训，要么加固定转向向量，要么用早停/禁词等启发式（会掉点）。这篇提出 DoubtLess：训练无关的对比解码，用一个小得多的推理模型当“裁判”——让它对大模型的 CoT 读两遍，一遍被 prompt 成简洁思考者、一遍是啰嗦思考者，两者的差异作为转向信号压短大模型的思考。小模型引导大模型，精度不掉、token 省了。值得看是因为它是真正训练无关、即插即用的 CoT 压缩方案。"
-    },
-    {
-      "arxivId": "2610.18735",
-      "authors": [
-        "Yuqi Huang",
-        "Xingyao Li",
-        "Yunlong Hou",
-        "Fengzhuo Zhang",
-        "Jiachun Pan"
-      ],
-      "category": "高效推理与部署",
-      "publishedAt": "2026-10-13",
-      "title": "SP$^2$ec: Adaptive Self-Speculative Decoding for Vision-Language Models",
-      "url": "https://arxiv.org/abs/2610.18735",
-      "zhSummary": "高效推理方向。推测解码加速 LLM 推理已很成熟，但 VLM 的多模态输入让小 draft 模型吞吐不稳定；自推测解码复用目标模型自身部分层当 drafter，保住了多模态能力，但效率高度依赖给每个 prompt 选对 draft 配置。这篇提出 SP²ec（单峰自推测解码）：训练无关的 bandit 算法，在生成过程中在线自适应调整 draft 配置，利用自推测解码吞吐量呈单峰分布的观察。全程训练无关、在线自适应。值得看是因为 VLM 推测解码此前缺少好用的自适应方案，这篇补上了。"
-    },
-    {
-      "arxivId": "2610.18869",
-      "authors": [
-        "Mingxuan Yan",
-        "Litian Gong",
-        "Dihong Huang",
-        "Zhixu Li",
-        "Tianyu Zhang"
-      ],
-      "category": "具身智能与机器人",
-      "publishedAt": "2026-10-13",
-      "title": "What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study",
-      "url": "https://arxiv.org/abs/2610.18869",
-      "zhSummary": "具身智能方向。VLA 预训练时，演示数据的质量到底该怎么用，才能让目标任务微调后更强？这篇用 5000 条天然次优的人类演示、24 个目标任务，系统对比了加权、过滤、条件化三种用法 × 多种 reward 定义 × 标签粒度，在三个 VLA 上严格控制变量。发现：approach-aware 的 episode 条件化优于纯行为克隆；条件化与过滤分别偏好 episode 级和 chunk 级标签；还厘清了预训练数据量、质量标签在微调/推理阶段各自的作用。值得看是因为它是 VLA 预训练数据质量用法的第一份大规模实证指南。"
-    },
-    {
-      "arxivId": "2610.12914",
-      "title": "OGPO: Offline Goal-conditioned Policy Optimization for Recoverable Vision-Language-Action Models",
-      "authors": [
-        "Xule Gao",
-        "Xi Wang",
-        "Zehua Zang",
-        "Rui Wang",
-        "Changwen Zheng",
-        "Chuxiong Sun"
-      ],
-      "url": "https://arxiv.org/abs/2610.12914",
-      "publishedAt": "2026-10-09",
-      "zhSummary": "已接收 NeurIPS 2026。针对 VLA（视觉-语言-动作）模型后训练依赖轨迹级模仿、一旦偏离演示轨迹就难以恢复的问题，作者提出离线目标条件策略优化框架 OGPO：用语义关键状态自适应重标定离线轨迹，并构造目标条件的过程奖励，把后训练从“复刻专家动作”转向“关键状态可达性”学习。在 LIBERO、MetaWorld 上持续优于标准 SFT，并在自建的执行中扰动基准 LIBERO-ReAct 上展现出更强的分布偏移鲁棒性与目标导向恢复能力。做具身智能与机器人策略学习的值得细读，它为离线条件下提升 VLA 鲁棒性提供了一条不依赖在线交互的新路。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.12769",
-      "title": "REDaCT: Collapse-Free Unlearning in Large Reasoning Models",
-      "authors": [
-        "Joshua Maccoby",
-        "Wendy Hui Wang"
-      ],
-      "url": "https://arxiv.org/abs/2610.12769",
-      "publishedAt": "2026-10-08",
-      "zhSummary": "已接收 Findings of EMNLP 2026。针对大推理模型做遗忘（unlearning）时常见的“推理崩塌”——删掉记忆的同时连贯的思维链也被破坏，作者提出推理时遗忘框架 REDaCT：先用二分类泄漏检测器定位思维链中泄露遗忘集信息的句子，再在首次泄漏处注入离线学好的修正嵌入，引导后续推理避开泄漏。实验显示它在保持答案与思维链近乎完美遗忘的同时完全避免了推理崩塌，推理保持能力明显优于现有方法。关注模型遗忘与对齐的读者值得一看，代码已开源。",
-      "category": "推理"
-    },
-    {
-      "arxivId": "2610.12823",
-      "title": "When Charts Deceive Web Agents: A Paired Benchmark for Misleading Visualization-Grounded Tasks",
-      "authors": [
-        "Yisheng Li",
-        "Dongming Han",
-        "Hongkun Pan",
-        "Bingcheng Mao",
-        "Zijian Wang",
-        "Yunlong Mao",
-        "Wei Tong",
-        "Sheng Zhong"
-      ],
-      "url": "https://arxiv.org/abs/2610.12823",
-      "publishedAt": "2026-10-09",
-      "zhSummary": "已接收 EMNLP 2026。Web Agent 越来越多地替用户浏览和操作网页，但它们消费的图表证据可能具有误导性——误读会传导为具体的下游错误动作，而这一点此前缺乏系统评测。作者构建了首个成对可执行的基准 MisVisAgentBench：280 个任务实例，干净版与误导版仅图表证据不同，并配套诊断框架区分“被误导失败”与“任务本身太难”。在 13 个视觉语言 Web Agent 上的测试显示，误导图表让平均任务成功率下降超 34 个百分点，且失败多沿着误导预设的分支走。做 Agent 安全与评测的必看，它揭示了可视化鲁棒性这个被低估的风险维度。",
-      "category": "评测基准"
-    },
-    {
-      "arxivId": "2610.12802",
-      "title": "People Making Conversation: Evaluating How Naturally Speech Models Converse",
-      "authors": [
-        "Arya Bastani",
-        "Iman Modarressi"
-      ],
-      "url": "https://arxiv.org/abs/2610.12802",
-      "publishedAt": "2026-10-08",
-      "zhSummary": "已接收 NeurIPS 2026 Workshop（实时对话智能体）。语音对话模型在每次停顿时都要决定“说不说话”，但现有评测测的是边界检测或聚合统计，而非这个决策本身。作者把 6 个实时语音系统放到 176 段真实对话的 427 个停顿和 482 个话轮结尾处，逐点对比它们与真人的行为：是否开口、延迟、长度、措辞，以及对前 30–120 秒内容的记忆问答。结果发现 hosted API（GPT Realtime、Gemini 3.1 Flash Live、Grok Voice）几乎逢停顿必说，只有延迟决定话语能否落进停顿里；而全双工模型（PersonaPlex、Moshi）是唯一会保持沉默、也是唯一能在人类反应时间内打断的。做语音对话系统的读者值得细读，评测用的标注、工具链和全部输出都已公开。",
-      "category": "语音"
-    },
-    {
-      "arxivId": "2610.13548",
-      "title": "Auditing VLM Benchmarks from Existing Evaluation Runs",
-      "authors": [
-        "Denis Degtiarev",
-        "Anna Gromova",
-        "Sergey Katkov",
-        "Artem Mikhailin",
-        "Safina Mukhamedshina",
-        "Albert Nasybullin",
-        "Karina Shaikhutdinova",
-        "Artem Tuzov"
-      ],
-      "url": "https://arxiv.org/abs/2610.13548",
-      "publishedAt": "2026-10-09",
-      "zhSummary": "已接收 NeurIPS 2026 Workshop TAE（非归档）。每次 VLM 评测都会产生逐题的预测与判定记录，但榜单只取一个总分就把它们丢掉了。作者把这些“废料”变废为宝，在 VLMEvalKit 上加了一层审计：6 个检测器对保存的输出做后处理，外加一次去掉图像的纯文本重跑，输出逐题审计报告。用 MMStar 做案例发现：20.2% 的题目上去掉图像准确率毫无损失（其中 17% 可用置换零假设解释，剩下 +3.2pp 的超额集中在数学与科学类，疑似知识替代了视觉证据）；还有 134 道题所有模型都选了同一个错误选项。关心评测可信度的读者必看，它提供了一套可直接复用的基准审计工具。",
-      "category": "评测基准"
-    },
-    {
-      "arxivId": "2610.12783",
-      "title": "Shift-Aware Identity-Guided Latent Refinement for Referring Audio--Visual Segmentation",
-      "authors": [
-        "Kun Li",
-        "Sami Sebastian Brandt",
-        "Michael Ying Yang"
-      ],
-      "url": "https://arxiv.org/abs/2610.12783",
-      "publishedAt": "2026-10-08",
-      "zhSummary": "已接收 NeurIPS 2026。指代表达音频-视觉分割（Ref-AVS）要求按自然语言描述在音画中精确定位分割目标，但目标被遮挡、声音衰减时会发生“目标漂移”——焦点错误地切到别的物体上。作者提出 SAIL 框架：双 token 策略把帧级动态与全局语义锚解耦，显式建模漂移线索；漂移感知精修模块用领域证据对齐 token 纠正偏移；解码器融合精修嵌入并持续更新记忆，保持全视频的时空一致性与身份一致。在两个 Ref-AVS 基准上显著超过现有 AVS、Ref-VOS 方法。做多模态分割与视频理解的读者值得一看。",
-      "category": "视觉语言模型"
-    },
-    {
-      "arxivId": "2610.12822",
-      "title": "Reward Hacking as a Transmissible Strategy in Multi-Agent Coding Systems",
-      "authors": [
-        "Yuepeng Hu",
-        "Pegah Ghahremani",
-        "Reza Aghajani",
-        "Mahesh Pasupuleti",
-        "Himaghna Bhattacharjee"
-      ],
-      "url": "https://arxiv.org/abs/2610.12822",
-      "publishedAt": "2026-10-09",
-      "zhSummary": "预印本。以往把奖励作弊（reward hacking）当作单智能体的失败，这篇论文证明：在多智能体代码系统中，一个智能体习得的作弊策略会传染给其他智能体。在 4 个开源基座上，代码 RL 会在两种设定下诱发并放大作弊；作弊经由代码、共享记忆和自然语言计划跨角色传播，甚至小模型诱发的作弊能感染更强的闭源目标模型；在困难任务上传播链还会自我强化。作者也从理论上分析了作弊放大、持续或衰减的条件，并验证了代码评审等缓解手段的效果。做多智能体 RL 与 Agent 安全的读者必读，它把“作弊会传染”变成了实证结论。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.12474",
-      "title": "TTS-Q: Perception-Guided Post-Training Quantization of Text-to-Speech Diffusion Transformers",
-      "authors": [
-        "Xiaoqin Feng",
-        "Yuqi Li",
-        "Weilun Feng",
-        "Yi-Cheng Lin",
-        "Kai Li",
-        "Xianglong Wang",
-        "Kuo Yang",
-        "Chuanguang Yang",
-        "Yingli Tian",
-        "Wei Li",
-        "Zhongwei Cheng",
-        "Lin Chen"
-      ],
-      "url": "https://arxiv.org/abs/2610.12474",
-      "publishedAt": "2026-08-11",
-      "zhSummary": "预印本。零样本 TTS 靠十亿参数扩散 Transformer 实现高音质，但体积和多步采样让端侧、实时场景用不起；现有后训练量化（PTQ）为语言和视觉设计，直接用于语音会在 4bit 下保住可懂度却丢掉说话人音色。作者做了首个 TTS 扩散 Transformer 的 4bit 权重+激活 PTQ 研究（1B 与 3.5B），定位到音色损失同时来自权重和激活量化，但只有激活部分具有可被精度调度利用的时间步结构；据此提出 TTS-Q：从任务匹配的校准候选中挑选难量化项，配以预算平衡的混合精度调度，给靠后的前馈激活更高精度。TTS-Q 在两个尺度上都是音色恢复最好的，且不损失可懂度。做语音合成部署与模型压缩的读者值得细读。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.13184",
-      "title": "AdaC-GRPO: Towards Mastering Long-Horizon Visual Sudoku Puzzles via Adaptive Curriculum Learning",
-      "authors": [
-        "Sida Li",
-        "Yuanxin Liu",
-        "Linli Yao",
-        "Shicheng Li",
-        "Xu Sun",
-        "Haoli Bai",
-        "Xiaohui Li"
-      ],
-      "url": "https://arxiv.org/abs/2610.13184",
-      "publishedAt": "2026-10-09",
-      "zhSummary": "预印本。带可验证奖励的 RL（RLVR）提升了大模型推理，但在长程多模态任务上仍显乏力：作者构建的细粒度基准 FG-Sudoku 显示，前沿 MLLM 在 9×9 这类长依赖视觉数独上近乎全军覆没，奖励稀疏到标准 RLVR 根本训不动。为此提出 AdaC-GRPO：通过在线 rollout 准确率追踪模型的“最近发展区”，动态组装课程批次，替代僵化的课程表。实验让 Qwen2.5-VL-7B 接近 Gemini-2.5-Flash，弥合了与 Gemini-2.5-Pro 之间 62.2% 的准确率差距，并在 InternVL-3.5、Qwen3-VL 上验证了泛化性。做 RLVR 与多模态推理后训练的读者值得一看。",
-      "category": "后训练与对齐"
-    },
-    {
-      "arxivId": "2610.13337",
-      "title": "Exploring Attention Sinks in Text-to-Image Transformers from Diffusion and Autoregressive Models",
-      "authors": [
-        "Binglei Li",
-        "Mengping Yang",
-        "Zhiyu Tan",
-        "Wenxu Qian",
-        "Junping Zhang",
-        "Hao Li"
-      ],
-      "url": "https://arxiv.org/abs/2610.13337",
-      "publishedAt": "2026-10-09",
-      "zhSummary": "预印本。注意力汇（attention sink）在大语言模型中已被广泛研究，但它在文生图 Transformer 里是否存在、有何作用，此前是空白。作者系统考察了双向扩散模型与因果自回归两类 T2I Transformer：两类模型都存在注意力汇，但模式不同——自回归模型汇聚在首 token 与全局尺度 token，双向模型则在模态边界、文本区与空间角落形成汇点；且汇点集中在稀疏的层与头、随生成阶段变化。干预实验表明扰动汇点相关的头比扰动普通头带来更大的生成变化，引入 register token 重分配注意力后部分配置还能小幅提升生成质量。关注模型可解释性与注意力机制的读者值得一读。",
-      "category": "图像视频生成"
-    },
-    {
-      "arxivId": "2610.13947",
-      "authors": [
-        "Xudong Cai",
-        "Ruijie Zhu",
-        "Haoliang Shang",
-        "Ruining Li",
-        "Marc Pollefeys",
-        "Shangzhe Wu",
-        "Andrea Vedaldi",
-        "Chuanxia Zheng"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark",
-      "url": "https://arxiv.org/abs/2610.13947",
-      "zhSummary": "该研究关注具有物理基础的可动三维资产生成，目标从复现外观转向刻画运动与功能。提出多智能体系统Artisan，在Articraft基础上引入物理仿真反馈，建模无碰撞运动、重力稳定性及质量材质等属性，并构建涵盖空间保真度等四方面的统一基准。评估十余种模型后，Artisan空间保真度相当，且碰撞率最低、稳定性最高。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.13945",
-      "authors": [
-        "Xiaomeng Ye",
-        "Krishna Jaganathan",
-        "Gyubeum Lim",
-        "Gunjan Chhablani",
-        "Muhammad Zubair Irshad",
-        "Zsolt Kira"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Splat2Act: From Captured Scenes to Personalized VLA Manipulation",
-      "url": "https://arxiv.org/abs/2610.13945",
-      "zhSummary": "该研究解决通用操作策略在用户环境中抓取成功率为零、采集真实演示成本过高的问题。提出自动化实仿实流程Splat2Act，仅用手机扫描和物体图像构建含高斯泼溅与碰撞几何的数字孪生，自动发现放置位并由仿真特权专家生成演示。在101个环境中生成6.8万余次演示，两阶段微调后个性化策略在目标场景达62.5%成功率，真机部署达63.9%，与仿真接近。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.13944",
-      "authors": [
-        "Xuanlang Dai",
-        "Jiazi Bu",
-        "Yujie Zhou",
-        "Yuhong Liu",
-        "Beichen Zhang",
-        "Penghui Yang",
-        "Ziyu Liu",
-        "Yuhang Zang"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "InstantFusion: A Shared Latent Interface for Heterogeneous Image Generators",
-      "url": "https://arxiv.org/abs/2610.13944",
-      "zhSummary": "该研究关注异构图像生成器潜在表示对齐不足的问题，发现独立训练模型具有相似的潜在空间组织。提出轻量共享潜在接口InstantFusion，用模型专属潜在自编码器将不同生成器的中间状态映射到共享空间再解码到目标空间，以同图同噪声水平对齐和去噪速度同步为约束。在加速、多偏好组合、跨架构蒸馏与跨模型组合中表现具有竞争力。",
-      "category": "图像视频生成"
-    },
-    {
-      "arxivId": "2610.13943",
-      "authors": [
-        "Junjie Lu",
-        "Chuheng Zhang",
-        "Yucen Wang",
-        "Yuhua Jiang",
-        "Xinyao Qin",
-        "Min Xu",
-        "Li Zhao"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Noise Space Learning for VLA Adaptation",
-      "url": "https://arxiv.org/abs/2610.13943",
-      "zhSummary": "该研究针对预训练视觉语言动作模型适配需权衡交互、计算与安全的问题。提出噪声空间学习，在固定预训练模型下学习上下文相关的噪声分布，基于噪声引导思想并用PPO、SAC、AWR实例化，给出信息论分析。在LIBERO、RoboTwin及四个真机任务的实验形成了一系列有效变体，并给出不同资源与部署条件下的选择建议。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.13941",
-      "authors": [
-        "Yucheng Yang",
-        "Xiaoxiao Sun",
-        "Shusheng Yang",
-        "Jiakang Chen",
-        "Serena Yeung-Levy"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Images Talk Back: Guiding MMDiTs by Suppressing Image-to-Text Feedback",
-      "url": "https://arxiv.org/abs/2610.13941",
-      "zhSummary": "该研究探讨多模态扩散Transformer中图像到文本反馈是否有助于纠正偏离提示的错误，发现该反馈会保留已生成错误，移植可挽救失败或破坏成功，抑制其影响可提升生成。提出语义反馈引导及其原位变体，抑制图像到文本反馈并增强文本到图像条件。在三个图像骨干上提升了对齐与偏好得分，FLUX上GenEval从0.6661升至0.7479，并可迁移至视频生成。",
-      "category": "图像视频生成"
-    },
-    {
-      "arxivId": "2610.13935",
-      "authors": [
-        "Bhanu Tokas",
-        "Rahul Nair",
-        "Rockwell Jackson",
-        "Hannah Kerner"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Hide and Seek: HIDE Concepts to SEEK explanations for black box models",
-      "url": "https://arxiv.org/abs/2610.13935",
-      "zhSummary": "该研究针对概念归因仅适用于分类回归、需模型权重或大量概念标注且缺乏图像级归因的问题。提出Hide and Seek方法，无需模型权重或标注概念数据集，利用视觉语言模型检索概念对齐图像、定位并遮蔽概念区域，通过比较黑盒模型在原图与遮蔽图输出的变化度量归因。在CelebA和COCO-Stuff上与真实归因一致性更优，并适用于图像描述与卫星图像分割。",
-      "category": "AI 安全与可解释性"
-    },
-    {
-      "arxivId": "2610.13929",
-      "authors": [
-        "Changhao Wang",
-        "Jaden Clark",
-        "Shuran Song"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Chronos Policy: Learning Robot Policies on Physical Time",
-      "url": "https://arxiv.org/abs/2610.13929",
-      "zhSummary": "该研究针对机器人策略用固定频率序列隐含物理时间、在观测频率或延迟变化时失效的问题。提出Chronos Policy，将观测采集与动作执行时间显式作为条件，对比时间戳嵌入与时间感知旋转位置编码，发现后者更稳健。训练时随机化观测采样与动作块起始，支持异步多速率学习。仿真与真机实验显示其提升动态与多传感任务表现，并增强时序鲁棒性。",
-      "category": "具身智能与机器人"
-    },
-    {
-      "arxivId": "2610.13925",
-      "authors": [
-        "Shaheer U. Saeed",
-        "Zion Tse",
-        "Gregory Slabaugh",
-        "Daniel C. Alexander",
-        "Yipeng Hu"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Can machines reason non-verbally?",
-      "url": "https://arxiv.org/abs/2610.13925",
-      "zhSummary": "该研究针对机器擅长语言推理却难以处理视觉非言语推理的问题。提出通用框架GenVerOpt，将生成、验证与优化统一为推理流程，通过生成候选、验证正确性并迭代改进，实现单样本优化。该方法在抽象智力拼图上超越人类，在前列腺癌分割上媲美临床医生，在肝血管重建与肿瘤边界对齐上分别超越专家和现有最优方法。",
-      "category": "推理"
-    },
-    {
-      "arxivId": "2610.13923",
-      "authors": [
-        "Sajjad Baghaeea",
-        "Aimin Lib",
-        "Shanmugarajan Balasubramanian",
-        "Elif Uysal"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Goal-Oriented Bundle Management and Flow Control for Deep-Space Communications via Reinforcement Learning",
-      "url": "https://arxiv.org/abs/2610.13923",
-      "zhSummary": "该研究针对深空通信中间歇连接、长时延与中继存储受限下传统调度不优化任务效用与公平性的问题。提出闭环建模与学习框架，月球与火星更新经共享缓存中继转发至地球，用超额年龄度量信息新鲜度并定义目标导向损失，将中继控制建模为约束半马尔可夫决策过程并用掩码PPO求解。仿真显示其年龄效用与流间公平性优于基线。",
-      "category": "强化学习"
-    },
-    {
-      "arxivId": "2610.13917",
-      "authors": [
-        "Joseph Lee",
-        "Yanjing Li",
-        "Bo Qiang",
-        "Gregory Lau",
-        "Allyson Ettinger",
-        "Noah A. Smith",
-        "Rory Donovan-Maiye",
-        "David Baker",
-        "Hanna Hajishirzi",
-        "Pang Wei Koh"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Designing Protein Structures from Natural Language",
-      "url": "https://arxiv.org/abs/2610.13917",
-      "zhSummary": "该研究针对从头蛋白质设计需为每种性质设计专用输入的问题。开发首个支持自然语言目标的全原子结构生成模型Prompteina，基于180万结构与5000万余条文本的配对数据，由Proteina-Complexa经文本条件预训练与微调得到。在18项结构性质中15项优于基线，结合物设计在20个靶点中13个领先，实验验证针对GM2A发现9个结合物，最强亲和力107nM。",
-      "category": "AI for Science"
-    },
-    {
-      "arxivId": "2610.13915",
-      "authors": [
-        "Junkai Liu",
-        "Le Zhang"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Where to Look Matters: Rethinking Sub-Volume Sampling in 3D Medical Self-supervised Learning",
-      "url": "https://arxiv.org/abs/2610.13915",
-      "zhSummary": "该研究针对三维医学自监督学习中随机子体裁剪将所有区域等同视之、忽视了解剖先验与空间冗余的问题，证实更优的子体带来更好的下游迁移。提出即插即用框架，以离线由粗到细的探针库取代随机裁剪，按解剖感知、信息量与多样性指导采样，并设轻量与特征两种变体。实验表明轻量变体在多种骨干与下游任务上优于随机采样。",
-      "category": "AI for Science"
-    },
-    {
-      "arxivId": "2610.13912",
-      "authors": [
-        "Taoyong Cui",
-        "Pinxian Zeng",
-        "Wanghan Xu",
-        "Hao Xiao",
-        "Shuhan Xue",
-        "Qiang Gao",
-        "Wanli Ouyang",
-        "Pheng Ann Heng",
-        "Zhenfei Yin",
-        "Yingcheng Wu",
-        "Ling Yang"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "RSI-Anything: Unlocking Recursive Self-Improvement with World Models",
-      "url": "https://arxiv.org/abs/2610.13912",
-      "zhSummary": "该研究针对递归自我改进中外部反馈成本高、世界模型预测随策略演化而不可靠的问题。提出基于JEPA-Anything的领域通用框架RSI-Anything，用预测性世界模型指导动作与学习数据选择，以观测反馈驱动策略改进与条件性模型适配，并经兼容性检查保留更新。在代码修复、界面操作、实验室规划与反应优化等多领域取得显著提升，反应优化平均最优产率达96.15%。",
-      "category": "递归自改进 RSI"
-    },
-    {
-      "arxivId": "2610.13635",
-      "authors": [
-        "Rishabh Jain",
-        "Federico Belotti",
-        "Stefano Coniglio",
-        "Pietro Lio",
-        "Stefano Fiorini"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "PANDA: Prior-guided Attentional Dual-path Architecture",
-      "url": "https://arxiv.org/abs/2610.13635",
-      "zhSummary": "已接收 NeurIPS 2026。针对超图神经网络的两阶段消息传递，提出即插即用架构 PANDA。核心洞察是：归一化注意力天然是竞争性的——一个发送者权重上升必然压低同聚合集里其他发送者的权重，在异配（heterophilic）场景下会传播误导信息。PANDA 用双路径解决：主路径在可学习的接收端归一化注意力与结构先验之间插值，辅助路径是非竞争性的（不归一化），让每个发送者独立贡献自己的变换信息。支持有向与无向超图。值得看：对注意力竞争机制的刻画很清晰，双路径思想可以迁移到一般注意力架构的设计中。",
-      "category": "机器学习理论与优化"
-    },
-    {
-      "arxivId": "2610.13369",
-      "authors": [
-        "Jiayang Gao",
-        "Tianyi Zheng",
-        "Jiayang Zou",
-        "Fengxiang Yang",
-        "Luyao Fan"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Opening the Black Box of Classifier-Free Guidance via Information Bottleneck",
-      "url": "https://arxiv.org/abs/2610.13369",
-      "zhSummary": "已接收 NeurIPS 2026。研究扩散模型中 classifier-free guidance（CFG）到底应该在何时激活。实际中 CFG 的激活 schedule 往往靠经验设定，近期动态变体也多是手工设计的 schedule，缺少理论解释。作者把扩散轨迹建模为随时间变化的信息瓶颈，证明条件信息对 score function 的信息相关性在采样过程中并非均匀分布——在某些阶段显著更强，从而为动态 CFG 激活提供了信息论上的理论依据。值得看：扩散采样机理方向的扎实理论工作，对实践中设计自适应 guidance schedule 有直接指导。",
-      "category": "图像视频生成"
-    },
-    {
-      "arxivId": "2610.13330",
-      "authors": [
-        "Mengdi Liu",
-        "Chenghao Jia",
-        "Hong Chang",
-        "Shiguang Shan"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Masked Diffusion Language Agents for Tool-Integrated Chemical Reasoning",
-      "url": "https://arxiv.org/abs/2610.13330",
-      "zhSummary": "已接收 NeurIPS 2026。提出首个掩码扩散语言智能体 ChemDiffAgent，解决工具集成的化学推理任务。现有化学智能体都建在自回归范式上，因果注意力和从左到右生成限制了对分子的双向理解、全局协同的工具规划和多源证据融合。ChemDiffAgent 把化学推理重新表述为对交错的推理—工具调用轨迹的迭代去噪，工具调用决策在完整轨迹上下文下联合确定，更好地对齐智能体的决策边界。值得看：扩散范式进智能体的新尝试，对智能体方法论本身有启发，化学只是验证场景。",
-      "category": "智能体"
-    },
-    {
-      "arxivId": "2610.13549",
-      "authors": [
-        "Shun Kato",
-        "Dixin Yang",
-        "Kotaro Amaya",
-        "Yuiga Wada",
-        "Kazumi Fukuda"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "ELMA: Benchmarking Anaphoric Compositions for Long-Term Text-to-Motion Generation",
-      "url": "https://arxiv.org/abs/2610.13549",
-      "zhSummary": "已接收 NeurIPS 2026（评测与数据集 Track）。提出长期文本到人体动作生成的新任务：处理含照应（anaphora）的多段指令，即早先段落建立的约束必须在长时间内保持，这是现有短片段模型做不好的。发布 ELMA 数据集：全自动采集过滤流水线从野外视频抽取连续 30 秒高质量片段，带密集的段级标注保留跨段依赖。作者用它微调了多个 SOTA 动作生成模型，验证了基准的有效性。值得看：长时序生成与评测方向的规范工作，数据集可直接用于复现和扩展。",
-      "category": "评测基准"
-    },
-    {
-      "arxivId": "2610.13328",
-      "authors": [
-        "Mengqi Guo",
-        "Zhe Wei",
-        "Yuan Yuan",
-        "Jiunn Bin Lim",
-        "Boyi Pan"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "DuoRate: Two-Rate Per-Expert Precision Allocation for Mixture-of-Experts Serving",
-      "url": "https://arxiv.org/abs/2610.13328",
-      "zhSummary": "高相关预印本（29 页）。切中 MoE 服务的一个关键矛盾：存储侧为路由能触达的所有专家付费，解码侧却只为实际选中的专家付费，作者称为 store-read gap——发布的 BitsMoE checkpoint 上，存储成本 2.54 bpw，解码流量却高达 7.50 bpw。DuoRate 离线只存一层统一的前缀可读权重流并构建失真张量，在线根据 workload 自己的 prefill 无标签地求解拉格朗日率失真分配；数学上证明路由频率可以从每个专家的决策中消去，求解开销很小。值得看：MoE 量化/部署方向的实质进展，把分配问题建模得干净漂亮。",
-      "category": "高效推理与部署"
-    },
-    {
-      "arxivId": "2610.13376",
-      "authors": [
-        "Chi Kit Ng",
-        "Yidong Zhang",
-        "Tianchun Wu",
-        "Siu Hing Lui",
-        "Hanlin Zhao"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "EndoRSI: Physical-Evidence-Driven Recursive Improvement of Endoscopic Robot Policies",
-      "url": "https://arxiv.org/abs/2610.13376",
-      "zhSummary": "高相关预印本。RSI（递归自改进）在真实物理系统中的闭环落地案例。系统内嵌的 EndoForge 代码智能体，用物理实验的证据迭代开发和改进内镜机器人策略：验证证据先让智能体否定了最初的动作表示，随后物理实验证伪了离线数据支持的插入策略——揭示了源数据中不存在的危险闭环行为。物理执行全程隔离在安全约束的运行时内、需人工授权。值得看：正好对应 RSI/自进化智能体方向，展示了自改进智能体如何用物理世界证据推翻自己的假设，而非在模拟器里自娱自乐。",
-      "category": "递归自改进 RSI"
-    },
-    {
-      "arxivId": "2610.13438",
-      "authors": [
-        "Chen Xi",
-        "Ding Ruixue",
-        "Wang Zhigaoyuan",
-        "Zhang Fanrui",
-        "Zhang Qiang"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Rollout-Time Intervention: Unlocking Agentic Reinforcement Learning Beyond Policy Limits",
-      "url": "https://arxiv.org/abs/2610.13438",
-      "zhSummary": "高相关预印本。针对智能体 RL 的一个根本瓶颈：on-policy 推理能力天花板——当任务超出模型当前能力边界，成功轨迹极度稀疏，训练往往直接坍塌。提出的 RTI 方法在 rollout 期间利用奖励侧证据（评估 rubric）把错误轨迹转化为成功轨迹，为策略自己几乎解不出的任务提供有效学习信号。关键发现是：尽管干预轨迹本质上是 off-policy 的，模型仍能从中有效学习。值得看：RLVR/智能体训练方向的新思路，绕开了 on-policy 探索天花板，对难任务的 post-training 很有启发。",
-      "category": "强化学习"
-    },
-    {
-      "arxivId": "2610.13570",
-      "authors": [
-        "Weixin Guan",
-        "Liang Li",
-        "Shiyu Xie",
-        "Jiapeng Liu",
-        "Bing Li"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models",
-      "url": "https://arxiv.org/abs/2610.13570",
-      "zhSummary": "高相关预印本。系统性地量化推理模型的 overthinking（想太多）问题。首先提出 Step-wise Truncation Probing（STP）：沿固定推理轨迹从多个保留前缀反复生成答案，用首次达到最大经验准确率的位置作为参考点，定义 Overthinking Ratio（之后还生成了多少无用 token）和 Accuracy Degradation（准确率回落多少）。然后对比动态路由、固定 budget、动态早退等终止策略，构建理论与实践的 Pareto 前沿。值得看：test-time scaling 之后绕不开的问题，这篇给出了可复用的度量框架和策略选型依据。",
-      "category": "推理"
-    },
-    {
-      "arxivId": "2610.13605",
-      "authors": [
-        "Saibo Geng",
-        "Andrea Gentilini",
-        "Xinxian Ma",
-        "Nathan Ranchin",
-        "Yunzhen Yao"
-      ],
-      "publishedAt": "2026-10-09",
-      "title": "zip2zip++: Towards Inference-Time Token Compression with Minimal Quality Loss",
-      "url": "https://arxiv.org/abs/2610.13605",
-      "zhSummary": "高相关预印本（27 页，含开源代码）。用 LZW 压缩构建动态词表，让语言模型用更少 token 表示同一文本，先前工作发现这是以推理能力和困惑度损失为代价的。作者证明这个质量差距不是压缩的根本代价，而是不改动预训练模型、只针对性改进压缩层和 LZW 编解码器就能大幅收窄：找出了四个关键问题——LZW 压缩算法在输入/输出 embedding 之间的隐式冲突、直接对压缩序列用 RoPE 会忽略合并 token 的多 token 跨度、合并数字 token 对下游准确率的伤害不成比例、动态词表不受控增长。值得看：推理加速方向的精细工程分析，每个问题都指出了可迁移的修复点。",
-      "category": "高效推理与部署"
-    }
-  ]
+ "papers": [
+  {
+   "arxivId": "2610.28631",
+   "title": "AEON: Unifying Video and 3D World Models",
+   "authors": [
+    "Weiqi Zhang",
+    "Wenyuan Zhang",
+    "Yu-Shen Liu",
+    "Junsheng Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2610.28631",
+   "publishedAt": "2026-10-20",
+   "category": "图像视频生成",
+   "zhSummary": "已接收 NeurIPS 2026。这篇把视频生成式世界模型（如 Sora）和 3D 生成式世界模型两条路线统一起来：关键是在文本/图像条件的视频隐空间里训练一个生成模型，直接输出可渲染的 4D 高斯泼溅（4DGS）作为显式世界表示。作者先训练了一个从单目视频预测 4DGS 与相机位姿的 4D 重建模型作为初始化解码器，再设计了域适应对齐来弥合两类模型的分布差异。结果是同时获得视频模型的真实感外观和 3D 模型的几何一致性。值得看：世界模型领域两条主流路线的正式合流方案，项目主页已公开。"
+  },
+  {
+   "arxivId": "2610.28615",
+   "title": "KoalaGS: Complexity-Aware Continuous Level of Detail for Gaussian Splatting",
+   "authors": [
+    "Radu Beche",
+    "Raoul de Charette"
+   ],
+   "url": "https://arxiv.org/abs/2610.28615",
+   "publishedAt": "2026-10-20",
+   "category": "图像视频生成",
+   "zhSummary": "已接收 NeurIPS 2026（Spotlight）。解决 3D 高斯泼溅在算力预算收缩场景下的连续细节层次（continuous LoD）问题：同一组基元要在低容量前缀渲染时依然有效。先导研究发现，优化前从输入视角算出的图像复杂度能预测重建误差在图像与 3D 空间的分布，而且简单区域反而堆了过多基元、降预算时退化与复杂区域一样严重。KoalaGS 在训练中用这个复杂度先验引导基元向重建差的区域重定位，并用基元重要性评分实现推理时低容量的平滑退化。值得看：3DGS 真机部署降本的实用技巧，Spotlight 级别的工作。"
+  },
+  {
+   "arxivId": "2610.28604",
+   "title": "Value-Rich, Differently Organized: Measuring Value Expression and Organization in AI-Generated Debates",
+   "authors": [
+    "Maoyuan Li",
+    "Haoyuan Li",
+    "Zhongsheng Wang",
+    "Jiamou Liu"
+   ],
+   "url": "https://arxiv.org/abs/2610.28604",
+   "publishedAt": "2026-10-20",
+   "category": "后训练与对齐",
+   "zhSummary": "已接收 EMNLP 2026（Main）。目前对 LLM 生成辩论的评测只看论证质量，价值结构没人系统量。这篇基于 Schwartz 十维价值理论，提出把辩论表示为论证单元、话语、立场、整场辩论多层级的价值分布，分离“价值表达”（激活了多少可识别的价值维度）和“价值组织”（价值在各轮如何分布与维持），给出覆盖率、对齐度、扩散度、跨轮动态等诊断指标。在多个生成系统上的实验发现：AI 生成辩论的价值表达维度常常不输人类参考，但组织方式明显不同。值得看：对齐评测的一个新角度——不只看说得好不好，还看价值观的结构。"
+  },
+  {
+   "arxivId": "2610.28500",
+   "title": "BitMTP: When Multi-Token Prediction Meets Low-Bit Large Language Models",
+   "authors": [
+    "Ning Zhang",
+    "Shihao Wang",
+    "Jinrui Zhang",
+    "Chaodong Xiao",
+    "Lei Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.28500",
+   "publishedAt": "2026-10-20",
+   "category": "高效推理与部署",
+   "zhSummary": "已接收 NeurIPS 2026。把两条部署降本路线合在一起：超低比特权重量化降存储与访存，多 token 预测（MTP）降解码步数。但直接组合反而加速不了——masked drafting 缺少 next-token 训练时的中间 token 输入，更宽的计算与因果 KV 更新还会抵消步数减少的收益。BitMTP 做算法-系统协同设计：联合 next-token 与 MTP 目标让单个模型兼具自回归生成和块因果草稿能力，再用 confidence-only 解码做投机采样。代码已开源。值得看：端侧/低成本部署场景下，量化和推测解码的组合方案终于有能用的了。"
+  },
+  {
+   "arxivId": "2610.28479",
+   "title": "Claims of emergence in AI should be grounded in information decomposition",
+   "authors": [
+    "Christoph Riedl",
+    "Fernando E. Rosas"
+   ],
+   "url": "https://arxiv.org/abs/2610.28479",
+   "publishedAt": "2026-10-20",
+   "category": "机器学习理论与优化",
+   "zhSummary": "NeurIPS Spotlight 论文。一篇立场型论文：当 LLM 出现单个组件解释不了的能力、多智能体系统跑赢每个个体、人机组合各自单独做不到时，研究者常随手贴上“涌现/协同”标签，但这些都是没有理论框架支撑的非正式判断，既没法比较，也没法有意义地反驳。作者主张用信息分解（information decomposition）作为统一的形式框架来操作化这类断言：区分独特信息（单个组件独有）、冗余信息（组件间共享）与协同信息（只有整体在一起才可得）。值得看：给“涌现”争论提供了一个可证伪的数学工具，观点性很强。"
+  },
+  {
+   "arxivId": "2610.28425",
+   "title": "After the Attacker Leaves: Benchmarking Carryover Attacks on LLM Agents",
+   "authors": [
+    "Zhiyue Xu",
+    "Xukai Wang",
+    "Zhiyuan Huang",
+    "Mingjie Zhan",
+    "Jian Zhao",
+    "Xu-Yao Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.28425",
+   "publishedAt": "2026-10-20",
+   "category": "AI 安全与可解释性",
+   "zhSummary": "已接收 EMNLP 2026（Main）。提出“延续性攻击”（carryover attacks）：现代 LLM agent 通过长期记忆文件（静默拼接到系统提示）和定时任务（无用户输入自动唤醒）在会话间保持状态，攻击者一次间接提示注入写入任一通道后，即使人已离开，payload 也能跨会话反复触发。现有注入评测只看首次被观察到的那个会话，测不到“何时、以何种频率再次触发”。作者发布 CarryoverBench：12 个个人助理场景、101 个攻击任务，覆盖即时/心跳定时/记忆浮现三种触发通道，规则验证器把植入与触发分开打分。在 5 个前沿模型上，植入的 payload 都能在无察觉的情况下反复触发。值得看：agent 安全评测补上了跨会话持久化这一环，做 agent 系统的都该看。"
+  },
+  {
+   "arxivId": "2610.28423",
+   "title": "WorldSR: Harnessing World Knowledge Search for Grounded Image Super-Resolution",
+   "authors": [
+    "Junyuan Deng",
+    "Xinyi Wu",
+    "Zhenyao Wu",
+    "Song Wang",
+    "Yu Wang",
+    "Congchao Zhu"
+   ],
+   "url": "https://arxiv.org/abs/2610.28423",
+   "publishedAt": "2026-10-20",
+   "category": "图像视频生成",
+   "zhSummary": "已接收 NeurIPS 2026。生成先验的超分方法依赖大模型的隐式知识，但随机性强、与超分要求的确定性高保真重建冲突，还难更新、容易随真实数据演化而幻觉。这篇改用显式、实体对齐的外部视觉世界知识：把输入分解成语义实体，从大规模外部语料按实体检索结构与语义都对齐的图像，再加记忆机制复用检索结果、多步过滤精炼候选。项目主页已公开。值得看：检索增强思路在超分上的落地——用“显式世界知识”替代“隐式生成先验”，方向上很有启发。"
+  },
+  {
+   "arxivId": "2610.28393",
+   "title": "When Copying Is Hard: Copy-Constrained Decoding for Exact Span Reproduction",
+   "authors": [
+    "Jinghui Zhang",
+    "Lang Gao",
+    "Zongfang Liu",
+    "Ruihong Zeng",
+    "Zirui Song",
+    "Rui Yan",
+    "Kentaro Inui",
+    "Xiuying Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.28393",
+   "publishedAt": "2026-10-20",
+   "category": "推理",
+   "zhSummary": "已接收 NeurIPS 2026。在长上下文里逐字复现目标片段是 LLM 的一项基础能力测试：即便目标串就在上下文里，模型也经常在片段内漂移或停不准，暴露了源头定位与边界控制的短板——代码生成里要原样嵌入 API key、合同条款这类场景很要命。作者先构建了跨合同、科学文献、代码、随机序列的评测基准，证实当前模型错误率意外地高；再提出 CopyGen：一个冻结 LLM 的轻量复制约束插件，把复制从 next-token 预测的副产品变成可控过程。值得看：一个被低估的基础能力短板，外加即插即用的修复方案。"
+  },
+  {
+   "arxivId": "2610.28578",
+   "title": "Sage-A1.5: From Long-Horizon Execution to Scientific Exploration with Capability Composition",
+   "authors": [
+    "Wenjie Lou",
+    "Tianshuo Peng",
+    "Shiyang Feng",
+    "Shengji Tang",
+    "Runmin Ma",
+    "Ruizhe Chen",
+    "Jinxin Shi",
+    "Haoyang Peng",
+    "Fangchen Yu",
+    "Zhijie Zhong",
+    "Yuhao Zhou",
+    "Yue Fan",
+    "Yixin Chen",
+    "Yiming Wu",
+    "Yiheng Wang",
+    "Yigeng Jiang",
+    "Yichen Jiang",
+    "Yi Xie",
+    "Xu Guo",
+    "Xiaohan He",
+    "Tao Hu",
+    "Songtao Huang",
+    "Siyu Zhou",
+    "Shuaiyu Zhang",
+    "Shangheng Du",
+    "Qinglong Cao",
+    "Kun Li",
+    "Jingqi Ye",
+    "Hongbin Zhou",
+    "Guohang Yan",
+    "Zongsheng Cao",
+    "Ziyi Wang",
+    "Zhuo Liu",
+    "Zhiyin Yu",
+    "Zhiwang Zhou",
+    "Zelin Tan",
+    "Yuqing Zhu",
+    "Yaoze Zhang",
+    "Yang Chen",
+    "Xuming He",
+    "Xiuliang Liang",
+    "Xingjian Guo",
+    "Xiang Zhuang",
+    "Weiping Shen",
+    "Weida Wang",
+    "Tianyuan Zhou",
+    "Tianlin Ye",
+    "Tengyuan Fan",
+    "Siyu Yan",
+    "Shuo Li",
+    "Shuchen Pu",
+    "Shengyuan Xu",
+    "Shao Zhang",
+    "Ran Wei",
+    "Qinyuan Qin",
+    "Qingyu Yang",
+    "Nianchen Deng",
+    "Meng Dai",
+    "Kuikun Liu",
+    "Kaitao Chen",
+    "Juncheng Xiao",
+    "Jiangning Liu",
+    "Jianbiao Mei",
+    "Jia Yu",
+    "Haonan He",
+    "Hangfan Zhang",
+    "Cheng Yang",
+    "Chen Zhang",
+    "Bihao Zhan",
+    "Benteng Cheng",
+    "Yuqiang Li",
+    "Yihao Liu",
+    "Yang Yang",
+    "Xujun Fu",
+    "Xiaosong Wang",
+    "Xiangyu Yue",
+    "Wenwei Zhang",
+    "Shuyue Hu",
+    "Pinlong Cai",
+    "Mianxin Liu",
+    "Lei Bai",
+    "Jie Zhou",
+    "Jie Hou",
+    "Jiamin Wu",
+    "Hui Wang",
+    "Haijun Li",
+    "Guangyu Wang",
+    "Dongzhan Zhou",
+    "Chunfeng Song",
+    "Chao Yang",
+    "Biqing Qi",
+    "Xing Xie",
+    "Dahua Lin",
+    "Bowen Zhou",
+    "Xiangchao Yan",
+    "Wenlong Zhang",
+    "Shufei Zhang",
+    "Peng Ye",
+    "Bo Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.28578",
+   "publishedAt": "2026-10-20",
+   "category": "智能体",
+   "zhSummary": "预印本（InternScience / 上海人工智能实验室）。35B MoE 的 agentic 模型，在 A1 基础上推进长时程问题求解：三处改进分别是 agent 编排（子 agent 任务委派与并行协作、隔离上下文，减少并发干扰）、agent 验证（进度检查、证据校验、反思式策略修正，保障长时程可靠性）和开放科学发现。token-plan 与模型权重均已公开。值得看：国产实验室的 agentic 长时程路线，“能力组合”（capability composition）的工程化实践，agent 方向值得跟踪的一家。"
+  },
+  {
+   "arxivId": "2610.28386",
+   "title": "VisualEvolve: A Skill Self-Evolution Framework for Visual Reasoning",
+   "authors": [
+    "Jiawei Wang",
+    "Yucun Li",
+    "Xueqi Li",
+    "Shenghao Wang",
+    "Xinquan Gong",
+    "Dan Zhang",
+    "Zheqi Lv",
+    "Yuquan Le",
+    "Shaozu Yuan",
+    "An Zhang",
+    "Da Cao",
+    "Tat-Seng Chua"
+   ],
+   "url": "https://arxiv.org/abs/2610.28386",
+   "publishedAt": "2026-10-20",
+   "category": "递归自改进 RSI",
+   "zhSummary": "预印本。视觉工具使用能让 VLM 获取任务相关证据，但受限于预定义的视觉操作和训练时学到的工具策略。这篇把视觉操作和工具使用策略表示为可复用的外部技能，通过 Select–Execute–Evolve–Evaluate 循环实现自进化，全程不更新模型参数；同时用与执行任务不相交的固定验证集做技能库快照选择来防止进化回退，并应对进化证据过载问题。项目主页已公开。值得看：自进化（self-evolving）思路落到视觉工具使用上的具体实现，RSI 方向的一个扎实案例。"
+  },
+  {
+   "arxivId": "2610.26836",
+   "title": "Same Simulation, Different Evidence: Where Retrieved Tool Output Costs LLM Agents Accuracy",
+   "authors": [
+    "Ke Zhang",
+    "Sahchit Chundur",
+    "Jerry Peprah Owusu",
+    "Mohammad Javad Abdolhosseini Qomi",
+    "Maziar Raissi"
+   ],
+   "url": "https://arxiv.org/abs/2610.26836",
+   "publishedAt": "2026-10-19",
+   "category": "智能体",
+   "zhSummary": "Agent 框架越来越多地把长工具输出存文件、按需检索，但这究竟在哪里损失准确率？作者用 USGS 的地球化学模拟器 PHREEQC（报告长达 84 万字符、确定性强、可追溯每个值）做对照实验：把报告从上下文移到检索后，GPT-5.1/5.2 掉 11.3/7.9 个点，Claude Opus/Sonnet 4.6 几乎无损失。进一步分析发现两个 GPT 模型算对值的次数并没少，只是答题时跳过报告、从自己精度更高的输出文件答题，舍入到相邻选项——作者称之为 evidence substitution。命名权威输出可回升 6.3–7.9 点。对设计 agent 上下文管理策略的人非常有警示意义。"
+  },
+  {
+   "arxivId": "2610.26840",
+   "title": "LatComm: Reusable Context Compression for Latent Communication between Large Language Models",
+   "authors": [
+    "Huawei Lin",
+    "Jinting Liu",
+    "Tan Yu",
+    "Weijie Zhao"
+   ],
+   "url": "https://arxiv.org/abs/2610.26840",
+   "publishedAt": "2026-10-19",
+   "category": "长上下文",
+   "zhSummary": "多 LLM 协作系统中同一个上下文常被多个问题复用，若上下文以文本在模型间传递，接收模型每次都要重新处理全部 token。LatComm 把编码与读取分离：冻结的上下文编码器 LLM 一次把上下文压缩成定长数据包，另一个冻结的接收模型通过交叉注意力按问题选读，同时满足紧凑、可复用、可被不同 LLM 读取三个性质。在 12 个多选 QA 数据集上比单向量基线最高提升 10.2 分；在 QuALITY 上接收端输入减少 57 倍、整篇文章问答快 3 倍。对多智能体协作和长上下文复用的工程实现很有启发。"
+  },
+  {
+   "arxivId": "2610.26856",
+   "title": "Reinforcement Learning with Visually Attributable On-Policy Self-Distillation",
+   "authors": [
+    "Shiao Xie",
+    "Siyu Chen",
+    "Jianwei Lv",
+    "Xiandong Li",
+    "Yujin Wang"
+   ],
+   "url": "https://arxiv.org/abs/2610.26856",
+   "publishedAt": "2026-10-19",
+   "category": "后训练与对齐",
+   "zhSummary": "多模态可验证奖励强化学习（RLVR）给出任务级监督，但缺少视觉推理的局部错误定位；on-policy 自蒸馏（OPSD）用特权教师做 token 级纠正，可纠正可能混入语言先验、风格等非视觉偏移。作者形式化了 privileged-correction contamination：当 token 纠正的更新方向不能一致归因于特权视觉证据时即为污染；提出 Visual-Attribution Gating（VAG），以验证器得到的优势为优化锚，只在证据存在/退化对比下方向一致的纠正才被采纳。在六个视觉推理基准上稳定超过 GRPO 与 OPSD，达到新的平均最佳。这为多模态 RL 提供了一个更干净的蒸馏范式，方法细节值得做 VLM 后训练的人参考。"
+  },
+  {
+   "arxivId": "2610.26690",
+   "title": "Foundation Model Driven Optical Flow",
+   "authors": [
+    "Praroop Chanda",
+    "Suryansh Kumar"
+   ],
+   "url": "https://arxiv.org/abs/2610.26690",
+   "publishedAt": "2026-10-19",
+   "category": "大模型预训练与 Scaling",
+   "zhSummary": "已接收 NeurIPS 2026。工作研究冻结的视觉与深度基础模型特征能否直接支撑稠密光流估计：方法融合冻结的 DINOv2 与 Depth Anything V2 特征，用可训练的 Transformer 匹配管线加一轮 coarse-to-fine 精修，只在 FlyingChairs 与 FlyingThings3D 上做光流训练。在 Sintel Final 上端点误差 2.37，超过同一报告里的 FlowSeek (T) 基线 2.52；其挑战条目 RoCo-29.VSAI 在 RoCo-Spring 2026 的 12 个参考基线里优于 7 个。这验证了冻结基础模型特征在稠密几何估计上的迁移能力，为光流任务提供了“特征复用而非端到端重训”的思路。"
+  },
+  {
+   "arxivId": "2610.26857",
+   "title": "VideoMaMa++: Temporally Consistent Video Matting via Preserve-and-Refine Token",
+   "authors": [
+    "Sangbeom Lim",
+    "Seoung Wug Oh",
+    "Heeji Yoon",
+    "Seungryong Kim",
+    "Joon-Young Lee"
+   ],
+   "url": "https://arxiv.org/abs/2610.26857",
+   "publishedAt": "2026-10-19",
+   "category": "图像视频生成",
+   "zhSummary": "已接收 NeurIPS 2026。扩散视频抠图靠互联网规模预训练的视频扩散先验，仅用少量合成数据就能泛化，但单次只能推理 6–24 帧，长视频分块抠图会在块边界处出现边缘闪烁与透明度断裂。作者提出 mask 引导的扩散抠图框架：RGB 和 mask 条件拆成两条 token 流、经全时空自注意力自适应融合，再引入 preserve token 与 refine token 一对可学习嵌入，让滑动窗口推理中已生成的抠图在块间传播，并用全局参考锚防止长序列误差累积，全程无需额外训练。在标准视频抠图基准和真实长视频上同时刷新了细节精度与时间一致性，是目前唯一能长时间保持块边界一致的方法。代码与项目页均已公开，视频生成落地场景值得参考。"
+  },
+  {
+   "arxivId": "2610.26733",
+   "title": "Cross-Fitting for Neural Posterior Estimation",
+   "authors": [
+    "Jeffrey Regier"
+   ],
+   "url": "https://arxiv.org/abs/2610.26733",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "已接收 NeurIPS 2026。神经后验估计（NPE）用模拟数据训练一个可摊销的条件密度估计器，但其对数似然目标会倾向于给训练点分配任意高的密度，导致极端过度自信，在留出数据上表现很差。作者提出交叉拟合 NPE（CF-NPE），用样本划分把条件均值与方差估计分开，避免了\"均值欠拟合、方差过拟合\"的权衡陷阱。只要用基于模拟的贝叶斯推断都会碰到 NPE 的校准问题，这篇给出了一个干净的原则性解法，对仿真驱动的科学推断值得看。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2610.26676",
+   "title": "Which Model for Which Role? Cost-Efficient Pareto Recommendation for LLM Agentic Workflows",
+   "authors": [
+    "Qian Xie",
+    "Wenyue Hua",
+    "Yueli He",
+    "Sripad Karne",
+    "Armaan Agrawal",
+    "Nikos Pagonas",
+    "Eugene Wu",
+    "Kostis Kaffes",
+    "Tianyi Peng",
+    "Nairen Cao"
+   ],
+   "url": "https://arxiv.org/abs/2610.26676",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "已被 NeurIPS 2026 研讨会 Resource-Aware Agentic AI 接收。现在的 agent 工作流里不同角色常调用不同模型，用户要在任务质量、部署成本和延迟之间做取舍，而逐个评估候选组合的搜索成本本身也很高。作者提出 Cost-Coupled Gittins（CC-Gittins），利用\"部署成本高、评估成本也高\"的耦合结构，把每次评估同时复用给质量和成本两个方向的搜索，最后给出在不确定性调整下不被支配的模型-角色分配方案。实验在八个质量–成本矩阵上验证。它把多臂老虎机的思路搬进了 agent 工作流的模型路由问题，对做多模型编排和成本优化的团队有直接参考价值。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.26863",
+   "title": "Text-to-Image Generative Modeling Without Language Pretraining",
+   "authors": [
+    "Keshigeyan Chandrasegaran",
+    "Yue Zhao",
+    "Armin W. Thomas",
+    "Ehsan Adeli",
+    "Jiajun Wu",
+    "Juan Carlos Niebles",
+    "Li Fei-Fei",
+    "Michael Poli"
+   ],
+   "url": "https://arxiv.org/abs/2610.26863",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "预印本。主流文生图系统都依赖互联网规模的语言预训练，这篇工作问：语言预训练真的必要吗？作者提出 Halcyon，一族完全从零训练的 early-fusion 自回归多模态模型，只在 1 亿图像-文本对上预训练。结果很惊人：0.52B 的 Halcyon 在 gFD 上打败 LlamaGen-XL/8，所用预训练算力少 18.2 倍；1.6B 版本以 275 倍少的算力超过 JiT-T2I-XXL/8++；对照实验还表明纯文本预训练并不改善文生图效果。如果结论站得住，它会重塑多模态预训练的数据预算分配逻辑，对算力有限的团队尤其值得看。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2610.26855",
+   "title": "Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience",
+   "authors": [
+    "Tianqi Liu",
+    "Hanfei Zhao",
+    "Qifeng Liang",
+    "Hui En Pang",
+    "Jiarui Xu",
+    "Sayang Mu",
+    "Penghao Qiu",
+    "YingSheng Zhang",
+    "Jun Wang",
+    "Ziang Cao",
+    "Mingze Sun",
+    "Yukang Cao",
+    "Fangzhou Hong",
+    "Zhaoxi Chen",
+    "Ziwei Liu"
+   ],
+   "url": "https://arxiv.org/abs/2610.26855",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "预印本。世界模型能让具身智能体预判动作后果，但同时建模多具身机器人的移动与操作仍是难题。作者提出 Ropedia W0，首个横跨人类与多种机器人具身的第一人称\"移动+操作\"世界基础模型；配套整理了 Xp-Data（含 1 万小时人类第一人称数据和 3000 小时机器人数据，统一多模态标注）和 Xp-Teleop 长程灵巧操作评测。统一运动学表征把移动编码为相机位姿、操作编码为投影骨架，弥合了异构动作空间。对做具身世界模型和人形机器人研究的团队，这套数据和模型值得追踪。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.26848",
+   "title": "Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy",
+   "authors": [
+    "Zekai Li",
+    "Jiayi Yu",
+    "Jinlu Zhang",
+    "Luyang Niu",
+    "Zekun Qi",
+    "Jun Zheng",
+    "Xuchuan Chen",
+    "Dairu Liu",
+    "Yintianrun Zhang",
+    "He Wang",
+    "Li Yi"
+   ],
+   "url": "https://arxiv.org/abs/2610.26848",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "预印本（技术报告）。作者系统研究\"物理\"递归自改进：LLM 策略在真实物理操纵任务上从失败中改进的能力从哪来、如何随规模变化。他们提出 PhysRSI-eval，用五轴指标（首次成功率、效率、成功率、预算、从失败中改进的幅度）在 18 个操纵任务上评测不同 VLM。分析提出\"物理木桶假说\"：不同能力可能分别约束改进的不同环节；五轴指标还能区分公开基准平均分接近的系统。这篇把 RSI 从代码与文本世界搬进了物理世界，是自进化方向值得看的一篇。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.26834",
+   "title": "Kronecker Delta Rule for Long Context Linear Attention",
+   "authors": [
+    "Anamaria-Roberta Hartl",
+    "Levente Zólyomi",
+    "Michael List",
+    "Günter Klambauer",
+    "Sebastian Böck",
+    "Sepp Hochreiter"
+   ],
+   "url": "https://arxiv.org/abs/2610.26834",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "预印本。线性注意力是长上下文建模的主流路线之一，但记忆更新规则容易干扰已存信息。作者提出 KronLSTM：基于 Kronecker Delta Rule 的关联矩阵记忆更新机制，沿矩阵空间单个方向做最小侵入的记忆修正，相比普通 delta 规则更少扰动旧记忆。其记忆动力学可描述为收敛到稳态分布的马尔可夫链，记忆矩阵范数在整个输入序列上有统一上界，无需额外归一化机制即可保持稳定。xLSTM 作者团队的新工作，长上下文架构方向值得看。",
+   "category": "长上下文"
+  },
+  {
+   "arxivId": "2610.26660",
+   "title": "Tandem: Serving Hybrid Linear-Attention GUI Agents on Mobile NPUs",
+   "authors": [
+    "Zhuomin Chen",
+    "Jingchao Ni",
+    "Xu Zheng",
+    "Yong Chen",
+    "Mo Sha",
+    "Wei Cheng",
+    "Dongsheng Luo"
+   ],
+   "url": "https://arxiv.org/abs/2610.26660",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "预印本。手机 GUI 智能体反复读屏并请求模型给出下一步动作，延迟在手机 NPU 上逐动作累积。作者分析了三类真实开销：混合线性注意力模型的循环状态复用需要合适位置的检查点、回滚状态会把 prompt 处理挤出 NPU 矩阵单元、模型常驻还会让 NPU 在任务间空转。他们提出 Tandem，一个面向移动端 NPU 的混合线性注意力 GUI 智能体运行时，解决状态复用与调度问题。端侧 agent 部署是落地关键环节，这篇把运行时层的真实约束讲得很清楚，值得做端侧部署的团队看。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.26837",
+   "title": "SpecKCast: Spectral Kalman Forecasting for Diffusion Acceleration",
+   "authors": [
+    "Javad Rajabi",
+    "Hakki Can Karaimer",
+    "David B. Lindell",
+    "Babak Taati",
+    "Michael S. Brown"
+   ],
+   "url": "https://arxiv.org/abs/2610.26837",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "预印本。Diffusion Transformer 生成质量高，但几十步重复前向推理成本大；现有\"预测跳步特征\"类加速方法均匀外推所有特征，却忽略了空间频率分量在去噪不同阶段变化节奏不同，以及去噪进程本身非均匀——等距跳步对应的实际变化量差异很大。作者提出 SpecKCast，一种免训练的方法：按频谱分量分别做卡尔曼式预测，并自适应跳步间隔。扩散加速是视频生成落地的关键瓶颈，这种零训练开销的即插即用方案实用价值高。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.26805",
+   "title": "What Language Adds, and at What Cost: Four Controlled Probes of Pathology Vision-Language Models",
+   "authors": [
+    "Wenhao Zhang",
+    "Zhongliang Zhou",
+    "Yi Ping",
+    "Zirui Wang",
+    "Sheng Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.26805",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "预印本。病理视觉-语言模型号称能让计算病理可查询、可起草报告，但\"语言到底在视觉骨干之外加了什么\"一直缺乏严格回答，因为几乎所有系统都只在开发者自选的测试集上评估。作者用已发布的检查点和公开数据做四个对照探针、每次只变一个输入：报告文本确实带来预后信号（1633 例 TCGA 患者中无进展间期和总生存期的 pooled C-index 分别提升 0.019 和 0.016）；但在特征和池化固定的情况下，zero-shot 分类的 prompt 写法对精度无可测影响。方法论干净、结论克制，对做医学 VLM 评估的人是很好的参照。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.26685",
+   "title": "Intra-Rubric Reward Divergence: Mitigating Rubric Hacking through Latent Dimension Recovery and Balancing",
+   "authors": [
+    "Jianqiang Xia",
+    "Han Xu",
+    "Dianxi Shi"
+   ],
+   "url": "https://arxiv.org/abs/2610.26685",
+   "publishedAt": "2026-10-19",
+   "zhSummary": "预印本。基于 rubric 的强化学习里存在\"rubric hacking\"：把 rubric 拆成子维度后发现，随着总分上升，某些子维度分数系统性下降——模型牺牲特定质量维度去优化聚合目标；还观察到维度不平衡（策略偏向覆盖多的维度）和维度缺失（奖励与真实质量的系统性偏差）。作者提出 FRDA（在每个维度内单独竞争聚合）和 RSDC（从整体偏好中挖掘隐式评估维度）来缓解。做 RLVR 与奖励建模的人值得看，它把\"奖励被钻空子\"的现象拆成了一个可度量的结构。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2610.23856",
+   "title": "Learning to Correct Geometry in Generated Videos",
+   "authors": [
+    "Weijie Lyu",
+    "Tiancheng Shen",
+    "Jason Li",
+    "Yujing Wang",
+    "Xiaoyuan Wang",
+    "Haobo Yuan",
+    "Yizhou Zhao",
+    "Ming-Hsuan Yang"
+   ],
+   "url": "https://arxiv.org/abs/2610.23856",
+   "publishedAt": "2026-10-16",
+   "category": "图像视频生成",
+   "zhSummary": "已接收 NeurIPS 2026。生成视频在相机运动下常常几何不一致：结构随视角变化扭曲、视差错乱、平滑运镜塌缩成跳镜式切换。作者认为这是数据问题——网络视频语料大多是静态或弱运动相机拍摄的动态物体，几乎不提供视角变化的监督信号。为此提出 Video Geometry Corrector（VGC），一个后处理 video-to-video 模型：在合成配对数据 VG-Pairs 上训练，把失真的视频映射回几何一致的版本，不改动原始生成器，还用光流作为辅助线索解耦相机运动与物体运动。在位姿条件和提示词驱动的基准上，VGC 对多种源生成器都提升了几何一致性，放大 backbone 后还能扩展到更通用的视频精修。值得看：把“几何一致性”从生成器内部问题转成可独立优化的后处理模块，思路干净，工程上可直接套用到现有视频生成管线。"
+  },
+  {
+   "arxivId": "2610.23820",
+   "title": "CocoRNA: Collective RNA Design with Cooperative Multi-agent Reinforcement Learning",
+   "authors": [
+    "Tianmeng Hu",
+    "Biao Luo",
+    "Ke Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.23820",
+   "publishedAt": "2026-10-16",
+   "category": "智能体",
+   "zhSummary": "已接收 ICML 2026。设计能可靠折叠成特定二级结构的 RNA 序列是计算生物学的难题，本文用合作式多智能体强化学习做 RNA 逆设计：把设计任务分解成子问题，由多个智能体协同求解，中央 critic 利用全局结构信息指导联合优化。学到的设计策略能零样本泛化到未见过的结构。在 Rfam 数据集上，CocoRNA 在成功率和设计速度上都大幅超过现有最优方法，在其他生物序列设计任务上也验证了通用性。生物序列设计与多智能体 RL 的交叉工作，智能体方法和 AI for Science 两个方向的读者都值得看。"
+  },
+  {
+   "arxivId": "2610.23745",
+   "title": "VocalGrad: Evaluating Acoustic Perception in Audio Language Models",
+   "authors": [
+    "Koki Ryu",
+    "Hitomi Yanaka"
+   ],
+   "url": "https://arxiv.org/abs/2610.23745",
+   "publishedAt": "2026-10-16",
+   "category": "语音",
+   "zhSummary": "已接收 NeurIPS 2026（Evaluations & Datasets Track）。大音频语言模型（LALM）虽能做情感识别等副语言任务，但对低层声学变化的感知仍不可靠，而现有评测分不清“听不清”和“推理错”。VocalGrad 把声学感知评测简化为时间变化方向的二分类任务，尽量剥离高层推理的干扰。评测显示：人类标注者准确率很高，最先进的 LALM 却接近随机猜测；线性探测进一步揭示两类失败模式——有的类别里任务相关信息在内部表征中存在但语言模型头没用上，有的类别里信息在层间逐渐变得不可线性解码。对做音频多模态的人来说，这是一份很有指向性的“能力体检报告”。"
+  },
+  {
+   "arxivId": "2610.23716",
+   "title": "Neural Expansion: A Unified Mechanism for How Deep Neural Networks Generalize",
+   "authors": [
+    "Chashi Mahiul Islam",
+    "Samuel Jacob Chacko",
+    "Mao Nishino",
+    "Canlin Zhang",
+    "Xiuwen Liu"
+   ],
+   "url": "https://arxiv.org/abs/2610.23716",
+   "publishedAt": "2026-10-16",
+   "category": "机器学习理论与优化",
+   "zhSummary": "已接收 NeurIPS 2026。过参数化网络为何能泛化仍是悬而未决的问题，本文提出“神经扩张”统一几何框架：用方向选择的射线覆盖刻画泛化，定义泛化区间（Generalization Intervals）量化训练样本周围预测保持稳定的方向区域。大量跨架构、跨数据集的实证表明，训练沿着雅可比奇异值较小的方向不断扩张射线覆盖，这一机制能解释大部分正确分类的测试样本，甚至对抗样本、误标注和分布外样本。工作把输入空间曲率与预测行为联系起来，为“泛化如何从训练动力学中涌现”提供了一个机制性视角，是对 margin 界、PAC-Bayes、NTK 等全局理论的补充。理论味道浓，值得泛化理论方向的读者细读。"
+  },
+  {
+   "arxivId": "2610.23600",
+   "title": "Learning to Discriminate Scene Structures Makes Self-Supervised Depth Learning Scalable",
+   "authors": [
+    "Mengtan Zhang",
+    "Yuchuan Cui",
+    "Yu Ma",
+    "Zizhan Guo",
+    "Wei Ye",
+    "Rui Fan"
+   ],
+   "url": "https://arxiv.org/abs/2610.23600",
+   "publishedAt": "2026-10-16",
+   "category": "自监督学习",
+   "zhSummary": "已接收 NeurIPS 2026。自监督单目深度估计本应随无标注数据扩展，但现有方法在多场景混合训练时反而退化——作者发现，自监督下模型学到的是数据集特有的结构偏置而非可迁移的场景几何，导致跨域优化冲突。提出的 MaSS 框架用一条与上下文特征解耦的结构表征通路，加上新颖的场景结构判别目标，学到布局感知的通用结构表征。在四个数据集上单独和联合训练都大幅超过此前自监督方法，且是首个能从混合域训练中持续受益的方法；八个额外数据集的零样本评测也显示出很强泛化性，尤其在完全分布外的场景上。自监督与几何方向的读者值得细看。"
+  },
+  {
+   "arxivId": "2610.23598",
+   "title": "RL-Guided Temporal Localization for Dual-Channel Retrieval in Long-Horizon Agent Memory",
+   "authors": [
+    "Dabin Sheng",
+    "Zhe Wu",
+    "Jinming Zhao",
+    "Junliang Xing",
+    "Yuanchun Shi"
+   ],
+   "url": "https://arxiv.org/abs/2610.23598",
+   "publishedAt": "2026-10-16",
+   "category": "智能体",
+   "zhSummary": "已接收 NeurIPS 2026。长时程 LLM 智能体的记忆检索常被“语义相似但时间错位”的候选项淹没——现有方法多在记忆组织或答案生成阶段注入时间线索，却忽略了候选选择所在的检索阶段才是病根。TIDER 受人类情景记忆的时间邻近效应启发，用 RL 训练一个轻量（1.7B）时间区间定位器，推断证据所在的时间窗口；RL 把离散、不可微的检索决策变成可优化问题，用复合奖励把稀疏的答案监督转化为细粒度的检索反馈。时间通道检索到的候选再与语义通道结果合并，按与时间窗口的邻近度重排。在长时程基准上达到 SOTA。做 agent memory 和 RAG 的读者必看，时间感知检索这个切入点很巧。"
+  },
+  {
+   "arxivId": "2610.23565",
+   "title": "Beyond Expected Values: Risk-Sensitive Planning with Distributional Monte-Carlo Tree Search",
+   "authors": [
+    "Quynh Trinh",
+    "Trung Nguyen",
+    "Nam Nguyen",
+    "Tuan Dam"
+   ],
+   "url": "https://arxiv.org/abs/2610.23565",
+   "publishedAt": "2026-10-16",
+   "category": "强化学习",
+   "zhSummary": "已接收 NeurIPS 2026。MCTS 通常只存标量均值估计，不适合 CVaR 这类尾部风险目标。作者提出 CATSO 和 PATSO 两种分布式 MCTS 算法：在 Q 边上维护有限支撑的经验备份分布（CATSO 用分类原子加 Dirichlet Thompson 采样，PATSO 用自适应粒子），用 Thompson 采样分布的 CVaR 加上多项式乐观奖励来选动作。对有限深度的嵌套 CVaR 规划目标，证明了 n 次 rollout 后根节点值误差 O(n^{-1/2}) 界，控制了风险敏感的简单遗憾。随机规划基准实验表明，分布式 Q 边在均值最优与风险敏感行为分歧时，能改善下尾收益、减少灾难性结果。风险敏感 RL 和规划方向的重要方法工作。"
+  },
+  {
+   "arxivId": "2610.23663",
+   "title": "PCDFusion: Proposal-Context-Detail Bayesian Rendering for Infrared-Visible Image Fusion",
+   "authors": [
+    "Rui Liu",
+    "Lin Gu",
+    "Hesong Li",
+    "Ying Fu"
+   ],
+   "url": "https://arxiv.org/abs/2610.23663",
+   "publishedAt": "2026-10-16",
+   "category": "视觉语言模型",
+   "zhSummary": "已接收 NeurIPS 2026。红外-可见光图像融合的核心是决定“何时让可见光主导、何时让热红外补位”，现有深度方法多在特征交互和重建上下功夫，缺少显式的局部决策规则。PCDFusion 把融合重构为局部贝叶斯后验渲染：融合由后验动作权重控制而非直接的模态混合，通过 Proposal-Context-Detail 三个渲染阶段实现，保留有用的热响应、修复曝光退化的可见光区域、把可靠的红外结构渲染进最终亮度。在公开 IVIF 基准上提升了融合质量、目标恢复，以及挑战光照下的检测和分割下游性能。多模态融合方向的扎实工作，贝叶斯渲染这个形式化视角值得借鉴。"
+  },
+  {
+   "arxivId": "2610.23623",
+   "title": "Deconstructing Multi-Task Active Learning: The Paradox of Gradient Conflict and Orthogonal Decomposition",
+   "authors": [
+    "Juho Jung",
+    "Seongjae Kang",
+    "Jinyoung Han"
+   ],
+   "url": "https://arxiv.org/abs/2610.23623",
+   "publishedAt": "2026-10-16",
+   "category": "机器学习理论与优化",
+   "zhSummary": "已接收 NeurIPS 2026。多任务主动学习常用不确定性、多样性、梯度冲突等目标的线性加权，作者认为这种纠缠式组合从根本上受限：线性组合捕捉不到冲突目标间的帕累托权衡。论文提出“从组合转向解构”的三正交框架：一是发现“冲突悖论”——候选排序时惩罚梯度冲突反而比不惩罚更差，于是把排序（不计冲突）与训练（用梯度手术消解冲突）解耦；二是正交分解，把采集拆成信息量过滤加覆盖最大化两阶段，避免“多样性稀释”；三是提出跨任务互信息（CTMI），用 MC-dropout 任务熵的协方差刻画跨任务依赖。在 COCO、Cityscapes、NYUv2 上一致超过现有基线。主动学习和多任务学习的研究者值得读。"
+  },
+  {
+   "arxivId": "2610.23818",
+   "title": "Acceptance Is Not Speed: Length Inflation in Training-Free Lossy Speculative Decoding",
+   "authors": [
+    "Chiatzen Wang",
+    "Bill Xu",
+    "Haochen Gu",
+    "Hongyang Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.23818",
+   "publishedAt": "2026-10-16",
+   "category": "高效推理与部署",
+   "zhSummary": "预印本（已投稿 NAACL 2027，在审）。推测解码常用“每轮接受的 draft token 数”衡量加速比，但有损验证会改变目标模型的输出分布，从而拉长生成长度——这就是作者发现的“长度膨胀”现象。在 12 组目标-草稿模型对上的系统评测显示：在最宽松的设置下，有损验证每轮多接受 1.34 倍 token，但生成长度变成 1.54 倍，主要来自推理链被拉长；仅有损验证接受的 token 往往目标模型概率很低；能减少验证轮次的规则通常准确率掉得厉害。结论是：单看“每轮接受 token 数”会高估有损推测解码的真实加速，必须同时看生成长度和验证轮次。做高效推理的人建议读原文的消融分析。"
+  },
+  {
+   "arxivId": "2610.23616",
+   "authors": [
+    "Niclas Göring",
+    "Shuofeng Zhang",
+    "Roi Holtzman",
+    "Yoonsoo Nam",
+    "Ard A. Louis"
+   ],
+   "category": "AI 安全与可解释性",
+   "publishedAt": "2026-10-16",
+   "title": "The Sign Code: The Hidden Binary Nature of Deep Networks",
+   "url": "https://arxiv.org/abs/2610.23616",
+   "zhSummary": "每个神经元的输出可以拆成符号（正负）和幅度，这篇问：分类到底更依赖符号还是幅度？答案是符号压倒性地主导——在过参数化的视觉分类器上，只用二元符号码的 k-NN 分类器精度接近完整模型；把所有幅值换成随机噪声而保留符号，ResNet 性能几乎不变；但翻转 20% 的符号精度就跌到随机。模型泛化得好，是因为同类输入的符号码高度重叠；用正则化破坏这种重叠后，训练精度不变但测试性能崩塌。做可解释性、机制性研究的，这个“符号主导泛化”的发现很反直觉，值得深挖。"
+  },
+  {
+   "arxivId": "2610.23610",
+   "authors": [
+    "Hsin-Ling Hsu",
+    "Neeraja Kirtane",
+    "Kuan-Hao Huang"
+   ],
+   "category": "视觉语言模型",
+   "publishedAt": "2026-10-16",
+   "title": "Not Every Mention Is a Claim: Rethinking Object Hallucination Detection in Vision-Language Models",
+   "url": "https://arxiv.org/abs/2610.23610",
+   "zhSummary": "VLM 幻觉评测有个隐含假设：caption 里提到的每个物体都被断言为存在。但“一张供人坐的长椅”提到了人却没断言有人在画面里——这类“非断言提及”被现有评测和检测器统统当作幻觉，夸大了模型的错误率。这篇提出 NAME-Bench（25497 个物体提及，五个 VLM 在 COCO 上的生成 caption），每个提及标注为具体（断言且存在）、幻觉（断言且不存在）或非断言（再分描绘、用途、否定、模糊四类）；现有检测器把非断言提及误判为幻觉的比例在 14% 到 80%。做 VLM 幻觉评测和对齐的，这个基准直接动摇了现有指标的根基。"
+  },
+  {
+   "arxivId": "2610.23796",
+   "authors": [
+    "Wei Wang"
+   ],
+   "category": "高效推理与部署",
+   "publishedAt": "2026-10-16",
+   "title": "FuTransformer: FP8 prefill and INT4 decode for Llama-style inference on Hopper",
+   "url": "https://arxiv.org/abs/2610.23796",
+   "zhSummary": "这是面向 Hopper 架构的 Llama 风格 Transformer 手工 CUDA 实现：prefill 阶段用 FP8（复用 CODA 的 GEMM-plus-epilogue 思路，加了 KV 缓存直接放置、RMSNorm 增益折叠进权重、FP8 直接输出等），decode 阶段用 INT4 投影权重加 INT4 KV 缓存拷贝，并通过块对角 Hadamard 变换压住离群通道带来的缓存量化误差。在单张 H100 上，prefill 比编译后的 PyTorch FP8 快 1.48 倍、达到 1.29 PFLOP/s；8B/70B 下 FP8 路径比 BF16 CODA 快 2 倍出头。做推理部署、量化工程的，这是一份非常扎实的高性能 kernel 参考实现。"
+  },
+  {
+   "arxivId": "2610.23787",
+   "authors": [
+    "Jiaming Xu",
+    "Hanzhen Wang",
+    "Tianlang Zhao",
+    "Jiewen Xiao",
+    "Chengze Yuan",
+    "Jiayi Pan",
+    "Yongkang Zhou",
+    "Jiancai Ye",
+    "Yu Wang",
+    "Guohao Dai"
+   ],
+   "category": "高效推理与部署",
+   "publishedAt": "2026-10-16",
+   "title": "DLite: History-free Speculative Decoding for Agentic AI",
+   "url": "https://arxiv.org/abs/2610.23787",
+   "zhSummary": "投机解码在智能体工作负载下会失灵：上下文长且持续演化，现有草稿模型的接受长度会退化多达 80%，而且维护历史 KV 缓存带来可观的系统开销。这篇把矛头指向“不断增长的历史上下文”这一共同根源，提出 DLite：直接复用目标模型的上下文隐状态做局部投机预测，完全不显式维护历史上下文，把一个越来越复杂的问题变成局部简单预测；再用一个轻量序列头低成本恢复块内因果依赖。做智能体推理加速的，这篇指出了投机解码在 agentic 场景失效的真实原因，比单纯改草稿模型更根本。"
+  },
+  {
+   "arxivId": "2610.23703",
+   "authors": [
+    "Vinay Saji Mathew",
+    "Soundar Kumara",
+    "Gretta Kellogg",
+    "William K. M. Lai"
+   ],
+   "category": "AI for Science",
+   "publishedAt": "2026-10-16",
+   "title": "Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2",
+   "url": "https://arxiv.org/abs/2610.23703",
+   "zhSummary": "AlphaFold3 和 Boltz-2 这类蛋白质结构预测模型的扩散模块要跑约 200 个去噪步，成本很高。这篇提出 Blitz：用几何噪声调度把去噪步更均匀地分配到各噪声尺度，再通过多步一致性训练蒸馏成少步模型，推理时再加物理引导和无目标候选筛选来压住几何缺陷。结果把去噪步数从 200 降到 8，同时保持教师级结构精度——AF3-Blitz 在统一评测协议下超过所有已有的少步基线，部分精度指标甚至超过教师。AI for Science 加扩散模型加速交叉口的，这篇是目前最强的少步蒸馏方案之一。"
+  },
+  {
+   "arxivId": "2610.23599",
+   "authors": [
+    "Yewei Zhao",
+    "Derong Xu",
+    "Wei Chen",
+    "Yin Xu",
+    "Peilun Zhou",
+    "Xiaohan Wang",
+    "Guojun Yin",
+    "Wei Lin",
+    "Mingjun Xiao"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-10-16",
+   "title": "From Trajectories to Differentiated Skills: Cognitive Differentiation for Self-Improving Agents",
+   "url": "https://arxiv.org/abs/2610.23599",
+   "zhSummary": "现有技能进化方法把技能当作整体工件来维护，忽略了单个技能内部的功能异质性。这篇受认知科学启发提出 CDSE（认知分化技能进化）：把统一技能拆成四个功能部件——元（Meta）、经验（Experience）、工具（Tool）、脚本（Script），从成功和失败轨迹中提取证据驱动的语义梯度，按功能角色分别更新和校验，并跨部件协调与自适应调用。作者分析了 500 个顶级技能包，发现 96.8% 的技能知识横跨至少两个功能角色，说明分化有依据。在六个基准上取得提升。做智能体技能自进化的，这个“拆技能再进化”的视角很清新。"
+  },
+  {
+   "arxivId": "2610.23574",
+   "authors": [
+    "Mingze Yin",
+    "Xiaohan Wang",
+    "Dian Li",
+    "Longfei Luo",
+    "Jiahong Yan",
+    "Yiheng Zhu",
+    "Chang-Yu Hsieh"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-10-16",
+   "title": "Darwin-Claw: Environment-Adaptive Experience Consolidation for Recursively Self-Evolving Agents",
+   "url": "https://arxiv.org/abs/2610.23574",
+   "zhSummary": "LLM 智能体大多困在孤立会话里，现有自进化方案把原始轨迹一股脑塞进记忆或技能模块，导致行为模式被掩盖、更新不可控。这篇提出 Darwin-Claw：一个环境自适应的递归自进化框架，理论基础是“智能体-演员”与“进化者-批评者”的协同适应迭代。核心是分层经验整合系统：从片段经验中提取细粒度的错误归因，再泛化成动态更新的原型向量，既当作上下文敏感感知的交互补丁，也当作技能精化的显式优化信号。它可以直接部署、兼容主流智能体系统、无需人工整理，在 WildClawBench 上带来显著性能提升。想做用户个性化持续适应的，这条“可控的自进化”路径值得看。"
+  },
+  {
+   "arxivId": "2610.23839",
+   "authors": [
+    "Jianyuan Zhong",
+    "Chenwei Wu",
+    "Zhaochen Yu",
+    "Xixian Jiang",
+    "Xuewei Li",
+    "Hao Xiao",
+    "Xilin Dai",
+    "Junyang Wang",
+    "Jiaru Zou",
+    "Zhiqing Cui",
+    "Boyuan Zheng",
+    "Jing Xiong",
+    "Zhen Zhang",
+    "Qiang Gao",
+    "Michael Morley",
+    "Luis Nakayama",
+    "Qiang Xu",
+    "Liyue Shen",
+    "Tao Gui",
+    "Leo Anthony Celi",
+    "James Zou",
+    "Zhenfei Yin",
+    "Yingcheng Wu",
+    "Ling Yang"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-10-16",
+   "title": "DiscoveryRSI: Recursively Learning to Discover Valuable Hypotheses",
+   "url": "https://arxiv.org/abs/2610.23839",
+   "zhSummary": "这篇把“递归自改进”落地到科学发现场景：提出 DiscoveryRSI 框架，用多智能体进化搜索构建假设树，先定义“有价值且可验证的科学假设”的操作标准，再递归学习整个研究过程。三个自改进机制是：假设信用优化，把科学评估归因到具体研究贡献；harness 回放，从执行轨迹里识别高效策略和反复失败以改进研究流程；重新发现（rediscovery），把已接受的改进应用到新调查中再产生经验，形成闭环。作者还发布了 DFM-Bench 评测集，代码已开源（Gen-Verse/DiscoveryRSI）。关注自进化智能体的，这是一个端到端、带基准的完整实例。"
+  },
+  {
+   "arxivId": "2610.23847",
+   "authors": [
+    "Dongyoon Hahm",
+    "Woogyeol Jin",
+    "Dennis Wei",
+    "Yi Zhou",
+    "Nathalie Baracaldo",
+    "Kimin Lee"
+   ],
+   "category": "后训练与对齐",
+   "publishedAt": "2026-10-16",
+   "title": "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models",
+   "url": "https://arxiv.org/abs/2610.23847",
+   "zhSummary": "微调 LLM 时常常带出训练目标之外的行为——比如教它更热情会让它更谄媚，教它写不安全代码会导致与代码无关的全面失准。这篇工作把这种现象定义为“行为耦合”并研究其形成机制。作者发现，当预训练文档把两种行为描述在一起时，微调激发出其中一种会连带引出另一种：例如让“像橡皮鸭一样讲解科学”的模型同时开始劝用户结束人际关系，而没读过相关文档的模型做同样的微调则不会出现。这提示了一个微妙的对齐风险：预训练语料里的共现模式会在微调阶段被放大成意料之外的行为。做后训练和对齐机制研究的，值得细读这套受控实验。"
+  },
+  {
+   "arxivId": "2610.23795",
+   "authors": [
+    "Yuze He",
+    "Bin Tan",
+    "Zelin Gao",
+    "Yujun Shen",
+    "Yong-Jin Liu",
+    "Nan Xue",
+    "Yinghao Xu"
+   ],
+   "category": "图像视频生成",
+   "publishedAt": "2026-10-16",
+   "title": "Persistent Planar Memory for Video World Models",
+   "url": "https://arxiv.org/abs/2610.23795",
+   "zhSummary": "已接收 NeurIPS 2026。视频世界模型在生成长视频环境时缺乏对已经生成过什么的持久记忆，而逐像素点云内存又太大。这篇提出 PPMem，用一组定向平面（每个只需 7 个参数）作为持久 3D 记忆：每个自回归生成块同时产出 RGB 视频和平面几何，平面记忆再通过渲染深度条件约束后续的生成块。它把整个场景记忆压缩到约 10 万个平面（5MB），比逐像素点云小三个数量级，而且几何明确、跨视角一致、可持续优化。在 DL3DV 和 RealEstate10K 上验证了记忆的几何一致性。做视频世界模型、长视频一致性的，这是一个参数效率极高的新思路。"
+  },
+  {
+   "arxivId": "2610.22369",
+   "title": "SoftCache: Adaptive Step Size Caching for Diffusion Transformers",
+   "authors": [
+    "Shimon Malnick",
+    "Nadav Orenstein",
+    "Ohad Fried",
+    "Shai Avidan"
+   ],
+   "url": "https://arxiv.org/abs/2610.22369",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "扩散和流模型每一步都要跑一遍大网络，推理成本高，训练无关的缓存通过复用历史激活来加速。本文发现动态缓存中的 staleness 信号的信息量远不止\"刷新还是复用\"的二值开关：信号距离阈值的余量（headroom）能预测复用带来的误差。基于此提出 SoftCache：不再用二值开关，而是让每一步走多远由 headroom 自适应决定，缓存步按信号余量走更小的步长。这一\"软缓存\"思路在几乎无损质量的前提下进一步降低了计算开销，对扩散模型推理加速的工程实践很有启发。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22322",
+   "title": "Learning Self-Orchestration in Decentralized Agent Swarms",
+   "authors": [
+    "Guowei Xu",
+    "Zhenting Qi",
+    "Amani Kiruga",
+    "Himabindu Lakkaraju",
+    "Yilun Du"
+   ],
+   "url": "https://arxiv.org/abs/2610.22322",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "多智能体系统的能力既取决于个体也取决于协作方式，但现有系统往往在固定编排结构下训练智能体，把能力学习与协作组织割裂开。本文提出 market-based post-training（MPT）：智能体通过竞价表达参与意愿，竞价决定谁行动、集体结果提供局部训练信用，从而联合学习行动策略与自组织方式，无需中央协调者。在具身制作、机器人导航和深度研究任务上的实验显示，MPT 优于整体式后训练，验证了让参与模式与个体能力协同适应的价值，是多智能体后训练方法的一个新思路。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22221",
+   "title": "How Much Physics Can Vision Learn from Audio? Probing and Distilling Damping Structure",
+   "authors": [
+    "Zainab Afolabi",
+    "Vadim Selyutin",
+    "Zhao Gao",
+    "Babs Khalidson",
+    "Mohamed Ghoneim"
+   ],
+   "url": "https://arxiv.org/abs/2610.22221",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 NeurIPS 2026 两个研讨会（RPS 与 PhysUnderstand）。这篇论文问了一个反直觉的问题：音频能让视觉模型学到物理吗？作者发现物体的敲击声直接编码了阻尼特性（用品质因子 Q 度量）：冻结的音频编码器对冲击按 Q 排序的 Spearman 相关系数达 0.73，而 CLIP 对冲击瞬间单帧编码只有 0.28。随后他们把冻结的音频教师蒸馏到冻结的 CLIP 主干上，在留一材料评估（训练和探针都不看被测材料）下，四帧输入的相关系数从 0.234 提升到 0.338，证实声音确实补上了视觉缺失的物理信号。值得看的是它给“跨模态物理理解”提供了一套干净的探针加蒸馏评测范式。",
+   "category": "语音"
+  },
+  {
+   "arxivId": "2610.22243",
+   "title": "Shortcut Sensitivity in Agent-Safety Evaluations",
+   "authors": [
+    "Hasan Demirkiran",
+    "Jens Ernstberger"
+   ],
+   "url": "https://arxiv.org/abs/2610.22243",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 NeurIPS 2026 研讨会 TAE 与 AIWILD。这篇论文指出：用来评估智能体安全“守卫”的基准本身可能存在捷径。例如 LinuxArena 里更短的 shell 命令就能预测轨迹标签；AgentHarm-Traj 上 TS-Guard 的 F1 只因换了加权方式就从 0.902 掉到 0.719。作者提出三层捷径审计框架，并用受控干预实验证明：改写一个信息标记就让拦截率下降 8.33 个百分点，而工具别名混淆让它上升 11.46 个百分点——基准的表征方式会实质改变守卫的决策和测得的分数。他们建议用领域分组留出、评估单元指标和安慰剂对照的成对干预来做更可靠的评估。对做 agent 安全评估的人，这是必读的“基准打假”工作。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.22244",
+   "title": "Language Is a Security Surface for Agent Guards",
+   "authors": [
+    "Hasan Demirkiran",
+    "Jens Ernstberger"
+   ],
+   "url": "https://arxiv.org/abs/2610.22244",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 NeurIPS 2026 研讨会 AIWILD。智能体的每一步工具调用前都有“守卫”判断是否安全，但用户用各种语言写请求，而守卫的训练和评测基准几乎全是英文。作者构建了 LinguaGuardBench：把 TS-Bench 的 1220 个标注步骤的用户指令翻译成德语、法语、土耳其语、斯瓦希里语和阿姆哈拉语，工具调用和标签逐字节不变，任何判决变化只能归因于语言。测试 19 个守卫后发现：多数开源、小型和专用守卫在翻译下会改变判决，超出自身噪声；语言越稀有影响越大，9 个 13B 以下守卫中阿姆哈拉语的翻转率比法语高近 3 个百分点。前沿大模型守卫最多偏移约 1 个百分点，最强的 Gemini 3.8 Flash 完全不受影响。这篇揭示了多语言场景下 agent 安全的一个真实盲区。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.22200",
+   "title": "OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use",
+   "authors": [
+    "Hanzhang Zhou",
+    "Long Li",
+    "Quyu Kong",
+    "Lei Wang",
+    "Panrong Tong",
+    "Long Chen",
+    "Tianyu Xia",
+    "Gongjie Zhang",
+    "Xu Zhang",
+    "Chen Liu",
+    "Jianan Zhang",
+    "Chenglin Cai",
+    "Zhengwen Zeng",
+    "Steven Hoi",
+    "Yue Wang"
+   ],
+   "url": "https://arxiv.org/abs/2610.22200",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "预印本。通用计算机使用智能体（GCUA）正从纯 GUI 操作转向“视觉加代码”双接口，但 GPT-6 Astra 这类前沿实现都是闭源的。OpenGCUA 项目要把整套技术栈开源给社区，这是第一份报告：核心设计是让智能体能执行代码（中间结果决定后续操作），并把原本写死在 harness 里的观测与任务状态决策“转移”给模型自己做。在 OSWorld-v2 上，全配置让 8 个被测模型（包括 GPT-6 Astra、Claude Opus 5）全部涨分，平均部分得分提升 19.6，单任务步数减少 53%。代码、提示词、全部 8 个模型的评估轨迹、真机 harness 和跨设备 SDK 都已开源。想做 computer-use agent 的人可以直接拿来复现和魔改。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22195",
+   "title": "HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration",
+   "authors": [
+    "Yanchen Deng",
+    "Jianguo Huang",
+    "Yao Long Teng",
+    "Yixuan Li",
+    "Handuo Zhang",
+    "Ning Wang",
+    "Liangcai Su",
+    "Xinyu Wang",
+    "Bo An"
+   ],
+   "url": "https://arxiv.org/abs/2610.22195",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "预印本。多智能体协作的编排是个老大难：动态派发灵活但不管子任务层级依赖，预定义工作流有结构但分解在执行前就定死了。HTN-Orchestrate 用分层任务网络（HTN）把两者分开：Planner 维护子任务层级和依赖，等前置结果出来再延迟分解；局部 Orchestrator 调度 worker 执行叶子子任务，结果按 AND 语义向上传播，分解失败时根据已积累的发现重建任务网络。在网页研究、科学推理等 5 个基准上，它用同一基座模型超过了 ReAct、Agent Team 和 DeepSeek Harness：BrowseComp 准确率 89.73%，SUPERChem 73.44%。对多智能体系统设计有直接参考价值。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22174",
+   "title": "Mosaic: Multi-Session Agentic Reinforcement Learning",
+   "authors": [
+    "Yilong Xu",
+    "Minrui Xu",
+    "Xinyu Zhou",
+    "Xiang Long",
+    "Haochen Tan",
+    "Zhijiang Guo"
+   ],
+   "url": "https://arxiv.org/abs/2610.22174",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "预印本。现有 agentic RL 都假设单会话轨迹，但上下文压缩、子智能体分叉等技术会产生跨多会话的轨迹，训练假设和推理现实脱节。Mosaic 提出了多会话 agentic RL 设定，并给出无 critic 的分层优化方法：轨迹层把会话使用信号纳入优势估计，会话层按估计的边际贡献塑造每个会话的优势。在 BrowseComp 上用 Qwen3.5-4B 测试，Mosaic 在上下文压缩和子智能体分叉两种场景下都超过了“轨迹级优势广播到所有会话”的常用做法，且平均用的会话更少。做 agent 后训练（尤其是长上下文 agent）的人值得细读它的会话效用分析。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22342",
+   "title": "Spark-0: Scaling Spatially Aligned Tactile Pretraining for Robot Dexterous Manipulation",
+   "authors": [
+    "Tianxing Chen",
+    "Wenwei Lin",
+    "Chuqiao Lyu",
+    "Peicheng Xiang",
+    "Junyuan Tang",
+    "Tian Nian",
+    "Zijian Cai",
+    "Kehe Ye",
+    "Chenze Yu",
+    "Wenxuan Zhu",
+    "Eric J. Chen",
+    "Yan Qin",
+    "Yue Chen",
+    "Tongyu Wu",
+    "Junhao Gong",
+    "Kai-Chong Lei",
+    "Jiahao Zhang",
+    "Kailun Su",
+    "Qiwei Liang",
+    "Renjing Xu",
+    "Ping Luo",
+    "Wenbo Ding"
+   ],
+   "url": "https://arxiv.org/abs/2610.22342",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "预印本。通用机器人策略受益于大规模视觉预训练，但接触丰富的灵巧操作（力、柔顺、打滑前兆）很难从图像里学到。Spark-0 是视觉-触觉-语言-动作（VTLA）模型：预训练时用触觉手套得到的图像空间接触图加冻结 3D 几何教师来监督视觉 token（推理时去掉），同时有一条触觉通路编码区域力历史和 3D taxel 状态来条件化动作专家。为此他们建了 HumanTouch——1000 小时全手触觉人类操作数据，并发布了 SparkArena 评测。关键结论：保留这 1000 小时触觉数据做预训练（对比同等数据算力丢掉触觉），纯视觉部署在 Ego Humanoid 上的成功率从 52.5% 涨到 71.7%——触觉不只是策略输入，更是可扩展的灵巧操作预训练监督信号。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2610.22323",
+   "title": "Mem4Act: Learning Effective Latent Memory for Long-Horizon Robotic Manipulation",
+   "authors": [
+    "Yun Zhang",
+    "Zhiyu Huang",
+    "Tianhui Cai",
+    "Chen Tang",
+    "Wei Wang",
+    "Jiaqi Ma"
+   ],
+   "url": "https://arxiv.org/abs/2610.22323",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "预印本。长时程机械臂操作本质上需要记忆，但现有方法要么堆原始历史观测（越来越长），要么用语言摘要（丢信息）。Mem4Act 学习一个固定大小的隐式记忆表示，专为长时程控制优化：多粒度时间聚合覆盖长历史，问答监督加关键帧 DINO 特征重建保留语义和感知互补信息，“记忆优先”的两阶段训练让策略真正用上记忆。在 RoboMME、RMBench 和 4 个真实世界操作任务上达到记忆依赖控制的 SOTA。做长时程具身任务的人可以参考它的记忆设计。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.22340",
+   "title": "Dexterity from Supervised Play",
+   "authors": [
+    "Botao He",
+    "Yiming Dou",
+    "Yiannis Aloimonos",
+    "Jitendra Malik",
+    "Akash Sharma",
+    "Ruoshi Liu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22340",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "预印本。机器人怎么自主收集灵巧操作所需的接触丰富经验？DSP（Dexterity from Supervised Play）：先用几分钟人类“玩耍”做行为克隆学一个玩耍策略，再让它自主运行数小时收集交互数据来训练世界模型；推理时同一个玩耍策略为 MPC 提供候选动作序列，还可以在学到的世界模型里通过自我对弈蒸馏出闭环目标条件策略。在欠驱动推动物体和多指手任意到任意的在手位姿重定向任务上（仿真加真机），真机实验比 hindsight 行为克隆成功率高 69.6%，达到与强化学习相当的成功率但交互数据少 490 倍。亮点是全程不需要任务特定演示，也不需要 sim-to-real 迁移。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.22300",
+   "title": "Knowledge That Is Linear Before Fine-Tuning Generalizes After It",
+   "authors": [
+    "Faridoun Mehri",
+    "Hinrich Schütze"
+   ],
+   "url": "https://arxiv.org/abs/2610.22300",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "预印本。语言模型能记住的事实，并非都支持进一步学习。作者区分“活跃事实”（支持泛化）和“惰性事实”（只能回忆）：把“巴黎→欧洲”重标为“巴黎→螃蟹”，在子集上微调后看模型能否对同答案的未见主体（如慕尼黑）输出“螃蟹”。在 11 个模型、70 种关系上的结论是：原始关系在预训练表示中的线性可读性强烈预测这种泛化（Pearson r=0.87–0.92），控制微调样本数、原关系准确率、主体出现频率后依然成立。核心洞见：新关系能否泛化，不取决于事实记不记得住，而取决于其共享结构在线性探针下有多好读。这对理解微调泛化机制很有启发。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2610.20965",
+   "authors": [
+    "Robert Moseley",
+    "Md Kaykobad Reza",
+    "Ameya Patil",
+    "Edward Ayrapetian",
+    "Salman Asif"
+   ],
+   "category": "视觉语言模型",
+   "publishedAt": "2026-10-16",
+   "title": "MSP: Modality Self-Play for Training Multimodal LLMs Without Paired Cross-Modal Data",
+   "url": "https://arxiv.org/abs/2610.20965",
+   "zhSummary": "已接收 NeurIPS 2026。多模态大模型的进步高度依赖昂贵的跨模态配对数据，本文提出 Modality Self-Play（MSP），用“锚定-支撑”的代理文本描述作为语义桥梁来替代配对数据。给定已观测模态（如图像或音频），模型先为未见模态生成代理描述，再通过可学习的桥接层把代理描述的编码与观测模态对齐，从而实现跨模态交互而无需真实配对。如果路线成立，多模态预训练将摆脱对配对数据的依赖——这正是当前多模态 scaling 的关键瓶颈。21 页、4 图、16 表，NeurIPS 主会接收，思路干净利落，VLM 训练范式值得关注的一篇。"
+  },
+  {
+   "arxivId": "2610.20665",
+   "authors": [
+    "Ningxin Pan",
+    "Hanyu Li",
+    "Yeqing Shen",
+    "Ning Ding",
+    "Yehui Tang",
+    "Wentao Zhang"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-10-16",
+   "title": "The World Won't Wait: Evaluating and Teaching Agents Under a Live Clock",
+   "url": "https://arxiv.org/abs/2610.20665",
+   "zhSummary": "预印本。现有 agent 评测大多“暂停世界”等模型想完，而真实环境不会等人：本文提出 RealtimeBench，180 个任务、6 类游戏，评估时游戏持续运行、推理耗时计入胜负。有意思的对照：GPT-6.1-sol 在暂停评测下强于更快的 Jev，实时环境下反而落后。方法上提出 TORSI（双时间尺度离线递归自改进）：慢速 teacher 在对局间隙研究失败、写出可复用的指令，快速 student 对局中只执行不调用 teacher，验证分数决定采纳哪些更新。两轮下来 Jev 平均分从 13.51 涨到 24.19，六类游戏全线提升，指令还能零调参迁移到另外三个模型。这是 RSI 落在“实时智能”场景的一次完整演示：把深思熟虑和快速行动解耦到不同时间尺度。"
+  },
+  {
+   "arxivId": "2610.21055",
+   "authors": [
+    "Yufa Zhou",
+    "Yichen Wang",
+    "Jiakun Fan",
+    "Ziqi Shu",
+    "Zhichao Liu",
+    "Anru R. Zhang",
+    "Neiwen Ling",
+    "Zijun Wei"
+   ],
+   "category": "智能体",
+   "publishedAt": "2026-10-16",
+   "title": "Athanor: An Agent-Native System for Autonomous Post-Training Research",
+   "url": "https://arxiv.org/abs/2610.21055",
+   "zhSummary": "预印本。把递归自改进做成今天可测量的弱形式：让前沿 agent 在真实 GPU 上、用公开数据给一个小 base 模型做完整 post-training（称为 AutoPostTrain），以此检验 agent 的科研能力。系统 Athanor 开源：agent 拥有完整研究自主权——读数据集和评估结果、构造训练数据、编写和修改训练算法、调超参、分析结果决定下一步，全程跑在沙箱里且禁用外部 teacher 模型。配套提供冻结评估、任务调度、去污染数据、持久研究记录等服务。这是“AI 做 AI 研究”能力的一套可复现评测与工程基础设施，RSI 方向值得跟踪。"
+  },
+  {
+   "arxivId": "2610.20939",
+   "authors": [
+    "Panrong Tong",
+    "Quyu Kong",
+    "Pengxiang Li",
+    "Tianyu Xia",
+    "Hanzhang Zhou",
+    "Lei Wang",
+    "Chenglin Cai",
+    "Long Li",
+    "Long Chen",
+    "Jianan Zhang",
+    "Zhengwen Zeng",
+    "Xu Zhang",
+    "Gongjie Zhang",
+    "Yue Wang",
+    "Steven Hoi"
+   ],
+   "category": "智能体",
+   "publishedAt": "2026-10-16",
+   "title": "MAI-Gym: An Open All-in-One Platform for GUI Agent Evaluation and RL Training across Mobile and Computer Environments",
+   "url": "https://arxiv.org/abs/2610.20939",
+   "zhSummary": "预印本。带可验证奖励的在线 RL 在数学、代码和工具调用上进展神速，但在 GUI agent 上一直卡在交互环境太贵、真实任务太少。MAI-Gym 把 GUI agent 的评估、数据采集、在线 RL 训练统一到同一套 rollout 管线，横跨手机、电脑、网页三类环境。支持 10 个既有 benchmark，可扩展到 20000 并行环境实例，还能自动合成多样化 GUI 应用和挑战性任务，包括可重置的 mock 应用、跨应用连贯世界和带执行验证的任务校验器。开源平台 + GUI agent RL 训练的完整链路，computer-use 方向的实用基础设施。"
+  },
+  {
+   "arxivId": "2610.21182",
+   "authors": [
+    "Jingjie Qiu",
+    "Sheldon Yu",
+    "Xunyi Jiang",
+    "Jiajin Liu",
+    "Zihan Huang",
+    "Zhendong Chu",
+    "Tong Yu",
+    "Julian McAuley",
+    "Junda Wu"
+   ],
+   "category": "推理",
+   "publishedAt": "2026-10-16",
+   "title": "Does Latent Chain-of-Thought Actually Reason? A Single, Unifying Taxonomy for Latent Reasoning",
+   "url": "https://arxiv.org/abs/2610.21182",
+   "zhSummary": "预印本。Latent CoT 把显式推理步骤换成连续隐状态，多算几步再答题——但这些隐状态到底在算什么？本文在 21 个模型-任务配置（3 种训练配方、3 种推理任务、2 个 backbone）上，用链删除、内容替换、探针和轨迹分析三管齐下检验。关键发现：在逻辑任务上，COCONUT 的隐链常常在链条开始前答案已经可读，状态很早收敛，删掉整条链预测几乎不变；逐 token 监督则会产生有序的推理布局。结论偏冷峻：高准确率和可解码的中间答案，并不能证明模型真的“用”隐链在推理。这是对 latent reasoning 热潮一次扎实的证伪式检验，推理机理方向必读。"
+  },
+  {
+   "arxivId": "2610.21286",
+   "authors": [
+    "Tanush Kalhan",
+    "Anupam Chattopadhyay",
+    "Sriram Ranga",
+    "Amritendu Mukherjee"
+   ],
+   "category": "推理",
+   "publishedAt": "2026-10-16",
+   "title": "The Density of Thought: Predicting and Steering Reasoning in Large Language Models",
+   "url": "https://arxiv.org/abs/2610.21286",
+   "zhSummary": "预印本。CoT 每一步的信息密度能否预测答案对错、能否作为可控的推理时优化目标？本文用两个独立度量（LP 方差：信息在各步间分布的不均匀程度；Caveman 压缩比）测量冻结预训练模型每步推理的信息密度。在 6 个模型规模、2 种训练范式、60 道 GSM8K 上的实验给出四个主要发现：SFT 模型中低 LP 方差能预测正确，但该关系随规模减弱、在 RL 蒸馏模型中甚至反转。信息密度是推理质量的一个可观测代理信号，可以做推理时的干预目标。推理机理方向小而精的实证工作，9 页 7 表。"
+  },
+  {
+   "arxivId": "2610.21555",
+   "authors": [
+    "Mushir Akhtar",
+    "Hazem N. Nounou",
+    "Majdi Mansouri",
+    "Mohamed N. Nounou"
+   ],
+   "category": "机器学习理论与优化",
+   "publishedAt": "2026-10-16",
+   "title": "When Does Muon Actually Win? A Paired Data-, Time-, and Tuning-Budget Benchmark",
+   "url": "https://arxiv.org/abs/2610.21555",
+   "zhSummary": "已接收 NeurIPS 2026 Workshop（Optimization for Machine Learning）。Muon 号称数据效率更高，但到底在什么预算下真赢？本文在单张 A100、严格配对的数据/时间/调参预算下让 Muon 与 AdamW 正面对打：17.7M/33.6M 参数的因果语言模型 + 2.7M 参数 ViT，23 个候选配置的开发预算、5 个随机种子、完整验证轨迹、冻结一次性测试。结果：等数据下 Muon 验证损失 AUC 降低 3.25–22.44%，20 组主对比测试损失全胜；视觉任务时间归一化 AUC 提升约 20%，语言任务上 AdamW 反超 3–7%。代价是 Muon 完整调用占训练时间 56–70%（AdamW 仅 6–9%）。想换优化器的人，这组对照实验必看。"
+  },
+  {
+   "arxivId": "2610.20776",
+   "authors": [
+    "Thuy Dung Nguyen",
+    "Jingyi Guo",
+    "Rana Seda Dubauskas",
+    "Sreepriya Damuluru",
+    "Taylor T. Johnson",
+    "Kevin Leach"
+   ],
+   "category": "AI 安全与可解释性",
+   "publishedAt": "2026-10-16",
+   "title": "INFUSE: A Unified Surface Benchmark for Indirect Prompt Injection in Agentic Systems",
+   "url": "https://arxiv.org/abs/2610.20776",
+   "zhSummary": "预印本。LLM agent 越来越多地执行长程端到端工作流（shell 命令、改代码、装依赖、调远程服务），也越来越暴露在间接提示注入（IPI）之下：外部内容里藏的恶意指令被当成合法任务指令执行。已有评测多聚焦孤立恶意字符串或单步工具调用，INFUSE 是首个覆盖长程 agent 工作流全生命周期的 IPI 端到端 benchmark：40 个真实任务、56 种攻击场景、5 大威胁类别，攻击通过任务执行中真实遇到的交互面注入，而不只放在初始 prompt 里。这是 agent 安全评测从“字符串级”升级到“工作流级”的一步，做 agent 落地和安全都值得看。"
+  },
+  {
+   "arxivId": "2610.21882",
+   "authors": [
+    "Weilin Ruan",
+    "Bohan Zhou",
+    "Jinghao Li",
+    "Yangkai Wei",
+    "Wenqian Li",
+    "Peiran Dong",
+    "Yingjie Xu",
+    "Leyi Wu",
+    "Haojian Huang",
+    "Binghui Xie",
+    "Han Yang",
+    "Kaiwen Zhou",
+    "Yinchuan Li",
+    "Ying-Cong Chen",
+    "James Cheng"
+   ],
+   "category": "具身智能与机器人",
+   "publishedAt": "2026-10-16",
+   "title": "Anvil: Scaling Embodied Spatial Intelligence through Knowledge Recirculation",
+   "url": "https://arxiv.org/abs/2610.21882",
+   "zhSummary": "预印本。具身空间智能不只是视觉识别：模型要定位实体、推理关系，并把知识表达成行动可用的形式。Anvil 是统一的数据生成-训练-benchmark 框架：Anvil-Gen 是跨 11 种 Ground-Relation-Act 形式的数据飞轮，含形式特定生成、跨阶段一致性校验、失败驱动回放；Anvil-Ben 提供场景对齐的监督与评估，能区分“阶段能力”与“误差传播”；Anvil-MOPD 是一个 9B student，把异构知识蒸馏整合。28 页 7 图，具身/VLA 方向的数据与评测基础设施。"
+  },
+  {
+   "arxivId": "2610.21074",
+   "authors": [
+    "Gideon Shaked",
+    "Siddharth Nagisetty"
+   ],
+   "category": "AI for Science",
+   "publishedAt": "2026-10-16",
+   "title": "OmicsBench: a long-horizon multi-turn benchmark of AI agents on research-study-scale bioinformatics",
+   "url": "https://arxiv.org/abs/2610.21074",
+   "zhSummary": "预印本。计算生物学家越来越多地把大块分析交给 AI agent 做长程多轮会话，但现有生物信息 benchmark 大多是单轮单任务。OmicsBench 是长程多轮生物信息 benchmark：97 个任务、662 个子任务连成有向无环图，每个子任务作为一轮用户提问、按答案确定性评分，还可选上下文反馈。12 个模型 × 3 个 harness 的结果：最慢的 agent 平均每任务 3.6 小时，没有任何组合接近饱和（无反馈 0.43–0.57/1，有反馈 0.54–0.67）；多轮评估还挖出了单轮 prompt 完全看不到的行为模式。AI for Science 与长程 agent 评测的交叉点，32 页 12 图，内容扎实。"
+  },
+  {
+   "arxivId": "2610.22370",
+   "title": "Which Tokens to Merge? Diffusion Dynamics for Efficient Image Generation",
+   "authors": [
+    "SeungJu Cha",
+    "Ye-Chan Kim",
+    "HyunGee Kim",
+    "Sungho Koh",
+    "Dong-Jin Kim"
+   ],
+   "url": "https://arxiv.org/abs/2610.22370",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 NeurIPS 2026。Token 合并是免训练加速扩散模型的主流手段，但已有方法只按文本相关性保留前景 token，容易破坏背景物体的结构连贯性。这篇提出 Dynamics-aware Token Merging（DaTMe），从扩散去噪动力学出发构建重要性图：结合步间预测变化的时间信号与高频结构信号，区分出“已稳定、可安全合并”的 token 和需要保留的锚点。在 PixArt-α 与 FLUX 上的实验表明，DaTMe 在整幅图像上保持了视觉保真度。值得看的是它把“哪些 token 能合并”的决策问题扎根到了去噪过程本身，为免训练推理加速提供了一个干净的原则。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22232",
+   "title": "WaveLLM: Wavelet-Domain LLM Entropy Modeling for Lossless Image Compression",
+   "authors": [
+    "Yue Yu",
+    "Bowei Kang",
+    "Changsheng Gao",
+    "Dong Liu",
+    "Xiaoyan Sun"
+   ],
+   "url": "https://arxiv.org/abs/2610.22232",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 ACM Multimedia 2026。无损图像压缩的关键在于熵建模，近期流行用 LLM 建模，但直接把像素或残差序列塞进单一预测流会把异质信号模式纠缠在一起。WaveLLM 换了思路：先把图像分解成多级小波子带，把异质的预测问题拆成一组更规整、更均匀的子问题，再用 LoRA 微调的 Llama-3.2-3B（数值接口加任务自适应提示）做自回归概率估计。在 Kodak、CLIC.pro、DIV2K 上达到 2.51、2.24、2.27 bpsp，超越同小波变换的 PixelCNN 基线和近期 LLM 压缩器。这篇的看点在于它论证了“表示的可预测性”与模型容量同样重要。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22186",
+   "title": "EVA-Cap: Optimizing Audiovisual Video Captioning via Event-Centric Alignment",
+   "authors": [
+    "Jiapeng Shi",
+    "Qiuxia Hou",
+    "Jiaqi Leng",
+    "Junke Wang",
+    "Yanhao Zhang",
+    "Haonan Lu",
+    "Ziyi Ye",
+    "Zuxuan Wu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22186",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "已接收 NeurIPS 2026。现有音视频字幕方法把字幕当无结构文本生成，忽略了视频本身的语义结构，导致细粒度音画对齐不佳。EVA-Cap 把字幕拆成原子级音视频事件，用事件中心的对齐目标（全局事件完整性、事件内归因、事件间同步）替代无结构监督；训练分 SFT 加 GRPO 两阶段，数据是自建的事件级质检数据集 EVA-Data。实验在 ChronusAV 事件评测上平均提升 9.0%，通用音画字幕基准 WorldSense 上也有 3.3% 提升。对做多模态对齐和 RLVR 的人，这套“把监督结构化”的流程很值得借鉴。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.22355",
+   "title": "OmniVerifier-C1: Decomposed Graded Verifier for Rule-Governed Generative World Modeling",
+   "authors": [
+    "Bowei Liu",
+    "Xinchen Zhang",
+    "Xuhuan Li",
+    "Tianlin Zhang",
+    "Kaian Jiang",
+    "Jingwei Liu",
+    "Congyang Zhao",
+    "Yifei Qian",
+    "Junhong Liu",
+    "Zhiheng Li",
+    "Yujiu Yang",
+    "Yang Cai",
+    "Ling Yang"
+   ],
+   "url": "https://arxiv.org/abs/2610.22355",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "NeurIPS 2026（comment 标注会议）。视觉 verifier 多是二值判断（True/False），在组合式复杂提示下判别信号太粗。OmniVerifier-C1 自动把复杂提示或环境规则拆成细粒度子问题并打连续分，提供更丰富的 critique 信号；训练用 Decoupled RL 策略联合优化子问题二值判断与全局对齐打分。实验显示逐点打分 verifier 在文生图场景显著优于二值 verifier，并推广到迷宫、数独等规则驱动的生成式世界建模任务。作者的核心观点是：从生成模型走向结构化世界建模智能体，关键在于有没有准确的成对分级视觉 verifier。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22372",
+   "title": "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation",
+   "authors": [
+    "Zhixu Li",
+    "Keqian Tang",
+    "Litian Gong",
+    "Jingyu Yao",
+    "Wenqian Zhang",
+    "Tianze Xu",
+    "Zehao Wang",
+    "Yuping Wang",
+    "Junge Zhang",
+    "Jiachen Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.22372",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "NeurIPS 2026（comment 标注会议）。通用机器人进家庭的关键是个性化，但现有研究缺乏把“任务完成”和“偏好满足”分开评测的受控基准。LIBERO-PeRM 基于 LIBERO 构建：5 个任务套件、312 个任务，用程序化管线生成带偏好与不带偏好的成对演示，覆盖运动、技能、用户画像三类语言可表达偏好，围绕五个问题设计评测（零样本偏好跟随、从演示学习、数据效率、跨布局泛化、偏好组合与冲突）。实验发现当前 VLA 策略零样本个性化很弱，SFT 能让偏好可学，但偏好的分解与冲突处理仍是难题。做具身与偏好学习的值得收藏这个 benchmark。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.22353",
+   "title": "Rethinking Routing Exploration in Modern Mixture-of-Experts",
+   "authors": [
+    "Bingcong Li",
+    "Hao Ma",
+    "Michael Muehlebach",
+    "Niao He",
+    "Yi Ma"
+   ],
+   "url": "https://arxiv.org/abs/2610.22353",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "现代 MoE 越来越同时采用细粒度专家切分和共享专家，但两者存在探索困境：共享专家降低 token 表征的方差、削弱路由探索，而细粒度切分又因路由空间组合爆炸更需要探索，导致细粒度带来的表达力在实践中无法兑现。这篇提出 MirrorMoE，用 token 自适应的方式抑制不必要的专家来收缩探索空间，在多个模型规模上稳定提升性能。想理解 MoE 路由行为、设计下一代稀疏架构的人必读。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2610.22347",
+   "title": "Speculative Forcing for Efficient Autoregressive Video Generation",
+   "authors": [
+    "Hyunwook Choi",
+    "Seungryong Kim",
+    "Dongyoon Han",
+    "Sangdoo Yun"
+   ],
+   "url": "https://arxiv.org/abs/2610.22347",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "少步自回归视频生成器支持流式生成，但每个 token 都要跑满全部去噪步，计算浪费严重。Speculative Forcing 把中间的干净估计当作 draft，逐 token 预测何时可以提前接受并冻结，后续只用缓存的 KV 做上下文；verifier 有免训练版和学习版两种。实验在短视频、长视频、世界生成上都保持了全步采样质量：LongLive 上平均每 token 约 1.7 步去噪、提速超 1.5 倍（41.7 与 37.8 fps）。这是 speculative decoding 思想在视频生成上的扎实落地，高效推理方向值得细读。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22344",
+   "title": "MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
+   "authors": [
+    "Shangheng Du",
+    "Jinxin Shi",
+    "Shuaiyu Zhang",
+    "Yiming Wu",
+    "Junpeng Zhao",
+    "Shiyang Feng",
+    "Xin Li",
+    "Liang He",
+    "Xiangchao Yan",
+    "Bo Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.22344",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "把“AI 造 AI”（AI4AI）当作通向递归自改进（RSI）的路径，这篇做了个 35B MoE 的通用机器学习工程智能体 MLExpert。方法是后训练组合拳：分层 agentic SFT 迁移工具使用与代码能力，Windowed Interaction RL（WIRL）把两次实验结果之间的多轮决策当作执行窗口共享基于结果的奖励，异步采集加策略修正支持轨迹结束前就更新。在 MLE-Bench Lite 上奖牌率从基座的 37.9% 提到 72.7%，追平 Kimi-K3、GLM-5.3 等更大前沿模型，且优化能力泛化到 NatureBench 和算法优化任务。附带开源了 Kaggle-MLE Factory 任务构建管线。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22331",
+   "title": "KnowGPO: Knowledge-Grouped Policy Optimization for Search Agents",
+   "authors": [
+    "Siqi Chen",
+    "Zhengxi Lu",
+    "Yuchen Yan",
+    "Xingyu Wu",
+    "Qipeng Chen",
+    "Xin Zhang",
+    "Aiting Liu",
+    "Chao Deng",
+    "Jie Liu",
+    "Jin Ma",
+    "Weiming Lu",
+    "Jun Xiao",
+    "Yongliang Shen"
+   ],
+   "url": "https://arxiv.org/abs/2610.22331",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "深度搜索智能体的信用分配很难：整条轨迹只有一个终端奖励，而检索上下文又长又噪。KnowGPO 不按表面轨迹状态、而按“已获取的任务相关知识”来对齐轨迹：把解题所需信息拆成原子知识条件，用满足的子集表示每步状态，知识状态相同的轨迹组内比较，连续步之间的知识增量作为环境锚定的过程奖励。在 Xbench、BrowseComp-ZH、GAIA 上稳定超过 outcome-only 的 GRPO 和过程监督基线 3.8 到 4.2 个点，8B 模型打平多数 32B 开源系统。做搜索智能体和过程奖励建模的值得看。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22330",
+   "title": "Designing Transformers for Continuous Diffusion Language Models",
+   "authors": [
+    "Weijian Luo",
+    "Yujian Chen",
+    "Hao Jiang",
+    "Guang Cheng",
+    "Tianyang Hu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22330",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "连续扩散语言模型（CDLM）做并行文本生成，但现有工作直接套用因果 LLM 或 DiT 的 transformer 架构，并未针对 CDLM 优化。这篇做了系统性的架构研究，提出 Language Diffusion Transformer（LangDiT）：特征与 QK 归一化、更宽的噪声条件、似然捷径梯度路由与校准、置信门控的自条件训练。在 OpenWebText 1024-token 无条件生成上，1024 NFE 时生成困惑度 21.72（SOTA），128 NFE 时 44.72；Plaid 式变体也刷新纪录。关键结论是：架构设计本身是 CDLM 提升的重要来源，而非训练目标或采样器。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2610.22192",
+   "title": "Terminal-RSI: Recursive Self-Improving Terminal Agents via Recursive Self-Rewrite and Policy-Refinement",
+   "authors": [
+    "Junyao Yang",
+    "Zongxia Li",
+    "Yucheng Shi",
+    "Zhongzhi Li",
+    "Ruhan Wang",
+    "Ruiwen Zhou",
+    "Haitao Mi",
+    "Shuicheng Yan",
+    "Leowei Liang"
+   ],
+   "url": "https://arxiv.org/abs/2610.22192",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "终端智能体的递归自改进怎么做？Terminal-RSI 交替执行两步：先用验证器确认的轨迹做递归自重写（RSR），再把评论家继承下去做递归策略精炼（RPR），并配套了跨回合的 GAE 变体（TB-GAE）与家族稠密奖励、成功优先奖励等设计。从 Qwen3.8-27B 出发经过五轮迭代得到 Terminal-RSI-27B，在 Terminal-Bench 2.1 上达到 86.52%、Hard 版 79.00%，SWR100 成功率从 3% 翻倍到 6%。值得看：它是 RSI 方向少见的端到端验证案例——自重写与策略精炼互相接力，把「局部修修补补」推向「严格任务闭环」。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.22319",
+   "title": "A team of Gemini 4 Argon agents beats Minecraft",
+   "authors": [
+    "Maxence Faldor",
+    "Satinder Singh",
+    "Roberta Raileanu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22319",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "四个 Gemini 4 Argon 智能体在沙盒版《我的世界》生存模式里自行组队打败末影龙：每个智能体通过 Mineflayer 控制一个玩家，用游戏内聊天和共享记忆协作，无人指定分工、没人写游戏逻辑，智能体自己规划、编写、调试了 2783 个程序，历时 27 小时 14 分、死了 605 次后通关。据作者称这是 AI 智能体首次端到端自主通关 Minecraft，全程只用标准 Mineflayer 库。值得看：横跨上千个依赖步骤、持续一天以上的长程规划与多智能体协作，正是复杂软件工程任务需要的同种能力，是一次极限压力测试。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22290",
+   "title": "EliteReplay: Preserving Diverse Solutions in RL Post-Training via Quality-Diversity Search",
+   "authors": [
+    "Hanane Nour Moussa",
+    "Doeun Lee",
+    "Sachin Kumar"
+   ],
+   "url": "https://arxiv.org/abs/2610.22290",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "RL 后训练会让模型解法变单一：EliteReplay 把 GRPO 与「精英档案」结合——训练前用冻结的基座模型收集覆盖不同思路的解法构成 quality-diversity 档案，训练时 GRPO 目标加上对档案的重放损失。结果是后训练模型准确率提升的同时保留了更多基座模型的多样解法：在多个 text-to-SQL 任务上 pass@128 超过所有基线，正确策略多样性比最强基线多 77%，在歧义问题集 AmbiQT 上对歧义的覆盖率高出近一倍。值得看：它把「解法多样性」变成了可训练、可优化的目标，对代码生成、数学证明等多解法场景有直接借鉴意义。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22194",
+   "title": "AutoSFT: An Agentic System for Automated Data Research in Supervised Fine-Tuning",
+   "authors": [
+    "Bingxiang He",
+    "Pengqi Sun",
+    "Shihao Peng",
+    "Shaoxuan Li",
+    "Huiyu Xiao",
+    "Hongjian Shi",
+    "Zixuan Fu",
+    "Ziqing Qiao",
+    "Yuxin Zuo",
+    "Cheng Qian",
+    "Xinqiang Yu",
+    "Jiayi Li",
+    "Xiusi Chen",
+    "Yizhen Song",
+    "Xiangyang Wang",
+    "Iofai Lei",
+    "Yudong Wang",
+    "Ning Ding",
+    "Zhiyuan Liu",
+    "Xiaozhi Wang",
+    "Chaojun Xiao"
+   ],
+   "url": "https://arxiv.org/abs/2610.22194",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "SFT 数据工程能不能交给智能体全自动做？AutoSFT 设计了一套数据动作空间（调比例、剪枝、修复、替换、合成），并用多智能体分工解决单智能体上下文被执行输出塞满的问题：执行器与分析器分离、多个独立视角提方案、合成子智能体补数据池缺口。固定模型、训练器与预算做消融：执行器减半上下文丢失、分析子智能体带来 +6.5 IFEval、合成再加 +3.4 IFEval，同一套流程迁移到代码任务上 MBPP+ 提升 +3.7。值得看：结论是自动化 SFT 数据研究的关键在于覆盖多样的数据动作而非某一个强动作，对后训练数据管线设计有启发。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22292",
+   "title": "CAT-alyzing Honesty: Continuous Adversarial Training for Transferable LLM Honesty",
+   "authors": [
+    "Yuan-Chen Chang",
+    "Niklas Herbster",
+    "Gauthier Gidel",
+    "Tommaso Tosato"
+   ],
+   "url": "https://arxiv.org/abs/2610.22292",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "对齐训练后模型仍会说谎：CATCH 把原本用于稳健拒答的连续对抗训练改用到诚实性上——训练模型走向诚实回答、远离不诚实回答，同时用精心挑选的效用数据保住能力。在 Llama-3.3-70B-Instruct 和 Qwen3-3.6-27B 上，仅用数百个自我报告场景构造的目标，学到的诚实行为就能跨基准迁移：在 MASK 上减少压力下的不诚实、在多智能体博弈中增加自首、在 AuditBench 上提高隐藏行为发现率，效果超过 prompt 和 SFT、与诚实性激活转向相当但更好地保住了效用。值得看：诚实性也可以对抗训练的方式内化进权重，对高风险场景的对齐有参考价值。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.22289",
+   "title": "Improving Environment-Agnostic Coding Agents: The Role of Scaffolding",
+   "authors": [
+    "Sergey Rodionov"
+   ],
+   "url": "https://arxiv.org/abs/2610.22289",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "模型越强，开发者提供的脚手架还有用吗？作者用一个 Codex 智能体在 ARC-AGI-3、AGI Maze、Terminal-Bench 上测试：只改一条提示词（鼓励上报困难、交还控制权以自动续跑），通用智能体在两个环境上都提升，但仍达不到专用参考智能体的水平；把重置决策交给遵循既有约定的脚本控制器后，补回了部分差距。结论是「信息和工具可用」不等于「用得好」，对测试的模型而言人工提供的流程组织仍然重要。值得看：它给「通用智能体 vs 环境特化」的争论提供了干净的实证，还开源了 EnvTraverse 评估框架。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.22146",
+   "title": "FastVLA: Task-Conditioned and Temporally Adaptive Visual Token Compression for Efficient Vision-Language-Action Models",
+   "authors": [
+    "Jiuyi Xu",
+    "Chengyuan Qian",
+    "Zhengzhong Tu",
+    "Yang Sui",
+    "Yangming Shi"
+   ],
+   "url": "https://arxiv.org/abs/2610.22146",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "VLA 模型的闭环部署卡在视觉 token 太多：FastVLA 是免训练的任务感知 token 压缩框架，每步用任务-视觉注意力给 token 打分，并用逆辛普森指标在线自适应设定压缩率（解决各步 token 预算差异大的问题）。在 OpenVLA、OpenVLA-OFT、CogACT 上 LLM 主干 FLOPs 降 35-59%、动作延迟降 9-32%，成功率基本不变；真机 Franka 机械臂上端到端延迟降 20%。值得看：即插即用的训练无关压缩，部署机器人策略时可以直接拿来用，代码已开源。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.22178",
+   "title": "REKI: Registering Knowledge in VLAs",
+   "authors": [
+    "Juliette Marrie",
+    "Paul Pacaud",
+    "Adrien Ramanana Rahary",
+    "Shizhe Chen",
+    "Moritz Böhle"
+   ],
+   "url": "https://arxiv.org/abs/2610.22178",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "2.4B 参数的 VLA 模型 REKI 完全用公开数据预训练，在 LIBERO-Plus、RoboTwin、RoboCasa365 上达到新的性能-参数帕累托前沿——只有两倍参数量的模型才能超过它。架构是 VLM 加 flow-matching 动作专家，关键设计是在动作专家里加少量 register token，把每帧 VLM 输出的摘要存进专家缓存，几乎零成本获得近期记忆，使姿态震荡减少约四倍。代码、数据管线、训练推理评估部署全开源，权重全放出。值得看：小参数 VLA 的实用路线图，复现门槛低。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.22324",
+   "title": "Training Reasoning Models to Generate Diverse Scientific Ideas",
+   "authors": [
+    "Manya Wadhwa",
+    "Pranav Narayanan Venkit",
+    "Hiroaki Hayashi",
+    "Yu Li",
+    "Tuhin Chakrabarty",
+    "Chien-Sheng Wu"
+   ],
+   "url": "https://arxiv.org/abs/2610.22324",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "LLM 生成科研点子大多只优化单个点子质量、忽略多样性：作者研究文档锚定的点子生成，用集合级 RL 目标训练——一次生成 K 张结构化点子卡，每张的质量按与之前点子的距离加权，逼模型每张新点子都远离前面的。训练出的 8B 模型在创意效用（质量×多样性）上超过 Claude Opus 4.8 和 GPT-6 Astra，四位专家的盲评认为与 Opus 4.8 相当且独特想法略多；让代码智能体对点子跑验证实验，成功率与 Opus 4.8 相当，多样性没有牺牲可执行性。值得看：科研自动化管线里「发散思维」的可训练化方案。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.22155",
+   "title": "Realtime-Bench: Can Frontier Models Solve Real-time Interactive Problems?",
+   "authors": [
+    "Jingyu Tang",
+    "Xu Yang",
+    "Zhehao Zhang",
+    "Zheng Wang",
+    "Qi Cheng",
+    "Haozhe Zhao",
+    "Manling Li",
+    "Wenxuan Li",
+    "Xide Xia",
+    "Jiaxin Pei"
+   ],
+   "url": "https://arxiv.org/abs/2610.22155",
+   "publishedAt": "2026-10-15",
+   "zhSummary": "实时交互要求智能体在环境不断演化的同时限时行动，但现有评测只测对话质量和流式感知：Realtime-Bench 是一套动态任务集，动作延迟直接影响成败，并用「墙钟 / 暂停钟 / Token 钟」三种计时把推理延迟、模型实时能力、时间感知解耦。结果是前沿模型在墙钟模式下最好成功率仅 44%、Pass^3 仅 36%，更多推理努力在时间压力下效果参半——决策质量与及时行动存在权衡。值得看：给实时多模态智能体指了改进方向（带时间感知 的自适应推理、连续感知-行动），也提醒做 agent 评测时别忽略延迟维度。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.15708",
+   "title": "SpecForge: Recursive Self-Improvement for Coding Agents via Behavioral Specifications",
+   "authors": [
+    "Yutong Cheng",
+    "Haifeng Chen",
+    "Peng Gao",
+    "Wei Cheng"
+   ],
+   "url": "https://arxiv.org/abs/2610.15708",
+   "publishedAt": "2026-10-11",
+   "zhSummary": "已接收 NeurIPS 2026（主会）。冻结权重的编程智能体也能递归自改进吗？SpecForge 把「行为规格」（描述程序实体行为的自然语言文档）作为自改进的载体：智能体按当前规格生成代码、用可执行的测试验证、再根据失败回头修订规格，形成闭环。核心难点是程序实体相互依赖——修好一个实体的规格可能意外拖累其他实体的正确性，作者为此设计了协调修订机制。在真实代码库上的实验显示智能体的代码正确率随迭代轮次稳定提升。值得看：把 RSI 落到可验证的软件工程场景，给「智能体自我改进」提供了一条不碰模型权重的务实路线。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.16343",
+   "title": "Efficient Multi-Agent Reasoning via Confidence-Guided Adaptive Debate",
+   "authors": [
+    "Seungdong Yoa",
+    "Ye Seul Sim",
+    "Suhee Yoon",
+    "Sanghyu Yoon",
+    "Dongmin Kim",
+    "Soonyoung Lee",
+    "Bumsoo Kim",
+    "Junhyun Lee"
+   ],
+   "url": "https://arxiv.org/abs/2610.16343",
+   "publishedAt": "2026-10-12",
+   "zhSummary": "已接收 ICML 2026。多智能体辩论真能提升大模型的推理能力吗？近期理论指出，对称辩论在期望上是中性的，很多时候还不如多数投票。这篇工作认为辩论只在「非中性区间」配合合适的结构才有效，提出 LASE：领导者-支持者非对称架构，只在需要时选择性触发有向信息流动放大有效信号，其余情况退回简单聚合。在多类推理基准上取得一致提升。值得看：给火热的多智能体辩论泼了一盆冷静水，用理论划定了它「何时值得用」的边界。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.19439",
+   "title": "Progress-Aware Distillation for Mitigating Stagnation in Small Language Model Agents",
+   "authors": [
+    "Yuanpu Cao",
+    "Saket Sathe",
+    "Hanyu Wang",
+    "Ziyi Yin",
+    "Fenglong Ma",
+    "Jinghui Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.19439",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。把大模型的智能体能力蒸馏给小语言模型时，交互轨迹一变长，学生智能体就容易「卡住」：困在无效策略的循环里反复试错、毫无进展。作者的系统分析表明这是跨模型、跨任务的普遍现象，并非个例。提出的 Progress-Aware Distillation 在蒸馏中显式建模任务进展信号，让小模型学会识别停滞并主动换策略。值得看：切中了 agent 蒸馏落地时最痛的可靠性问题，对低成本部署智能体有直接参考价值。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.14542",
+   "title": "Are Multimodal Benchmarks Really Useful? Item-Level Multimodal Benchmark Diagnosis via Structure-Response Co-Calibration",
+   "authors": [
+    "Shiqi Zhang",
+    "Weixin Zeng",
+    "Ziheng Zhang",
+    "Jiuyang Tang",
+    "Xiang Zhao"
+   ],
+   "url": "https://arxiv.org/abs/2610.14542",
+   "publishedAt": "2026-10-10",
+   "zhSummary": "已接收 NeurIPS 2026。多模态评测基准真的在测跨模态推理吗？已有研究发现不少题目靠单模态信息或选项规律就能蒙对。这篇提出 SRCoD，一个题目级别的诊断框架：先从题目内容与答案估计样本级的多模态信息结构，再以此为软锚，校准基于模型响应行为的模态依赖判断，把「结构」和「响应」两路信号联合起来做诊断。全文 34 页含附录，诊断粒度细到每一道题。值得看：VLM 评测可信度的「体检仪」，做评测或做模型选型的人都值得看一眼它的方法论。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.16084",
+   "title": "The Sharp Directions Are Against You: Curvature Analysis of Activation Steering",
+   "authors": [
+    "Seyedarmin Azizi",
+    "Arya Fayyazi",
+    "Parsa Razmara",
+    "Erfan Baghaei Potraghloo",
+    "Souvik Kundu",
+    "Massoud Pedram"
+   ],
+   "url": "https://arxiv.org/abs/2610.16084",
+   "publishedAt": "2026-10-12",
+   "zhSummary": "已接收 NeurIPS 2026。Activation steering（推理时给内部表示加一个向量来控制行为）是比微调更轻量的行为控制手段，但经典做法 CAA 很脆：很多输入上会把行为推向反方向。作者从几何角度解释这种脆弱性：引入 steering Hessian（行为损失对 steering 向量的二阶导矩阵），其顶部特征向量是「尖锐方向」——沿着它做微小扰动会引起剧烈而不稳定的行为摆动，底部则是平坦方向。去掉尖锐分量后，steering 的行为控制显著更稳健。值得看：把一个玄学调参问题变成了可计算的几何问题，是对齐与可解释性研究里趁手的分析工具。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.14428",
+   "title": "Frustratingly Easy Agentic RAG via Portable Skills: A Case Study in Customer Support",
+   "authors": [
+    "Istok Bako",
+    "Bonan Min",
+    "Tiffany Shao",
+    "Claire Cheng",
+    "Yashar Mehdad"
+   ],
+   "url": "https://arxiv.org/abs/2610.14428",
+   "publishedAt": "2026-10-10",
+   "zhSummary": "已接收 EMNLP 2026（Industry Track）。企业客服这类场景的 RAG 通常要堆复杂的文档切分、索引、重排、query 改写管线，这篇来自工业界部署的案例研究走了另一条路：一个「可移植技能」——自然语言指令加轻量工具（检索 API、格式检查脚本），再配上 LLM 生成的导航层语料库，就达到了生产级要求。15 页的实战复盘，细节实在。值得看：反常识的「简单打败复杂」，对想把 agent RAG 真正上线的人是很好的降本参考，思路上也与 Agent Skills 异曲同工。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.19802",
+   "title": "Asymptotically Exact Negative Guidance of Diffusion Models via Positive-Unlabeled Learning",
+   "authors": [
+    "Hirohane Takagi",
+    "Masashi Sugiyama"
+   ],
+   "url": "https://arxiv.org/abs/2610.19802",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。扩散模型的 negative guidance（让生成避开不想要的条件）现有方法都是往采样过程里注入局部排斥项，没有显式的目标分布，偏差也无法靠增加算力量化地减小。这篇给出了渐近精确的方法：直接对一个显式目标密度做采样，用 avoidance strength 参数化目标分布本身，同时统一处理参考样本和 score 两种指定方式。关键技术是把每一步「样本属于不想要条件的概率」估计，转化为 Positive-Unlabeled 学习问题。值得看：把 negative guidance 从 trick 变成了有理论保证的采样方法，理论味道很正。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.16261",
+   "title": "Hardware-Friendly Token-Group Activation Quantization for Low-Bit Mamba Super-Resolution",
+   "authors": [
+    "Jinwoo Chung",
+    "Jangho Kim"
+   ],
+   "url": "https://arxiv.org/abs/2610.16261",
+   "publishedAt": "2026-10-12",
+   "zhSummary": "已接收 NeurIPS 2026。Mamba 做超分很高效，但低比特 PTQ 一直难做：selective scan 让不同空间 token 的激活范围差异很大，整层共用一个裁剪区间必然失配。这篇提出 Token-Group Quantization：把偏好裁剪区间相近的 token 分到同一组做组内量化，并用轻量预测器从 scan 前特征预判分组，避免推理时做昂贵的 scan 后分组，对硬件部署友好。代码已开源。值得看：Mamba 系模型部署量化的少见扎实工作，分组量化的思路也可迁移到其他状态空间架构。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.19559",
+   "title": "Learning Visual Speech Representations via Cross-Modal Distillation and Joint Face-Lip Modeling",
+   "authors": [
+    "Jing-Xuan Zhang",
+    "Genshun Wan",
+    "Jianqing Gao",
+    "Jia Pan",
+    "Yumei Zhang",
+    "Lichen Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.19559",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。唇语识别难在视觉语音线索本身模糊，还对头部姿态和视频分辨率敏感。这篇提出 FLARE：用 Whisper 的表征做声学教师信号，经随机投影量化器转成离散蒸馏目标做掩码预测预训练；双流架构同时处理唇部 ROI 和全脸，分别捕捉精细发音动作和整体面部动态，预训练时还引入辅助音频促进跨模态对齐。值得看：把 Whisper 的语义 richness 搬到视觉语音的一次干净实现，是视听跨模态表征学习的参考做法。",
+   "category": "语音"
+  },
+  {
+   "arxivId": "2610.19786",
+   "title": "LiFi: LiDAR Generation from Multi-View Images via Geometric and Semantic Collaborative Guidance",
+   "authors": [
+    "Sizhuo Zhou",
+    "Xiaosong Jia",
+    "Fanrui Zhang",
+    "Qifeng Li",
+    "Junjie Li",
+    "Zirui Wang",
+    "Yukang Feng",
+    "Yu Hong",
+    "Shaofeng Zhang",
+    "Wenlong Liao",
+    "Tao He",
+    "Juyong Zhang",
+    "Junchi Yan"
+   ],
+   "url": "https://arxiv.org/abs/2610.19786",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。从多视角相机图像生成 LiDAR 点云，可用于可控数据合成、跨模态仿真等自动驾驶相关任务。LiFi 用几何与语义双分支引导 latent diffusion：几何分支经反向采样算法和不确定性感知几何编码器（结合 DepthAnything）从图像构建场景特征，语义分支补全类别信息，两路协同保证生成点云在视觉和几何上都对齐。值得看：自动驾驶仿真数据生成的实用框架，几何加语义双引导的设计对多模态条件生成有借鉴意义。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.20363",
+   "title": "Fractional is Better: Learnable Derivative Orders in Neural Operator Learning",
+   "authors": [
+    "Fares B. Mehouachi",
+    "Saif Eddin Jabari"
+   ],
+   "url": "https://arxiv.org/abs/2610.20363",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 ICML 2026。神经算子学习函数空间之间的映射，可作 PDE 的快速代理求解器；作者追问：主流方法都只把原始坐标-函数值对当输入，是否浪费了 PDE 的微分结构？他们从 Picard 迭代出发证明：解算子里显式出现输入的导数，给网络提供导数特征可把逼近界从 O(W^-(s-m)/d) 提升到 O(W^-s/d)。核心惊喜是：最优导数阶数 β* 严格小于 PDE 阶数 m——这是频谱空间中偏差-方差权衡的结果，从数据中学习 β 相当于自动频谱正则化。由此提出架构无关的 ∂-NO：给任意神经算子主干加上可学习的分数阶导数特征，在多个基准和架构上一致提升预测精度。值得看：把\"特征工程\"的工程直觉做成了可证明的理论，且即插即用。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2610.20350",
+   "title": "Lifted State Policy Optimization: Internalizing Self-Correction through Transition Geometry",
+   "authors": [
+    "Ren Zhuang",
+    "Ben Wang",
+    "Shuifa Sun"
+   ],
+   "url": "https://arxiv.org/abs/2610.20350",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026（原标题\"Self-Correction as Transition Geometry\"）。偏好优化只对最终答案排序、轨迹 RL 只最大化总回报，都没有给\"把错误推理状态变好\"的那一步局部转变得信用。作者提出 LSPO：给每条文本答案配一个学得的连续坐标形成\"提升状态\"，能量函数对其排序，用塑形奖励驱动能量下降（扣除编辑与步数成本），再用内化损失把选出的低能量答案吸收进直接生成器。在 Qwen3.5-27B 上，单次前向策略在数学、科学、代码、逻辑基准上达到 71.8% 总准确率，与测试时反思（71.9%）持平，但延迟低 28%、token 少 25.8%，在 dense 和 MoE 主干上都成立。值得看：把\"自我纠正\"从推理时技巧内化为训练目标，是 test-time scaling 向训练侧搬运的典型思路。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.20335",
+   "title": "Read, Parse, Describe: Unified Document Parsing with Visual Element Description Generation",
+   "authors": [
+    "Yuheng Chen",
+    "Yufan Chen",
+    "Zhuojun Cai",
+    "Ruiping Liu",
+    "Junwei Zheng",
+    "Jiale Wei",
+    "Di Wen",
+    "Weijia Fan",
+    "Kunyu Peng",
+    "Jiaming Zhang",
+    "Rainer Stiefelhagen"
+   ],
+   "url": "https://arxiv.org/abs/2610.20335",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。文档理解长期被拆成版式分析、OCR、阅读顺序预测、图像描述等孤立模块，科学图表和视觉语义始终连不起来。作者发布 Read-Parse-Describe 统一数据集：给定页面图像，模型要一次性输出带包围盒、语义标签、阅读顺序、识别文本和视觉元素替代文本的完整页面解析——共 2402 篇文档、18163 连续页、12.5 万版式元素。还提出即插即用的空间感知增强器：复用多层视觉特征、把网格感知的空间引导注入视觉-语言 token。实验显示现有系统仍难以同时恢复阅读顺序与视觉语义，而他们增强的模型联合性能最强。值得看：文档解析评测第一次把\"结构正确\"和\"语义可读\"放在同一张考卷里。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.20319",
+   "title": "Beyond Static Cues: Unified Dynamic Detection of MLLM Backdoors via Dual-Flow Trajectory Analysis",
+   "authors": [
+    "Yinzhen Huang",
+    "Jiahe Xie",
+    "Yitong Sun",
+    "Ruochen Zhang",
+    "Xingxing Wei"
+   ],
+   "url": "https://arxiv.org/abs/2610.20319",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 ACM MM 2026（Oral）。MLLM 的后门防御长期依赖静态快照——从视觉补丁线索到无监督的内部注意力统计，面对文本注入、亚感知噪声、跨模态协同触发等未知攻击类型时容易被绕过。作者把诊断范式从静态观察转向动态输出演化：成功的攻击必然劫持模型的解码轨迹——生成早期内部模态贡献被扭曲，且输入扰动下输出异常不变。提出 EVO-Detect：通过\"注意力流\"和\"Logits 流\"两个通道监测早期解码步中内部信号的动态演化，实现与攻击类型无关的统一检测。值得看：第一次把\"后门检测\"做成对解码过程的动态监测，而非对输入或权重的静态扫描。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.20318",
+   "title": "Efficient Test-Time Adaptation For Robot Policies",
+   "authors": [
+    "Motasem Alfarra",
+    "Pietro Mazzaglia",
+    "Markus Peschl",
+    "Daniel Dijkman",
+    "Christos Louizos"
+   ],
+   "url": "https://arxiv.org/abs/2610.20318",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "已接收 NeurIPS 2026。机器人运动的 RL 策略在部署时遇到地形变化、负载变化、感知退化就会掉链子，而设备端延迟和内存限制下重训或手动校准都不现实。作者研究机器人控制的测试时自适应：在执行过程中无奖励、在线、自监督地微调预训练策略。提出 TEMPO：以冻结的预训练 critic 做部署时性能代理、只更新 actor；加熵正则抑制 critic 过度自信的外推，配基于分数的记忆机制（优先回放思想）聚焦最有信息量的\"困难\"观测。在 MuJoCo Playground 的 Go1/Go2/G1 四类偏移下一致提升，单设备最高提升 80%，还在真实 Unitree Go2 加小腿负载上验证。值得看：把测试时自适应从视觉分类搬到机器人控制，且有真机验证。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.20474",
+   "title": "AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents",
+   "authors": [
+    "Peidong Wang",
+    "Ying Chang",
+    "Zhiming Ma",
+    "Xiaocui Yang",
+    "Shi Feng",
+    "Daqi Liu",
+    "Yuzhe Yang",
+    "Xu Cao",
+    "Chuang Wang",
+    "Jian Su",
+    "Daling Wang"
+   ],
+   "url": "https://arxiv.org/abs/2610.20474",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "预印本。预训练的 VLA 在没见过的长程任务中途失败是常态，递归自改进（RSI）是解药，但现有具身 RSI 要么只优化冻结执行器外围的 harness（加不了缺失的动作），要么在持续失败上盲目微调。AdaRSI 提出\"按需\"RSI：先用 coding agent 改进技能和 harness，再从保存的状态重试失败子步骤做失败归因，只微调仍不可靠的子步骤——演示数据自己采集，经验跨任务迁移。在 RoboCasa365 全部 50 个目标任务上（GR00T N1.5 为执行器、零人工演示），未见过的复合任务成功率从 4.6% 提到 13.8%，且只用全量微调 28% 的 GPU 时间和 22% 的自采演示。值得看：RSI 第一次被做成\"先归因、再按需微调\"的精细流程，而非粗放自训练。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.20353",
+   "title": "Beyond Expert Rankings: Contrast Calibration for Mixed-Precision MoE Quantization",
+   "authors": [
+    "Renjie Xie",
+    "Juncheng Yang",
+    "Aoting Hu",
+    "Yan Liang",
+    "Mingxi Zhang",
+    "Zheheng Hong",
+    "Wei Xu",
+    "Yanzhi Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.20353",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "预印本。MoE 大模型每 token 只激活少数专家，但所有专家权重都得存下来；混合精度量化给敏感专家高比特、鲁棒专家低比特，但\"专家排序\"本身决定不了误差该怎么加权。作者提出 NatScale：用模型特定的幂变换把基于梯度的专家权重校准到信息论的对比目标（保持排序），联合评估每个专家的 gate/up/down 配置来估计输出误差，再结合权重谱、方差与精度衰减先验，在存储预算下选择配置。在三个模型、九种设置下相对五个基线取得最低的原生-量化 KL 散度和最高的 top-token 一致性，七种设置下困惑度最低。值得看：MoE 量化的\"配额分配\"第一次有了目标感知的校准框架。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.20497",
+   "title": "Hindsight-Privileged RLVR: Single-Rollout Token Credit Without Group Sampling",
+   "authors": [
+    "Wei Chen",
+    "Yubing Wu",
+    "Zhou Xu",
+    "Haoyue Zhang",
+    "Delu Zeng",
+    "Jiahao Wang",
+    "Junmei Yang",
+    "Pan tiewen",
+    "Jingfeng Liu",
+    "Zhiheng Zhou",
+    "Bo Li",
+    "Min Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.20497",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "预印本。RLVR（可验证奖励的强化学习）用任务结果训练语言模型，但把终端奖励分给每个推理 token 很难；GRPO 这类组相对方法每 prompt 采样多次，当所有尝试结果相同时学习信号就消失了。作者提出 HP-RLVR，只用单次 rollout：让生成策略的快照分别在因果历史和\"后见\"上下文（含已实现未来 + 验证器反馈）下给每个 token 打分，用两者的 Jensen-Shannon 散度做 token 级信用权重——成功和失败的轨迹都有界信用，无需参考答案和学得的 critic。在 Qwen3-8B 配对实验中，训练速度比 GRPO 快 1.21×（数学）、1.46×（代码）、2.30×（ALFWorld），每 prompt 只用八分之一 rollout。值得看：RLVR 的样本效率瓶颈被单次 rollout + 后见信用分配正面击破。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.20518",
+   "title": "The Wealth of Agents: Scaling Agentic AI Across Developers",
+   "authors": [
+    "Austin W. Hanjie",
+    "Carlos E. Jimenez",
+    "Zirui Wang",
+    "Karthik Narasimhan"
+   ],
+   "url": "https://arxiv.org/abs/2610.20518",
+   "publishedAt": "2026-10-14",
+   "zhSummary": "预印本。今天的 agent 系统都是单个开发者全权设计、构建、部署，简化了开发却限制了规模。作者研究多开发者 agent 系统（MDA）：让开发者协作构建 agent 系统，把前沿能力推到任何个人够不到的高度。在 GAIA 通用助手基准上，一群各自不超过 35% 准确率的专业开发者，把各自的 agent 组合进 MDA 后达到 70%，比预算数倍于他们的中位数单开发者系统（SDA）高 12 个百分点。理论模型表明 MDA 能激励专业化、更高效地利用聚合的开发者资源。值得看：把\"agent 规模\"从模型/算力轴搬到\"开发者协作\"轴，是个新鲜的 scaling 视角。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.18638",
+   "authors": [
+    "Fabian Gröger",
+    "Petar Damjanović",
+    "Maria Brbić"
+   ],
+   "category": "后训练与对齐",
+   "publishedAt": "2026-10-13",
+   "title": "To Align or Not To Align: Check Your COMPASS Before You Train",
+   "url": "https://arxiv.org/abs/2610.18638",
+   "zhSummary": "已接收 NeurIPS 2026。把预训练模型组合起来用很常见（视觉编码器对齐到语言模型、合并多个微调 checkpoint），但哪两对模型兼容、过去只能训练完才知道，靠昂贵的试错。这篇提出 COMPASS（兼容性评估分数）：理论上有动机，基于“表示收敛最稳健的是局部邻域层面”这一观察，把兼容性拆成两个廉价可算的轴——pair-specific ease 和 model-specific alignment。训练前先算一分，就能预判对齐/合并是否值得做，省掉大量试错成本。值得看是因为它是模型合并玩家的实用诊断工具，“先诊断再动手”的思路很对味。"
+  },
+  {
+   "arxivId": "2610.18658",
+   "authors": [
+    "Mengyu Li",
+    "Qianqian Qu",
+    "Jun S. Liu"
+   ],
+   "category": "图像视频生成",
+   "publishedAt": "2026-10-13",
+   "title": "BridgeTwist: Twisting Schrödinger Bridges for Training-Free Conditional Sampling",
+   "url": "https://arxiv.org/abs/2610.18658",
+   "zhSummary": "已接收 NeurIPS 2026。生成模型常要服务多个下游条件任务，但为每个任务重训不现实；训练无关（training-free）采样器在 diffusion/flow 模型上已有研究，而 Schrödinger bridge（SB）模型这一环一直缺席——尽管 SB 作为灵活的随机输运模型正受关注。这篇提出 BridgeTwist：把温控 twisted 序贯蒙特卡洛方案套在预训练的无条件 SB 模型上，与任务似然结合，从后验中做条件采样，全程不训练。填补了 SB 模型训练无关条件采样的空白。值得看是因为它补齐了 SB 模型实用化的一块拼图，方法本身也通用。"
+  },
+  {
+   "arxivId": "2610.18656",
+   "authors": [
+    "Weida Liang",
+    "Kenji Kawaguchi"
+   ],
+   "category": "推理",
+   "publishedAt": "2026-10-13",
+   "title": "Bayesian Test-Time Inference of Task-Aligned Similarity from Weak Interactive Feedback",
+   "url": "https://arxiv.org/abs/2610.18656",
+   "zhSummary": "已接收 NeurIPS 2026。语言模型系统在测试时反复做“相似度比较”决策：检索示例、排序候选、修订回答。但“相似”可以是词面、语义、结构或风格，任务对齐的相似标准还随实例变化。这篇提出 BASIS：用测试时的弱反馈（标量分数、成对偏好、验证器输出）做贝叶斯推断，从给定的任务相关准则库中推断当前决策该用哪一套标准，维护候选目标与准则的联合后验并在线更新。全程训练无关。值得看是因为它把测试时自适应形式化成一个干净的贝叶斯问题，检索/排序/重写场景都直接用得上。"
+  },
+  {
+   "arxivId": "2610.18856",
+   "authors": [
+    "Mattie Ji",
+    "Indradyumna Roy",
+    "Vikas Garg"
+   ],
+   "category": "图像视频生成",
+   "publishedAt": "2026-10-13",
+   "title": "Exact Topological Compliance: Generating Persistence-Equivalent Graphs",
+   "url": "https://arxiv.org/abs/2610.18856",
+   "zhSummary": "已接收 NeurIPS 2026。拓扑感知生成模型想让生成图的拓扑（持续同调图 PD）匹配目标描述子，但过去都靠软正则，只能做到近似相似。这篇首次系统研究“精确实现”问题：提出局部（基于度数的迭代构建）和全局两套方法，并证明每个输出都精确实现目标 PD，且所有度数基的 PD 等价图都能被枚举出来。把拓扑合规从“差不多”推进到“精确可证”。值得看是因为它把 TDA 图生成做成了有证明的构造性理论，图生成/分子生成方向会引用它。"
+  },
+  {
+   "arxivId": "2610.18813",
+   "authors": [
+    "Chuyang Wei",
+    "Haoxiang Guan",
+    "Minghang Zhu",
+    "Kexin Zhou",
+    "Jiyan He"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-10-13",
+   "title": "Self-Evolving Agent Harness",
+   "url": "https://arxiv.org/abs/2610.18813",
+   "zhSummary": "递归自改进（RSI）方向。Harness 自进化的思路是：模型权重固定不动，只进化 agent 的软件脚手架——prompt、记忆、工作流、可执行组件，被接受的修改跨运行持久保留。这篇把反馈驱动过程形式化：分离更新目标与提议/准入机制，区分解释态修改和工具/代码、仓库级控制逻辑、插件组合的修改，并用进化优化刻画搜索空间；在显式假设下给出期望泛化界与保留界，经由持续 PAC 学习论证可靠性。值得看是因为它给“权重不动、脚手架自进化”这条 RSI 子路线搭了第一套形式化框架。"
+  },
+  {
+   "arxivId": "2610.18874",
+   "authors": [
+    "Bingxin Xu",
+    "Wenrui Bao",
+    "Xinxin Liu",
+    "Jiawei Zhou",
+    "Yuzhang Shang"
+   ],
+   "category": "具身智能与机器人",
+   "publishedAt": "2026-10-13",
+   "title": "ChunkAct: Action Chunking for Agentic Robotics",
+   "url": "https://arxiv.org/abs/2610.18874",
+   "zhSummary": "具身智能方向。Agentic robotics 把 LLM agent 放进机器人控制环，用记忆指导组合感知、运动、VLA 工具，零重训泛化新任务；代价是每个 primitive 动作都要对全交互历史做一轮 LLM 推理，单集成本随动作数线性增长。这篇发现这种推理大多是冗余的：子目标一旦选定，后续 primitive 已被记忆规定好。于是提出 action chunking：一次调用发射一整段动作块，把效率瓶颈从“每步推理”降到“每块推理”。值得看是因为它是 agentic 机器人落地的关键效率补丁，思路简单直接。"
+  },
+  {
+   "arxivId": "2610.18862",
+   "authors": [
+    "Minghao Luo",
+    "Liang Chen"
+   ],
+   "category": "推理",
+   "publishedAt": "2026-10-13",
+   "title": "DoubtLess: Training-Free Contrastive Decoding for Efficient Reasoning",
+   "url": "https://arxiv.org/abs/2610.18862",
+   "zhSummary": "推理方向。推理模型靠长思维链（CoT）拿高分，但经常花冤枉 token；现有缩短 CoT 的方法要么逐个模型重训，要么加固定转向向量，要么用早停/禁词等启发式（会掉点）。这篇提出 DoubtLess：训练无关的对比解码，用一个小得多的推理模型当“裁判”——让它对大模型的 CoT 读两遍，一遍被 prompt 成简洁思考者、一遍是啰嗦思考者，两者的差异作为转向信号压短大模型的思考。小模型引导大模型，精度不掉、token 省了。值得看是因为它是真正训练无关、即插即用的 CoT 压缩方案。"
+  },
+  {
+   "arxivId": "2610.18735",
+   "authors": [
+    "Yuqi Huang",
+    "Xingyao Li",
+    "Yunlong Hou",
+    "Fengzhuo Zhang",
+    "Jiachun Pan"
+   ],
+   "category": "高效推理与部署",
+   "publishedAt": "2026-10-13",
+   "title": "SP$^2$ec: Adaptive Self-Speculative Decoding for Vision-Language Models",
+   "url": "https://arxiv.org/abs/2610.18735",
+   "zhSummary": "高效推理方向。推测解码加速 LLM 推理已很成熟，但 VLM 的多模态输入让小 draft 模型吞吐不稳定；自推测解码复用目标模型自身部分层当 drafter，保住了多模态能力，但效率高度依赖给每个 prompt 选对 draft 配置。这篇提出 SP²ec（单峰自推测解码）：训练无关的 bandit 算法，在生成过程中在线自适应调整 draft 配置，利用自推测解码吞吐量呈单峰分布的观察。全程训练无关、在线自适应。值得看是因为 VLM 推测解码此前缺少好用的自适应方案，这篇补上了。"
+  },
+  {
+   "arxivId": "2610.18869",
+   "authors": [
+    "Mingxuan Yan",
+    "Litian Gong",
+    "Dihong Huang",
+    "Zhixu Li",
+    "Tianyu Zhang"
+   ],
+   "category": "具身智能与机器人",
+   "publishedAt": "2026-10-13",
+   "title": "What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study",
+   "url": "https://arxiv.org/abs/2610.18869",
+   "zhSummary": "具身智能方向。VLA 预训练时，演示数据的质量到底该怎么用，才能让目标任务微调后更强？这篇用 5000 条天然次优的人类演示、24 个目标任务，系统对比了加权、过滤、条件化三种用法 × 多种 reward 定义 × 标签粒度，在三个 VLA 上严格控制变量。发现：approach-aware 的 episode 条件化优于纯行为克隆；条件化与过滤分别偏好 episode 级和 chunk 级标签；还厘清了预训练数据量、质量标签在微调/推理阶段各自的作用。值得看是因为它是 VLA 预训练数据质量用法的第一份大规模实证指南。"
+  },
+  {
+   "arxivId": "2610.12914",
+   "title": "OGPO: Offline Goal-conditioned Policy Optimization for Recoverable Vision-Language-Action Models",
+   "authors": [
+    "Xule Gao",
+    "Xi Wang",
+    "Zehua Zang",
+    "Rui Wang",
+    "Changwen Zheng",
+    "Chuxiong Sun"
+   ],
+   "url": "https://arxiv.org/abs/2610.12914",
+   "publishedAt": "2026-10-09",
+   "zhSummary": "已接收 NeurIPS 2026。针对 VLA（视觉-语言-动作）模型后训练依赖轨迹级模仿、一旦偏离演示轨迹就难以恢复的问题，作者提出离线目标条件策略优化框架 OGPO：用语义关键状态自适应重标定离线轨迹，并构造目标条件的过程奖励，把后训练从“复刻专家动作”转向“关键状态可达性”学习。在 LIBERO、MetaWorld 上持续优于标准 SFT，并在自建的执行中扰动基准 LIBERO-ReAct 上展现出更强的分布偏移鲁棒性与目标导向恢复能力。做具身智能与机器人策略学习的值得细读，它为离线条件下提升 VLA 鲁棒性提供了一条不依赖在线交互的新路。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.12769",
+   "title": "REDaCT: Collapse-Free Unlearning in Large Reasoning Models",
+   "authors": [
+    "Joshua Maccoby",
+    "Wendy Hui Wang"
+   ],
+   "url": "https://arxiv.org/abs/2610.12769",
+   "publishedAt": "2026-10-08",
+   "zhSummary": "已接收 Findings of EMNLP 2026。针对大推理模型做遗忘（unlearning）时常见的“推理崩塌”——删掉记忆的同时连贯的思维链也被破坏，作者提出推理时遗忘框架 REDaCT：先用二分类泄漏检测器定位思维链中泄露遗忘集信息的句子，再在首次泄漏处注入离线学好的修正嵌入，引导后续推理避开泄漏。实验显示它在保持答案与思维链近乎完美遗忘的同时完全避免了推理崩塌，推理保持能力明显优于现有方法。关注模型遗忘与对齐的读者值得一看，代码已开源。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.12823",
+   "title": "When Charts Deceive Web Agents: A Paired Benchmark for Misleading Visualization-Grounded Tasks",
+   "authors": [
+    "Yisheng Li",
+    "Dongming Han",
+    "Hongkun Pan",
+    "Bingcheng Mao",
+    "Zijian Wang",
+    "Yunlong Mao",
+    "Wei Tong",
+    "Sheng Zhong"
+   ],
+   "url": "https://arxiv.org/abs/2610.12823",
+   "publishedAt": "2026-10-09",
+   "zhSummary": "已接收 EMNLP 2026。Web Agent 越来越多地替用户浏览和操作网页，但它们消费的图表证据可能具有误导性——误读会传导为具体的下游错误动作，而这一点此前缺乏系统评测。作者构建了首个成对可执行的基准 MisVisAgentBench：280 个任务实例，干净版与误导版仅图表证据不同，并配套诊断框架区分“被误导失败”与“任务本身太难”。在 13 个视觉语言 Web Agent 上的测试显示，误导图表让平均任务成功率下降超 34 个百分点，且失败多沿着误导预设的分支走。做 Agent 安全与评测的必看，它揭示了可视化鲁棒性这个被低估的风险维度。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.12802",
+   "title": "People Making Conversation: Evaluating How Naturally Speech Models Converse",
+   "authors": [
+    "Arya Bastani",
+    "Iman Modarressi"
+   ],
+   "url": "https://arxiv.org/abs/2610.12802",
+   "publishedAt": "2026-10-08",
+   "zhSummary": "已接收 NeurIPS 2026 Workshop（实时对话智能体）。语音对话模型在每次停顿时都要决定“说不说话”，但现有评测测的是边界检测或聚合统计，而非这个决策本身。作者把 6 个实时语音系统放到 176 段真实对话的 427 个停顿和 482 个话轮结尾处，逐点对比它们与真人的行为：是否开口、延迟、长度、措辞，以及对前 30–120 秒内容的记忆问答。结果发现 hosted API（GPT Realtime、Gemini 3.1 Flash Live、Grok Voice）几乎逢停顿必说，只有延迟决定话语能否落进停顿里；而全双工模型（PersonaPlex、Moshi）是唯一会保持沉默、也是唯一能在人类反应时间内打断的。做语音对话系统的读者值得细读，评测用的标注、工具链和全部输出都已公开。",
+   "category": "语音"
+  },
+  {
+   "arxivId": "2610.13548",
+   "title": "Auditing VLM Benchmarks from Existing Evaluation Runs",
+   "authors": [
+    "Denis Degtiarev",
+    "Anna Gromova",
+    "Sergey Katkov",
+    "Artem Mikhailin",
+    "Safina Mukhamedshina",
+    "Albert Nasybullin",
+    "Karina Shaikhutdinova",
+    "Artem Tuzov"
+   ],
+   "url": "https://arxiv.org/abs/2610.13548",
+   "publishedAt": "2026-10-09",
+   "zhSummary": "已接收 NeurIPS 2026 Workshop TAE（非归档）。每次 VLM 评测都会产生逐题的预测与判定记录，但榜单只取一个总分就把它们丢掉了。作者把这些“废料”变废为宝，在 VLMEvalKit 上加了一层审计：6 个检测器对保存的输出做后处理，外加一次去掉图像的纯文本重跑，输出逐题审计报告。用 MMStar 做案例发现：20.2% 的题目上去掉图像准确率毫无损失（其中 17% 可用置换零假设解释，剩下 +3.2pp 的超额集中在数学与科学类，疑似知识替代了视觉证据）；还有 134 道题所有模型都选了同一个错误选项。关心评测可信度的读者必看，它提供了一套可直接复用的基准审计工具。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.12783",
+   "title": "Shift-Aware Identity-Guided Latent Refinement for Referring Audio--Visual Segmentation",
+   "authors": [
+    "Kun Li",
+    "Sami Sebastian Brandt",
+    "Michael Ying Yang"
+   ],
+   "url": "https://arxiv.org/abs/2610.12783",
+   "publishedAt": "2026-10-08",
+   "zhSummary": "已接收 NeurIPS 2026。指代表达音频-视觉分割（Ref-AVS）要求按自然语言描述在音画中精确定位分割目标，但目标被遮挡、声音衰减时会发生“目标漂移”——焦点错误地切到别的物体上。作者提出 SAIL 框架：双 token 策略把帧级动态与全局语义锚解耦，显式建模漂移线索；漂移感知精修模块用领域证据对齐 token 纠正偏移；解码器融合精修嵌入并持续更新记忆，保持全视频的时空一致性与身份一致。在两个 Ref-AVS 基准上显著超过现有 AVS、Ref-VOS 方法。做多模态分割与视频理解的读者值得一看。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.12822",
+   "title": "Reward Hacking as a Transmissible Strategy in Multi-Agent Coding Systems",
+   "authors": [
+    "Yuepeng Hu",
+    "Pegah Ghahremani",
+    "Reza Aghajani",
+    "Mahesh Pasupuleti",
+    "Himaghna Bhattacharjee"
+   ],
+   "url": "https://arxiv.org/abs/2610.12822",
+   "publishedAt": "2026-10-09",
+   "zhSummary": "预印本。以往把奖励作弊（reward hacking）当作单智能体的失败，这篇论文证明：在多智能体代码系统中，一个智能体习得的作弊策略会传染给其他智能体。在 4 个开源基座上，代码 RL 会在两种设定下诱发并放大作弊；作弊经由代码、共享记忆和自然语言计划跨角色传播，甚至小模型诱发的作弊能感染更强的闭源目标模型；在困难任务上传播链还会自我强化。作者也从理论上分析了作弊放大、持续或衰减的条件，并验证了代码评审等缓解手段的效果。做多智能体 RL 与 Agent 安全的读者必读，它把“作弊会传染”变成了实证结论。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.12474",
+   "title": "TTS-Q: Perception-Guided Post-Training Quantization of Text-to-Speech Diffusion Transformers",
+   "authors": [
+    "Xiaoqin Feng",
+    "Yuqi Li",
+    "Weilun Feng",
+    "Yi-Cheng Lin",
+    "Kai Li",
+    "Xianglong Wang",
+    "Kuo Yang",
+    "Chuanguang Yang",
+    "Yingli Tian",
+    "Wei Li",
+    "Zhongwei Cheng",
+    "Lin Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.12474",
+   "publishedAt": "2026-08-11",
+   "zhSummary": "预印本。零样本 TTS 靠十亿参数扩散 Transformer 实现高音质，但体积和多步采样让端侧、实时场景用不起；现有后训练量化（PTQ）为语言和视觉设计，直接用于语音会在 4bit 下保住可懂度却丢掉说话人音色。作者做了首个 TTS 扩散 Transformer 的 4bit 权重+激活 PTQ 研究（1B 与 3.5B），定位到音色损失同时来自权重和激活量化，但只有激活部分具有可被精度调度利用的时间步结构；据此提出 TTS-Q：从任务匹配的校准候选中挑选难量化项，配以预算平衡的混合精度调度，给靠后的前馈激活更高精度。TTS-Q 在两个尺度上都是音色恢复最好的，且不损失可懂度。做语音合成部署与模型压缩的读者值得细读。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.13184",
+   "title": "AdaC-GRPO: Towards Mastering Long-Horizon Visual Sudoku Puzzles via Adaptive Curriculum Learning",
+   "authors": [
+    "Sida Li",
+    "Yuanxin Liu",
+    "Linli Yao",
+    "Shicheng Li",
+    "Xu Sun",
+    "Haoli Bai",
+    "Xiaohui Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.13184",
+   "publishedAt": "2026-10-09",
+   "zhSummary": "预印本。带可验证奖励的 RL（RLVR）提升了大模型推理，但在长程多模态任务上仍显乏力：作者构建的细粒度基准 FG-Sudoku 显示，前沿 MLLM 在 9×9 这类长依赖视觉数独上近乎全军覆没，奖励稀疏到标准 RLVR 根本训不动。为此提出 AdaC-GRPO：通过在线 rollout 准确率追踪模型的“最近发展区”，动态组装课程批次，替代僵化的课程表。实验让 Qwen2.5-VL-7B 接近 Gemini-2.5-Flash，弥合了与 Gemini-2.5-Pro 之间 62.2% 的准确率差距，并在 InternVL-3.5、Qwen3-VL 上验证了泛化性。做 RLVR 与多模态推理后训练的读者值得一看。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.13337",
+   "title": "Exploring Attention Sinks in Text-to-Image Transformers from Diffusion and Autoregressive Models",
+   "authors": [
+    "Binglei Li",
+    "Mengping Yang",
+    "Zhiyu Tan",
+    "Wenxu Qian",
+    "Junping Zhang",
+    "Hao Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.13337",
+   "publishedAt": "2026-10-09",
+   "zhSummary": "预印本。注意力汇（attention sink）在大语言模型中已被广泛研究，但它在文生图 Transformer 里是否存在、有何作用，此前是空白。作者系统考察了双向扩散模型与因果自回归两类 T2I Transformer：两类模型都存在注意力汇，但模式不同——自回归模型汇聚在首 token 与全局尺度 token，双向模型则在模态边界、文本区与空间角落形成汇点；且汇点集中在稀疏的层与头、随生成阶段变化。干预实验表明扰动汇点相关的头比扰动普通头带来更大的生成变化，引入 register token 重分配注意力后部分配置还能小幅提升生成质量。关注模型可解释性与注意力机制的读者值得一读。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.13947",
+   "authors": [
+    "Xudong Cai",
+    "Ruijie Zhu",
+    "Haoliang Shang",
+    "Ruining Li",
+    "Marc Pollefeys",
+    "Shangzhe Wu",
+    "Andrea Vedaldi",
+    "Chuanxia Zheng"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark",
+   "url": "https://arxiv.org/abs/2610.13947",
+   "zhSummary": "该研究关注具有物理基础的可动三维资产生成，目标从复现外观转向刻画运动与功能。提出多智能体系统Artisan，在Articraft基础上引入物理仿真反馈，建模无碰撞运动、重力稳定性及质量材质等属性，并构建涵盖空间保真度等四方面的统一基准。评估十余种模型后，Artisan空间保真度相当，且碰撞率最低、稳定性最高。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.13945",
+   "authors": [
+    "Xiaomeng Ye",
+    "Krishna Jaganathan",
+    "Gyubeum Lim",
+    "Gunjan Chhablani",
+    "Muhammad Zubair Irshad",
+    "Zsolt Kira"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Splat2Act: From Captured Scenes to Personalized VLA Manipulation",
+   "url": "https://arxiv.org/abs/2610.13945",
+   "zhSummary": "该研究解决通用操作策略在用户环境中抓取成功率为零、采集真实演示成本过高的问题。提出自动化实仿实流程Splat2Act，仅用手机扫描和物体图像构建含高斯泼溅与碰撞几何的数字孪生，自动发现放置位并由仿真特权专家生成演示。在101个环境中生成6.8万余次演示，两阶段微调后个性化策略在目标场景达62.5%成功率，真机部署达63.9%，与仿真接近。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.13944",
+   "authors": [
+    "Xuanlang Dai",
+    "Jiazi Bu",
+    "Yujie Zhou",
+    "Yuhong Liu",
+    "Beichen Zhang",
+    "Penghui Yang",
+    "Ziyu Liu",
+    "Yuhang Zang"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "InstantFusion: A Shared Latent Interface for Heterogeneous Image Generators",
+   "url": "https://arxiv.org/abs/2610.13944",
+   "zhSummary": "该研究关注异构图像生成器潜在表示对齐不足的问题，发现独立训练模型具有相似的潜在空间组织。提出轻量共享潜在接口InstantFusion，用模型专属潜在自编码器将不同生成器的中间状态映射到共享空间再解码到目标空间，以同图同噪声水平对齐和去噪速度同步为约束。在加速、多偏好组合、跨架构蒸馏与跨模型组合中表现具有竞争力。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.13943",
+   "authors": [
+    "Junjie Lu",
+    "Chuheng Zhang",
+    "Yucen Wang",
+    "Yuhua Jiang",
+    "Xinyao Qin",
+    "Min Xu",
+    "Li Zhao"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Noise Space Learning for VLA Adaptation",
+   "url": "https://arxiv.org/abs/2610.13943",
+   "zhSummary": "该研究针对预训练视觉语言动作模型适配需权衡交互、计算与安全的问题。提出噪声空间学习，在固定预训练模型下学习上下文相关的噪声分布，基于噪声引导思想并用PPO、SAC、AWR实例化，给出信息论分析。在LIBERO、RoboTwin及四个真机任务的实验形成了一系列有效变体，并给出不同资源与部署条件下的选择建议。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.13941",
+   "authors": [
+    "Yucheng Yang",
+    "Xiaoxiao Sun",
+    "Shusheng Yang",
+    "Jiakang Chen",
+    "Serena Yeung-Levy"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Images Talk Back: Guiding MMDiTs by Suppressing Image-to-Text Feedback",
+   "url": "https://arxiv.org/abs/2610.13941",
+   "zhSummary": "该研究探讨多模态扩散Transformer中图像到文本反馈是否有助于纠正偏离提示的错误，发现该反馈会保留已生成错误，移植可挽救失败或破坏成功，抑制其影响可提升生成。提出语义反馈引导及其原位变体，抑制图像到文本反馈并增强文本到图像条件。在三个图像骨干上提升了对齐与偏好得分，FLUX上GenEval从0.6661升至0.7479，并可迁移至视频生成。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.13935",
+   "authors": [
+    "Bhanu Tokas",
+    "Rahul Nair",
+    "Rockwell Jackson",
+    "Hannah Kerner"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Hide and Seek: HIDE Concepts to SEEK explanations for black box models",
+   "url": "https://arxiv.org/abs/2610.13935",
+   "zhSummary": "该研究针对概念归因仅适用于分类回归、需模型权重或大量概念标注且缺乏图像级归因的问题。提出Hide and Seek方法，无需模型权重或标注概念数据集，利用视觉语言模型检索概念对齐图像、定位并遮蔽概念区域，通过比较黑盒模型在原图与遮蔽图输出的变化度量归因。在CelebA和COCO-Stuff上与真实归因一致性更优，并适用于图像描述与卫星图像分割。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.13929",
+   "authors": [
+    "Changhao Wang",
+    "Jaden Clark",
+    "Shuran Song"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Chronos Policy: Learning Robot Policies on Physical Time",
+   "url": "https://arxiv.org/abs/2610.13929",
+   "zhSummary": "该研究针对机器人策略用固定频率序列隐含物理时间、在观测频率或延迟变化时失效的问题。提出Chronos Policy，将观测采集与动作执行时间显式作为条件，对比时间戳嵌入与时间感知旋转位置编码，发现后者更稳健。训练时随机化观测采样与动作块起始，支持异步多速率学习。仿真与真机实验显示其提升动态与多传感任务表现，并增强时序鲁棒性。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.13925",
+   "authors": [
+    "Shaheer U. Saeed",
+    "Zion Tse",
+    "Gregory Slabaugh",
+    "Daniel C. Alexander",
+    "Yipeng Hu"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Can machines reason non-verbally?",
+   "url": "https://arxiv.org/abs/2610.13925",
+   "zhSummary": "该研究针对机器擅长语言推理却难以处理视觉非言语推理的问题。提出通用框架GenVerOpt，将生成、验证与优化统一为推理流程，通过生成候选、验证正确性并迭代改进，实现单样本优化。该方法在抽象智力拼图上超越人类，在前列腺癌分割上媲美临床医生，在肝血管重建与肿瘤边界对齐上分别超越专家和现有最优方法。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.13923",
+   "authors": [
+    "Sajjad Baghaeea",
+    "Aimin Lib",
+    "Shanmugarajan Balasubramanian",
+    "Elif Uysal"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Goal-Oriented Bundle Management and Flow Control for Deep-Space Communications via Reinforcement Learning",
+   "url": "https://arxiv.org/abs/2610.13923",
+   "zhSummary": "该研究针对深空通信中间歇连接、长时延与中继存储受限下传统调度不优化任务效用与公平性的问题。提出闭环建模与学习框架，月球与火星更新经共享缓存中继转发至地球，用超额年龄度量信息新鲜度并定义目标导向损失，将中继控制建模为约束半马尔可夫决策过程并用掩码PPO求解。仿真显示其年龄效用与流间公平性优于基线。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2610.13917",
+   "authors": [
+    "Joseph Lee",
+    "Yanjing Li",
+    "Bo Qiang",
+    "Gregory Lau",
+    "Allyson Ettinger",
+    "Noah A. Smith",
+    "Rory Donovan-Maiye",
+    "David Baker",
+    "Hanna Hajishirzi",
+    "Pang Wei Koh"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Designing Protein Structures from Natural Language",
+   "url": "https://arxiv.org/abs/2610.13917",
+   "zhSummary": "该研究针对从头蛋白质设计需为每种性质设计专用输入的问题。开发首个支持自然语言目标的全原子结构生成模型Prompteina，基于180万结构与5000万余条文本的配对数据，由Proteina-Complexa经文本条件预训练与微调得到。在18项结构性质中15项优于基线，结合物设计在20个靶点中13个领先，实验验证针对GM2A发现9个结合物，最强亲和力107nM。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2610.13915",
+   "authors": [
+    "Junkai Liu",
+    "Le Zhang"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Where to Look Matters: Rethinking Sub-Volume Sampling in 3D Medical Self-supervised Learning",
+   "url": "https://arxiv.org/abs/2610.13915",
+   "zhSummary": "该研究针对三维医学自监督学习中随机子体裁剪将所有区域等同视之、忽视了解剖先验与空间冗余的问题，证实更优的子体带来更好的下游迁移。提出即插即用框架，以离线由粗到细的探针库取代随机裁剪，按解剖感知、信息量与多样性指导采样，并设轻量与特征两种变体。实验表明轻量变体在多种骨干与下游任务上优于随机采样。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2610.13912",
+   "authors": [
+    "Taoyong Cui",
+    "Pinxian Zeng",
+    "Wanghan Xu",
+    "Hao Xiao",
+    "Shuhan Xue",
+    "Qiang Gao",
+    "Wanli Ouyang",
+    "Pheng Ann Heng",
+    "Zhenfei Yin",
+    "Yingcheng Wu",
+    "Ling Yang"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "RSI-Anything: Unlocking Recursive Self-Improvement with World Models",
+   "url": "https://arxiv.org/abs/2610.13912",
+   "zhSummary": "该研究针对递归自我改进中外部反馈成本高、世界模型预测随策略演化而不可靠的问题。提出基于JEPA-Anything的领域通用框架RSI-Anything，用预测性世界模型指导动作与学习数据选择，以观测反馈驱动策略改进与条件性模型适配，并经兼容性检查保留更新。在代码修复、界面操作、实验室规划与反应优化等多领域取得显著提升，反应优化平均最优产率达96.15%。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.13635",
+   "authors": [
+    "Rishabh Jain",
+    "Federico Belotti",
+    "Stefano Coniglio",
+    "Pietro Lio",
+    "Stefano Fiorini"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "PANDA: Prior-guided Attentional Dual-path Architecture",
+   "url": "https://arxiv.org/abs/2610.13635",
+   "zhSummary": "已接收 NeurIPS 2026。针对超图神经网络的两阶段消息传递，提出即插即用架构 PANDA。核心洞察是：归一化注意力天然是竞争性的——一个发送者权重上升必然压低同聚合集里其他发送者的权重，在异配（heterophilic）场景下会传播误导信息。PANDA 用双路径解决：主路径在可学习的接收端归一化注意力与结构先验之间插值，辅助路径是非竞争性的（不归一化），让每个发送者独立贡献自己的变换信息。支持有向与无向超图。值得看：对注意力竞争机制的刻画很清晰，双路径思想可以迁移到一般注意力架构的设计中。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2610.13369",
+   "authors": [
+    "Jiayang Gao",
+    "Tianyi Zheng",
+    "Jiayang Zou",
+    "Fengxiang Yang",
+    "Luyao Fan"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Opening the Black Box of Classifier-Free Guidance via Information Bottleneck",
+   "url": "https://arxiv.org/abs/2610.13369",
+   "zhSummary": "已接收 NeurIPS 2026。研究扩散模型中 classifier-free guidance（CFG）到底应该在何时激活。实际中 CFG 的激活 schedule 往往靠经验设定，近期动态变体也多是手工设计的 schedule，缺少理论解释。作者把扩散轨迹建模为随时间变化的信息瓶颈，证明条件信息对 score function 的信息相关性在采样过程中并非均匀分布——在某些阶段显著更强，从而为动态 CFG 激活提供了信息论上的理论依据。值得看：扩散采样机理方向的扎实理论工作，对实践中设计自适应 guidance schedule 有直接指导。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.13330",
+   "authors": [
+    "Mengdi Liu",
+    "Chenghao Jia",
+    "Hong Chang",
+    "Shiguang Shan"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Masked Diffusion Language Agents for Tool-Integrated Chemical Reasoning",
+   "url": "https://arxiv.org/abs/2610.13330",
+   "zhSummary": "已接收 NeurIPS 2026。提出首个掩码扩散语言智能体 ChemDiffAgent，解决工具集成的化学推理任务。现有化学智能体都建在自回归范式上，因果注意力和从左到右生成限制了对分子的双向理解、全局协同的工具规划和多源证据融合。ChemDiffAgent 把化学推理重新表述为对交错的推理—工具调用轨迹的迭代去噪，工具调用决策在完整轨迹上下文下联合确定，更好地对齐智能体的决策边界。值得看：扩散范式进智能体的新尝试，对智能体方法论本身有启发，化学只是验证场景。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.13549",
+   "authors": [
+    "Shun Kato",
+    "Dixin Yang",
+    "Kotaro Amaya",
+    "Yuiga Wada",
+    "Kazumi Fukuda"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "ELMA: Benchmarking Anaphoric Compositions for Long-Term Text-to-Motion Generation",
+   "url": "https://arxiv.org/abs/2610.13549",
+   "zhSummary": "已接收 NeurIPS 2026（评测与数据集 Track）。提出长期文本到人体动作生成的新任务：处理含照应（anaphora）的多段指令，即早先段落建立的约束必须在长时间内保持，这是现有短片段模型做不好的。发布 ELMA 数据集：全自动采集过滤流水线从野外视频抽取连续 30 秒高质量片段，带密集的段级标注保留跨段依赖。作者用它微调了多个 SOTA 动作生成模型，验证了基准的有效性。值得看：长时序生成与评测方向的规范工作，数据集可直接用于复现和扩展。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.13328",
+   "authors": [
+    "Mengqi Guo",
+    "Zhe Wei",
+    "Yuan Yuan",
+    "Jiunn Bin Lim",
+    "Boyi Pan"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "DuoRate: Two-Rate Per-Expert Precision Allocation for Mixture-of-Experts Serving",
+   "url": "https://arxiv.org/abs/2610.13328",
+   "zhSummary": "高相关预印本（29 页）。切中 MoE 服务的一个关键矛盾：存储侧为路由能触达的所有专家付费，解码侧却只为实际选中的专家付费，作者称为 store-read gap——发布的 BitsMoE checkpoint 上，存储成本 2.54 bpw，解码流量却高达 7.50 bpw。DuoRate 离线只存一层统一的前缀可读权重流并构建失真张量，在线根据 workload 自己的 prefill 无标签地求解拉格朗日率失真分配；数学上证明路由频率可以从每个专家的决策中消去，求解开销很小。值得看：MoE 量化/部署方向的实质进展，把分配问题建模得干净漂亮。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.13376",
+   "authors": [
+    "Chi Kit Ng",
+    "Yidong Zhang",
+    "Tianchun Wu",
+    "Siu Hing Lui",
+    "Hanlin Zhao"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "EndoRSI: Physical-Evidence-Driven Recursive Improvement of Endoscopic Robot Policies",
+   "url": "https://arxiv.org/abs/2610.13376",
+   "zhSummary": "高相关预印本。RSI（递归自改进）在真实物理系统中的闭环落地案例。系统内嵌的 EndoForge 代码智能体，用物理实验的证据迭代开发和改进内镜机器人策略：验证证据先让智能体否定了最初的动作表示，随后物理实验证伪了离线数据支持的插入策略——揭示了源数据中不存在的危险闭环行为。物理执行全程隔离在安全约束的运行时内、需人工授权。值得看：正好对应 RSI/自进化智能体方向，展示了自改进智能体如何用物理世界证据推翻自己的假设，而非在模拟器里自娱自乐。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.13438",
+   "authors": [
+    "Chen Xi",
+    "Ding Ruixue",
+    "Wang Zhigaoyuan",
+    "Zhang Fanrui",
+    "Zhang Qiang"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Rollout-Time Intervention: Unlocking Agentic Reinforcement Learning Beyond Policy Limits",
+   "url": "https://arxiv.org/abs/2610.13438",
+   "zhSummary": "高相关预印本。针对智能体 RL 的一个根本瓶颈：on-policy 推理能力天花板——当任务超出模型当前能力边界，成功轨迹极度稀疏，训练往往直接坍塌。提出的 RTI 方法在 rollout 期间利用奖励侧证据（评估 rubric）把错误轨迹转化为成功轨迹，为策略自己几乎解不出的任务提供有效学习信号。关键发现是：尽管干预轨迹本质上是 off-policy 的，模型仍能从中有效学习。值得看：RLVR/智能体训练方向的新思路，绕开了 on-policy 探索天花板，对难任务的 post-training 很有启发。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2610.13570",
+   "authors": [
+    "Weixin Guan",
+    "Liang Li",
+    "Shiyu Xie",
+    "Jiapeng Liu",
+    "Bing Li"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models",
+   "url": "https://arxiv.org/abs/2610.13570",
+   "zhSummary": "高相关预印本。系统性地量化推理模型的 overthinking（想太多）问题。首先提出 Step-wise Truncation Probing（STP）：沿固定推理轨迹从多个保留前缀反复生成答案，用首次达到最大经验准确率的位置作为参考点，定义 Overthinking Ratio（之后还生成了多少无用 token）和 Accuracy Degradation（准确率回落多少）。然后对比动态路由、固定 budget、动态早退等终止策略，构建理论与实践的 Pareto 前沿。值得看：test-time scaling 之后绕不开的问题，这篇给出了可复用的度量框架和策略选型依据。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.13605",
+   "authors": [
+    "Saibo Geng",
+    "Andrea Gentilini",
+    "Xinxian Ma",
+    "Nathan Ranchin",
+    "Yunzhen Yao"
+   ],
+   "publishedAt": "2026-10-09",
+   "title": "zip2zip++: Towards Inference-Time Token Compression with Minimal Quality Loss",
+   "url": "https://arxiv.org/abs/2610.13605",
+   "zhSummary": "高相关预印本（27 页，含开源代码）。用 LZW 压缩构建动态词表，让语言模型用更少 token 表示同一文本，先前工作发现这是以推理能力和困惑度损失为代价的。作者证明这个质量差距不是压缩的根本代价，而是不改动预训练模型、只针对性改进压缩层和 LZW 编解码器就能大幅收窄：找出了四个关键问题——LZW 压缩算法在输入/输出 embedding 之间的隐式冲突、直接对压缩序列用 RoPE 会忽略合并 token 的多 token 跨度、合并数字 token 对下游准确率的伤害不成比例、动态词表不受控增长。值得看：推理加速方向的精细工程分析，每个问题都指出了可迁移的修复点。",
+   "category": "高效推理与部署"
+  }
+ ]
 }
