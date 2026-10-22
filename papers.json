@@ -1,6 +1,142 @@
 {
   "papers": [
     {
+      "arxivId": "2610.30107",
+      "title": "Velocity Ambiguity Profiles: Time-Resolved Bayes-Risk Diagnostics for Flow Matching",
+      "authors": [
+        "Yunpeng Mei",
+        "Xiaowen Zhu",
+        "Chenyu Wang",
+        "Chenbo Xin",
+        "Hongjie Cao",
+        "Jiamin Wang",
+        "Jie Chen",
+        "Gang Wang"
+      ],
+      "url": "https://arxiv.org/abs/2610.30107",
+      "publishedAt": "2026-10-21",
+      "category": "图像视频生成",
+      "zhSummary": "已接收 NeurIPS 2026。Flow matching 训练通常只报告沿插值时间平均的损失，这篇引入 Velocity Ambiguity Profile（VAP）：把时变损失分解为内在不可约的贝叶斯风险项和可由更多数据/更好估计器消除的冗余项，明确区分“数据不够”和“本身模糊”的误差来源。理论上证明了两种结构化高斯混合场景下的统计基准，在 CIFAR-100 DINOv2 特征流上验证了基于 VAP 的引导式时间采样能降低可约损失。Flow matching 是当下图像/视频生成的主流范式之一，这套诊断工具对采样和训练效率都有实用价值，值得细看。"
+    },
+    {
+      "arxivId": "2610.29992",
+      "title": "SCDM: Scalable Causal Discovery in Nonlinear Temporal Systems with Meta-Learning",
+      "authors": [
+        "Jingbo Wang",
+        "Kegeng Tang",
+        "Zihao Wang",
+        "Shaogang Ren"
+      ],
+      "url": "https://arxiv.org/abs/2610.29992",
+      "publishedAt": "2026-10-21",
+      "category": "机器学习理论与优化",
+      "zhSummary": "已接收 NeurIPS 2026。非线性多元时间序列的因果发现一直卡在高维场景：候选有向关系随变量数平方增长，现有方法要么逐目标拟合、要么反复条件检验、要么图搜索代价太大。SCDM 把每个目标变量当作一个任务，用元学习在所有任务间共享一个时序预测器和一个因果强度矩阵，每轮 meta-episode 只更新目标变量子集，积累全系统的结构证据，训练后直接读出连续有向因果分数。作者还给出了有限误差恢复原理（在可观延迟系统假设和风险间隔条件下），在合成、神经影像启发的高维数据及真实时序基准上都表现有竞争力且扩展性更好。做因果推断、时序建模的朋友可重点看共享参数元学习这一招。"
+    },
+    {
+      "arxivId": "2610.29927",
+      "title": "Your Benchmark Is an Empirical Measure Over Difficulty",
+      "authors": [
+        "Yifan Sun",
+        "Naicheng Yu",
+        "Jiawen Gong",
+        "Jingyan Shen",
+        "Huan Zhang"
+      ],
+      "url": "https://arxiv.org/abs/2610.29927",
+      "publishedAt": "2026-10-21",
+      "category": "评测基准",
+      "zhSummary": "已接收 NeurIPS 2026。这篇把 benchmark 重新理解为“难度上的一个经验测度”：评测集合天然诱导出难度分布，从而形式化了两种核心失效模式——测度错位（benchmark 难度分布与预期难度分布不一致）和覆盖缺口（难度轴上某些区间没有题目，导致测不到模型在该区间的进步）。作者提出两套带理论保证的诊断指标，在 25 个流行 benchmark、7 个领域上用精细估计的题目难度做了实证分析：很多榜单在无形中给特定难度区间加权，结论要打折解读；另一些则在难度轴上留白。最后还给了 BenchFill 算法，通过面向难度的题目改写补齐覆盖缺口。做评测、看榜单的人都该读——对“分数上涨到底意味着什么”是一次清醒的纠偏。"
+    },
+    {
+      "arxivId": "2610.30136",
+      "title": "Agentic World Action Models",
+      "authors": [
+        "Zhuoyang Liu",
+        "Dantong Niu",
+        "Botong Zhang",
+        "Boning Shao",
+        "Jing Wang",
+        "Ruijie Zheng",
+        "Yuvan Sharma",
+        "Runyu Lu",
+        "Jiaming Liu",
+        "Renrui Zhang",
+        "Roei Herzig",
+        "Yutong Bai",
+        "Ken Goldberg",
+        "Danfei Xu",
+        "Yuke Zhu",
+        "Guanzhi Wang",
+        "Linxi \"Jim\" Fan",
+        "Trevor Darrell"
+      ],
+      "url": "https://arxiv.org/abs/2610.30136",
+      "publishedAt": "2026-10-21",
+      "category": "具身智能与机器人",
+      "zhSummary": "这是预印本。世界动作模型（WAM）能给机器人做视觉前瞻和未来预测，但缺组合式技能复用的显式机制；agentic 机器人有代码式规划和可复用技能，又缺对物理动力学的预测接地。这篇提出 AW-0 框架：用一个混合 Transformer 统一联合建模三条耦合的生成流——code（参数化技能程序与控制逻辑）、未来视频、低层电机指令，code 既结构化多步预测，也成为可复用的技能程序。配套还有一个自动数据管道，给机器人/人类视频轨迹标对齐程序并归纳成技能库。在 RoboTwin 2.0 和真实双臂操作任务上超过 VLA 和 WAM 基线，语言遵循、语义推理和鲁棒性都有提升。“代码即技能”的设计思路很干净，具身智能和世界模型方向都值得追踪。"
+    },
+    {
+      "arxivId": "2610.30132",
+      "title": "LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data",
+      "authors": [
+        "Zhennan Wan",
+        "Jianfei Chen"
+      ],
+      "url": "https://arxiv.org/abs/2610.30132",
+      "publishedAt": "2026-10-21",
+      "category": "后训练与对齐",
+      "zhSummary": "这是预印本。RL 能强化 LLM 的长上下文推理，但需要的训练数据又长又多样又可验证，人类标注贵、天然数据稀缺、合成又依赖外部语料或更强教师模型。这篇的巧思是“先让模型自己合成压缩结构形式的问答+证据，再展开成多文档长上下文”，让模型从自身提出的任务里学习，自写的 multi-hop 推理任务加自写的多轮检索任务，用 GRPO 训练。关键是把数据合成顺序反过来：先结构化证据、再膨胀成噪声上下文。在两个模型、五个长上下文推理 benchmark 上超过了用外部语料合成数据的 RL 基线并泛化到真实任务。零数据+长上下文的组合很少见，方法直观可复现，做 RL 和长上下文的都该看。"
+    },
+    {
+      "arxivId": "2610.30017",
+      "title": "GuideEvolve: Self-Evolving Agent Framework with Expert Guidance and 3Ts Mechanisms",
+      "authors": [
+        "Meihong Jia",
+        "Yasemin Timar",
+        "Jonathan Taws"
+      ],
+      "url": "https://arxiv.org/abs/2610.30017",
+      "publishedAt": "2026-10-21",
+      "category": "递归自改进 RSI",
+      "zhSummary": "这是预印本。自进化 agent 的两个痛点：进化过程不稳定、性能回退无从恢复。GuideEvolve 引入任务专家评估驱动的进化流水线，加上三个自主调节机制（3Ts）：快慢双速思考（Think Fast and Slow）、时间回滚恢复（Throwback）、自主终止（Termination by choice）。在 MGSM/MMLU 上达到与 Gödel Agent 相当的精度（MGSM 89.8% 对 90.6%，MMLU 反超），方差降低 25-59%，进化成功率 100%（基线 82%），优化迭代数几乎减半。3Ts 里 Throwback 的“演化错了可以时光倒流”很对自进化场景的胃口，RSI 方向值得关注的一篇。"
+    },
+    {
+      "arxivId": "2610.29823",
+      "title": "MemoryTax: The Bitter Lesson of Agent Memory",
+      "authors": [
+        "Zedong Peng"
+      ],
+      "url": "https://arxiv.org/abs/2610.29823",
+      "publishedAt": "2026-10-21",
+      "category": "智能体",
+      "zhSummary": "这是预印本。一篇短小但锋利的实证研究：Mem0、Zep 这类 agent 记忆系统在问题到来前就决定保留什么，而 coding agent 保留原始历史、让模型自己用工具搜索——当模型足够强能自己搜，精心设计的记忆还有用吗？作者在一个 419 轮对话（152 个问题）上横向比较四种记忆方法与三种 coding agent，结论很直接：agent 记忆是给弱模型的昂贵补丁，Mem0 只在 GPT-4o-mini 上赢过全上下文，且构建成本就超过一次全上下文推理；记忆的质量上限被“写记忆的模型”锁死，更强的读者救不回弱者漏掉的东西。用 Claude Opus 5.5 时，Pi（coding agent）在成本-精度前沿上最好：99% 分数、不到一半成本。给 agent 做记忆系统的团队，这篇的“记忆税”概念值得对照自省。"
+    },
+    {
+      "arxivId": "2610.29784",
+      "title": "Evolving with Open Worlds: Towards Recursive Self-Improvement for Future Forecasting",
+      "authors": [
+        "Zhipeng Chen",
+        "Yunsen Liang",
+        "Yanxi Chen",
+        "Hongkang Zhao",
+        "Lingyun Feng",
+        "Ruiyang Ren",
+        "Guoxin Chen",
+        "Jia Deng",
+        "Feng Chang",
+        "Chuan Hao",
+        "Ran Tao",
+        "Jian Yang",
+        "Ji-Rong Wen",
+        "Bryan Dai",
+        "Wayne Xin Zhao"
+      ],
+      "url": "https://arxiv.org/abs/2610.29784",
+      "publishedAt": "2026-10-21",
+      "category": "递归自改进 RSI",
+      "zhSummary": "这是预印本（47 页，work in progress）。RSI 研究的最大障碍是缺一个“持续变化、客观可验证、自然接地”的演化环境。这篇用未来事件预测做载体，构建 DeepEvolve：living 环境不断合成可验证任务，递归演化引擎把每次预测的推理轨迹回注为能力——用“解耦搜索与预测”让参数级演化适应易受污染的实时环境，再把可复用技能蒸馏出来，让 agent 在有限的实时轨迹上持续进化。在外部 FutureX 排行榜（按真实事件结果评分、每周更新）上自进化的预测器连续三周排名第一，最高提升 195%。把 RSI 落到“预测未来”这个天然可验证的任务上，是个漂亮的环境设计，RSI 方向必读。"
+    },
+    {
       "arxivId": "2610.28584",
       "authors": [
         "Wei Cai",
