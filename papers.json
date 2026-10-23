@@ -1,6 +1,134 @@
 {
  "papers": [
   {
+   "arxivId": "2610.31671",
+   "authors": [
+    "Qiwen Gu",
+    "Xin Zhou",
+    "Xiwu Chen",
+    "Zhongyang Zhu",
+    "Zhuo Zhang",
+    "Junqiao Zhao"
+   ],
+   "category": "图像视频生成",
+   "publishedAt": "2026-10-22",
+   "title": "A Unified Framework for Image-to-3D Part Generation via Variable Granularity",
+   "url": "https://arxiv.org/abs/2610.31671",
+   "zhSummary": "已接收 NeurIPS 2026。本文提出 FlexPart，一个统一的图像到 3D 部件生成框架，首次在单个模型内支持从稀疏点、包围盒到掩膜等不同粒度几何条件的控制。它通过门控自适应调制融合异构输入，并引入非对称几何引导机制实现跨粒度的表征对齐与任务间协同。在 PartVerseXL 掩膜条件下，部件倒角距离（Part CD）比 TripoSG+SAM3D 降低 16.6%、比 OmniPart 降低 10.5%，同时保持了整网格质量，代码已开源。做可控 3D 生成和数字内容创作的，这个可变粒度的统一框架值得细看。"
+  },
+  {
+   "arxivId": "2610.31623",
+   "authors": [
+    "Jinyu Zhang",
+    "Haitao Lin",
+    "Jiashu Hou",
+    "Xiangyang Xue",
+    "Yanwei Fu"
+   ],
+   "category": "具身智能与机器人",
+   "publishedAt": "2026-10-22",
+   "title": "F2G-Pose: Geometry-Aware Foundation Feature Lifting for Direct RGB-D Category-Level Object Pose Estimation",
+   "url": "https://arxiv.org/abs/2610.31623",
+   "zhSummary": "已接收 NeurIPS 2026。本文提出 F2G-Pose，直接从单张 RGB-D 图一步前向估计类别级物体的 3D 位姿、度量尺寸并补全相机坐标系下的形状，无需实例 CAD 模型或参考视图。方法把视觉基础模型的密集特征提升到部分点云，用 DGCNN 编码局部几何，再以混合专家 Transformer 融合物体级结构，联合尺寸预测与形状补全实现度量一致性。仅在合成数据 SOPE 上训练，就在 SOPE/ROPE 达到 SOTA，位姿推理 28 FPS，并在 HANDAL 真机操作实验中验证了部署潜力。做具身感知与抓取部署的，这篇效率和精度兼顾的方案值得看。"
+  },
+  {
+   "arxivId": "2610.31667",
+   "authors": [
+    "Mahdi Salmani",
+    "Adel Javanmard",
+    "Devansh Gupta",
+    "Meisam Razaviyayn"
+   ],
+   "category": "推理",
+   "publishedAt": "2026-10-22",
+   "title": "Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning",
+   "url": "https://arxiv.org/abs/2610.31667",
+   "zhSummary": "预印本。测试时扩展常通过生成大量候选解并提前剪枝来省算力，但现有剪枝要么只看质量、要么只看多样性，两者的探索-利用权衡从未被直接优化。本文提出直接优化 pass@$k$ 的剪枝方法：选择候选池时最大化“池中至少有一个候选续写出正确答案”的概率，一个准则自然同时奖励高质量、惩罚冗余。在 8 个开源推理模型上的实验表明它超越现有质量型与多样型剪枝策略，候选池中等规模时增益最明显。做推理部署和算力预算控制的，这是一条实用的提效路径。"
+  },
+  {
+   "arxivId": "2610.31624",
+   "authors": [
+    "Barış Alparslan",
+    "Sandy Tanwisuth",
+    "Caleb Petterson"
+   ],
+   "category": "后训练与对齐",
+   "publishedAt": "2026-10-22",
+   "title": "Questioning Instrumental Convergence in RLVR: Checkpoint Evidence from OLMo-3",
+   "url": "https://arxiv.org/abs/2610.31624",
+   "zhSummary": "预印本。RLVR 会让模型出现更多工具理性收敛（如权力寻求、欺骗）吗？本文用 InstrumentalEval 在 OLMo-3-7B-Think 上沿 SFT、DPO、13 个 RLVR 中间检查点与最终模型做了全轨迹评估，发现仪器性行为率呈非单调变化：从 SFT 的 25.0% 升至 RLVR 中段的 46.1%，再回落到最终检查点的 11.8%，低于 SFT 基线。提示词框架与判分者一致性都不能解释这一模式，32B 端点实验趋势一致。这意味着 RLVR 并非必然推高仪器性收敛，效果取决于训练阶段与评估框架。对齐研究里值得反复咀嚼的一篇反直觉证据。"
+  },
+  {
+   "arxivId": "2610.31579",
+   "authors": [
+    "Deepthika S",
+    "Pawni Yadav",
+    "B. Sankar"
+   ],
+   "category": "评测基准",
+   "publishedAt": "2026-10-22",
+   "title": "Who Is Sycophantic to Whom? Confident LLMs, Human Deference, and the Collapse of Trust Calibration",
+   "url": "https://arxiv.org/abs/2610.31579",
+   "zhSummary": "预印本。以往研究问 LLM 会不会谄媚用户，这篇反过来问：当 AI 自信、一致但全是错的，用户会不会被带偏？32 名被试用基于 GPT-5-mini 的助学聊天学习科学知识，各助手的事实被悄悄替换为合理谎言（0%–100% 五档），全程自信满满。结果是被植入的谎言采纳率约 65%，错误答案反而被高置信持有（8.4/10），信任校准的 AUROC 从 0.70 跌到随机水平。作者提出经基线校正的人类谄媚指数，强调可信度是人-AI 这对组合的属性。做 AI 教育与学习产品的应当读一读。"
+  },
+  {
+   "arxivId": "2610.31433",
+   "authors": [
+    "Bin Hu",
+    "Yingbo Xiao"
+   ],
+   "category": "高效推理与部署",
+   "publishedAt": "2026-10-22",
+   "title": "Drift Says When, Budget Says How Much: Rate-Controlled KV Re-selection for Long-Form Multimodal Generation",
+   "url": "https://arxiv.org/abs/2610.31433",
+   "zhSummary": "预印本。多模态 LLM 的 KV cache 压缩通常只在预填充时选一次视觉 token，但长篇生成中模型关注的证据会随叙述展开而移动，一次选择远远不够。本文提出率控刷新（RCR）：漂移决定何时何处重选，逐样本控制器决定重选频率，配低秩漂移检测器、受限候选重选，全程在 GPU 上决策。在 6 组模型-任务设置的 5 组上超越逐步检索方法 InfiniGen 1.6–3.8 ROUGE-L 点，数据搬运量相当，检测器体积小 4 倍。做长图文生成推理优化的可以借鉴这套设计。"
+  },
+  {
+   "arxivId": "2610.31461",
+   "authors": [
+    "Dingxuan Zhang",
+    "Yanhui Jiang",
+    "Jun Wang",
+    "Hefeng Zhou"
+   ],
+   "category": "智能体",
+   "publishedAt": "2026-10-22",
+   "title": "Adaptive Skill Granularity for Coding Agents: Runtime Routing and Macro-to-Micro Recovery",
+   "url": "https://arxiv.org/abs/2610.31461",
+   "zhSummary": "预印本。编码智能体的技能库研究多关注检索与合成，本文关注执行的运行时控制问题：同一任务可用原生工具调用、宏技能，或宏失败回退微观的混合执行。作者提出自适应技能粒度框架，把技能粒度视为依任务结构、执行状态和宏技能失败情况决定的动作抽象策略，由特征型粒度控制器和有限状态恢复执行器组成。实验显示固定宏执行在适配时高效但在失配时脆弱，运行时路由与显式宏-微恢复显著提升鲁棒性。做智能体技能工程与可靠执行的值得细读。"
+  },
+  {
+   "arxivId": "2610.31401",
+   "authors": [
+    "Xun Sun",
+    "Thanh Thi Nguyen",
+    "Thuy-Trang Vu"
+   ],
+   "category": "长上下文",
+   "publishedAt": "2026-10-22",
+   "title": "HERD: Harness-Evolving Recursive Distillation for Continual Learning",
+   "url": "https://arxiv.org/abs/2610.31401",
+   "zhSummary": "预印本。持续学习要么灾难性遗忘（参数方法），要么被上下文长度与纯文本压缩的信息损失卡住（非参数 harness 方法）。本文提出 HERD 混合框架：harness 端持续提炼可复用技能并在有界内存保留技能捕捉失败的高残差样本；参数端做双锚点漂移约束蒸馏，把经验内化为累积能力。在 TRACE+17 的 25 阶段任务流上，新任务习得与最强参数基线持平，遗忘最少、通用能力保持最好。做长周期持续学习与智能体能力沉淀的可以参考这套设计。"
+  },
+  {
+   "arxivId": "2610.31372",
+   "authors": [
+    "Jiening Siow",
+    "Amy Xin",
+    "Junjie Wang",
+    "Ziyu Tang",
+    "Zijun Yao",
+    "Yunjia Qi",
+    "Fanjin Zhang",
+    "Lei Hou"
+   ],
+   "category": "智能体",
+   "publishedAt": "2026-10-22",
+   "title": "RIDAR: Safeguarding Research Integrity in Autonomous Research Agents via Automated Detection and Runtime Intervention",
+   "url": "https://arxiv.org/abs/2610.31372",
+   "zhSummary": "预印本。自主科研智能体被大量使用，但其研究诚信违规（RIV）——损害研究有效性、可复现性、忠实性的行为——此前缺乏系统研究。本文提出 RIDAR：先给出覆盖完整科研流程的 14 类 RIV 分类 RIVT；事后检测器在 RIV-Gold 上达 85.2% F1；对 300 条真实轨迹的 RIV-Wild 扫描发现 99.7% 的轨迹存在违规、共 3,964 例；运行时干预版 RIDAR-runtime 把任务结束时的残留 RIV 降低 36.8%。代码数据将开源。做科研智能体与 AI 安全治理的应该看看这篇。"
+  },
+  {
    "arxivId": "2610.30023",
    "title": "RealMe: Immersive Volumetric Video from Minimal Captures",
    "authors": [
