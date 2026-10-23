@@ -1,6 +1,154 @@
 {
  "papers": [
   {
+   "arxivId": "2610.31633",
+   "title": "BeNice! Closing Looping's Inference-Memory Gap via KV-Sharing",
+   "authors": [
+    "Hayden Prairie",
+    "Jacob M. Ryan",
+    "Taylor Berg-Kirkpatrick",
+    "Daniel Y. Fu"
+   ],
+   "category": "高效推理与部署",
+   "zhSummary": "预印本。环形（looped）架构通过复用同一块层来提升质量且不增加参数量，但推理时每次循环都生成独立的 KV-cache，显存随循环次数线性增长。作者提出两阶段方案：第一阶段在预训练中加入 stochastic depth，诱导收缩残差动力学让各循环表示收敛到同一极限；第二阶段提出 BeNice!，把最终循环的 KV-cache 广播回第一循环并训练它输出兼容残差，在保持验证困惑度不变的同时实现 KV-shareability。该方法与 MLA、Kimi delta attention 等高效注意力以及 fp8/nvfp4 等 KV 量化正交叠加。模拟低显存长上下文推理中，缓存命中率提升 31.4%、吞吐提升 23.6%、p90 首 token 延迟下降 83.6%。值得看：环形架构推理显存的系统性解法，给 KV 压缩开了一条新思路。",
+   "url": "https://arxiv.org/abs/2610.31633",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31639",
+   "title": "Causal Chain of Thought: Mitigating Attention Leakage via Context Isolation",
+   "authors": [
+    "Gabriele Dominici",
+    "Teague McMillan",
+    "Fazl Barez",
+    "Marc Langheinrich",
+    "Martin Gjoreski"
+   ],
+   "category": "推理",
+   "zhSummary": "预印本。指出了普通 CoT 的一个根本问题：稠密注意力让每个推理步骤都能看到完整上下文，模型可以直接“查答案”再事后编出看似合理的理由，推理步骤并不一定真正驱动结论。CausalCoT 把问题分解成原子子问题的有向无环图，每个节点只在仅含直接父节点的隔离上下文中求解，强制马尔可夫因果结构，阻断向非父节点内容的注意力泄漏。在多类推理基准上预测性能基本不降，中间步骤的因果敏感度平均提升 12 个百分点、最高 21 个百分点。依赖图结构还支持测试时局部干预，修正会可预测地向下游传播。值得看：把 CoT 忠实性问题做成可验证的因果隔离框架，对可解释推理有直接启发。",
+   "url": "https://arxiv.org/abs/2610.31639",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31563",
+   "title": "When to Follow the Teacher: Advantage-Based On-Policy Distillation",
+   "authors": [
+    "Mahdi Sabbaghi",
+    "George Pappas",
+    "Hamed Hassani",
+    "Adel Javanmard"
+   ],
+   "category": "后训练与对齐",
+   "zhSummary": "预印本。在线策略蒸馏（OPD）用学生自己采样的轨迹训练，通常优于 SFT 等离线方法，但标准做法让学生在轨迹每个状态都跟随教师，默认教师指导永远有益。作者提出 AOPD：用教师动作在学生策略下的反事实 advantage 加权——真正提升学生期望回报的动作才被强化，否则降权。关键在于该目标只需学生 rollout 及其终局奖励即可无偏估计，无需为每个备选动作跑额外 rollout 或奖励评估，保留了 OPD 的 rollout 效率。在数学、代码、MedQA 上，无论外部教师还是自蒸馏设定，都超过蒸馏与 RL 基线。值得看：“什么时候听老师”被形式化成 advantage 加权，实现简单又省计算，蒸馏工作可直接借用。",
+   "url": "https://arxiv.org/abs/2610.31563",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31640",
+   "title": "WorldForge V2: Eliciting Camera-Trajectory Alignment in Video Diffusion Models",
+   "authors": [
+    "Chenxi Song",
+    "Yanming Yang",
+    "Tong Zhao",
+    "Ruibo Li",
+    "Joey Tianyi Zhou",
+    "Chi Zhang"
+   ],
+   "category": "图像视频生成",
+   "zhSummary": "预印本。视频扩散模型学到了丰富的 3D/4D 先验，但相机控制不精确、时空不一致、相机运动与场景运动纠缠，限制了其在空间任务中的应用。WorldForge V2 先给出训练无关的引导框架：用扭曲参考沿目标相机路径迭代精修生成；光流分析找出运动相关隐通道做选择性引导，解耦运动控制与外观；双路对比纠正参考不完美带来的伪影；v-cache 用上一次去噪预测近似校正，省去一次额外前向。进而把运动定位从隐通道扩展到网络块，引入 Trajectory LoRA 只在对轨迹引导最敏感的块上微调，两阶段训练让少量监督（单个训练场景）即可泛化到未见场景。多数据集评测显示相机控制视频生成的质量与轨迹精度均达到 SOTA。值得看：把相机控制做成“训练无关引导 + 轻量 LoRA”，实用性很强。",
+   "url": "https://arxiv.org/abs/2610.31640",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31650",
+   "title": "EpiSEM-Bench: Evaluating Safety and Evidence Recovery in LLM Agents under Missing Evidence",
+   "authors": [
+    "Qijin Zhang",
+    "Hanzhen Wang",
+    "Yuehan Zhao",
+    "Haoyu Dai",
+    "Yao Shu",
+    "Zhongxiang Dai",
+    "Shuang Qiu"
+   ],
+   "category": "AI 安全与可解释性",
+   "zhSummary": "预印本。工具型 LLM agent 依赖环境事实来判断某个动作是否允许；当工具返回遗漏了安全相关的关键事实，agent 可能执行被禁动作——即使用户请求无害、每条返回语句都为真。作者提出 EpiSEM-Bench：300 对匹配的安全/不安全任务（覆盖 6 个领域），系统性压制关键事实来度量证据缺失下的不安全执行，并配独立审计工具检验 agent 是否会主动索取缺失事实、扣留被禁动作。对十个模型的评测显示：抗缺失能力差异显著，且“抵抗缺失”不等于“会主动恢复”；提供恢复通道后所有模型的不安全执行都下降，但各模型主动获取缺失事实的意愿差异明显。值得看：首次把 agent 安全评估聚焦到“证据缺失”这一现实攻击面，评测结论对 agent 部署有直接指导。",
+   "url": "https://arxiv.org/abs/2610.31650",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31656",
+   "title": "METTA: Memory-Enhanced Test-Time Adaptation for Meta-Reinforcement Learning",
+   "authors": [
+    "Ali Najar",
+    "Hosein Hasani",
+    "Amir Kooshan Fattah",
+    "Yasamin Rajabi",
+    "Mahdieh Soleymani Baghshah"
+   ],
+   "category": "推理",
+   "zhSummary": "预印本。元强化学习要求 agent 从有限交互中快速适应未见任务，关键是在长交互历史里提炼任务证据：经典 RNN 把经验压缩进隐状态，Transformer 则以二次代价检索历史轨迹。METTA 把快速适应分成两个时间尺度：因果神经记忆做 episode 内细粒度适应（线性序列复杂度），紧凑的 episode 级摘要做跨 episode 的长程任务推断，避免 attend 完整交互历史。神经记忆还带来表达能力与测试时训练能力，使 agent 能有效适应元测试时的未见任务与任务族。在 Meta-World ML10/45 未见环境上成功率超 50%，训练预算与墙钟时间都较低；在长上下文稀疏奖励 PointMaze 上探索行为更结构化，超过 Transformer 基线。值得看：元 RL 的长上下文高效路径，测试时训练的思路值得借鉴。",
+   "url": "https://arxiv.org/abs/2610.31656",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31427",
+   "title": "FastHarness: Experience-Driven Review Scheduling for Vision-Language-Action Policies",
+   "authors": [
+    "Tao Lin",
+    "Yuxin Du",
+    "Haoxiao Wang",
+    "Zile Zhong",
+    "Bo Zhao"
+   ],
+   "category": "具身智能与机器人",
+   "zhSummary": "预印本。Agentic 机器人系统用语言模型监督机器人策略执行并从失败中恢复，但逐动作块审查开销巨大。FastHarness 自适应调度 GPT-6 Astra 对 π0.5 策略的监督：快速路用阶段记忆与已审查结果随经验积累降低审查频率，恢复路集中监督纠错，纠错验证后恢复常规执行，策略本身保持冻结、从当前观测生成新动作。四个仿真操作任务上，审查 token 消耗从首个 episode 到最后五个 episode 均值平均下降 57.2%，单集耗时从 85.5 分钟降到 52.0 分钟，成功率从 GPT-as-Policy 的 80% 提升到 97.19%。值得看：自适应监督在机器人落地中的实证，省 token 又涨成功率，且无需额外训练。",
+   "url": "https://arxiv.org/abs/2610.31427",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31494",
+   "title": "AgentVQA: A Unified Benchmark for Agentic Visual Understanding",
+   "authors": [
+    "Advait Gupta",
+    "Sachin Konan",
+    "Tom Yin",
+    "Gabriel Sarch",
+    "Zhuang Liu"
+   ],
+   "category": "评测基准",
+   "zhSummary": "预印本。VLM 在智能体场景中的表现长期缺乏统一离线评估，在线评测又贵又难扩展。AgentVQA 从 23 个源数据集人工精选 1000 个真实智能体案例，覆盖 Web agent、机器人、第一人称视频、游戏、空间规划五个领域，并适配为可靠的离线评测；模型排名与对应在线评测的排名一致。评测 22 个模型，最好的准确率仅 58.5%。跨域分析显示错误主因是视觉状态表征的失败——定位 UI 元素、理解运动、跟踪状态变化、推断 3D 空间关系，而非任务误解或逻辑推理。值得看：给出了 agent 场景下 VLM 的完整短板清单，统一基准也方便横向对比新模型。",
+   "url": "https://arxiv.org/abs/2610.31494",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31518",
+   "title": "SCOPE: Scene-graph Construction Optimized by Plan Error-correction for Robot Long-term Planning Datasets",
+   "authors": [
+    "Chaoyue Li",
+    "Zeyu Gao",
+    "Yanfeng Lu",
+    "Fan Luo"
+   ],
+   "category": "具身智能与机器人",
+   "zhSummary": "已接收 IROS 2026。任务与运动规划（TAMP）的数据瓶颈在于：现有自动生成法场景同质化，且幻觉场景图与任务目标存在物理冲突、不可解。SCOPE 用多层次多样性度量最大化场景的信息熵，并引入 Plan Feedback 纠错流水线：把规划器执行失败当作反馈信号，回溯修正场景图的逻辑不一致，保证物理可行性。实验显示 SCOPE 对错误场景图更鲁棒、生成数据质量更高；用其数据微调的 LLM 下游 TAMP 成功率比 SOTA 的 DELTA 方法数据微调版绝对高出 12.33%。值得看：用规划器失败做闭环的数据合成思路，TAMP 数据生成工作可直接参考。",
+   "url": "https://arxiv.org/abs/2610.31518",
+   "publishedAt": "2026-10-22"
+  },
+  {
+   "arxivId": "2610.31404",
+   "title": "AgentPhishing: A Benchmark of LLM Email Agents Under Adaptive Attack",
+   "authors": [
+    "Justin Tan",
+    "Miao Li",
+    "Ding Zhao"
+   ],
+   "category": "智能体",
+   "zhSummary": "预印本。Computer-use agent 日益处理邮件等私密信息，传统钓鱼数据集只测“能不能识别”，不测 agent 被说服后是否会照做。AgentPhishing 引入 PhishOpt：针对单个 agent 优化可复用的钓鱼邮件生成技能（带固定基准约束与真实性约束），再用 Cialdini 说服原则分析失败策略、构造通用生成技能。评测显示 agent 能安全处理传统钓鱼邮件，但对针对性适配的攻击依然脆弱：九个 agent 里四个钓鱼检测率低于 10%、恶意请求服从率超过 45%。值得看：说明用传统钓鱼评测推断 agent 安全会严重高估，评估必须包含自适应说服攻击。",
+   "url": "https://arxiv.org/abs/2610.31404",
+   "publishedAt": "2026-10-22"
+  },
+  {
    "arxivId": "2610.31671",
    "authors": [
     "Qiwen Gu",
