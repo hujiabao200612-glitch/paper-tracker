@@ -1,6 +1,147 @@
 {
  "papers": [
   {
+   "arxivId": "2610.31668",
+   "title": "Reading, Writing, Sharing, and Interacting with the World through Video",
+   "authors": [
+    "Shengqiong Wu",
+    "Meng Luo",
+    "Bobo Li",
+    "Ziwei Liu",
+    "Shuicheng Yan",
+    "Ming-Hsuan Yang",
+    "Philip Torr",
+    "Hao Fei"
+   ],
+   "url": "https://arxiv.org/abs/2610.31668",
+   "publishedAt": "2026-10-22",
+   "category": "图像视频生成",
+   "zhSummary": "预印本。这是一篇 102 页的视频世界模型综述，以“世界建模”作为统一视角，把视频理解与生成两条线收拢到一起：把一段视频看作潜在时序世界的部分、有损、有序投影，再按读、写、共享、交互四种操作组织文献。读是从观测视频推断世界属性，写是按指定或学到的世界条件合成视频，共享是理解与生成共用建模机制，交互则是在动作与新观测下预测并更新世界状态。综述梳理了从片段级识别与感知保真度，向持久状态、可控演化、物理与因果有效性、以及基于交互和下游决策的评测转变的趋势，并提炼了后续开放挑战。值得看：想系统了解视频基础模型与世界模型全貌时，这篇可作一张路线图。"
+  },
+  {
+   "arxivId": "2610.31661",
+   "title": "OpenTac: An Open Ecosystem for Customizable, Scalable, and Transferable 3D Tactile Sensing",
+   "authors": [
+    "Ariel Slepyan",
+    "Geeta Chandra Raju Bethala",
+    "Jiafeng Gu",
+    "Anagha Rajendra Dangle",
+    "Yinzhe Zhou",
+    "Hongyuan Fu",
+    "Jade Sim",
+    "Tuhin Basu",
+    "Xinyi Yin",
+    "Md Faizal Karim",
+    "Gregory Hager",
+    "Homanga Bharadhwaj",
+    "Anand Bhattad",
+    "Krishna Murthy Jatavallabhula",
+    "Nitish V. Thakor"
+   ],
+   "url": "https://arxiv.org/abs/2610.31661",
+   "publishedAt": "2026-10-22",
+   "category": "具身智能与机器人",
+   "zhSummary": "预印本。机器人触觉皮肤长期难在“可定制、可扩展、易迁移”上同时做好，OpenTac 给出了一套开源软硬件生态。核心是一种可伸缩的电阻式触觉皮肤：结构化可变形覆盖层把切向载荷转成空间变化的压力，相邻触点差分响应可解码局部剪切向量，共模响应编码法向力。配套的 CAD 设计工具能从二维轮廓、可展三维曲面甚至文本描述（如“给 9 码鞋垫设计传感器”）自动生成制造文件，生态还包括传感器仿真器、跨传感器迁移与快速自适应数据采集。作者用该工具在多种机器人本体上设计并制造了 30 多款传感器并做了三维触觉场表征。值得看：把触觉从“定制一件”变成“自动生成一件”，对操作与具身学习都很实用。"
+  },
+  {
+   "arxivId": "2610.31651",
+   "title": "BrickWright: Agentic Creation of Physically Feasible Brick Builds",
+   "authors": [
+    "Ava Pun",
+    "Kevin Dai",
+    "Sally Chen",
+    "Maxwell Jones",
+    "Ruixuan Liu",
+    "Kangle Deng",
+    "Changliu Liu",
+    "Maneesh Agrawala",
+    "Deva Ramanan",
+    "Jun-Yan Zhu"
+   ],
+   "url": "https://arxiv.org/abs/2610.31651",
+   "publishedAt": "2026-10-22",
+   "category": "智能体",
+   "zhSummary": "预印本。前沿编程智能体做三维建模已很强，但要拼出真实世界可组装的东西时，常出现悬空、碰撞或断开的无效结构。BrickWright 以乐高积木为试验场，论证“给智能体组装工具与物理可行性验证反馈就够了”：智能体用 BrickLayer 这个 Python 工具包写代码拼搭，其人体工学组装 API 比直接操作原始 LDraw 省约一半推理成本，验证器则对物理可行性给出反馈。基线智能体的物理有效率仅为 9%（GPT-6 Luna）到 69%（GPT-6 Astra），而 BrickWright 引导的智能体在 512 条提示样本上达到 100% 有效，同时轻量智能体的提示遵循度提升、强智能体保持不变，还超过了专用文本到积木模型。值得看：把“工具+验证反馈”这套范式从代码生成延伸到了物理可行的具身创作。"
+  },
+  {
+   "arxivId": "2610.31646",
+   "title": "Low-Bit N-Gram Embeddings for Language Models",
+   "authors": [
+    "Stephen Chung",
+    "Wenyu Du"
+   ],
+   "url": "https://arxiv.org/abs/2610.31646",
+   "publishedAt": "2026-10-22",
+   "category": "高效推理与部署",
+   "zhSummary": "预印本。近年开源权重模型常用 n-gram 嵌入表提升性能，但这张表很占内存：例如 DeepSeek-V4.1-Flash 的 Engram n-gram 记忆就占 196B 参数。作者系统研究低精度存储 n-gram 嵌入：在不同量化方法与位宽分配下做实验，发现 4 比特表可省约 75% 的表内存，同时保留 99% 以上的验证损失改进；更低位宽损失更大，但一段短微调能挽回其中相当一部分。更有意思的是，把省下的内存再投资到更大的表上，性能可以超过原始全精度表而内存仍更少。值得看：给 n-gram 记忆这种“以内存换性能”的设计提供了一个省内存又不亏性能的实用方案。"
+  },
+  {
+   "arxivId": "2610.31613",
+   "title": "Progress Probes P^2: Lightweight Runtime Monitoring for Vision-Language-Action Models",
+   "authors": [
+    "Atiksh Bhardwaj",
+    "Edward W. Duan",
+    "Junwon Seo",
+    "Prithwish Dan",
+    "Wei-Chiu Ma",
+    "Andrea Bajscy",
+    "Preston Culbertson"
+   ],
+   "url": "https://arxiv.org/abs/2610.31613",
+   "publishedAt": "2026-10-22",
+   "category": "具身智能与机器人",
+   "zhSummary": "预印本。VLA 模型能直接按视觉与语言指令做多样操作，但仍会出错且失败难以预测，无人值守部署需要运行时监控。已有监控多用外部 VLM 监督策略，又复杂又贵，这篇反问：VLA 自身的内部激活是否就够监控执行？方法是 Progress Probes（P²）：在演示数据的策略激活上训练线性探针估计执行进度，偏离预期进度的执行即被标记。在开源 VLA π0.5 的仿真与真实操作任务上，该方法在失败检测上达到或超过基于 VLM 的监控，以及需要失败数据训练的方法。值得看：一个轻量探针就能做 VLA 的“越轨报警”，为机器人策略的安全部署提供了低成本路线。"
+  },
+  {
+   "arxivId": "2610.31574",
+   "title": "Rethinking Sequence Compression with Test-time Regression",
+   "authors": [
+    "Sihan Yang",
+    "Jie Huang",
+    "Hanxuan Li",
+    "Yifan Guo",
+    "Weigao Sun",
+    "Yiran Zhong",
+    "Weiyang Liu"
+   ],
+   "url": "https://arxiv.org/abs/2610.31574",
+   "publishedAt": "2026-10-22",
+   "category": "高效推理与部署",
+   "zhSummary": "预印本。序列压缩是高效语言与多模态模型的关键瓶颈，但池化或可学习投影等主流做法效果一直不理想。这篇从测试时回归重新思考压缩：输入 token 定义一个回归问题，拟合系数即为压缩表示；回归问题通过反向传播端到端学习，系数则在前向中以闭式高效求解，得到 TTR-Compressor。作为分块稀疏注意力的压缩器，它在 RULER 上大幅超过基于注意力的压缩器；作为多模态大模型的视觉 token 合并器，它持续优于标准 MLP 合并器，且用少 55.6% 的视觉 token 就达到相当性能。值得看：把“回归拟合”做成压缩原语，为长上下文与多模态的高效化提供了新思路。"
+  },
+  {
+   "arxivId": "2610.31483",
+   "title": "Training Small Language Models for Transferable Tool Selection",
+   "authors": [
+    "Zhaoyi Zhou",
+    "Akshayaa Magesh",
+    "Jeongyeol Kwon",
+    "Artem Kuriksha",
+    "Daniel Jiang",
+    "Andrea Zanette",
+    "Ayush Jain"
+   ],
+   "url": "https://arxiv.org/abs/2610.31483",
+   "publishedAt": "2026-10-22",
+   "category": "智能体",
+   "zhSummary": "预印本。当智能体面对上万个工具时，选对工具是核心瓶颈：工具描述塞不进上下文，纯相关性检索又不知道哪些工具真正被需要；以往做法靠 Claude、ChatGPT 这类专有大模型驱动检索。这篇证明一个小型开源模型经强化学习训练也能胜任：在 ToolBench 上，按该方法后训练的 Qwen3-8B 超过了 402B 的 Llama-4-Maverick。而且训练出的模型可直接迁移到不同检索器，并泛化到不同领域的新工具库。值得看：工具选择不必依赖专有大模型，小模型+RL 就能做到可迁移的工具检索，对低成本智能体部署很有参考价值。"
+  },
+  {
+   "arxivId": "2610.31471",
+   "title": "Ask About the Right Moment: Training-Free Object Identity Reasoning for Video-Language Models",
+   "authors": [
+    "Di Yang",
+    "Xiaochang Li",
+    "Muyang Liu",
+    "Yufei Wang",
+    "Yanhai Xiong"
+   ],
+   "url": "https://arxiv.org/abs/2610.31471",
+   "publishedAt": "2026-10-22",
+   "category": "视觉语言模型",
+   "zhSummary": "预印本。很多视频问题都围绕同一个物理对象，比如杯子洗牌后球在哪、哪张是 Q，但视频语言模型单帧能认出对象，却难以在时间上把它们区分开；在真实杯子游戏视频上，从 8B 到 235B 的开源模型、思考变体、强化学习工具智能体与免训练工具智能体都只比随机好不到 10 个点。作者把“语义身份绑定”与“时序身份维持”分开：应在证据可见的那一刻固定对象身份，之后由追踪器承载。Track, Then Bind 无需训练：可提示视频追踪器跟随每个候选对象并编号，冻结的 VLM 回答关于识别证据的静态问题以绑定目标，再从文本形式的追踪状态推导答案。配合 Qwen3-VL-32B，它解出两个 VET-Bench 任务，最难的 Perception Test 杯子游戏答对 55.4%，高于已发表最好的 41.5%。值得看：给视频模型的“跨时间认物”问题提供了一个简洁有效的免训练解法。"
+  },
+  {
    "arxivId": "2610.31670",
    "title": "Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success",
    "authors": [
