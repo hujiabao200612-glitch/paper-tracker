@@ -1,6 +1,139 @@
 {
  "papers": [
   {
+   "arxivId": "2610.31670",
+   "title": "Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success",
+   "authors": [
+    "Yunfei Xie",
+    "Howard H. Qian",
+    "Shiyi Lan",
+    "Kaiyu Hang",
+    "Chen Wei"
+   ],
+   "url": "https://arxiv.org/abs/2610.31670",
+   "publishedAt": "2026-10-22",
+   "category": "具身智能与机器人",
+   "zhSummary": "预印本。具身基础模型通常要靠昂贵的闭环 rollout 来评估，作者想找一个便宜的离线代理指标。受柏拉图表示假说（PRH）启发，他们提出运动轨迹是否也算一种\"模态\"：模型越强，其感知表示是否越收敛于物理运动的几何结构。由此提出 Sensorimotor Alignment（S²），一个免训练的离线指标，衡量模型的感知表示与物理运动几何的对齐程度。实验发现 S² 在多个具身模型家族上与下游机器人任务成功率正相关，可作为闭环评估前的低成本筛选器，还能在微调成 VLA 之前识别有潜力的 VLM backbone。值得看：把柏拉图表示假说扩展到了具身模型，给机器人评测提供了一个便宜的离线代理。"
+  },
+  {
+   "arxivId": "2610.31421",
+   "title": "How Depth Growth and Looping Shape In-Context Learning in Language Models",
+   "authors": [
+    "Ferdinand Kapl",
+    "Kaitlin Maile",
+    "Stefan Bauer",
+    "Johannes von Oswald"
+   ],
+   "url": "https://arxiv.org/abs/2610.31421",
+   "publishedAt": "2026-10-22",
+   "category": "推理",
+   "zhSummary": "预印本。循环（looped）和深度增长的语言模型通过跨深度复用计算，近期因推理能力受到关注。这篇系统研究这种复用如何塑造上下文学习（ICL）：在最高 3B 参数的预训练模型和受控任务上做分析，考察 ICL 能力的获得、保持与机制。发现增长/循环模型比全深度 dense 模型更依赖上下文信息，在受控任务上更早学会 ICL，且当权重也可以学习固定关联时仍能更强地保留 ICL。追踪训练中的注意力头发现，深度增长会把早期形成的归纳头（induction head）传播下去。值得看：对\"循环架构为什么推理强\"给出了机制层面的解释，和近期的 BeNice 等循环架构工作互为补充。"
+  },
+  {
+   "arxivId": "2610.31544",
+   "title": "Same Luck, Different Choice: Twin-World Credit Assignment for Agentic Reinforcement Learning",
+   "authors": [
+    "Zeropy Surio",
+    "Tobias Engel",
+    "Mei-Lin Chou",
+    "Anika Raman",
+    "Samuel Okafor"
+   ],
+   "url": "https://arxiv.org/abs/2610.31544",
+   "publishedAt": "2026-10-22",
+   "category": "后训练与对齐",
+   "zhSummary": "预印本。Agentic RL 按整个 episode 给奖励，但策略需要为 episode 里的每个决策分配功劳（credit assignment）。反事实分支法通过\"换一个决策重跑一遍\"来估计功劳，但分支的采样噪声与事实 episode 相互独立，导致结果差异混杂了决策效应和后续的运气成分。作者观察到在 agentic search 里 retriever、语料库、打分器都是确定性的，因此 episode 是\"策略决策 + 采样噪声\"的确定性函数——双世界可实现：同样的噪声，不同的决策。提出 TWICE（TWIn-world Credit Estimation），按轮次和行号为每个 token 的 Gumbel 噪声做 key，让反事实双胞胎继承事实 episode 的下游噪声。值得看：把耦合（coupling）思想引入 agentic RL 的 credit assignment，估计方差更小，理论干净。"
+  },
+  {
+   "arxivId": "2610.31412",
+   "title": "SQuAT: Spherical Lattice Vector Quantization-Aware Training",
+   "authors": [
+    "Sebastian Loeschcke",
+    "Ivan Koryakovskiy",
+    "Tycho F. A. van der Ouderaa",
+    "Riccardo Del Chiaro",
+    "Mart van Baalen",
+    "Paul N. Whatmough",
+    "Markus Nagel"
+   ],
+   "url": "https://arxiv.org/abs/2610.31412",
+   "publishedAt": "2026-10-22",
+   "category": "高效推理与部署",
+   "zhSummary": "预印本。格点向量量化（lattice VQ）在低比特 LLM 上率失真 trade-off 很好，但它在量化感知训练（VQ-QAT）下的行为此前研究不足。作者把 lattice VQ-QAT 扩展到十亿参数 LLM 和数十亿 token 的训练规模，提出 SQuAT：把权重分解为方向（shape）和幅度（gain），方向用 E₈ 格点导出的球面码本量化，幅度独立用低比特标量量化，并为 shape 和 gain 各用一个直通估计器（STE）。关键发现是对整体量化器用标准 STE 会忽略 shape-gain 结构，而分离的 STE 能诱导方向的切空间更新，训练效果更好。值得看：低比特量化的新路线，E₈ 格点这种经典数学结构进入 LLM 量化的实例。"
+  },
+  {
+   "arxivId": "2610.31659",
+   "title": "SpectralCanary: Embarrassingly Simple Low-Frequency Traces for T2I Dataset-Use Auditing",
+   "authors": [
+    "Sy-Tuyen Ho",
+    "Anirudh Satheesh",
+    "Soham Chawathe",
+    "Huy Nghiem",
+    "Yongkyun Lee",
+    "Andrew Adams Schoen",
+    "Furong Huang"
+   ],
+   "url": "https://arxiv.org/abs/2610.31659",
+   "publishedAt": "2026-10-22",
+   "category": "图像视频生成",
+   "zhSummary": "NeurIPS 2026 Workshop（Attributing Model Behavior at Scale）论文。审计文生图模型是否用某图像集合微调过很难：模型会吸收集合级的视觉特征而不复现原图。主动式数据集审计在发布前给数据集植入共享信号，之后检查可疑模型的生成输出里是否出现该信号。现有方法在可验证性、保真度、鲁棒性和可部署性之间做 trade-off。SpectralCanary 用平滑低通掩膜把一张固定的 canary 图融进集合里的每张图，caption 不动，不需要辅助生成也不需要逐图优化，轻量验证器检测可疑模型输出中的转移信号。在 Pokemon 数据集等 8 组测试和 3 个真实场景下验证有效。值得看：简单到\"简单得不好意思\"的思路，是数据集版权审计的实用方案。"
+  },
+  {
+   "arxivId": "2610.31636",
+   "title": "Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2",
+   "authors": [
+    "Marek Šuppa",
+    "Ivan Vykopal",
+    "Jaroslav Kopčan"
+   ],
+   "url": "https://arxiv.org/abs/2610.31636",
+   "publishedAt": "2026-10-22",
+   "category": "智能体",
+   "zhSummary": "EMNLP 2026 WaC 研讨会论文。FineWeb2 这类多语言 pipeline 对上千种语言用同一套 recipe，单个语言的失效模式没人细看。作者用 LLM 做\"语料调试器\"而非分类器：一个 tool-using agent 通过只读、有预算的 API 探索语料，把每个发现编译成可执行测试，再由母语者验证。在 2650 万文档的斯洛伐克语部分，三次运行每次只花 2.21–2.84 美元，发现 7 个问题、4 类现象。最大的一处是 1408437 篇文档（5.32%）的机器生成内容农场，居然通过了 pipeline 的过滤器，其中 86.6% 连更严格的阈值也通过了。盲测验证支持 7 个发现中的 6 个。值得看：agent 做数据审计的范式展示，成本低到离谱，也揭示了大规模语料清洗的盲区。"
+  },
+  {
+   "arxivId": "2610.31423",
+   "title": "FocusVLA: Future-Intent Guided Dynamic View Routing for Vision-Language-Action Models",
+   "authors": [
+    "Huixin Xu",
+    "Ziya Yu",
+    "Peng Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.31423",
+   "publishedAt": "2026-10-22",
+   "category": "视觉语言模型",
+   "zhSummary": "已接收 CoRL 2026。VLA 模型统一视觉感知、语言理解和动作生成，多视角输入提供互补的空间信息。但作者实验发现现有 VLA 并没有真正利用多视角互补：策略持续依赖腕部视角，无法随操作阶段动态调整全局-局部视角依赖，限制了阶段适应性和鲁棒性。FocusVLA 是阶段感知的多视角路由框架：从历史动作预测未来的交互意图，再用意图指导动态视角路由。在操作任务上验证了阶段适应性的提升。值得看：VLA 落地的实际痛点（视角利用），CoRL 接收的质量保证。"
+  },
+  {
+   "arxivId": "2610.31366",
+   "title": "AfterDeleteBench: Auditing Post-Deletion Information Persistence in LLM Agents",
+   "authors": [
+    "Ehsan Saleh",
+    "Roozbeh Nahavandi",
+    "Sama Salarian",
+    "Raef Bassily",
+    "Andrew Perrault"
+   ],
+   "url": "https://arxiv.org/abs/2610.31366",
+   "publishedAt": "2026-10-22",
+   "category": "AI 安全与可解释性",
+   "zhSummary": "预印本。很多 LLM agent 有外部持久记忆，还会从历史交互派生摘要等状态，删掉原始记忆记录不等于删掉了其后代携带的信息。作者提出 AfterDeleteBench：对每个合成秘密，比较\"接触过秘密后删除\"的 agent 和\"从未接触\"的对照 agent，把删除后的可恢复性归因于原始接触。主要实验里，一次查询就能从 Qwen2.5-7B-Instruct 上删过秘密的 agent 那里恢复秘密，成功率约三分之二，而对照组恢复率为零。关键是恢复不需要逐字副本：即使完整秘密字符串已消失、只剩碎片，信息仍可恢复。值得看：agent 记忆\"删除不干净\"的问题被量化了，对隐私合规是记警钟。"
+  },
+  {
+   "arxivId": "2610.31662",
+   "title": "Reliable AI-Assisted Decisions via Selective Auditing",
+   "authors": [
+    "Isaac Gibbs",
+    "Elise L. Han",
+    "Ryan J. Tibshirani",
+    "Tijana Zrnic"
+   ],
+   "url": "https://arxiv.org/abs/2610.31662",
+   "publishedAt": "2026-10-22",
+   "category": "评测基准",
+   "zhSummary": "预印本。考虑在线监控 AI 系统的序列决策：每轮系统给出提议决策和置信度（提议和打分可来自不同模型，比如一个 agent 提议、另一个 verifier 打分）。问题是决定自动接受还是请人类专家审计（接受或纠正）。作者把它形式化为在线约束优化：在保证\"漏审的 AI 错误比例低于用户设定上限\"的前提下，最小化专家审计的频率，并给出算法与理论保证。值得看：人机协同部署的实用框架，把置信度校准和审计预算做了联合优化，理论扎实。"
+  },
+  {
    "arxivId": "2610.31633",
    "title": "BeNice! Closing Looping's Inference-Memory Gap via KV-Sharing",
    "authors": [
