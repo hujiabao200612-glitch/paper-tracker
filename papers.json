@@ -1,6 +1,145 @@
 {
  "papers": [
   {
+   "arxivId": "2610.31593",
+   "title": "Simulated Control Evals",
+   "authors": [
+    "Jeffrey Olmo",
+    "David Zhang",
+    "Tyler Tracy"
+   ],
+   "url": "https://arxiv.org/abs/2610.31593",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本。控制评测想验证安全措施能否挡住蓄意作恶的模型，但专用对照环境与真实部署环境的差异会让结论失真。这篇提出模拟控制评测（SCE），用语言模型模拟工具响应来代替真实环境，从而可以在部署场景本身做评测。在 LinuxArena 上的验证显示，SCE 预测安全性的均方根误差为 3.6 个百分点，明显优于另一对照环境 BashArena 的 10.1 个百分点，且能复现攻击策略与监控推理的分布。值得看：它说明针对部署场景做模拟评测可能比在隔离对照环境中实测更可信，而且样本效率更高。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.31474",
+   "title": "Skeleton-Grounded Latent Action Model for Robot World Models",
+   "authors": [
+    "Qi Lv",
+    "Jiayi Lin",
+    "Yuxin Jiang",
+    "Jianzong Wang",
+    "Xiang Deng",
+    "Mike Shou Zheng"
+   ],
+   "url": "https://arxiv.org/abs/2610.31474",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本。机器人世界模型要从视频里学环境如何随动作变化，但重建驱动的隐动作常把机器人运动、物体响应等混在一起，难以对应真实控制。SkeLAM 把隐动作拆成两部分：由机器人骨架监督锚定的运动学分量，和保留其余视觉动态的残差分量，并通过跨模态交换重建让两者可互换。在 DROID 上，它比 DreamDojo 把末端执行器平均位移误差降低 19.5%，并展现出零样本的人到机器人运动迁移。值得看：骨架锚定让世界模型的动作表示真正可控，策略评估结果与真实机器人执行成功率也一致。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.31565",
+   "title": "Squaring-the-Sphere: Distortion-Free and Seamless Panorama Generation via CubeAtlas",
+   "authors": [
+    "Xuhui Zuo",
+    "Chenjie Cao",
+    "Tengfei Wang",
+    "Junta Wu",
+    "Yisu Zhang",
+    "Chunchao Guo"
+   ],
+   "url": "https://arxiv.org/abs/2610.31565",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本。360° 全景生成要在局部透视保真与全局球面连续之间兼顾，等距柱状投影失真严重、立方体贴图则容易接缝不一致。这篇提出 CubeAtlas 表示，把全部立方体面按方向对齐展开到一张紧凑画布上，让预训练扩散 Transformer 一次建模整幅全景，无需改骨干或位置编码；再配合布局感知的稀疏注意力，省去几何上无关的 token 交互。实验显示它在几何保真、跨视角一致性与高分辨率细节上都优于以往方法。值得看：表示层面的重排同时解决了失真、接缝与计算量三个问题。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.31478",
+   "title": "MoG-VLM: Efficient Video Anomaly Detection through Motion-Guided Vision-Language Models",
+   "authors": [
+    "Khaled Waleed Dawoud",
+    "Muhammad Zaigham Zaheer",
+    "Khan Muhammad",
+    "Muhammad Haris Khan"
+   ],
+   "url": "https://arxiv.org/abs/2610.31478",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "已接收 BMVC 2026。视频异常检测用视觉语言模型逐帧推理成本太高，均匀采样又会在静态片段浪费算力、错过局部异常。MoG-VLM 只把运动当作轻量控制信号：用时序梯度幅度做内容感知采样，只在异常可能性高的帧附近才激活密集的多帧 VLM 推理，并做早停。在 XD-Violence 等四个基准上，它在零样本免训练设定下取得 91.91% 等 AUC-ROC，其中三个基准刷新了最好成绩，同时在 XD-Violence 上提速 1.31 倍。值得看：把算力花在值得看的帧上，比均匀加密推理更有效。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.31436",
+   "title": "Conservative Meta-Agent Search: Architecture Adaptation under Non-Stationarity",
+   "authors": [
+    "Ali Atiah Alzahrani"
+   ],
+   "url": "https://arxiv.org/abs/2610.31436",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本。部署中的智能体系统面临持续漂移、延迟反馈与改动成本，而现有自动设计方法多在静态任务集上评测。这篇把元智能体架构搜索形式化为带切换成本与风险约束的序列现任者替换问题，提出保守的 CMAS：用配对影子回放与干预式组件归因打分，只有方差惩罚后的分数超过预设裕度才晋升，并经过模拟金丝雀阶段与预设回滚。在 96 条金融流模拟中，它把相对动态预言机遗憾从 0.116 降到 0.104，留出集效用从 0.44 升到 0.48。值得看：保守晋升与回滚机制是把自动架构搜索推向真实部署的关键一步，作者也明确说明不宣称 alpha 收益。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.31522",
+   "title": "Beyond Causal Masks: Auditing and Localizing Hidden Future-Token Leakage in Adaptive Sequence Models",
+   "authors": [
+    "Huiting Liu",
+    "Jinsong Wu"
+   ],
+   "url": "https://arxiv.org/abs/2610.31522",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本。教师强制评估下验证损失大降的模型，自由生成时可能反而变差，原因可能是隐藏的未来 token 泄露。这篇在一个自适应残差路由解码器中定位了问题：序列级路由摘要经动态路由查询路径广播，让前缀位置接触到了未来 token，尽管因果注意力掩码本身正确。两组独立训练的 12 层因果修复模型消除了可检测泄露，验证损失与参考困惑度回到对照水平。值得看：它提醒我们，漂亮的教师强制指标必须配合前缀不变性审计与自由生成评估，否则架构改进可能是假象。",
+   "category": "AI安全与可解释性"
+  },
+  {
+   "arxivId": "2610.31585",
+   "title": "Action Learning for Scientific Simulations",
+   "authors": [
+    "Sarah Liaw",
+    "Yuanqi Du",
+    "Yilun Du"
+   ],
+   "url": "https://arxiv.org/abs/2610.31585",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本。科学模拟常要推理整条轨迹，而单步转移目标会丢失跨时间依赖，生成模型又不一定给出可优化的目标。这篇研究“动作学习”：从轨迹观测中恢复随机动作，提出 LEAP 方法，把未知动作锚定到可处理的参考过程，再通过比较观测轨迹与参考轨迹学习修正量，得到路径空间上可微的目标。学到的同一动作可复用于路径排序与推理、机制干预、约束优化与采样，在随机物理系统、多体轨道动力学与分子模拟中都得到验证。值得看：它把动力学建模变成可复用的目标函数，为科学推理与控制提供了统一框架。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2610.31428",
+   "title": "Predictable performance is suboptimal, and what it means for model routing",
+   "authors": [
+    "Guanhua Zhang",
+    "Moritz Hardt"
+   ],
+   "url": "https://arxiv.org/abs/2610.31428",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本。模型路由依赖性能预测来为每个查询选模型，但预测器何时真比模型自身置信度强，一直不清楚。这篇证明：任何胜过自置信度的预测器，其优势都可通过重校准精确转化为模型损失的改进；计入预测器额外参数后，其优势上限由候选模型的次优程度加上参数收益决定。在 16 个语言模型、四个基准上的实验印证了这一点：预测器在次优模型上优势更大，微调后优势随之缩小。值得看：它给路由方法的收益划了清晰边界，选模型前先看候选模型本身够不够优。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.31551",
+   "title": "Fine-Grained Analysis of Catastrophic Forgetting in Continual Learning via Algorithmic Stability",
+   "authors": [
+    "Guodong Zheng",
+    "Yan Sun",
+    "Peng Wang",
+    "Enneng Yang",
+    "Jiafei Lyu",
+    "Xiaochun Cao",
+    "Dacheng Tao",
+    "Li Shen"
+   ],
+   "url": "https://arxiv.org/abs/2610.31551",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本。灾难性遗忘是持续学习的核心难题，以往理论多依赖特定模型或任务结构，难以说清迭代优化本身如何影响遗忘。这篇建立了基于算法稳定性的框架，把遗忘分解为任务内与跨任务泛化差距和经验遗忘，并追踪样本扰动如何在任务内更新与后续任务中传播；比较了恒定、任务内衰减与连续衰减三种学习率策略。由此得到的遗忘上界刻画了训练集规模、每任务更新次数、任务总数与累积梯度对齐的影响，并在 Split CIFAR-100 与 Split MiniImageNet 上验证了理论推论。值得看：学习率在任务边界是否重启衰减，原来会系统性地改变历史扰动的传播。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2610.31470",
+   "title": "Measuring the Verifier's Floor: How Much Apparent Rare-Word Text-to-Speech Error Is ASR Error?",
+   "authors": [
+    "Kirill Borodin",
+    "Vasilii Kudryavtsev",
+    "Nikita Vasiliev",
+    "Grach Mkrtchian"
+   ],
+   "url": "https://arxiv.org/abs/2610.31470",
+   "publishedAt": "2026-10-22",
+   "zhSummary": "预印本，已投稿 IEEE ICASSP 2027。语音合成常靠 ASR 转录来评测词错误率，但评测用的识别器本身就会错认生僻词，导致合成错误被高估。这篇在人类录音上度量了识别器误差：在 LibriSpeech 与 FLEURS 上，评估识别器对极生僻词的漏识率高达 33%–67%，用多识别器交叉核查可把极生僻词的表观合成错误从 10%–13% 降到 3%–5%。但简单忽略人类录音中漏识的词会有偏：其他识别器在这些词上发现合成错误的频率远高于其余词。值得看：它给 TTS 评测划出了“验证器下限”，生僻词指标必须先扣掉识别器自身的误差。",
+   "category": "语音"
+  },
+  {
    "arxivId": "2610.31642",
    "title": "A Fix for Softmax and Cross-Entropy",
    "authors": [
