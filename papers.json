@@ -1,6 +1,158 @@
 {
  "papers": [
   {
+   "arxivId": "2610.31642",
+   "title": "A Fix for Softmax and Cross-Entropy",
+   "authors": [
+    "Jonathan T. Barron",
+    "Dan Gnanapragasam",
+    "Michael Tschannen"
+   ],
+   "url": "https://arxiv.org/abs/2610.31642",
+   "publishedAt": "2026-10-22",
+   "category": "机器学习理论与优化",
+   "zhSummary": "预印本。Softmax 与交叉熵几乎是所有模型训练的标配，但这篇指出标准实现里藏着两个数值 bug：目标 logit 远大于其他 logit 时梯度会被舍入为零（Softmax Collapse），以及蒸馏时学生与教师 logit 相等却仍产生非零梯度（Softmax Cancellation）。作者给出了修正后的 log-softmax、softmax 与交叉熵实现，改动简单却能消除此前观测到的 Slingshot 现象、加速带权重衰减的 grokking、防止无权重衰减时的精度崩塌，并阻止蒸馏中学生偏离教师。值得看：这是那种一旦修好就惠及所有训练代码的基础修正，读完可直接检查自己的实现。"
+  },
+  {
+   "arxivId": "2610.31617",
+   "title": "DiffDreamer: Coupling World Models with Differentiable Simulation for Agile Quadrotor Control",
+   "authors": [
+    "Fanxing Li",
+    "Yuxiang Huang",
+    "Shengyang Wang",
+    "Fangyu Sun",
+    "Shuyu Wu",
+    "Tianbao Zhang",
+    "Dexin Zuo",
+    "Yan Yufei",
+    "Danping Zou",
+    "Wenxian Yu"
+   ],
+   "url": "https://arxiv.org/abs/2610.31617",
+   "publishedAt": "2026-10-22",
+   "category": "具身智能与机器人",
+   "zhSummary": "预印本。四旋翼动态过门这类任务既要预判外部运动，又要高频精确控制，DiffDreamer 把学到的世界模型与可微仿真紧耦合起来做强化学习：世界模型在隐空间推演外部动态与历史特征，可微仿真则推演机器人自身的显式物理状态。作者还把 actor 目标拆成两路：critic 驱动的不可微任务奖励路径与仿真驱动的可微运动奖励路径。在激进跟踪与动态过门实验中，它在收敛速度与最终性能上都超过了无模型、有模型、可微强化学习基线及经典规划控制方法，并有真实飞行验证。值得看：世界模型与物理仿真各司其职的拆分思路，对机器人控制很有启发。"
+  },
+  {
+   "arxivId": "2610.31576",
+   "title": "What Makes a Good Unmasking Policy? A Controlled Study of Learned Unmasking in Diffusion Language Models",
+   "authors": [
+    "Jinya Sakurai",
+    "Xun Xu",
+    "Jaehong Yoon"
+   ],
+   "url": "https://arxiv.org/abs/2610.31576",
+   "publishedAt": "2026-10-22",
+   "category": "推理",
+   "zhSummary": "预印本。掩码扩散语言模型并行生成 token，但“先确定哪些预测”这个解码策略直接决定速度与精度的权衡，学到的 unmasking 策略虽有效，其中的关键选择却一直说不清楚。这篇做了控制变量研究：把有监督策略看作对解码过程的蒸馏，逐一考察教师标签、模仿状态、策略输入与函数评估次数开销。结论是：以最终输出为标签在低评估次数下过于宽松，隐状态单独用较弱但可与置信度互补，且约 10% 的评估次数削减就足以抵消策略开销。基于轨迹收缩目标训练的 856K 参数小策略在 LLaDA-8B 上取得了最好的精度-评估次数前沿。值得看：想搞懂扩散语言模型解码加速的人，这篇把设计空间讲透了。"
+  },
+  {
+   "arxivId": "2610.31569",
+   "title": "Echo: Coupled Action and Task Status Signal Denoising for Vision Language Action Models",
+   "authors": [
+    "Yufeng Liu",
+    "Bohao Fan",
+    "Juntu Zhao",
+    "Xinyi Wang",
+    "Hang Yu",
+    "Wenzhuan Luo",
+    "Yingzhi Wang",
+    "Qinghai Li",
+    "Yingdong Hu",
+    "Junliang Guo",
+    "Richard Wang",
+    "Dequan Wang",
+    "Yang Gao",
+    "Cheng Ma"
+   ],
+   "url": "https://arxiv.org/abs/2610.31569",
+   "publishedAt": "2026-10-22",
+   "category": "具身智能与机器人",
+   "zhSummary": "预印本。机器人执行任务时需要知道“做完了还是失败了”，才能及时停下或重规划，Echo 把这个任务状态信号直接放进 VLA 模型：用停止与失败两个信号维度拼到每个动作块里，与机器人动作一起去噪。关键是不需要逐帧进度标注——通过构造成功、失败与恢复轨迹来学习信号，并让信号比动作去噪得更快，使后续动作去噪能以更干净的状态估计为条件。真实操作实验表明，Echo 不仅能准确预测任务状态，还持续提升了策略本身的性能。值得看：状态信号与动作生成耦合去噪的设计很巧妙，是 VLA 可靠性方向的实用进展。"
+  },
+  {
+   "arxivId": "2610.31438",
+   "title": "DIAL: Steerable Language Models with Distilled Instruction-Adherence Levels",
+   "authors": [
+    "Thanh Q. Tran",
+    "John Russell Himawan",
+    "Arun Verma",
+    "Kiwan Wong",
+    "Wei Xiao",
+    "Daniela Rus",
+    "Bryan Kian Hsiang Low"
+   ],
+   "url": "https://arxiv.org/abs/2610.31438",
+   "publishedAt": "2026-10-22",
+   "category": "后训练与对齐",
+   "zhSummary": "预印本。用户说“简短一点”时到底要多短？提示词很难给出精细的指令遵循程度控制，DIAL 提出“可操纵语言模型”，用数值旋钮调节模型遵循文本指令的程度。方法是先用冻结大模型做无分类器引导得到不同遵循程度的训练信号，再蒸馏成一个轻量转向适配器：它根据 LLM 隐状态上的分类器逐 token 计算闭环转向量，并兼顾隐状态几何以保持回答流畅。适配器由文本条件化，单个适配器可支持新指令而无需逐指令拟合，配合新发布的 SteerIF 数据集，在多模型上实现了概念表达随旋钮单调增强。值得看：把“遵循程度”变成可调参数，对产品化可控生成很有用。"
+  },
+  {
+   "arxivId": "2610.31429",
+   "title": "PhysTrace: Interpretable Temporal Evaluation of Physical Consistency in Video Generative Models",
+   "authors": [
+    "Taekoan Yoo",
+    "Wonkyung Jung",
+    "Kyunghun Kim",
+    "Kyeongbo Kong"
+   ],
+   "url": "https://arxiv.org/abs/2610.31429",
+   "publishedAt": "2026-10-22",
+   "category": "评测基准",
+   "zhSummary": "预印本。视频生成模型常被默认“学到了物理”，但现有评测很少能指出哪一段历史条件下的物理预期与观测冲突了，PhysTrace 是一个无需训练的框架：用多模态大模型生成基于历史的物理预期，再与观测到的视频窗口对齐，从而在时间上定位物理违背并给出可解释描述。作者还给 IntPhys2 加了违背时间区间标注（IntPhys2-Timing），PhysTrace 在各物理原则上的命中率最高达 70.7%，并在整体可能/不可能判别上超过对比方法。用它分析预训练扩散/流式视频模型轨迹时，还能揭示违背模式随属性与噪声的变化。值得看：世界模型评测从“像不像”走向“哪里违反物理”，这套工具正好补上这一环。"
+  },
+  {
+   "arxivId": "2610.31511",
+   "title": "DuoCook: An Overcooked-Inspired Benchmark for Visual Planning and Coordination",
+   "authors": [
+    "Ziyi Jiao",
+    "Heng Zhang",
+    "Drishti Regmi",
+    "Xiaokang Ye",
+    "Lianhui Qin",
+    "Peter Yichen Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.31511",
+   "publishedAt": "2026-10-22",
+   "category": "智能体",
+   "zhSummary": "预印本。双人协作做菜需要视觉智能体同时追踪场景变化、安排菜谱步骤并在时限内分配共享资源，DuoCook 把这个经典协作问题做成了视觉规划与协同基准：在 Unreal Engine 里用代码智能体搭建了 20 张分属 5 类的地图，单个视觉语言模型以俯视视角同时控制两名玩家。评测覆盖任务得分、订单完成、送餐精度、动作接受率与 API 花费四种模型；最强的 gpt-6-astra 平均订单完成率也只有 26.2%，共享笔记本式记忆对不同模型效果有正有负。值得看：它把多智能体协同从对话场景拉回了有空间、有时限、有资源冲突的具身任务，差距本身就是研究空间。"
+  },
+  {
+   "arxivId": "2610.31479",
+   "title": "Evaluating the Applicability of LLM Inference Optimizations on Apple Silicon",
+   "authors": [
+    "Kyrylo Yemets",
+    "Andrii Yaroshevych",
+    "Victor Muryn",
+    "Ostap Khomenko",
+    "Pavlo Kryven",
+    "Maksym Kmet",
+    "Maksym Shamrai",
+    "Mariya Hirna"
+   ],
+   "url": "https://arxiv.org/abs/2610.31479",
+   "publishedAt": "2026-10-22",
+   "category": "高效推理与部署",
+   "zhSummary": "已接收 NeurIPS 2026 研讨会（On-Device Intelligence 与 SLMs for Agentic Systems）。几乎所有 LLM 推理优化都是在服务器级 NVIDIA GPU 与批量服务负载下验证的，搬到 Apple Silicon 本地推理上还灵吗？这篇在四台 Apple 设备上以单请求解码为统一负载，系统评估了 KV 缓存剪枝、推测解码、移植 GPU 核函数与训练后量化四类优化。结果颇具警示性：KV 剪枝在 Apple 上最高带来 1.75 倍端到端吞吐，推测解码在 Apple 上反而全部拖慢吞吐，尽管在服务器 GPU 上号称有 2-6 倍加速。结论是：所谓加速从来不是技术的固有属性，而是技术、运行时、硬件契约与负载形态的联合函数。值得看：做端侧部署的人，照搬服务器端结论前先读这篇。"
+  },
+  {
+   "arxivId": "2610.31641",
+   "title": "UniVOE: A Removal-Driven Framework for Interaction-Aware Universal Video Object Editing",
+   "authors": [
+    "Shuzhou Yang",
+    "Lanqing Guo",
+    "Lingen Li",
+    "Weiqi Li",
+    "Zhao Zhong",
+    "Liefeng Bo",
+    "Jian Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.31641",
+   "publishedAt": "2026-10-22",
+   "category": "图像视频生成",
+   "zhSummary": "预印本。视频物体移除与注入是一对互逆操作，但训练难度不对称：移除可从视频修复先验起步，而注入需要大规模配对监督来建模物体外观、动态与场景交互效应，真实配对又难以采集。UniVOE 用“移除驱动”破解这个不对称：先训一个能感知交互效应的移除器，再用它把真实有物体视频转成无物体版本，从而批量制造注入训练用的配对数据，最后用基于奖励的后训练对齐人类偏好。实验显示它在移除与注入上都达到 state-of-the-art，尤其在交互效应复杂的难例上优势明显。值得看：用逆任务造数据反哺正任务的思路干净有效，视频编辑方向值得借鉴。"
+  },
+  {
    "arxivId": "2610.31668",
    "title": "Reading, Writing, Sharing, and Interacting with the World through Video",
    "authors": [
