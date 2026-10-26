@@ -1,6 +1,187 @@
 {
  "papers": [
   {
+   "arxivId": "2610.32878",
+   "title": "Advancing SVD-based LLM Compression via Layer-Wise Error Model Search",
+   "authors": [
+    "Moritz Thoma",
+    "Maximilian Groezinger",
+    "Maximilian Forstenhäusler",
+    "Emad Aghajanzadeh",
+    "Manoj Rohit Vemparala",
+    "Christos Anagnostopoulos",
+    "Pierpaolo Mori",
+    "Nael Fasfous",
+    "Alexander Frickenstein",
+    "Daniel Mueller-Gritschneder",
+    "Ulf Schlichtmann"
+   ],
+   "url": "https://arxiv.org/abs/2610.32878",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "已接收 ICML 2026。针对 LLM 低秩 SVD 压缩的两大短板——全局秩分配依赖未经校准的误差代理、Fisher 估计导致秩坍塌——作者提出分层误差建模搜索 LEMS 与 KFAC-SVD：前者用融合局部与全局层重要性及传播偏置的分层误差替代指标，以整数线性规划做全局秩分配；后者用 token 级统计改善分解质量。在 Mistral、Qwen3、Llama 3 上，LEMS 零样本准确率最高提升 4.8 个百分点并可泛化到 70B 规模，KFAC-SVD 平均困惑度改善 15%。值得看：它把压缩从“每层拍脑袋定秩”变成可优化的全局搜索问题，对部署大模型的成本控制有直接参考价值。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.32784",
+   "title": "Video-MemComp: Taylor-Guided Sensitivity-Aware Memory Management for Streaming Video Understanding",
+   "authors": [
+    "Yonghui Niu",
+    "Yuhao Ji",
+    "Chang Nie",
+    "Jiao Zhang",
+    "Yilong Li",
+    "Junlan Feng",
+    "Ran He",
+    "Caifeng Shan",
+    "Chaoyou Fu"
+   ],
+   "url": "https://arxiv.org/abs/2610.32784",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "已接收 ACM MM 2026。面向流式长视频理解的 KV 缓存瓶颈，作者提出无须训练的 Video-MemComp：用一阶泰勒展开把压缩误差分解为局部近似误差与分层结构敏感性，在 pre-RoPE 安全区做 token 聚合并加注意力保持的 logit 偏置，缓解 RoPE 旋转带来的几何畸变，再按离线梯度先验与在线上下文熵动态分配各层 KV 预算。在 MLVU、VideoMME、EgoSchema 上与满缓存相当甚至更优，Qwen2.5-VL-3B 在 KV 缓存压缩到每层等效 6000 token（省 90% 以上显存）的前提下准确率反而从 62.3% 升至 64.1%。值得看：它把“压缓存”从启发式变成有误差理论支撑的框架，长视频场景落地参考性强。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.32663",
+   "title": "SemGeo-Gen: Unsupervised Generation of Approximate Cross-Instance Semantic-Geometric Correspondences",
+   "authors": [
+    "Roy Amoyal",
+    "Shira Ifergane",
+    "Oren Freifeld"
+   ],
+   "url": "https://arxiv.org/abs/2610.32663",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "已接收 NeurIPS 2026。针对跨实例语义对应标注昂贵且模糊的问题，作者提出无监督方法 SemGeo-Gen：仅需类别级粗旋转对齐的 3D 物体集合，即可自动生成近似但语义一致、几何一致的跨实例对应监督。方法把多视角 DINOv2 特征提升到 3D，用连续分段仿射配准对齐实例，再以语义一致性剪枝候选匹配，得到可投影到渲染视图的 3D-3D、3D-2D、2D-2D 监督。在 KeypointNet 人工标注上达到 93% PCK@0.10，用其合成数据预训练后在 SPair-71k 上最高提升 5 个点。值得看：它说明“近似监督”足以训练对应模型，为摆脱人工关键点标注提供了一条可扩展路线。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.32813",
+   "title": "HarnessMM: Recursive Self-Improvement for Harness Token Efficiency",
+   "authors": [
+    "Yuhua Jiang",
+    "Chang Xu",
+    "Feifei Gao",
+    "Li Zhao"
+   ],
+   "url": "https://arxiv.org/abs/2610.32813",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "针对 agent harness 在工具反馈后反复推理、即使早已确定下一步动作也照常调用模型的浪费，作者提出 HarnessMM：用“受卫决策复用”加递归自改进，把已解决的决策以可执行决策图存下来，后续直接复用而不重新推理。递归自改进在训练反馈上迭代优化配套的 harness 配置，验证集选出部署版本；控制器在模型-工具边界处用已验证的决策替换后续推理回调，权重本身不动。HumanEval 上保持 Codex 90.82% 成功率的同时每任务 token 从 66.72k 降到 47.02k；DeepSeek Harness 成功率从 71.43% 升至 85.71%，token 暴降 87.93%。值得看：它把递归自改进落到“省 token”这个可度量的工程目标上，是 agent 降本的一条务实路线。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.32770",
+   "title": "On-Policy Self-Training: Data-Free Self-Improvement in Large Language Models",
+   "authors": [
+    "Leon Sick",
+    "Lukas Hoyer",
+    "Yannick Strümpler",
+    "Christian Reisswig",
+    "Timo Ropinski",
+    "Federico Tombari"
+   ],
+   "url": "https://arxiv.org/abs/2610.32770",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "作者提出一种不依赖任何人类标注问题或答案的自改进框架：仅给定粗粒度的主题描述，模型自己合成课程式的问题与特权推理轨迹，再用同策略自蒸馏做后训练。关键在于把监督推到极限——不用更强的外部教师，也不用人工整理的问题答案对，仅靠自生成的特权信息就能跨多个领域提升，同时不损害未训练领域的能力。在文本与多模态领域均验证了持续自改进，在标准语言基准与视觉问答上都有效。值得看：它为“模型能否仅凭自身潜能自我提升”提供了正面证据，是递归自改进方向一个干净的实验。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.32951",
+   "title": "Where Rounding Happens Matters: Rounding-Location Alignment Stabilizes LLM Reinforcement Learning",
+   "authors": [
+    "Yijing Ke",
+    "Tianle Cai",
+    "Ruosong Wang"
+   ],
+   "url": "https://arxiv.org/abs/2610.32951",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "作者指出 LLM 的 RL 训练中推理与训练分属不同系统：即使权重与 BF16 张量相同，实现差异也会让本应 on-policy 的更新变成 off-policy，导致训练不稳定。他们不改动全局精度、学习算法或整个推理栈，而是只对齐训练侧三个区域（RoPE、SwiGLU、残差 RMSNorm）的舍入位置——把选定的中间结果保留为 FP32 直到输出 BF16。在四个 Qwen 系模型上，对齐三处后 BF16 基线出现的崩溃消失，仅对齐 RoPE 路径在所测设置中也已足够。值得看：它把 RL 训练不稳定的锅从“算法”精确到“数值实现细节”，对自己训 RL 的团队是可直接复用的排障经验。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.32965",
+   "title": "RynnUnify: Towards Unified Embodied Brain",
+   "authors": [
+    "Minghao Zhu",
+    "Bohan Hou",
+    "Kun Xiang",
+    "Zixuan Wang",
+    "Yinzhou Tang",
+    "Yifei Yang",
+    "Zhikai Wang",
+    "Tianyi Zhang",
+    "Kehan Li",
+    "Haoyu Zhao",
+    "Siteng Huang",
+    "Leigang Qu",
+    "Sicong Leng",
+    "Dongchi Huang",
+    "Mingxiu Chen",
+    "Shijian Lu",
+    "Yue Wang",
+    "Xiaodan Liang",
+    "Zhenyu Zeng",
+    "Deli Zhao",
+    "Chengju Liu",
+    "Jianfei Yang",
+    "Xin Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.32965",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "作者推出 160 亿参数的统一具身模型 RynnUnify，把具身理解与长时视觉规划结合：通过交错的视频-语言推理，连接对物理世界的理解与对后续子任务演变的视觉预期。模型覆盖空间推理、物理预测与定位能力；又通过强化学习得到 agent 扩展（选择性用视频预测推理未观测状态）与世界-动作扩展（把理解与预测转为机器人控制）。在自建的 Rynn-VP、Rynn-GEU 评测上分别超过 Cosmos 3 Nano 9.75 分、直接推理 6.0 分，世界-动作扩展在 RoboCasa365 复合任务上达 51.5% 成功率。值得看：它把“理解—预测—控制”收进同一个模型，是通往统一具身大脑的一次完整尝试。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.32977",
+   "title": "UniAction: Unified Action Conditioning for World Models",
+   "authors": [
+    "Bowen Xue",
+    "Zizhang Li",
+    "Hong-Xing Yu",
+    "Jiajun Wu"
+   ],
+   "url": "https://arxiv.org/abs/2610.32977",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "针对世界模型动作条件高度异构的问题（力、相机控制、手部姿态、机器人姿态各用各的表示），作者提出统一动作条件框架 UniAction：把任意动作表示为稀疏的动作元素集合，每个元素带离散语义身份与连续时空定位坐标，并直接映射进预训练视频模型原生的位置空间。还引入基数校准注意力，缓解不同动作表示粒度带来的偏置。在四种代表性动作形式上，统一模型在动作跟随上超过各类条件化基线，且单个联合训练模型超过了各动作专家模型。值得看：它说明异构动作数据不必分而治之，统一建模反而能互相增益，对世界模型研究有方法论意义。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.32802",
+   "title": "Frontier-OPD: Discovering the Edge of Agent Capability and Teaching Agents to Go Beyond",
+   "authors": [
+    "Zheng Jiang",
+    "Yiming Chen",
+    "Houde Qian",
+    "Ling Li",
+    "Chaoyang Li",
+    "Lifeng Sun"
+   ],
+   "url": "https://arxiv.org/abs/2610.32802",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "针对多轮 agent 的同策略蒸馏难题——既要找到学生真正需要指导的决策点，又要保证指导后学生能持续自主交互——作者提出 Frontier-OPD：把同策略经验组织成共享状态轨迹图，用轨迹平衡的师生分歧聚合找出不同的干预候选；再用短教师桥接加后续学生延续的对比，筛选出学生真正能“接得住”的指导。在 ALFWorld、WebShop、ScienceWorld 上均超过所比较的蒸馏基线，且候选选择与指导过滤两部分互补。在一个 ALFWorld 计时设置中，额外的采集成本被更短的达标时间抵消。值得看：它把“教什么”从拍脑袋变成可度量的学习前沿估计，对 agent 蒸馏有直接指导意义。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.32851",
+   "title": "Reimagining Enterprise RAG for Multi-Agent Systems: A Knowledge Layer That Organizes Before It Retrieves",
+   "authors": [
+    "Garima Agrawal",
+    "Prasun Das",
+    "Akshay Sarvade",
+    "Priyanka L",
+    "Minisha N",
+    "Sravani Joshna",
+    "Hemath Manivannan",
+    "Lavanya Korada",
+    "Sambhrit Pattanayak",
+    "Srashti Gupta",
+    "Siddu R",
+    "Prasad Kalyanasundaram"
+   ],
+   "url": "https://arxiv.org/abs/2610.32851",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "针对企业多智能体系统检索的痛点：不同服务的“offer、eligibility、activation”等实体同名但操作语义不同，扁平向量检索会高分返回错误服务的规则且毫无出错信号。作者不做内容级本体（成本高且跟不上发布节奏），而是把本体放在工件层：利用每个工件自带的产出者、组件、服务、领域与类型等溯源信息先做消歧，再约束向量检索。由此建成“先组织、后检索”的知识层：自描述目录、稀疏元数据注册表与工件上的导航超图。实践中支撑了 100 多个生产缺陷的根因分析，并把 35 个发布回归归因到具体规则与服务。值得看：它把 RAG 的消歧从“统计排序”变成“结构约束”，是企业级 agent 落地的务实方案。",
+   "category": "RAG 与检索"
+  },
+  {
    "arxivId": "2610.31593",
    "title": "Simulated Control Evals",
    "authors": [
