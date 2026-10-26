@@ -1,6 +1,152 @@
 {
  "papers": [
   {
+   "arxivId": "2610.32978",
+   "title": "SceneBloom: Agentic Indoor Environment Generation with Realistic and Diverse Layouts for Embodied Learning",
+   "authors": [
+    "Yuhan Liu",
+    "Lianhui Qin",
+    "Shenji Wan"
+   ],
+   "url": "https://arxiv.org/abs/2610.32978",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "SceneBloom 把室内环境生成拆成两步：先用扩散先验在功能分区内做分层家具布局采样，再由编译器按提取的关系做几何拟合与局部位姿修正，从而把视觉上合理的布局变成物理可用的 3D 场景。在五种房间类型上，它在视觉质量与物理稳定性上均居对比方法之首，且是唯一零网格碰撞、零越界的方法，布局分布也最接近真实房间。更值得注意的是，在这些场景里训练的物体导航策略，在未见过的真实扫描上的成功率高于用同等数量真实训练扫描训练的策略。值得看：它把“生成环境”从好看推进到可训、可用，为具身智能体的数据规模化提供了一条可复现的路线。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.32971",
+   "title": "RobustRLlib: A Unified Library and Benchmark for Robust Reinforcement Learning Algorithms",
+   "authors": [
+    "Xi Chen",
+    "Fengqi Hu",
+    "Zeyu Shen",
+    "Jiaying Xu",
+    "Shangding Gu",
+    "Pan Xu",
+    "Anqi Liu",
+    "Laixi Shi"
+   ],
+   "url": "https://arxiv.org/abs/2610.32971",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "RobustRLlib 直面鲁棒强化学习的两大障碍：算法难复用、经验能力边界不清。它把 17 个代表性的在线、离线与安全鲁棒 RL 算法统一到同一接口，并配上覆盖多种真实世界偏移以及人形机器人与视觉-语言-动作任务的评测平台。在 273 种扰动配置上的系统评测给出了当前鲁棒 RL 的能力地图，标出哪些方法在何处仍有效、何处仍有明显短板。值得看：对想把 RL 部署到真实环境的人，这既是一份可直接复用的代码库，也是一张判断方法适用边界的参考图。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2610.32941",
+   "title": "If at First You Don't Succeed, Backtrack: Lightweight Recovery for Frozen VLAs",
+   "authors": [
+    "Thomas Landeg",
+    "Thierry Tambe"
+   ],
+   "url": "https://arxiv.org/abs/2610.32941",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "针对冻结的视觉-语言-动作模型在陌生状态下容易失稳的问题，Backtrack 不需要恢复演示、重训策略或额外推理模型。它只在冻结策略的已有内部表征上训练一个极小的失败预测头，参数量仅增加 0.48%–0.88%；当预测失败概率超过阈值时，控制器暂停策略、沿最近运动轨迹回退，再把控制权交还给原策略重试。在最难的 LIBERO-Long 长时程套件上，它使三个策略的失败率下降 19%–48%，成功率最高提升 7.4 个百分点；在 MetaWorld 上，全部 12 种控制器配置均优于无辅助策略。值得看：它证明“会认错、会回退”本身就能显著提升 VLA 的可靠性，且改动成本极低。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.32881",
+   "title": "NgramRL: Accelerating RL Post-Training for Structured Generation via Rollout-Aware N-gram Speculative Decoding",
+   "authors": [
+    "Nilesh Prasad Pandey",
+    "Jangseon Park",
+    "Jason Kong",
+    "Onat Gungor",
+    "Tajana Rosing"
+   ],
+   "url": "https://arxiv.org/abs/2610.32881",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "RL 后训练的成本大头在自回归 rollout 生成，有时超过训练时间的 70%，而现有推测解码方法要么占用稀缺显存、要么随策略演化失配。NgramRL 的思路是：同一提示的近期 rollout 本身就是高质量且自我更新的草稿来源，于是它按提示构建基于有限近期 rollout 历史的 n-gram 草稿器，无需辅助模型、草稿训练或常驻显存状态，目标模型验证则保证 rollout 分布不变。再配合自适应扇出预取与因果预算分配，它在暖缓存下每次目标模型前向可提交 3.60–7.77 个 token，在 Spider 上 rollout 吞吐提升 1.38 倍。值得看：这是把“训练过程中的重复”变成免费加速的典型设计，对做大模型 RL 后训练的团队降本意义直接。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.32866",
+   "title": "Interpretable sparse fine-tuning with TopKLoRA enables faithful circuit discovery",
+   "authors": [
+    "Marek Masiak",
+    "Andrzej Szablewski",
+    "Nicola Cancedda",
+    "Constantin Venhoff"
+   ],
+   "url": "https://arxiv.org/abs/2610.32866",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "微调数据来源不明时，投毒样本可能在模型里埋下难以定位、难以清除的后门。TopKLoRA 是一种可解释的 LoRA 变体：每个 token 只激活最大的 k 个适配器隐变量，且完全按下游损失训练，使优化压力倾向于学到功能上因果的隐变量。在 gemma-2-2b、Qwen2.5-1.5B 与 7B 上构造的“沉睡智能体”后门模型生物体中，作者为每个模型找到了既必要又充分的后门回路并做了消融；其稀疏回路比稠密 LoRA 基线小一个数量级，可在不牺牲指令跟随性能的前提下外科手术式地切除恶意能力。值得看：它把可解释性从事后分析推进到“训练时就长成可分析的结构”，为后门定位与清除提供了可验证的工具。",
+   "category": "AI安全与可解释性"
+  },
+  {
+   "arxivId": "2610.32772",
+   "title": "Direction-Aware Token Credit Assignment with Reward-Model Gradients",
+   "authors": [
+    "Yikuan Hu",
+    "Jifeng Zhu",
+    "Minle Su",
+    "Jiaqin Yue",
+    "Gujie Shao",
+    "Yanzhe Chen",
+    "Haoxuan Jia",
+    "Haoran Xu",
+    "Wangzhou Dai"
+   ],
+   "url": "https://arxiv.org/abs/2610.32772",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "GRPO 把同一响应级优势分给所有 token，却没回答每个 token 到底该学多强；按共享优势更新时，有些 token 的更新方向并不指向奖励提升。DATC 借用“功取决于沿位移方向的分量”这一直觉，把冻结奖励模型的梯度映射到策略 logit 空间，按奖励方向与 GRPO 有符号采样动作更新方向的对齐程度分配 token 权重，同时保持响应级优势的符号与均值不变。在两个模型家族的四种设定下，DATC 均优于 GRPO。值得看：它给 RL 后训练补上了一个更精细的信用分配机制，方法改动聚焦、实验结论干净。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.32752",
+   "title": "ActionRAG: Evidence-Refining Graph Diffusion for Long-Term Memory in LLM Agents",
+   "authors": [
+    "Navyansh Mahla",
+    "Sashank Vandrangi"
+   ],
+   "url": "https://arxiv.org/abs/2610.32752",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "LLM 智能体的长期记忆不仅要找回单个事实，更要找回彼此一致、相互关联的证据，而现有管线在索引与在线检索两处都脆弱：索引会割裂重复实体或合并不同实体，检索又常把初始相似度当作最终答案。ActionRAG 用“谨慎索引 + 查询时图重评估”应对：索引端调和类型标签并做分层实体消解，查询端以双通道实体与三元组检索形成初始证据并诱导出局部图，再用查询条件化的接收归一化图扩散修正三元组分数，并以种子保护、枢纽惩罚等机制保留直接证据、找回遗漏连接。在 MemoryAgentBench 的八个确定性评分子项上，它平均准确率 55.1，比最强检索记忆基线高 5.4 分，且单查询合成成本低于 0.001 美元。值得看：它把记忆检索从“相似度排序”升级为“图上证据推理”，对长程智能体尤为相关。",
+   "category": "RAG与检索"
+  },
+  {
+   "arxivId": "2610.32620",
+   "title": "What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design",
+   "authors": [
+    "Zaifei Yang",
+    "Weiyu Chen",
+    "Yaqing Wang",
+    "James Kwok"
+   ],
+   "url": "https://arxiv.org/abs/2610.32620",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "药物设计智能体常先花额外对接次数做可控探针，再把探针诱导的指导用于优化配体，但探针用完即弃；一个自然的想法是把探针经验存入经验库，让新蛋白口袋继承旧口袋已经付过成本的教训。本研究用 CrossDocked2020 测试集口袋的完整运行日志检验了这一点：以编辑位点接触、动作与轮次为键时，经验库能较好地区分改进与恶化编辑，但这种区分主要来自编辑对分子大小的改变、动作与轮次本身，而非靶点；直接点名靶点时区分度要强数倍。对从未见过的口袋，可迁移的信号更多描述编辑与产物分子本身，而非靶点。值得看：它给“经验复用”泼了一盆必要的冷水——经验库更适合为智能体自己的候选排序，而非直接告诉它该造什么分子。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2610.32967",
+   "title": "MiD-VLM: Detecting and Grounding Global Semantic Misinformation in Image-Caption Pairs",
+   "authors": [
+    "Tarunya Prasad",
+    "Bharatesh Chakravarthi"
+   ],
+   "url": "https://arxiv.org/abs/2610.32967",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "语义误导信息常来自“真图配假文”：图片本身没有像素篡改痕迹，传统伪造检测方法因此会漏检。MiD-VLM 针对这一问题，把 SigLIP 的图文表征与 DINOv2 的视觉场景特征经投影 MLP 融合，并用 LoRA 微调 Qwen2-VL-7B，让模型同时判断图文对是否真实、识别操纵类型并定位误导性的 caption token。在 DGM4+ 验证集上，其二分类真实性判断 F1 达到 0.9679。值得看：它说明参数高效微调的 VLM 已能较好地捕捉全局语义不一致，同时也指出 token 级精确定位仍是待攻克的短板。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.32612",
+   "title": "DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving",
+   "authors": [
+    "Zhiran Yan",
+    "Savankumar Bhanderi",
+    "Sourabh Lolge",
+    "Rui Song",
+    "Girdharbhai Paneliya",
+    "Shiva Agrawal",
+    "Gordon Elger"
+   ],
+   "url": "https://arxiv.org/abs/2610.32612",
+   "publishedAt": "2026-10-23",
+   "zhSummary": "已接收 WACV 2027。现有自动驾驶 3D 感知多在闭集假设与标准工况下评测，但真实道路上必然出现未知物体，闭集感知不足以保证安全部署。DriveOSS 是首个面向 3D 异常分割与开放集语义分割的真实世界多模态数据集与基准，包含 12661 帧同步标注数据，来自六个环视 RGB 相机、128 线激光雷达与 GPS/IMU，覆盖 52 个真实驾驶场景与晴、夜、阴、雨、雪等条件，并按已知类与含未知异常物的场景划分为 ID 与 OOD 子集。大量实验表明，未见物体对当前 3D 感知系统仍是重大挑战。值得看：它为开放世界自动驾驶感知补上了一个贴近真实部署的评测标尺，数据、基准协议与代码均已公开。",
+   "category": "评测基准"
+  },
+  {
    "arxivId": "2610.32878",
    "title": "Advancing SVD-based LLM Compression via Layer-Wise Error Model Search",
    "authors": [
