@@ -1,6 +1,213 @@
 {
  "papers": [
   {
+   "arxivId": "2610.35842",
+   "title": "MedVTok: A General-Purpose Medical Visual Tokenizer",
+   "authors": [
+    "Chenglong Ma",
+    "Yuanfeng Ji",
+    "Junzhi Ning",
+    "Jiyao Liu",
+    "Yujie Wei",
+    "Shaohao Rui",
+    "Chaoyang Zhang",
+    "Wenjie Li",
+    "Wenhao Tang",
+    "Cheng Tang",
+    "Wei Li",
+    "Shujian Gao",
+    "Yujie Zhang",
+    "Ying Chen",
+    "Zilong Li",
+    "Zongyuan Ge",
+    "Diping Song",
+    "Jin Ye",
+    "Ming Hu",
+    "Junjun He",
+    "Hongming Shan"
+   ],
+   "url": "https://arxiv.org/abs/2610.35842",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "该文标注为 NeurIPS 2026。医学多模态 AI 长期缺一个通用视觉接口：以往的医学视觉分词器往往只绑定某一维度和某一模态，导致系统只能用碎片化、复用性差的表征。MedVTok 把二维图像和三维体数据、多种成像模态统一映射到同一个 token 空间，关键设计是切片差分正则化，在跨维度时保留解剖结构、在跨模态时捕捉临床语义。值得看的原因是它瞄准的是医学多模态系统的基础设施层：一个可复用的通用分词器能让后续的理解与生成模型少做重复适配。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2610.35817",
+   "title": "Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent",
+   "authors": [
+    "Benjamin Pikus",
+    "Daniel Saunders",
+    "Mircea Mironenco",
+    "Salman Mohammadi",
+    "Mathew Mathew",
+    "Sirou Zhu",
+    "Divya Makkar",
+    "Xuhua Huang",
+    "Qinbo Li",
+    "Supreeth Narasimhaswamy",
+    "Siyuan Cen",
+    "Thomas Neff",
+    "Dejia Xu",
+    "Shyamal Buch"
+   ],
+   "url": "https://arxiv.org/abs/2610.35817",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "这篇提出零真实机器人数据训练配方 ZAP：先用一个 27B 预训练视觉语言模型提供世界理解与推理，再在简单仿真任务上做监督微调和 GRPO，教会它如何移动机器人。结果是在完全没有真实机器人数据的情况下，ZAP 在真实任务上达到 96.7% 成功率，与 GPT-6 Astra 相当、远超 MolmoAct2 VLA 的 33.3%，且运行速度快约 3 倍。它的看点在于把“预训练知道什么”与“仿真教会怎么做”分开，验证了小模型加仿真训练也能在真实机器人上组合泛化。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.35864",
+   "title": "VibeVideoBench:Evaluating Multimodal Agents on Code-Driven Video Generation",
+   "authors": [
+    "Muxi Diao",
+    "Wenbin Xu",
+    "Lele Yang",
+    "Xuyang Ma",
+    "Yuzhe Chen",
+    "Jiankang Chen",
+    "Kaiyu Jiang",
+    "Changyi Liu",
+    "Haoyu Zhang",
+    "Hongyi Fu",
+    "Jianxiong Wang",
+    "Tianke Zhang",
+    "Haonan Fan",
+    "Yingxin Li",
+    "Bingyi Li",
+    "Xu Wang",
+    "Xuanyu Zheng",
+    "Bin Wen",
+    "Tingting Gao",
+    "Han Li",
+    "Wentao Zhang",
+    "Weiran Xu",
+    "Kongming Liang",
+    "Zhanyu Ma"
+   ],
+   "url": "https://arxiv.org/abs/2610.35864",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "扩散视频模型能生成惊艳片段，却画不准公式、图表、规则一致的游戏或与画面同步的旁白；另一条路线正在兴起：让多模态智能体写代码逐帧渲染画面并合成声音。VibeVideoBench 正是为这条路线建的评测基准，239 个中英双语自含任务覆盖数据故事、音乐驱动短片、课堂讲解、论文解读等 12 类，要求智能体在一小时内在沙箱中交付带声音的成品 MP4，并用分层方式评估。值得看的是它把“代码驱动视频生成”从演示变成了可比较的能力项，对做 agent 与视频生成交叉方向的人尤其有用。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.35823",
+   "title": "Back to Basics: A Skill-Centric Approach to Generalist Web Agents",
+   "authors": [
+    "Minh Pham-Dinh",
+    "Md Farhan Ishmam",
+    "Hernan Yupanqui",
+    "Reaz Hassan Joarder",
+    "Kenneth Marino"
+   ],
+   "url": "https://arxiv.org/abs/2610.35823",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "浏览器智能体缺的不只是更多练习，而是练对地方：作者建了包含 65 个互联网站、15 个领域的微型网络 MiniWeb，369 个人工标注任务覆盖日常工作流，并标注出 37 个可复用交互原语、归入 7 个技能族，从而能诊断“哪类技能不行”而非只看任务成败。实测 10 个开源权重智能体后发现，拖拽与手势是最弱的一族，没有任何智能体超过 24%。作者还据此提出 MiniWebGen 生成框架来针对性补齐弱项。这篇对做网页 agent 的人很有参考价值：它把评测从胜负表变成了技能诊断书。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.35804",
+   "title": "Learning When to Commit: Schedule Distillation for Fast Diffusion Language Models",
+   "authors": [
+    "Aidar Myrzakhan",
+    "Zhiqiang Shen"
+   ],
+   "url": "https://arxiv.org/abs/2610.35804",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "扩散大语言模型可以并行生成多个 token，但往往需要很多轮解码；高效生成的关键不只是挑容易预测的 token，还要看“先揭示哪个 token 能帮助其余位置更快变得可预测”。作者提出的 dSpark 用调度蒸馏学习“何时提交”：构造的去掩码调度优先揭示那些能让其他位置更快可预测的 token，从而减少解码轮数。值得看的是它把扩散语言模型的加速问题从“模型结构”转向“解码调度”，思路简洁且与具体模型解耦。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.35697",
+   "title": "MiRL: Error-Targeted Reinforcement Learning for Correcting Terminal Agent Misbehaviors",
+   "authors": [
+    "Runchu Tian",
+    "Zaid Khan",
+    "Zun Wang",
+    "Justin Chih-Yao Chen",
+    "Mohit Bansal"
+   ],
+   "url": "https://arxiv.org/abs/2610.35697",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "这篇把“针对错误学习”用到终端智能体上：先剖析策略的错误，找出跨环境反复出现的通用错误行为（misbehavior），再用强化学习针对性地纠正，最后验证这些弱点是否真的被修好。MiRL 的对象是靠命令行 shell 完成长程自然语言任务的终端智能体，而以往的针对错误方法多针对单轮任务、已有的失败分析也多用于评估调试而非训练。值得看的是它给出了一条可读的改进闭环：错误可定位、训练可针对、效果可验证，对做 agent 训练的人有直接借鉴意义。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2610.35787",
+   "title": "Selective Tie Learning: Mitigating Spurious Correlations in Preference Optimization",
+   "authors": [
+    "Christian Moya",
+    "Purav Matlia",
+    "Elliott Thornley",
+    "Guang Lin"
+   ],
+   "url": "https://arxiv.org/abs/2610.35787",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "偏好优化容易学到虚假关联，而在偏好数据中加入“平局”（同等偏好的回答）可以减轻这种虚假依赖，但不同平局的纠正效果差异很大，选哪些平局很关键。作者在线性策略设定下推导出每个平局对虚假依赖的影响，并证明按预测降幅最大的子集选取在一阶意义下是最优的；针对影响计算需要虚假特征与目标曲率这些难以获得的信息，作者探索用平局的隐式奖励间隔大小作为可算的筛选信号。这篇的看点是把“加平局”从经验技巧变成了有理论支撑的数据选择问题。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.35598",
+   "title": "Evolve on Graph: Self-Evolving Knowledge Graph Reasoning without Question Annotations",
+   "authors": [
+    "Zongyuan Sun",
+    "Shuai Zhao",
+    "Ke Shu",
+    "Ziyue Zhu",
+    "Shangyang Wu",
+    "Yuanlin Lin",
+    "Tao Wang",
+    "Shiyue Li",
+    "Yingjun Du",
+    "Anh Tuan Luu",
+    "Haoran Luo"
+   ],
+   "url": "https://arxiv.org/abs/2610.35598",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "知识图谱能为大模型多 hop 事实推理提供可靠外部知识，但金融、工业等真实领域的图谱往往缺乏问答标注：无标注时免训练智能体无法通过交互自我改进，强化学习智能体又依赖人工或闭源模型合成的问答数据，且离线建好的训练数据拓扑组合固定、跟不上智能体能力变化。Evolve on Graph 让大模型在没有问答标注的情况下自我进化图推理能力，训练数据的拓扑组合能随智能体能力而调整。值得看的是它把自进化放进了“无标注图谱推理”这个真实约束场景，而非只在有标准答案的任务上验证。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.35706",
+   "title": "Triage: Skip, Skim, or Refine Attention Tiles in Video Diffusion Transformers",
+   "authors": [
+    "Yeonjae Kim",
+    "Omin Kwon",
+    "Seong Hoon Seo",
+    "Jae W. Lee"
+   ],
+   "url": "https://arxiv.org/abs/2610.35706",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "视频扩散 Transformer 的注意力要处理数万个视觉 token，是推理成本的大头；已有方法用稀疏或低精度降本，但对所有保留的 tile 用同一精度。作者观察到近似带来的输出误差在不同 tile 间差异很大：很多 tile 跳过也几乎无误差，有的低精度就够，只有少数即使低精度仍误差显著。Triage 据此给出训练无关的三档近似：直接跳过、用 NVFP4 粗算、精细计算，按 tile 分配算力。值得看的是它把“省算力”做成了按误差分档的精细账，对部署视频生成模型的人很实用。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.35671",
+   "title": "Evaluating DeepSeek V4.1 Flash-1017 for loss of control and harmful manipulation risks",
+   "authors": [
+    "Yao Huang",
+    "Zhiyuan Zeng",
+    "Yu Wang",
+    "Zhitong Zhu",
+    "Dingcheng Duan",
+    "Hao Li",
+    "Shangzhi Xu",
+    "Yifan Wang",
+    "Jinzhe Tu",
+    "Shukun Xiong",
+    "Yihe Zang",
+    "Han Yan",
+    "Hongchang Yang",
+    "Fuyu Gu",
+    "Wei Xu",
+    "Yinpeng Dong",
+    "Xiaojian Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.35671",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "这篇是对 DeepSeek V4.1 Flash-1017 的独立第三方安全评估：该版本换了新架构、扩大了训练规模并强化了智能体能力，但开源权重模型不像闭源发布那样常配有完整系统卡。评估参照欧盟通用人工智能行为准则，覆盖 34 项基准（含 5 项自研套件），聚焦失控与有害操纵风险。值得看的是它补上了开源前沿模型常缺的一环——不依赖厂商自述的系统性风险画像，对关注模型安全与部署风险的人有直接参考价值。",
+   "category": "AI 安全与可解释性"
+  },
+  {
    "arxivId": "2610.35733",
    "title": "Multi-Objective Reinforcement Learning Using Routed Ensembles and Trajectory Attribution",
    "authors": [
