@@ -1,6 +1,160 @@
 {
  "papers": [
   {
+   "arxivId": "2610.35733",
+   "title": "Multi-Objective Reinforcement Learning Using Routed Ensembles and Trajectory Attribution",
+   "authors": [
+    "Zhenshuo Zhang",
+    "Ruoxuan Xiong",
+    "Hongyang R. Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.35733",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "已接收 NeurIPS 2026。多目标强化学习要同时平衡相互冲突的目标（如有帮助与诚实、速度与能耗），而最优策略会随目标权重组合剧烈变化，逐偏好学习样本效率很低。这篇先引入目标冲突系数来量化失配对学习效率的影响，并给出近最优遗憾界；再提出路由集成策略学习，用少量基策略动态把轨迹路由给潜在奖励最高的策略。另一路则用核代理轨迹归因来估计一组轨迹的反馈如何影响其他轨迹上的学习，能捕捉协同与拮抗等非线性交互。在 Meta-World 与 MO-Gymnasium 在线环境上，路由集成平均性能比基线高 4.3%，核归因与留一法分析的相关性比现有基线高 50%，用于轨迹选择时奖励提升 27%。值得看：它把“多目标冲突”从直觉变成了可度量的量，并给出两套可直接用的缓解办法，对后训练与机器人控制都有参考价值。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2610.35652",
+   "title": "Active Learning of Conditional Generative Models via the Transport Neural Tangent Kernel",
+   "authors": [
+    "Jayoung Ryu",
+    "Kyunghyun Cho",
+    "Romain Lopez"
+   ],
+   "url": "https://arxiv.org/abs/2610.35652",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "已接收 NeurIPS 2026。高通量科学实验常产生分布型输出，需要条件生成模型来预测新条件下的结果，但采新数据（如新抗原、新细胞类型）成本高昂，而现有主动学习大多只针对标量或向量输出。这篇先证明条件生成任务的 Wasserstein 测试风险可分解为均值项与形状项，说明只看均值的主动学习对分布形状是“盲”的；为此提出输运神经切线核（tNTK），度量生成模型预测分布对参数的敏感度，在确定性极限下退化为标准 NTK，并可作为高斯过程的协方差做贪心选择。在条件流匹配等四类条件生成模型、合成分布、意图标注句子与单细胞扰动响应上，tNTK 均优于只用条件均值的 NTK 基线。值得看：它为昂贵的科学实验设计补上了一个分布感知的选择准则，方法有闭式与可算估计量，落地路径清晰。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2610.35594",
+   "title": "Beyond Distribution Matching: Self-Supervised Representation Forcing for Few-Step Video Generation",
+   "authors": [
+    "Junyi Chen",
+    "Haiyu Zhang",
+    "Zhoujie Fu",
+    "Tengfei Wang",
+    "Chunchao Guo"
+   ],
+   "url": "https://arxiv.org/abs/2610.35594",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "已接收 NeurIPS 2026。少步蒸馏是部署现代视频扩散模型的关键，分布匹配蒸馏（DMD）虽在输出空间保真度上表现好，却只监督输出、缺乏对内部表征的显式约束；步数压得越狠，学生模型的细粒度空间结构与时间连贯性退化越明显。这篇提出自流强制（SF²），在不改动 DMD 输出目标的前提下加入预测性表征损失：给学生与 EMA 教师喂不同噪声水平的信息不对称输入，迫使学生从更受损的输入预测教师的内部表征。实验表明它能有效缓解时间闪烁，同时提升空间保真度与运动质量，且架构无关、同时支持双向与因果模型，无需外部特征提取器、额外开销很小。值得看：它把自监督表征对齐塞进蒸馏框架，为“又快又稳”的视频生成提供了一个改动聚焦的方案。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.35868",
+   "title": "Retriever-Free Retrieval: Navigating Documents with Decision Models",
+   "authors": [
+    "Chao Wan",
+    "Paul Jünger",
+    "Beixi Du",
+    "Bodong Liu",
+    "Navaneetha Krishnan",
+    "Kilian Q. Weinberger"
+   ],
+   "url": "https://arxiv.org/abs/2610.35868",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "检索仍多靠词法匹配或固定嵌入空间的相似度，检索器漏掉的东西，再强的生成器也补不回来。这篇提出 DecisionRAG，干脆不要第一阶段检索器：用决策模型在单次前向中联合评判候选分支、不生成任何 token，让候选在共享上下文里的相关性估计可以直接比较。像人在图书馆里从大类逐层走到具体段落一样，它沿语料固有结构自上而下导航，只探索值得深入的分支。在无任务微调、无初筛检索器的条件下，它在 MultiDoc2Dial 上比带 8B 重排器的稠密检索高 13.8 个 R@1 点，在 Natural Questions 上高 17.4 个 Hit@1 点；在含 268 万维基段落的语料上单查询仅需 0.7–1.8 秒。值得看：它把检索从“相似度排序”改写为“决策模型导航”，对 RAG 系统的设计思路有启发。",
+   "category": "RAG 与检索"
+  },
+  {
+   "arxivId": "2610.35866",
+   "title": "Auto-Research Arena: Benchmarking and Advancing Auto-Research in Language Modeling",
+   "authors": [
+    "Xi Chen",
+    "Chongjian Ge",
+    "Yiran Xu",
+    "Yiqun Mei",
+    "Henrik I. Christensen",
+    "Hao Tan",
+    "Ziwen Chen",
+    "Hanwen Jiang"
+   ],
+   "url": "https://arxiv.org/abs/2610.35866",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "自主研究系统越强，越需要既能评测它、又能推动它进步的基准。这篇提出 Auto-Research Arena，一个面向语言模型研究的多目标基准：用模型质量与资源约束决定结果是否合格，再用选定目标衡量合格结果之间的进步，从而把“可采纳”与“更好”分开。在语言模型预训练上实例化了覆盖模型、数据、训练与推理效率的 9 个目标，并用两个基础模型评测了 7 套研究框架；结果是，几个复杂方法反而不如简单的顺序搜索基线，说明当前自主研究系统仍有很大提升空间。更有意思的是，复用基准中发现的新思路做质量驱动搜索，在相同数据与算力下能得到更低的训练损失、同模型规模下更低的 held-out BPB。值得看：它既是一把标尺，也是一个能产出新想法的实验场，代码已开源。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.35862",
+   "title": "Learning Force-Reactive Humanoid Loco-Manipulation",
+   "authors": [
+    "Sihang Li",
+    "Xiaofeng Guo",
+    "Jinkun Cao",
+    "Charlie Cheng",
+    "Ruihan Yang",
+    "Chen Feng",
+    "Guanya Shi",
+    "Haozhi Qi"
+   ],
+   "url": "https://arxiv.org/abs/2610.35862",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "日常任务常要同时控制运动与接触力，人形机器人还得双手与全身协调，单靠运动学轨迹写不出来。这篇提出 FLORE 框架：用两个带力传感的 UMI 式手持夹持器采集手部运动与接触力矩、用可穿戴追踪器采集身体运动，无需机器人本体即可收集演示；力反应扩散策略以视觉、本体感觉与实测力矩为输入，同时预测动作与每只手的力指令。再由带力跟踪的混合柔顺全身控制器执行：实测力/力矩传感器的力误差积分让每只手沿指令方向准确跟力、沿其他方向保持柔顺。在三项接触丰富的真机任务上，力反应策略成功率 80%，而同演示训练的位置策略仅 26.7%。值得看：它把“力”真正放进人形操作的学习与控制闭环，是具身操作从摆姿势走向干活的一步。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.35801",
+   "title": "FOCUS: Active Critic Learning for Long-Horizon Language Model Agents",
+   "authors": [
+    "Zhengping Jiang",
+    "William Jurayj",
+    "Liaoyaqi Wang",
+    "Chunsheng Zuo",
+    "Anqi Liu",
+    "Benjamin Van Durme"
+   ],
+   "url": "https://arxiv.org/abs/2610.35801",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "长时程语言模型智能体的奖励往往只在结局才出现，中间动作的功劳难以分配；学到的 critic 估计又可能不准，而从轨迹中点反复采样续写来估计中间价值成本很高。这篇提出 FOCUS，用选择性分支帮 critic 做主动学习：rollout 控制器优先从最能降低 critic 估计误差的状态采样续写，再用这些精化后的价值估计以 TD(λ) 优势为相邻状态间的片段打分，同时把采样证据作为 critic 的训练目标；模块化的上下文管理接口把上下文管理与 rollout 分配解耦。在与 GRPO、VinePPO 相同生成预算下，FOCUS 在法律推理、深度搜索与代码定位基准上均胜出，Qwen3.5-9B 规模下 BrowseComp-Plus 达 55.4（最强基线 48.2），DeonticBench 达 56.5（基线 52.4）。值得看：它把 critic 从“被动估计”变成“主动提问”，是长时程 agent RL 里信用分配的一条扎实路线。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.35716",
+   "title": "Audit Where Hacks Pay: Budgeted Strong-Verifier Audits Against Reward Hacking in GRPO",
+   "authors": [
+    "Shurun Li",
+    "Michael Hua Wang",
+    "Haibo Zeng",
+    "Long Wang"
+   ],
+   "url": "https://arxiv.org/abs/2610.35716",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "用可验证奖励做强化学习时，廉价的弱检查（如单元测试）容易被策略钻空子，而强检查又贵到无法对每个 rollout 都跑。这篇研究在 GRPO 里如何花有限的强验证预算：先把“审哪些弱通过的 rollout”与“抓到作弊给什么奖励”分开，证明在固定修正下，优先审计弱通过数最少的整组（低通过预算审计，LB）能最小化残留在作弊上的优势质量；并给出两种无偏修正的对比。在真实 LLM 训练中，LB 的优势质量符号在 39 次运行中预测了 33 次作弊是否被压制；在 LeetCode 与 Countdown-Code 上，LB 把作弊压到接近零，而同预算同惩罚的随机审计做不到；LB 只用全审计 28% 的标签量，效果却在约 2 个点以内。值得看：它把“防奖励作弊”从经验调参变成可算的预算分配问题，对做 RL 后训练的团队很实用。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.35604",
+   "title": "RoboDoctor: Training-Free Recursive Self-Improvement for Robot Policies",
+   "authors": [
+    "Heyang Yu",
+    "Haomin Li",
+    "Sihang Li",
+    "Jixin Yan",
+    "Shiyun Peng",
+    "Wanqi Zhong",
+    "Tianyu Xin",
+    "Yuan Yao",
+    "Xiaoyu Tian",
+    "Yiming Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.35604",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "通用机器人策略与语言模型智能体各有所长，但真正干活时还得根据物理交互的后果随时调整——在模型权重不动的情况下，执行过程本身就是适应的场所。这篇提出 RoboDoctor，一个免训练框架，把诊断、有根据的行动与持久经验连起来，覆盖三类修正目标：分配策略与智能体的控制权、决定何时干预又不破坏已有好行为、根据观测效果打磨物理操作方法；经验记录保留决策理由、尝试的方法、结果与复用条件。在 54 个 RoboDojo-Sim 任务档案上，它五维平均分 57.10，原生成功率 49.44%，记录的交互展示了策略切换、选择性纠错与抓取修正。作者也坦言，要分离跨 episode 经验的独立贡献仍需对照试验。值得看：它把机器人自改进落到“执行时改”这一具体层次，且对结论边界保持诚实。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.35579",
+   "title": "Infinity Machine: a self-improving AI agent for research",
+   "authors": [
+    "Harish Santhanalakshmi Ganesan"
+   ],
+   "url": "https://arxiv.org/abs/2610.35579",
+   "publishedAt": "2026-10-26",
+   "zhSummary": "Infinity Machine 是一个用于科研的自改进 AI 智能体：每个候选解由完整工具智能体在全新沙箱里最多工作一小时产出，提议者只看公开分数、私有划分说了算；整套脚手架（提示、工具、技能、剧本、元智能体）被视为可编辑的“基因组”，只能通过带留出集与成本检查的内核门禁修改。自主模式可从一段纯文本目标一路走到经核验的报告：智能体自选开放问题并写验证器，内核校准验证器，对抗智能体审计，再由没见过验证器的智能体复核。14 个问题、6 天、约 180 美元模型费用里，它在量子信息开放问题上做出 4 项超出现有最好结果的成果（如去极化信道阈值点 p=0.064966、SABRE 量子布线额外门数从 68559 降到 12087），还在完整 RTL-to-GDS 流程里把 8×8 INT8 脉动阵列的每 MAC 能耗降 77.7%。作者同样如实报告了失败：一次自推导的脚手架代因成本被拒、提议者四次钻了宽松评分器的空子。值得看：这是一份带失败清单的自改进系统实证，而非只报喜的演示。",
+   "category": "递归自改进 RSI"
+  },
+  {
    "arxivId": "2610.32978",
    "title": "SceneBloom: Agentic Indoor Environment Generation with Realistic and Diverse Layouts for Embodied Learning",
    "authors": [
