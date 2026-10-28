@@ -1,6 +1,176 @@
 {
  "papers": [
   {
+   "arxivId": "2610.37657",
+   "title": "Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness",
+   "authors": [
+    "Igor Shilov",
+    "Xiaoxue Yang",
+    "Alexander Panfilov",
+    "Evgenii Kortukov",
+    "Matthieu Meeus",
+    "Peter Romov",
+    "Wojciech Samek",
+    "Jonas Geiping",
+    "Yves-Alexandre de Montjoye"
+   ],
+   "url": "https://arxiv.org/abs/2610.37657",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究提示注入防御，提出 Heads of Security（HoS）方法：通过少量可学习的逐头注意力门控，强制模型区分可信指令与不可信数据，让模型能利用不可信内容推理却不执行其中植入的指令。它在 Llama-3.3-70B-Instruct 和 GPT-OSS-20B 上验证，黑盒攻击 RL-Hammer 对 GPT-OSS-20B 的成功率高达 97%，对 HoS 仅为 10%，白盒攻击则需 3 倍算力才能达到相同成功率。与微调防御相比，HoS 在保持通用能力上更有优势，尤其在少样本场景下不掉点。值得看的原因是它把安全做进了注意力机制本身，而非只靠事后微调，为智能体的指令-数据分离提供了一条更根本的路线。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.37647",
+   "title": "MuonGS: Pretraining LLMs with Relaxed Weight-Norm Control",
+   "authors": [
+    "Athanasios Glentis",
+    "Dawei Li",
+    "Mingyi Hong"
+   ],
+   "url": "https://arxiv.org/abs/2610.37647",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇分析 Muon 优化器在语言模型预训练中的权重范数控制问题，提出用“累计有效学习率”来刻画整个训练轨迹，指出原始 Muon 的累计量仅为对数级增长，可能限制探索并拖慢进展。基于这一洞见，作者提出 MuonGS：用 Gram-Schmidt 投影去掉每次 Muon 更新的径向分量，但不固定权重范数，理论上保证权重范数至多按根号 t 增长、累计有效学习率至少为根号 T 量级。在 160M、400M 稠密模型和 1B 总参数的 MoE 模型上，MuonGS 在长程训练中验证困惑度优于 MuonH，稠密模型在相同验证损失下约有 15% 的 token 等效加速。值得看的原因是它把优化器设计从经验调参推进到可证明的范数控制理论，对做大模型预训练的人有直接参考价值。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2610.37631",
+   "title": "What Improves During Pretraining? Tracking Knowledge Acquisition with Point-in-Time Models",
+   "authors": [
+    "Chang Su",
+    "Bin Wu",
+    "Emine Yilmaz",
+    "Yao Lu"
+   ],
+   "url": "https://arxiv.org/abs/2610.37631",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "已接收 AACL 2026。这篇追问预训练过程中究竟学到了什么：利用在不同年份网络快照上训练的时点模型，作者提出时间变异分数（TVS），衡量一条知识在各年份模型中的负对数似然波动程度，波动越大说明该知识在历年文本中的表征越不一致。实验覆盖六个基准和六个开源模型家族，发现低 TVS 与高 TVS 的知识项在训练早期学得差不多，但高 TVS 项在后期进步更快；训练结束时，36 组模型-基准组合中有 34 组是高 TVS 项占优，平均高出 7.3 个百分点。这一规律在知识密集型任务上最稳健，且在难度相近的对比中依然成立。值得看的原因是它给出了超越总分的新诊断工具：知识的时间变异性可以解释预训练后期的学习动态。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2610.37642",
+   "title": "Metacognitive Decoding: Efficient Inference for Diffusion Language Agents",
+   "authors": [
+    "Mingyu Zhao",
+    "Shuhang Lin",
+    "Ligong Han",
+    "Xiaojing Yu",
+    "Zhenting Wang",
+    "Yifei Pang",
+    "Yang Zhou",
+    "Dimitris N. Metaxas"
+   ],
+   "url": "https://arxiv.org/abs/2610.37642",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "扩散语言模型靠并行生成 token 有望成为高效智能体，但高效交互既要决定算力花在哪里，也要决定生成多长文本。这篇提出元认知控制器：一个轻量插件，根据当前回复需求和智能体与环境的交互，学习何时定稿 token、生成延伸到多远，从而在回复内部削减总算力。该控制器在智能体轨迹上训练，以平衡正确性与生成成本，把生成过程与它所服务的交互直接挂钩。在五个基准上的实验表明，相比最高效的基线，它平均减少 20.6% 的推理 FLOPs，同时保持相当的任务精度。值得看的原因是它为扩散语言模型智能体补上了“按需生成”这一环，是推理效率方向一个简洁有效的思路。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.37626",
+   "title": "Know, then Draw: A New Learning Paradigm for Visual Generation",
+   "authors": [
+    "Yucheng Mao",
+    "Chongjian Ge",
+    "Zhuowen Tu",
+    "Hao Tan",
+    "Hanwen Jiang"
+   ],
+   "url": "https://arxiv.org/abs/2610.37626",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇为视觉生成提出“先懂、再画”的新学习范式：自回归预训练负责获取高层语义知识，扩散后训练负责高保真渲染，两者各司其职。受控对比表明，自回归是更强的预训练目标，能同时提升学习效率和最终生成质量；而且仅凭自回归生成质量并不能预测最终效果，语义质量才是关键。基于此，作者训练了一个纯语义 tokenizer，只用语言监督、不带图像解码器和重建损失，并建立了知识获取与渲染的计算最优 scaling law。按该规律训练的 3B 文本到图像模型仅用 6600 个 H100 GPU 小时，就在 GenEval 上拿到 86 分、DPG-Bench 上 87 分。值得看的原因是它把视觉生成的范式选择变成了可验证的 scaling 规律问题，对生成模型训练有方法论意义。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.37613",
+   "title": "VideoLVR: Latent Visual Reasoning over Grounded Video Evidence",
+   "authors": [
+    "Shilong Li",
+    "Xingyuan Bu",
+    "Hao Shi",
+    "Yun Xing",
+    "Weixin Feng",
+    "Qiangpeng Yang",
+    "Shilei Wen"
+   ],
+   "url": "https://arxiv.org/abs/2610.37613",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "多模态大模型的视频理解常因语言思维链无法回访视觉证据而出现“视觉遗忘”。这篇提出 VideoLVR，从相关视频时刻的局部区域构造潜视觉证据，为中间推理步骤提供视觉支撑；并引入视觉 token 预测目标，把视觉证据重建统一到与文本生成相同的 token 预测框架中，使模型能在交错的文本 token 与潜视觉状态上推理。作者还把该方法扩展到强化学习，将采样的视觉 token 与文本 token 一同作为动作，用最终答案奖励联合优化策略。在多个视频基准上，VideoLVR 在不显著扩大多模态上下文的前提下提升了视频理解，尤其在需要细粒度视觉证据的任务上效果明显。值得看的原因是它用潜状态而非堆帧的方式解决了视频推理的证据回访问题。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2610.37609",
+   "title": "EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning",
+   "authors": [
+    "Sihan Yang",
+    "Weichen Bai",
+    "Ruichuan An",
+    "Yiming Cheng",
+    "Zhiyuan Feng",
+    "Tianyi Jiang",
+    "Renye Yan",
+    "Ning Ding",
+    "Yifan Zhang",
+    "Renrui Zhang",
+    "Yehui Tang",
+    "Wentao Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.37609",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "随着智能体可执行环境规模扩大，生成与验证 rollout 的成本越来越高，有限预算下如何调度任务成为关键。这篇提出 EnvSched，一种从历史 rollout 中学习的环境感知在线调度器：利用能提供信息性奖励差异的任务，同时把批次分散到未被充分观测的环境与交互模式上。它把环境-任务对组织成双关系图，分别刻画环境内任务语义与跨环境的执行、奖励拓扑，并沿图传播历史统计以预测任务内奖励方差，进而指导批次分配。在 Qwen3-8B 的智能体强化学习中，EnvSched 训练 40 步后在三项基准上平均得 48.81 分，超过随机任务选择训练 120 步的最高分。值得看的原因是它把数据管理从“挑样本”升级为“调度环境”，为大规模智能体 RL 省下了实打实的训练预算。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.37429",
+   "title": "Bayes-Adaptive MDPs for Rollout Allocation to Enhance GRPO Training",
+   "authors": [
+    "Faeze Moradi Kalarde",
+    "Armin Toroghi",
+    "Nam Ho Koh",
+    "Doo Hwan Hwang",
+    "Seungjin Kim",
+    "Kee-Eung Kim",
+    "Scott Sanner"
+   ],
+   "url": "https://arxiv.org/abs/2610.37429",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "GRPO 在大模型后训练中表现强劲，但它对每个训练问题均分 rollout 预算，忽略了问题难度差异：难题可能因正奖励信号太少而贡献有限，中等难度问题又常被过度采样。这篇提出 AdaRoll-GRPO，把难度感知的预算分配形式化为序贯决策问题，用贝叶斯自适应 MDP 学习分配策略；该策略离线算好，训练时直接应用，不引入额外的在线优化开销。在多个推理数据集和模型架构上的实验表明，在固定总预算下，AdaRoll-GRPO 一致地提升了 GRPO 的训练效果。值得看的原因是它直击后训练中最实际的预算浪费问题，方法即插即用，对做 RL 后训练的团队很有参考价值。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.37378",
+   "title": "VLA-Stem: A Lightweight Safety Mechanism for Vision-Language-Action Models via Reinforcement Learning",
+   "authors": [
+    "Bojun Zou",
+    "Wenhao Yu",
+    "Jiaohao Li",
+    "Jiaxuan Lin",
+    "Guanting Ye",
+    "Haohan Geng",
+    "Weihao Yu",
+    "Yanyong Zhang",
+    "Jianmin Ji"
+   ],
+   "url": "https://arxiv.org/abs/2610.37378",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "视觉-语言-动作（VLA）模型多面向无约束静态操作，忽略了空间约束与动态障碍；而直接在避障数据上微调不仅采数据昂贵，还可能损害原有任务能力。这篇提出 VLA-Stem：一种不微调底层 VLA 策略的轻量强化学习安全机制，把动作块转为运动参考，用轨迹级引导保留空间意图，同时允许运动与时序灵活调整；再结合机器人本体感知与局部障碍信息，在推理时自适应修正执行。训练上结合教师-学生蒸馏与课程学习以保证样本效率。在六个受限仿真场景中，VLA-Stem 平均无碰撞任务成功率达 52.8%，而最强安全基线仅为 23.7%，且在无障碍场景中保留了基策略性能，真实实验也一致降低了碰撞。值得看的原因是它像“脑干反射”一样给 VLA 接上了快速避险能力，是具身安全落地的实用思路。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.37336",
+   "title": "CoS-VQ: Coordinated Shared-Scale Vector Quantization for Large Language Models",
+   "authors": [
+    "Zukang Xu",
+    "Zhixiong Zhao",
+    "Xing Hu",
+    "Zhe Jiang",
+    "Xin Si",
+    "Dawei Yang"
+   ],
+   "url": "https://arxiv.org/abs/2610.37336",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "大模型部署需要低比特权重量化，但现有向量量化方法常靠增大有效编码维度换精度，代价是独立查表与局部码字更新变复杂。这篇提出 CoS-VQ（协同共享尺度向量量化），在保持低维码字的同时联合优化硬索引与跨位置共享尺度；关键难点是尺度耦合——最优尺度依赖整体码字组合，又反过来改变各位置的候选排序。作者通过多探针尺度采集候选，并构造切线可分上界，把候选比较化为正尺度上直线的下包络，从而在不穷举码字组合的情况下找到有限个代表性区间做联合更新。在 Qwen3.8-27B 上，CoS-VQ 在语言建模、代码与推理基准上优于 QTIP 和 LLVQ。值得看的原因是它为量化提供了一种不靠堆维度的联合优化路线，对低成本部署有直接价值。",
+   "category": "高效推理与部署"
+  },
+  {
    "arxivId": "2610.37459",
    "title": "M4Bench: Evaluating Procedural Specification for Clinical EHR Derivation Agents",
    "authors": [
