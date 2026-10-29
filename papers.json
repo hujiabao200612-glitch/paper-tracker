@@ -1,6 +1,172 @@
 {
  "papers": [
   {
+   "arxivId": "2610.37434",
+   "title": "FeatureArc: Benchmarking Coding Agents on Evolving Features",
+   "authors": [
+    "Yunlong Wang",
+    "Alyssa Wu",
+    "Cuiyun Gao",
+    "Jia Feng",
+    "Songyuanyi Lu",
+    "Zhichao Hu"
+   ],
+   "url": "https://arxiv.org/abs/2610.37434",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究针对代码智能体评测的一个盲区：真实软件功能是逐步演进的，后一阶段的扩展建立在智能体自己先前写的代码之上，而现有基准大多只在固定代码库上测单次请求。FeatureArc 从仓库历史中构造任务，73 道经人工审核的任务、每道 2 到 10 个阶段，同一功能的前后阶段之间带有依赖关系，并配有明确需求与接口契约、四种编程语言的可执行检查；任务构造管线在每个阶段前后都用新行为测试与旧行为测试校验参考代码。10 个代码智能体在持续会话与工作区、无外部测试反馈、无回滚条件下的评测揭示了明显落差：汇总成功率从首阶段的 62.7% 跌到整功能终测的 28.5%；轨迹分析发现 72.9% 的后期失败源于继承缺陷，且失败后约 95% 的后续阶段里智能体都未察觉先前的错误、自测也很少回访先前阶段。值得看的原因是它把“长期自主演进”这一真实开发场景变成了可度量的基准，结论对做代码智能体持续任务能力的人有直接参考价值。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.37649",
+   "title": "Can LLMs Uncover Hidden Physical Laws through Free Exploration?",
+   "authors": [
+    "Zhen Yang",
+    "Wen Wang",
+    "Xander Xu",
+    "Ying-Cong Chen"
+   ],
+   "url": "https://arxiv.org/abs/2610.37649",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究提出 LongChang 框架，检验大语言模型能否在没有任务提示的情况下自主发现被改动的物理规律。框架自动生成一个或多个规律异于常规物理的模拟世界，让受测 LLM 自由探索、操纵物体、制造工具并提出自己的问题，另有 LLM 智能体分别负责生成与评审场景、评审工具设计，并按改动后的规律评估报告的正确性与实验支撑，整个循环无需人工干预。结果并不乐观：在 12 个受测模型中，只有 GPT-6-Astra 的发现率为 16.7%，其余 11 个全部为 0；探索记录显示模型存在大量未调查的异常，且对改动规律的识别只停留在局部。值得看的原因是它把“自主科学发现”从口号变成了可度量的基准，暴露了当前模型在好奇心驱动探索上的真实短板。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.37652",
+   "title": "Pushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well",
+   "authors": [
+    "Ian Chuang",
+    "Hiya Shah",
+    "Vamsi Chilamkur",
+    "Iman Soltani",
+    "Claire Tomlin"
+   ],
+   "url": "https://arxiv.org/abs/2610.37652",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究把灵巧手操作推进到“手内物体位姿到达”任务：让 LEAP 灵巧手把物体送到手指可及范围内的几乎任意位置与姿态、任意腕部朝向，并连续完成一长串目标，且把“不掉落”这一极少被度量的安全性纳入考核。训练配方完全不用人类数据：用生成的抓取数据集做多样化复位与目标采样，配合自适应摩擦课程在仿真中训练，再经精细的系统辨识零样本迁移到真实手部，可用动捕或单个腕部深度相机感知。叠加一个可调保守程度的学习残差安全滤波器后，13.3 小时、4800 个未见目标的实机评测中，状态策略以 95.2% 的比例在 2 厘米与 0.4 弧度内到达目标，滤波器使掉落减少 75%，到达率仍有 91.5%。值得看的原因是它同时给出了性能、可靠性与安全性的完整配方与实测，还演示了拧灯泡等可直接迁移的便携技能。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.37571",
+   "title": "TeamGym: A Gym for Team Decision-Making by AI Agents with Distributed Information",
+   "authors": [
+    "Chanwoo Park",
+    "Jaywoong Jeong",
+    "Zachary Wojtowicz",
+    "Yubin Kim",
+    "Taekyun Lee",
+    "Kaiqing Zhang",
+    "Asuman Ozdaglar"
+   ],
+   "url": "https://arxiv.org/abs/2610.37571",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究针对多智能体协作中最现实的一环——信息分散在不同成员手里时的团队决策，提出了评测与训练环境 TeamGym。它从法律、金融、医疗、软件工程等真实语料构建团队决策问题，并引入“关键信息”概念：每个元素都必要、合起来才充分的最小事实集合，从而能精确控制关键信息的分布并追踪智能体识别与整合它们的程度。对 8 个语言模型、12 份语料的评测发现了两个缺口：把关键信息分散给多人比交给单个模型成功率平均低 22.9 个百分点（沟通缺口）；要求成员自行从材料中提取关键信息时又再低 19.9 个百分点（检索缺口）。而用团队决策损失做强化学习训练后，最终决策质量提升，并涌现出参与度、发言人选择与沟通上的协调行为。值得看的原因是它把多智能体协作的失败拆解成了可度量、可训练的两个具体缺口。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.37503",
+   "title": "ALADDIN: Adversarial Latent Diffusion Distillation for One-Step Identity Swapping",
+   "authors": [
+    "Ivan Shchekotov",
+    "Timofei Gritsaev",
+    "Viacheslav Pirogov",
+    "Dmitry Vetrov"
+   ],
+   "url": "https://arxiv.org/abs/2610.37503",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "已接收 WACV 2027（非 CCF-A 会议，如实标注）。这篇研究做一步换脸：把源身份迁移到目标图像的同时保留目标的姿态、表情、发型与光照。已有方法要么是多步扩散模型、单张图需多次网络评估，要么是 GAN、从头训练导致真实感明显较弱；ALADDIN 用预训练的多步 flow-matching 模型初始化生成器，在身份与目标保持约束下做对抗训练蒸馏为一步模型，并用三元组伪标签监督给出身份迁移与目标属性保持之间的可控权衡。作者还指出标准评测协议存在偏差——用与训练相同的身份编码器评分会偏袒某些方法，因此用独立编码器对全部基线做了重评。结果上它在一步方法中真实感与目标保持达到最优，效果媲美最佳多步模型，网络评估次数却少 28 倍、训练样本少一个数量级。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.37471",
+   "title": "PerceptRL: Making Visual Perception Rewardable in MLLMs from Answers to Interactions",
+   "authors": [
+    "Tongkun Guan",
+    "Zhibo Yang",
+    "Mingkun Yang",
+    "Haocheng Wang",
+    "Wei Shen",
+    "Xiaokang Yang"
+   ],
+   "url": "https://arxiv.org/abs/2610.37471",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究瞄准多模态大模型后训练中常被忽视的瓶颈：细粒度视觉感知错误会限制推理优化的收益，而图像描述主观、信息密集，难以设计可验证奖励。PerceptRL 在两个层面补强感知：感知 RL 用多智能体管线从密集图像描述中抽取已验证的错误，转成带固定答案与规则奖励的 QA 对，相关错误串成链式 QA、无关错误拼成选择题；多轮感知智能体 RL 则对单轮解决不了的细粒度密集情形做带视觉工具的多轮检查，并针对工具使用中出现的坐标漂移问题，用坐标注入纠正冷启动轨迹中的空间操作、用接地感知过程奖励同时监督中间空间保真度与最终答案。经过共享冷启动 SFT、单轮感知 RL、多轮感知智能体 RL 三阶段训练，它在 7 个基准、统一工具协议下平均准确率 71.6%，比同工具基座模型高 15.7 个百分点，比受测的最强前沿 VLM 高 5.2 个百分点。值得看的原因是它把“感知”从预训练残留问题变成了后训练中可奖励、可度量的能力。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.37381",
+   "title": "PDRVLA: A Vision-Language-Action Model with Physical Dynamics Representations",
+   "authors": [
+    "Hanqing Wang",
+    "Zhaotian Cai",
+    "Ruichuan An",
+    "Bohan Zeng",
+    "Tao Zhang",
+    "Yilin Chen",
+    "Xu Jiang",
+    "Kaiquan Chen",
+    "Chongyang Wu",
+    "Haoran Li",
+    "Fan Yang",
+    "Mingan Lin",
+    "Wentao Zhang",
+    "Zenan Zhou",
+    "Youzheng Wu"
+   ],
+   "url": "https://arxiv.org/abs/2610.37381",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究针对 VLA 模型的短板——对物理动力学理解不足，而视频世界模型虽然能刻画场景动态、在线生成未来视频却会给控制环带来高延迟——提出了 PDRVLA。它的轻量物理动力学模块直接从视觉-语言特征中抽取物理 token 来 conditioning 动作生成，无需在线生成视频；模块通过直接预测未来 RGB、深度与光流特征来学习，并以冻结的预训练视频世界模型做辅助监督。训练只用公开数据，并通过人到机器人合成、子任务标注与具身思维链标注扩充。在四个仿真基准上，它取得 LIBERO 99.3%、LIBERO-Plus 89.9%、RoboTwin 2.0 93.6%、SimplerEnv 81.5% 的成功率。值得看的原因是它在不牺牲控制实时性的前提下把物理先验装进了 VLA，消融实验也讲清了世界模型监督、子任务 conditioning 与具身思维链各自的贡献。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.37442",
+   "title": "CRISP: Co-designing Pruning and Scheduling for Efficient MoE Inference on Edge Servers",
+   "authors": [
+    "Congwei Zhang",
+    "Youming Tao",
+    "Yifei Zou",
+    "Yu Yang",
+    "Ruirui Zhang",
+    "Xiaoyu Zhang",
+    "Falko Dressler",
+    "Xiuzhen Cheng",
+    "Dongxiao Yu"
+   ],
+   "url": "https://arxiv.org/abs/2610.37442",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究解决边缘服务器上 MoE 推理的核心瓶颈：受限内存下，瓶颈不是计算而是专家权重的搬运——每个 token 只激活少数专家，但路由随输入变化，所有专家都必须随时可达。已有均匀剪枝、丢弃专家的做法忽略了两点：专家组合的出现频率高度偏斜，且同一组合内各专家的贡献并不对称。CRISP 据此协同设计剪枝与运行时调度：按重要性重排神经元，让一个存储的专家支持多种执行宽度；按频率与角色对高频、常频、低频组合做差异化执行；用异构宽度把专家加载与计算重叠起来。在 Mixtral-8x7B 与 DeepSeek-MoE-16B 上，相同内存预算下吞吐最高提升 2.1 倍，精度损失相对全宽推理控制在 3.6% 以内。值得看的原因是它说明边缘 MoE 服务必须把“保留哪些专家容量”与“如何调度专家执行”放在一起优化。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.37375",
+   "title": "Agent-Conditioned Routing: Diverse Reasoning Paths Within One Frozen Model",
+   "authors": [
+    "Ananth Kalyanasundaram",
+    "Ankush Kadu",
+    "Athira Gopal",
+    "Aswanth Krishnan"
+   ],
+   "url": "https://arxiv.org/abs/2610.37375",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这是 NeurIPS 2026 Resource-Aware Agentic AI Workshop 接收论文的扩展版（Workshop，非主会接收，如实标注）。这篇研究问：不微调、不复制模型、不指定角色与方法，只用一个冻结稀疏 MoE 模型自身的条件容量，能否从同一问题提示中采样出真正不同的方法？它提出的 Agent-Conditioned Routing（ACR）给 m 条并行轨迹分配持久的、未经训练的共享/私有专家准入掩码，同时保留已学习的输入相关 token 路由。在 126 道数学与物理多模式题的筛后基准上，模型评委通读完整推导后计数：GLM 5.3 下 ACR 得到至少两种不同主方法的题数为 37.3，约是最强温度采样设置（18.7）的两倍；GPT-5.6 Sol 下为 45.00 对 27.00，约 1.67 倍。掩码状态仅约 160 KiB，在 1024 token 上限的三题微基准中延迟与显存峰值均在批量温度采样的 3% 以内。值得看的原因是它提供了一种几乎零成本的多样性采样机制，对需要多解并行探索的推理任务有直接参考价值。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.37405",
+   "title": "Clearing the FoG: Training KG Agents to Retrieve the Evidence Behind Their Answers",
+   "authors": [
+    "Zongyuan Sun",
+    "Shuai Zhao",
+    "Yingjun Du",
+    "Ke Shu",
+    "Ziyue Zhu",
+    "Haoran Luo"
+   ],
+   "url": "https://arxiv.org/abs/2610.37405",
+   "publishedAt": "2026-10-27",
+   "zhSummary": "这篇研究指出知识图谱智能体长期被忽视的一面：知识图谱既是答案来源，也是证据来源，但现有训练数据只带答案不带证据、奖励只验答案不验证据，导致智能体常常答对却拿不出支撑三元组。FoG 框架从三处把证据训练进来：证据接地的合成——递归地把显式实体藏进可验证的子问题之后，使每个问题在构造上就自带支撑三元组；记录知识图谱返回三元组的交互智能体；以及证据覆盖过程奖励（ECPR），把每个支撑三元组计分给首次取回它的那一轮。在三个 KGQA 基准上的实验表明，3B–4B 的开源智能体在答案准确率与证据覆盖上双双超过大得多的基线，且能零样本迁移到新的知识图谱。值得看的原因是它把“答对”升级为“答对且可追溯、可审计”，这对需要证据链的检索智能体是关键一步。",
+   "category": "RAG 与检索"
+  },
+  {
    "arxivId": "2610.37657",
    "title": "Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness",
    "authors": [
