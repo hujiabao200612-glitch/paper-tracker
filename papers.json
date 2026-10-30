@@ -1,6 +1,196 @@
 {
  "papers": [
   {
+   "arxivId": "2610.39937",
+   "title": "BiHashFormer: Hash-Driven Dual-Branch Transformer for Efficient Object Detection in HRW Shots",
+   "authors": [
+    "Jingchen Huang",
+    "Wenxi Li",
+    "Chenyang Lyu",
+    "Moran Liu",
+    "Haozhe Lin",
+    "Yuchen Guo"
+   ],
+   "url": "https://arxiv.org/abs/2610.39937",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "已接收 NeurIPS 2026。针对高分辨率宽幅图像中前景极度稀疏、背景干扰大的难题，本文提出哈希驱动的双分支稀疏 Transformer。RoI 选择器先预测前景比例并挑出含目标的窗口，压缩分支再把注意力提炼为 HashAttention，只在关键区域花算力。实验表明该方法在超大图像检测上同时提升了效率与精度，适合安防、遥感等宽幅成像场景，值得做高效视觉检测的人参考其“先筛选再精算”的稀疏化思路。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.39946",
+   "title": "ElasticFormer: Detecting Objects in HRW Shots via Elastic Computing Vision Transformer",
+   "authors": [
+    "Wenxi Li",
+    "Jingchen Huang",
+    "Chenyang Lyu",
+    "Moran Liu",
+    "Haozhe Lin",
+    "Guiguang Ding",
+    "Yuchen Guo"
+   ],
+   "url": "https://arxiv.org/abs/2610.39946",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "已发表于 CVPR 2026。同样面向高分辨率宽幅图像检测，本文提出可根据前景比例动态分配算力的弹性稀疏骨干网络。它先按窗口方差打分，再自适应决定每个区域的计算量，避免了固定稀疏模式在目标数量变化大时失效的问题。相比传统近景检测器，它在前景稀疏的千兆像素图像上更快也更准。做大图检测或稀疏骨干设计的研究者值得一看。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.39955",
+   "title": "Mind The Gap (MTG-AD): Dataset and Fine-grained Evaluation for End-to-End Inline Audio Descriptions",
+   "authors": [
+    "Subhashini Venugopalan",
+    "Jenny Tan",
+    "Taylor Roper",
+    "Jimmy Tobin",
+    "Anton Kast",
+    "Alicia Martin",
+    "Sam Sepah",
+    "Amy Pavel"
+   ],
+   "url": "https://arxiv.org/abs/2610.39955",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "已接收 NeurIPS 2026 数据集与评测 Track。针对多模态大模型生成“内嵌式”无障碍音频描述（必须塞进视频原有静音间隙）这一未被充分研究的问题，作者联合盲人与明眼专业描述员共建了 36 小时、8000 余条描述的 MTG-AD 数据集，并对现有模型做了细粒度评测。结果揭示了模型在贴合时长、内容取舍上的系统性短板。关注多模态评测与无障碍 AI 的读者值得看，它把“好不好”拆解成了可量化的维度。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.39714",
+   "title": "MoLRSI: A Recursive Self-Improving AI agent for Molecular Discovery",
+   "authors": [
+    "Yikun Zhang",
+    "Xiwei Cheng",
+    "Mingze Yuan",
+    "Yu Zhang",
+    "Brian Shim",
+    "Aarti Krishnan",
+    "Daniel Rosen",
+    "Kunyang Sun",
+    "Yingze Wang",
+    "Zhenfeng Deng",
+    "Botao Yu",
+    "Bingxu Liu",
+    "David Liu",
+    "Tianyu Liu",
+    "Yuanqi Du",
+    "Nir Hacohen",
+    "James J. Collins",
+    "Wengong Jin"
+   ],
+   "url": "https://arxiv.org/abs/2610.39714",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "分子发现要在巨大的组合空间里平衡多重生物学目标，MoLRSI 让智能体在跨任务记忆的支撑下递归地改进自己的搜索策略：工作流表现、优化结果与执行反馈共同指导下一轮搜索，使工作流设计与模型结构一起进化。实验表明这种“边做边改进工作流”的方式能持续提升分子设计效果。它把递归自改进落到了真实的科学发现任务上，是 RSI 方向少见的长篇实证工作。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2610.39813",
+   "title": "EvoTeam: Multi-Agent Collaboration via Evolving Teams",
+   "authors": [
+    "Qinuo Cao",
+    "Xin He",
+    "Dianxuan Fu",
+    "Lizhi Zhang",
+    "Zhaoqing Xing",
+    "Jiapu Wang",
+    "Xin Wang",
+    "Na Zou",
+    "Yi Chang",
+    "Qinggang Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2610.39813",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "以往多智能体系统多是优化单个智能体的提示或技能，但单体变强不等于团队协作变好；EvoTeam 把进化单位提升到团队层面，用集体执行经验调整团队组织与智能体间交互方式。该方法在跨异构任务上仍能重组协作结构，避免了固定协作模板的局限。做多智能体协作、想跳出“单体调优”思路的读者值得关注。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.39711",
+   "title": "Sandman: Building and Operating Sandboxes for Agentic Reinforcement Learning on Shared Kubernetes",
+   "authors": [
+    "Yiming Yan",
+    "Hongyang Wang",
+    "Wenbo Chen",
+    "Xuan Wang",
+    "Jingguo Liu",
+    "Xian Li",
+    "Chen Qi",
+    "Leo Fan",
+    "Siwei Li",
+    "Qianli Wu",
+    "Yichuan Li",
+    "Ruochen Wen",
+    "Qian Qu",
+    "Zheshen Wang",
+    "Benoit Dumoulin"
+   ],
+   "url": "https://arxiv.org/abs/2610.39711",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "智能体强化学习训练会在共享集群上突发创建成千上万个工具执行环境，Sandman 是亚马逊在生产环境落地的沙箱服务：每个沙箱为一个 Kubernetes Pod，文件与进程在多次调用间保持持久，直到任务释放。文章详细记录了沙箱创建、就绪、回收与多任务共享的工程取舍，并附大量运行数据。想把 agentic RL 从实验推向生产的人，这篇的工程经验比方法本身更值钱。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.39853",
+   "title": "KV Cache Quantization for Diffusion Language Models",
+   "authors": [
+    "Yan Tai",
+    "Yunan Ding",
+    "Guangzhao Li",
+    "Siqi Luo",
+    "Chaoyang Zhang",
+    "Guangtao Zhai",
+    "Guodong Guo",
+    "Xiaohong Liu"
+   ],
+   "url": "https://arxiv.org/abs/2610.39853",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "扩散语言模型的 KV 缓存量化与自回归模型不同：双向表示会随掩码揭示而变化，复用的缓存本身就已偏离完整重算，量化误差叠加其上。作者把 KIVI、KVQuant 适配到 Fast-dLLM 式的前缀与双缓存复用，并提出 TRACE 与 dLLM-KVQ 两种新方法来处理缓存复用误差。实验显示新方法在保持生成质量的同时显著压缩缓存。做扩散语言模型推理加速的人值得精读。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.39663",
+   "title": "AB-Attention: Accurate Block Attention for Accelerating Video Diffusion Transformers",
+   "authors": [
+    "Bin Xu",
+    "Mo Zhang",
+    "Zhengfeiyang Zhang",
+    "Xinfeng Yang",
+    "Yixing Ma",
+    "Wei Wang",
+    "HeXin Wang",
+    "Pengfei Zhou",
+    "Wangbo Zhao"
+   ],
+   "url": "https://arxiv.org/abs/2610.39663",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "视频扩散 Transformer 的 3D 全注意力是推理成本的大头，动态块稀疏注意力虽能省算力，但在高稀疏下保真度会塌：粗粒度打分、被剪枝块直接消失、整块取舍过粗都是病因。AB-Attention 用训练无关的方式更精确地近似稠密注意力，解决了上述三点。在高稀疏率下仍能保持生成质量，为视频生成模型的推理加速提供了一个即插即用的选项。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.39891",
+   "title": "TACFormer: Transformer-Based Generative Model for Target-Conditioned De Novo PROTAC Design",
+   "authors": [
+    "Yossra Gharbi",
+    "Rocío Mercado"
+   ],
+   "url": "https://arxiv.org/abs/2610.39891",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "PROTAC 通过把致病蛋白导向泛素-蛋白酶体系统实现靶向降解，是药物发现的新范式，但设计仍高度依赖试错；TACFormer 是面向靶点条件的从头 PROTAC 生成 Transformer，能在硅片上探索 PROTAC 化学空间并生成新分子。工作把生成式建模与靶向蛋白降解结合起来，为 AI for Science 在药物设计方向提供了一个具体落点。关注生成式药物设计的读者值得看。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2610.40003",
+   "title": "Humanoid Dodgeball: Learning Fast Dynamic Obstacle Avoidance Motions for Humanoids",
+   "authors": [
+    "Aoqian Zhang",
+    "Chunzheng Wang",
+    "Haoran Chen",
+    "Annan Tang",
+    "Cheng Xiang",
+    "Fan Shi",
+    "Shuzhi Sam Ge"
+   ],
+   "url": "https://arxiv.org/abs/2610.40003",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "人形机器人要在动态场景中安全运行，必须对快速来袭的障碍物做出全身躲避，同时保持稳定与动作自然；作者提出威胁感知的奖励设计，让强化学习策略学会高速全身躲避动作。实验表明该方法能对投掷物做出敏捷、物理可行的躲避反应，且兼顾动作自然性与控制鲁棒性。对具身智能、特别是人形机器人动态避障感兴趣的读者值得一看。",
+   "category": "具身智能与机器人"
+  },
+  {
    "arxivId": "2610.37585",
    "title": "Timestral",
    "authors": [
