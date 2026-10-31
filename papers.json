@@ -1,6 +1,173 @@
 {
   "papers": [
     {
+      "arxivId": "2610.40649",
+      "title": "Rethinking Neural Thickets Without Weight Perturbations",
+      "authors": [
+        "Nicolas Dufour",
+        "Elouan Gardès",
+        "Amil Dravid",
+        "Patrick Pérez",
+        "Loic Landrieu"
+      ],
+      "url": "https://arxiv.org/abs/2610.40649",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "神经丛假设认为预训练模型权重空间附近密集分布着任务专家，随机扰动可以把它们发掘出来。本文复现了这一增益，但证明它并不需要这种几何解释：只扰动单个解码器块就能恢复大部分提升，而模型完全冻结、仅给输出 logits 加随机偏置，就能在多数推理任务上匹敌甚至超过全权重扰动。作者将其形式化为扰动-筛选-投票（PSV），并指出它与采样、自一致性、验证器引导选择等成熟的推理时方法相通；一阶分析表明小权重扰动主要通过 logit 偏移起作用，在视觉领域分布偏移下也有提升。值得看：它用一个极简的训练无关方法挑战了一个流行解释，并把现象重新连接到已有的推理时技术上。",
+      "category": "推理"
+    },
+    {
+      "arxivId": "2610.40576",
+      "title": "PIVOT: Progressive Intervention via Online Teacher Correction",
+      "authors": [
+        "Zhihao Yang",
+        "Boyuan Zheng",
+        "Puhui Tan",
+        "Yukun Chen",
+        "Kuan Zhang",
+        "Longze Chen",
+        "Jiaming Li",
+        "Renke Shan",
+        "Lu Wang",
+        "Xianpei Han"
+      ],
+      "url": "https://arxiv.org/abs/2610.40576",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "可验证奖励强化学习（RLVR）在困难推理任务上受稀疏结果反馈限制：当一组 rollout 全部失败时，奖励提供不了任何学习信号。本文区分了轨迹级干预与 token 级监督两种互补机制，并通过对照实验证明单用其一仍不足。作者提出的 PIVOT 把教师生成的修正插入学生的 rollout，并对这些片段施加 token 级 KL 监督，与 RLVR 目标联合训练，同时系统分析了在何处干预、如何监督，给出一套可复用的指导配方。在困难逻辑游戏和数学推理基准上，PIVOT 持续优于现有方法，逻辑游戏的平均 avg@8 接近翻倍。值得看：它为“教师信号如何有效介入 RLVR”这个实际问题给了可操作的答案。",
+      "category": "后训练与对齐"
+    },
+    {
+      "arxivId": "2610.40614",
+      "title": "L3G-World: Real-Time Infinite World Generation with Latent 3D Gaussian Memory",
+      "authors": [
+        "Jinhyeok Choi",
+        "JoungBin Lee",
+        "Jongmin Lee",
+        "Minkyeong Jeon",
+        "Jiyoung Kim",
+        "Kaeun Han",
+        "Yoonjin Yoon",
+        "Seungryong Kim"
+      ],
+      "url": "https://arxiv.org/abs/2610.40614",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "交互式世界模型要在长时探索中保持空间一致并实时生成，但现有方法要么记忆随生成流长度膨胀，要么因重编码 RGB 渲染而无法实时。本文提出隐式三维高斯记忆 L3G，兼顾前馈重建的效率与紧凑可快速渲染的场景表示；记忆更新器与视频扩散 Transformer 交替自回归生成，记忆随场景范围而非流长度增长。每个高斯还存储 VAE 隐特征，可直接渲染进扩散模型的隐空间，省去重编码环节。实验验证了该方法在长时探索中的空间一致性与实时生成能力。值得看：它是把“无限世界”从演示推向可交互产品的关键一步。",
+      "category": "图像视频生成"
+    },
+    {
+      "arxivId": "2610.40495",
+      "title": "LucidLyra: Feed-Forward Generative 3D Scene Reconstruction and Joint Understanding via Multi-Task Distillation",
+      "authors": [
+        "Oliver Hahn",
+        "Rodrigo Marcuzzi",
+        "Sangeetha Grama Srinivasan",
+        "Alessandro Burzio",
+        "Sherwin Bahmani",
+        "Jiahui Huang",
+        "Stefan Roth",
+        "Shengyu Huang",
+        "Qunjie Zhou",
+        "Laura Leal-Taixé"
+      ],
+      "url": "https://arxiv.org/abs/2610.40495",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "生成式三维重建能从单张图像合成虚拟环境，但机器人与物理 AI 还需要场景语义与物体身份，而现有三维理解方法需要多视角采集、泛化有限或依赖昂贵的逐场景优化。本文把相机可控视频扩散模型与冻结的二维视觉基础模型的知识蒸馏进统一模型，从视频隐变量前馈推断编码几何、外观、开放词汇语义与类别无关实例线索的三维高斯。生成场景无需逐场景优化即可支持新视角渲染、开放词汇分割与物体分组，训练既不需要人工三维标注，也不需要采集的多视角数据，效果优于结合最优三维高斯分割基线的组合方法。值得看：它让“生成即理解”的三维场景直接变得可查询。",
+      "category": "图像视频生成"
+    },
+    {
+      "arxivId": "2610.40454",
+      "title": "Glance: The Generator Is Its Own Reranker",
+      "authors": [
+        "Adilet Metinov",
+        "Chingiz Arziev"
+      ],
+      "url": "https://arxiv.org/abs/2610.40454",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "检索增强生成通常用独立模型分别做重排与回答，重复占用模型与通道处理。本文提出的 Glance 给生成器加了一个轻量决策适配器与指针头，从共享 prefill 中为候选段落打分：短相关性探针从缓存上下文分支，每个段落一个分数，无需对每个“查询-段落”对单独 prefill。单个 9B 主干同时承担生成、通用决策与重排，每项决策技能仅增加约 0.1 GiB 显存；MS MARCO 微调仅 39 分钟，在 SciFact 上 nDCG@10 达 0.741、NFCorpus 达 0.345，均超过 bge-reranker-v2-m3，HotpotQA 上其选中上下文使答案 F1 提升 0.045。值得看：它把重排收进生成器本身，省部署成本且精度不降反升。",
+      "category": "RAG 与检索"
+    },
+    {
+      "arxivId": "2610.40305",
+      "title": "Rimuru: Unified Memory Management for Modern LLM Serving via Elastic Expert Offloading",
+      "authors": [
+        "Zhiyuan Fang",
+        "Dingyang Li",
+        "Jianfeng Zhong",
+        "Bin Wang",
+        "Weixi Zhu",
+        "Cunshu Ni",
+        "Zicong Hong",
+        "Wuhui Chen",
+        "Zibin Zheng"
+      ],
+      "url": "https://arxiv.org/abs/2610.40305",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "现代大模型推理中权重与注意力状态分别占用显存，边界固定无法随负载变化：重负载下状态容量不足限制并发、拖累吞吐，轻负载下闲置显存又无法挪用，加之异构张量布局与生命周期各异，显存管理更加复杂。本文提出的 Rimuru 用弹性专家卸载实现统一显存管理，建立共享页池让异构张量弹性共享显存，并引入显存视图机制来弥合不同张量在分配粒度与执行布局上的差异。值得看：这是推理服务系统层面的显存统一管理，对部署大模型有直接参考价值。",
+      "category": "高效推理与部署"
+    },
+    {
+      "arxivId": "2610.40349",
+      "title": "TouchBridge: Tactile-Conditioned Human-to-Robot Transfer for Dexterous Manipulation",
+      "authors": [
+        "Haozhe Zhang",
+        "Gu Zhang",
+        "Zirui Zou",
+        "Yuzheng Chen",
+        "Jinlong Wu",
+        "Zixuan Hu",
+        "Jianke Zhang",
+        "Yucheng Hu",
+        "Zhecheng Yuan",
+        "Huazhe Xu"
+      ],
+      "url": "https://arxiv.org/abs/2610.40349",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "人类演示是灵巧操作的高效数据来源，但传感与手部形态差异使接触丰富的交互难以迁移。本文提出软硬件协同设计的人-机器人数据转换框架：可穿戴人类演示接口与对应的机器人接口在视觉与指尖触觉上建立跨本体对应；Tac-Retarget 利用实测接触对齐指尖接触片并保留其空间关系，无需物体网格、位姿估计或物理仿真。结合视觉合成与相机锚定的动作转换，框架可直接把人类演示转为机器人域训练数据，用于微调预训练视觉-语言-动作模型，并在四个真实接触丰富的任务上进行了验证。值得看：它为灵巧操作提供了一条不依赖仿真、可规模化的人类演示利用路径。",
+      "category": "具身智能与机器人"
+    },
+    {
+      "arxivId": "2610.40362",
+      "title": "Your LR Schedule May Not Be Principled: Effective Learning Rate Scheduling in Weight-Normalized Training",
+      "authors": [
+        "Qifan Yu",
+        "Xinyu Ma",
+        "Xingyan Bin",
+        "Di He"
+      ],
+      "url": "https://arxiv.org/abs/2610.40362",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "权重归一化训练被视为权重衰减的有力替代，近期研究称其带来显著的预训练损失收益。本文证明这些收益主要来自诱导的有效学习率轨迹，而非归一化本身：匹配有效学习率轨迹后，两者的训练动态基本重合，因此调度设计应针对有效学习率而非名义学习率。作者提出的 AIR（仿射平方根倒数衰减）结合理论推导的 1/√t 衰减与仿射调整，满足有限训练周期内规定的峰值与终值学习率，并指出晚期有效学习率调度是收益的关键来源。在 128B token 的 MoE 预训练上，AIR 在训练损失、下游表现与超参数鲁棒性上优于 cosine 等候选调度，终值训练损失比 cosine 低约 0.01。值得看：它把“归一化为什么有效”讲清楚，并给了一个可直接用的调度。",
+      "category": "大模型预训练与 Scaling"
+    },
+    {
+      "arxivId": "2610.40589",
+      "title": "Collaborative AI agents for autonomous experimental research with solid-state quantum spins",
+      "authors": [
+        "El Mustapha Mansouri",
+        "Eikichi Kimura",
+        "Masato Koga",
+        "Keigo Arai"
+      ],
+      "url": "https://arxiv.org/abs/2610.40589",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "自主研究实验室的目标是从提出问题到撰写手稿全程自主，但现有 AI 系统可能得出证据不支持的结论。本文提出多智能体自主实验室：大模型智能体相互评审工作，可以叫停或重定向研究；它们能生成与否决研究问题、要求独立的理论检验，并设计实验来挑战自身结论。作者用钻石中的固态量子自旋系综验证了这一流程：智能体推导了预测特定微波脉冲序列响应所需的最少校准设置，经计算检验，并设计实验区分竞争预测，初步实验与理论预测一致。值得看：它把“相互评审加证伪实验”的机制做进了自主科研，是智能体落地科研的有力演示。",
+      "category": "智能体"
+    },
+    {
+      "arxivId": "2610.40655",
+      "title": "Elucidating the Design Space of LM Data Attribution",
+      "authors": [
+        "Steven Yu",
+        "Sheng-Yu Wang",
+        "Kimia Hamidieh",
+        "Antonio Torralba",
+        "David Bau"
+      ],
+      "url": "https://arxiv.org/abs/2610.40655",
+      "publishedAt": "2026-10-29",
+      "zhSummary": "语言模型数据归因方法通常用事实检索等下游任务评估，但现有评估同时改变多个数据集属性，无法定位归因算法到底为什么失败。本文系统探索归因方法的设计空间，聚焦评估本身，提出可控归因基准 CATT：在完全虚构的知识上微调模型，提供无歧义的归因真值；可配置的实验设置允许一次只改变一个因素，如文档冗余与词汇干扰项。结果表明冗余与干扰项都会持续损害归因表现；作者还发现真实因果证据在训练文档中高度局部化，而标准方法对整个文档取平均会把证据稀释成噪声。改用负对数几率损失梯度并只聚合 top token 分数后，在诊断基准上真值召回提升 35 至 72 个百分点，并在 FTRACE-TREX 上把反事实重训表现最多提升 4.9 倍。值得看：它为“训练数据到底如何影响模型输出”这一基础问题提供了干净的评估工具与可复用的改进。",
+      "category": "AI 安全与可解释性"
+    },
+    {
       "arxivId": "2610.40444",
       "authors": [
         "Amir H. Rezaeian",
