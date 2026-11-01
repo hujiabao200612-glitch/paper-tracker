@@ -1,6 +1,193 @@
 {
  "papers": [
   {
+   "arxivId": "2610.40641",
+   "title": "From extreme weather to agricultural consequences with agentic AI",
+   "authors": [
+    "Minghan Yu",
+    "Mengyu Dai",
+    "Yixin Wen",
+    "Haizhao Yang"
+   ],
+   "url": "https://arxiv.org/abs/2610.40641",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "首个把极端天气预报转化为农业损失判断的智能体。WxCrop 基于物理可解释的天气指数并做因果分析，首次把天气与农业信息结合起来，对过去和未来的日期都能可靠预测作物损失。作者在佛罗里达的飓风、霜冻和干热场景上验证：飓风指数识别有记录气旋日的 AUC 达 0.98，留出年份的实际损失复现误差在 2% 以内。用户可按作物组查询损失占预期季节产值的比例，且每个数字都有来源。值得看：这是智能体从对话演示走向真实灾害决策场景的范例，评估链条非常完整。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.40488",
+   "title": "rTaste: Do Research Agents Have Taste? Evaluating Early Stage Research Judgment",
+   "authors": [
+    "Art Kanke"
+   ],
+   "url": "https://arxiv.org/abs/2610.40488",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "研究智能体有没有“品味”，即在结果未知时判断哪个实验值得做。作者让 6 个前沿模型以单体或团队形式，针对 7 篇近期 NLP 论文提出最小可行实验并排序预测，再由独立执行器实际跑完全部 415 个实验、三位模型评审打分。结果是：194 个实验被判合理、有价值且新颖，但其中不到一半同时“超出种子论文且不显而易见”；智能体的首选并不比随机好太多，组队成本更高而质量没有明显提升。值得看：给“AI 自主科研”泼了一盆方法扎实的冷水，评估框架和全部 415 个实验的数据都已公开。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.40653",
+   "title": "Micro-Edits: Computational Support for Fine-Scale Edits in Film",
+   "authors": [
+    "Nhan Tran",
+    "Hijung Valentina Shin",
+    "Abe Davis",
+    "Mackenzie Leake"
+   ],
+   "url": "https://arxiv.org/abs/2610.40653",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "关注剪辑中容易被忽视的“微剪辑”：精确调整片段时长以控制一段有意义沉默的长度，或切到能突出人物反应的镜头。作者先与职业剪辑师做实地研究，提炼微剪辑的结构并加以形式化，再用 AI 与优化做出探索这类微调的工具，最后通过多项用户研究和大量视频样例验证。微剪辑虽小，却直接控制节奏与观众注意力，而传统工具里做起来繁琐低效。该工作获得 UIST 2026 最佳论文荣誉提名。值得看：它示范了如何把高层创作意图映射到帧级操作，是 AI 辅助创作里很实在的一条路线。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.40383",
+   "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+   "authors": [
+    "Wael Mattar",
+    "Daniel Freedman"
+   ],
+   "url": "https://arxiv.org/abs/2610.40383",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "解决扩散模型组合采样的问题：当目标分布是多个预训练模型的组合、还可能按下游奖励倾斜时，直接把各模型分数相加会采错。作者提出广义 Feynman-Kac 校正器，证明目标函数的几何插值满足 Feynman-Kac 偏微分方程并给出势函数的闭式解；又推广对数概率 ODE，使其能跟踪不同速度场驱动轨迹下各模型的密度。整个算法在对数域运行，可顺带做奖励引导，且无需重训或微调任何模型。在解析高斯模型和 MNIST 扩散模型上均验证有效。值得看：给“拼模型、带奖励采样”提供了一个有原理保证的通用框架。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.40401",
+   "title": "Continuous-Action World Models: Learning Cross-Embodiment Spatiotemporal Dynamics Priors",
+   "authors": [
+    "Liangyu Li",
+    "Qingwen Liu"
+   ],
+   "url": "https://arxiv.org/abs/2610.40401",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "面向跨本体、跨控制频率的连续动作世界模型。核心是一个共享隐函数空间，用两阶段学到：先做函数预训练，把不同本体、不同采样频率的轨迹统一到同一表征，学到共享的动力学先验；再把该空间接到世界模型主干上，由观测、语言指令和当前机器人状态条件化地预测隐动作函数，单个解码器在任意查询时刻输出对应的末端执行器动作。分离“共享动力学先验”与“任务条件下的动作选择和时间采样”，让机器人经验可以在不同本体与控制频率间迁移。值得看：为机器人数据的规模化复用提供了一个统一框架。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.40476",
+   "title": "Training language models in simulation for psychiatric intake",
+   "authors": [
+    "Samuel Schmidgall",
+    "Tim Strother",
+    "Alex Bijamov",
+    "Min Woo Sun",
+    "Anil Palepu",
+    "Akshay Goel",
+    "Ulysse Marteau-Ferey",
+    "Théo Moutakanni",
+    "Yubin Kim",
+    "Joseph Breda",
+    "Christina Chen",
+    "Justin Chen",
+    "Paul Jhun",
+    "Andrew Marshall",
+    "Sarah Montgomery-Taylor",
+    "Eun Kyoung Hong",
+    "Shashank Ravi",
+    "Kameron C. Black",
+    "David J. H. Wu",
+    "Austin Schoeffler",
+    "John Lyon Havlik",
+    "Elizabeth C. Stade",
+    "Jared Moore",
+    "Johannes C. Eichstaedt",
+    "Logan Pierce",
+    "Jeff Jopling",
+    "Johannes Thrul",
+    "Thomas H. McCoy",
+    "Neguine Rezaii",
+    "Mark S. Chen",
+    "Ellen E. Fitzsimmons-Craft",
+    "Shirley Wang",
+    "Desmond C. Ong",
+    "Katharina Schultebraucks",
+    "Torrey Creed",
+    "Bhavna Daryani",
+    "Aleksandra Faust",
+    "S. Sara Mahdavi",
+    "Caroline Figueroa",
+    "Eric Lin",
+    "Kate H. Bentley",
+    "Ernest Lim",
+    "Zhihan Jiang",
+    "Xuhai \"Orson\" Xu",
+    "Daniel McDuff",
+    "John Torous",
+    "Yun Liu",
+    "Po-Hsuan Cameron Chen",
+    "Mike Schaekermann",
+    "Joelle Barral",
+    "Alvin Rajkomar",
+    "Tao Tu",
+    "Lin Yang",
+    "Isaac Galatzer-Levy",
+    "David Racz",
+    "Valentin Liévin"
+   ],
+   "url": "https://arxiv.org/abs/2610.40476",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "在模拟环境中用多轮强化学习训练精神科初诊对话模型，覆盖病史采集、鉴别诊断和初步管理计划。作者做了 60 对匹配场景的随机双盲交叉研究：32 名执业精神科医生扮演标准化患者，另 15 名独立医生盲评转录文本；训练后的智能体在 76.7% 的配对中优于同提示的基座模型，患者中心沟通得分从 65.2% 提升到 82.0%，鉴别诊断恰当率从 33.3% 提升到 68.3%。基于德尔菲共识建立的安全风险与关系能力分类法衍生的 256 个对抗场景显示，急性安全风险的低估率从 30.5% 降到 12.9%。值得看：高风险医疗对话场景下“模拟训练 + 严格临床验证”的完整范式，但作者也提醒仍需护栏与医生监督。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.40516",
+   "title": "How I Aligned Your Model: Scaling Up Multilingual Safety Training with Templates",
+   "authors": [
+    "Max Neuwinger",
+    "Hanna Yukhymenko",
+    "Imanol Schlag"
+   ],
+   "url": "https://arxiv.org/abs/2610.40516",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "针对多语言安全对齐的数据方法。现有安全对齐重英语、轻低资源语言，且开源数据集规模有限、缺少地域本地化的有害主题。作者提出可扩展的模板扩增流水线：从有害提示中抽取安全模板、翻译后填入文化上真实的有害与良性实体，发布了覆盖 60 种语言的验证语料 MSafeTemp。实验表明，仅用英语评估会误判多语言安全性：一些在英语下失败的攻击翻译后就能成功，而地域本地化变体还会暴露仅靠翻译发现不了的问题。值得看：为“让安全对齐覆盖非英语文化”提供了可直接复用的数据与方法。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.40541",
+   "title": "On the Fundamental Limits of Prefill-Based Decoding Length Prediction",
+   "authors": [
+    "Haowen Shi",
+    "Xuzhe Yan",
+    "Fahao Chen",
+    "Peng Li"
+   ],
+   "url": "https://arxiv.org/abs/2610.40541",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "研究推理调度的一个关键原语：仅用预填充阶段的隐状态预测大模型会解码多少 token。作者指出现有评测把预测器质量与任务难度混为一谈：目标模型、数据集或采样配置一变，准确率就崩塌，而预测器本身没变。根源是自回归解码固有的随机性；作者把解码建模为带停止的随机过程，推导出逐提示的正态规律和仿射方差律，并证明在固定条件下多种预测器都会收敛到相近性能，即系统误差主导模型误差。作者进而主张固定模型、数据与采样参数并同时报告相对误差的评测协议。值得看：给“解码长度预测”划出了理论边界，对推理系统调度有直接指导意义。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2610.40536",
+   "title": "TRACER, a time-to-event EHR foundation model for disease detection across health systems",
+   "authors": [
+    "Mara Pleasure",
+    "Ekaterina Redekop",
+    "Vedrana Ivezic",
+    "Rushikesh Kulkarni",
+    "Aaron Chin",
+    "William Speier",
+    "Corey W. Arnold"
+   ],
+   "url": "https://arxiv.org/abs/2610.40536",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "基于纵向电子健康记录的时间-事件基础模型 TRACER，用于跨卫生系统的疾病筛查。模型在 4 个卫生系统超过 450 万患者的数据上预训练，并在未参与训练的 2 个卫生系统的 200 多万患者上评估 16 种疾病在 1、2、5 年的发病风险。与只看 AUROC 的常规评估不同，作者在筛查现实的低假阳性率下衡量：在 95% 特异度下，被标记的患者一年内确诊的可能性最高可达未筛查人群的 8 倍。评估还揭示：即使判别能力稳定，检出率与假警报负担在不同疾病和卫生系统间差异很大。值得看：医疗基础模型“跨系统落地”时该怎么评估，视角比单看指标更贴近临床。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2610.40619",
+   "title": "Testimony from Timelines: Evidence-Grounded Significance Testing of Temporal Clinical Hypotheses",
+   "authors": [
+    "Chengyang He",
+    "Wenlong Zhang",
+    "Koduvayur Subbalakshmi",
+    "Ping Wang"
+   ],
+   "url": "https://arxiv.org/abs/2610.40619",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "指出语言模型对时序假设“张口就来却无检验支撑”的问题：问它产品召回后销量是否下滑、疫苗后某副作用是否更常出现，它会流利地给出像结论一样的回答，背后却没有任何统计检验。作者发布 STRATA 基准：8735 条基于疫苗不良事件报告临床时间线的时序假设，附带金标准计划、证据集、p 值与结论，并由确定性程序复现。作者还提出 ART（表述、检索、检验）分阶段范式，把每个决策暴露为可检查的输出。实验发现模型主要败在“哪些记录算数”这一步，即结论与证据之间的鸿沟；ART 大幅缩小了这一鸿沟，并让 31B 开源模型接近前沿模型。值得看：把数据分析评估从“结论对不对”推进到“过程每一步对不对”。",
+   "category": "评测基准"
+  },
+  {
    "arxivId": "2610.40627",
    "title": "ShallowDefend: Harnessing Shallow Safety Alignment for Multi-Turn Defender",
    "authors": [
