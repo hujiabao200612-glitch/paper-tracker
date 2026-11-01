@@ -1,6 +1,179 @@
 {
  "papers": [
   {
+   "arxivId": "2610.40627",
+   "title": "ShallowDefend: Harnessing Shallow Safety Alignment for Multi-Turn Defender",
+   "authors": [
+    "Qiyao Ma",
+    "Xiaodong Liu",
+    "Weiwei Yang",
+    "Mingqian Feng",
+    "Chengquan Guo",
+    "Jialin Song",
+    "Carolyn Buractaon",
+    "Zhe Zhao",
+    "Junshan Zhang",
+    "Sandeep Atluri",
+    "Christopher White",
+    "Jianfeng Gao"
+   ],
+   "url": "https://arxiv.org/abs/2610.40627",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "针对多轮对话中安全对齐容易被“拆分提问”绕过的问题，这篇提出 ShallowDefend，把防御重点放在决定整条回复走向的开头短 span 上。方法采用“评估→决策→回应”框架：防御者先对用户意图做出显式、可解析的安全决策，再基于该决策生成回复，决策本身用强化学习在关键轮次训练，奖励来自无需人工标注的自验证规则。实验覆盖两个模型家族和 14 个安全、效用与帮助性基准，取得了对照中最强的多轮安全性，同时只以较小的帮助性为代价。逐 token 的 KL 分析与干预实验进一步证实，被攻击者利用的“浅层对齐”恰好可以成为防御的控制点，值得做安全对齐与多轮防御的人细读。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.40503",
+   "title": "Algebraic World Model: From Exploration to Proofs",
+   "authors": [
+    "Guancheng Pan",
+    "Qixin Tan",
+    "Yang Yuan",
+    "Andrew Chi-Chih Yao"
+   ],
+   "url": "https://arxiv.org/abs/2610.40503",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "这篇提出代数世界模型（AWM），研究智能体能否对一个未知世界进行严格、可验证的推理，而非只依赖预设的形式化定义。AWM 先与环境交互并不断提出、可执行、可修正的 Python 假设，再把假设整理为带类型对象与共享规则的结构，经范畴论启发的变换化简后形式化为 Lean 4 模型，从而证明可达性与不可能性。在两个不可能通关的游戏关卡上，它在全部 6 次运行中都构造出经内核检验的 Lean 证明，排除所有合法获胜序列，而 Claude Opus 5.5 与 GPT-6 Astra 的基线 12 次运行中一次也没有做到。在 25 个公开 ARC-AGI-3 游戏中，其模型能让 Lean 重放全部 183 关的获胜轨迹并泛化到未见过的转移，展现了“交互—建模—证明”这条路线的潜力。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.40565",
+   "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
+   "authors": [
+    "Pranjal Aggarwal",
+    "Sean Welleck"
+   ],
+   "url": "https://arxiv.org/abs/2610.40565",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "机器人仿真长期依赖专家手工搭建、难以规模化，这篇把“写仿真”本身变成编码智能体的任务，提出 Gym-Anything for Robotics 框架。作者按美国 GDP 数据选取经济价值高的物理任务，定义好仿真与任务的标准，并用对抗式“生成—审计”循环逐一检验，再据此建成包含 25 个仿真、175 个训练与 25 个测试 RL 环境的 RoboWorld。值得注意的是，最强前沿模型在 RoboWorld 测试任务上全军覆没，平均奖励仅 0.06，说明这套基准确实有区分度。在此基础上，作者还展示了跨尝试上下文学习、特权教师在上下文中教学、自助学习与代码策略生成演示等多种改进路径，均显著提升表现，并开源了流水线、环境与基准。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2610.40339",
+   "title": "Wizard: Manipulate Any World in Real Time via Agentic Control",
+   "authors": [
+    "Yuzhe Wu",
+    "Zijun Lin",
+    "Yeying Jin"
+   ],
+   "url": "https://arxiv.org/abs/2610.40339",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "这篇提出 Wizard，一个能实时、精细操控角色动作的智能体游戏世界模型，并且可以零样本泛化到新场景、新角色与新动作。关键做法是把骨骼与几何信息作为结构化中间表示来条件化视频生成模型，并配合自适应掩码机制改善条件信号与生成画面的对齐；同时用一个显式维护并更新游戏状态的智能体框架，让玩家自由配置虚拟世界。作者构建了覆盖 750 个场景、178 个角色的数据集，实验表明该框架在保持视觉质量与玩法一致性的同时，实现了玩家驱动的实时游戏生成。对交互式世界模型、游戏生成与具身控制感兴趣的读者值得一看。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.40574",
+   "title": "Every Token Needs Its Own Teacher: Multi-teacher Adaptive On-policy Self-distillation",
+   "authors": [
+    "Yifu Luo",
+    "Chuang Ma",
+    "Zeyu Chen",
+    "Enkelejda Kasneci",
+    "Qi Chen",
+    "Gjergji Kasneci"
+   ],
+   "url": "https://arxiv.org/abs/2610.40574",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "针对有特权参考条件下的在线自蒸馏（OPSD），这篇指出以往方法把教师固定在整轮训练或整条回复上是不够的：同一个回复内不同 token 需要的教师可能各不相同。作者先用教师干预试点实验证实了 token 级教师偏好的存在，并发现通过多数投票与 KL 选择可以为每个 token 识别出偏好教师，进而提出多教师自适应在线自蒸馏（MTA-OPSD）。该方法维护一个候选教师池，让每个 token 在训练中自适应选择偏好教师。在 Qwen3 模型数学推理任务上的实验表明，MTA-OPSD 一致优于已有 OPSD 方法，相对基座模型平均提升最高达 5.9 分，为后训练中“教师监督粒度”问题提供了一个干净的新视角。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.40637",
+   "title": "world2vec: Mechanistic world models through latent dynamics learning",
+   "authors": [
+    "Tobias Schmidt",
+    "Rodrigo Gonzalez Laiz",
+    "Krisztián Szuppinger",
+    "Steffen Schneider"
+   ],
+   "url": "https://arxiv.org/abs/2610.40637",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "世界模型常常只追求控制效果，而没有忠实捕捉环境的真实动力学，这限制了其可解释性与科学发现价值，这篇提出的 world2vec 正是要解决这个问题。它不依赖奖励信息，直接从观测与动作中学习机制性世界模型，所学潜动力学能在长预测 horizon 上忠实复现真实系统，且参数量比 DreamerV3、TD-MPC2 与 LeWM 少至少一个数量级。在从像素输入的连续控制环境上达到最优控制性能的同时，它还在 71 个吸引子基准上实现了准确的系统辨识，说明世界模型可以成为可检验的科学工具。对世界模型、可解释性与动力学建模感兴趣的读者值得关注。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2610.40632",
+   "title": "SymAnt: Grounding Long-Horizon Action Anticipation with Adaptable Symbolic Priors",
+   "authors": [
+    "Fnu Aryan",
+    "Yaqi Xie",
+    "Joseph Campbell",
+    "Woojun Kim",
+    "Kwonjoon Lee",
+    "Hossein Nourkhiz Mahjoub",
+    "Ehsan Moradi-Pari",
+    "Katia Sycara",
+    "Simon Stepputtis"
+   ],
+   "url": "https://arxiv.org/abs/2610.40632",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "已接收 WACV 2027（非 CCF-A 会议）。这篇提出 SymAnt，一种神经—符号结合的方法，用于仅凭简短观察预测长时序的未来动作序列。纯神经模型通常需要大量观察且难以解释与调整，而 SymAnt 对场景图与知识图做联合搜索，构建出包含空间关系、物体属性、可供性与相关动作的符号上下文，并以此为先验迭代生成与精炼未来动作序列。由于预测扎根于符号上下文，用户无需再训练即可直接编辑知识来调整预测。在 Breakfast、50 Salads、EPIC-KITCHENS、EGTEA Gaze+ 与 Assembly101 五个数据集上的实验表明，它在短观察窗口下尤其有效，且参数效率更高。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.40618",
+   "title": "An ODE-based Sampler for Discrete Diffusion Models",
+   "authors": [
+    "Samson Gourevitch",
+    "Yazid Janati",
+    "Eric Moulines",
+    "Eric P. Xing",
+    "Alain Durmus",
+    "Giacomo Zanella"
+   ],
+   "url": "https://arxiv.org/abs/2610.40618",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "连续扩散模型有概率流 ODE 这一确定性采样框架，但离散扩散模型此前缺乏对应物，这篇通过引入指数残差流（ERF）给出了肯定回答。该方法为每个 token 与位置增补一个连续残差变量，残差按分段定义的 ODE 确定性演化，离散状态在残差归零时切换；作者证明这一构造保持原扩散模型的边缘分布，并给出实用的离散化采样器，专门适配掩码扩散与均匀扩散。确定性轨迹还支持一致性蒸馏，在代码与文本生成等多项基准上都优于已有方法。对离散扩散、快速采样与生成模型理论感兴趣的读者值得一读。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.40556",
+   "title": "Advancing Clinical Genomic Analysis with a Skill-Centred Agent",
+   "authors": [
+    "Qiaoyu Zheng",
+    "Weike Zhao",
+    "Yanjie Fan",
+    "Ye Cao",
+    "Mengqi Jiang",
+    "Xiao Zhou",
+    "Xiaoman Zhang",
+    "Pengcheng Qiu",
+    "Yongguo Yu",
+    "Yanfeng Wang",
+    "Ya Zhang",
+    "Chaoyi Wu",
+    "Weidi Xie"
+   ],
+   "url": "https://arxiv.org/abs/2610.40556",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "临床基因组分析需要整合不断更新的指南、数据库与计算证据，已成为基因组信息及时应用的瓶颈，这篇提出的 ClinGeX 智能体用“可执行技能组合”来应对这一问题。它通过任务特定的检索与依赖感知的编排，组合 105 项精心策划的可执行技能。在 223 例时间外 hold-out 基准上，ClinGeX 与专家参考分类的宏观任务级一致率达 71.7%，远高于最强对照的 45.7%。在 45 位临床基因组专业人员参与的三条件对照人机协作研究中，ClinGeX 辅助在罕见病基因组解读与分子肿瘤决策等场景下均显著提升一致率并缩短解读时间，还经过了一个月的真实世界非干预评估。领域智能体如何真正落地到专业流程，这是一个有说服力的案例。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.40613",
+   "title": "TextSeal2: Distortion-Free LLM Watermarking with Copula Mixing and Memoryless Races",
+   "authors": [
+    "Tom Sander",
+    "Pierre Fernandez",
+    "Itai Gat",
+    "Haiming Bao",
+    "Jiaxin Shi",
+    "Jason Park",
+    "Valeriu Lacatusu",
+    "Sylvestre-Alvise Rebuffi",
+    "Hongyan Chang",
+    "Hady Elsahar",
+    "Tomáš Souček",
+    "Tuan Tran",
+    "Surya Parimi",
+    "Alexandre Mourachko"
+   ],
+   "url": "https://arxiv.org/abs/2610.40613",
+   "publishedAt": "2026-10-29",
+   "zhSummary": "这篇提出 TextSeal2，一种在推测解码下仍能保持信号的无失真大模型水印方法。已接受的草稿 token 替换后仍带相同密钥水印，接受率不变，且不损失输出多样性、不增加可测的推理延迟。相比前代 TextSeal 把 token 随机路由到两个密钥导致检测器平均得分的做法，TextSeal2 用高斯 copula 把多个密钥合并为单个虚拟密钥，任意数量甚至公开共享的密钥都可合并而不稀释检测信号。在三款大模型上的评估中，相同输出多样性下它对 100 token 回答的检出率比 TextSeal 高 8 至 22 个百分点；推测解码下对 200 token 回答的检出率也明显高于对照。做水印、内容溯源与高效推理的人值得关注。",
+   "category": "高效推理与部署"
+  },
+  {
    "arxivId": "2610.40647",
    "title": "Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers",
    "authors": [
