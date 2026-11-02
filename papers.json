@@ -1,6 +1,161 @@
 {
  "papers": [
   {
+   "arxivId": "2610.42149",
+   "title": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+   "authors": [
+    "Byungwoo Jeon",
+    "Yoonwoo Jeong",
+    "Hyunseok Lee",
+    "Minsu Cho",
+    "Jinwoo Shin"
+   ],
+   "url": "https://arxiv.org/abs/2610.42149",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "已接收 NeurIPS 2026。统一多模态模型难以把语言链式思考用于图像生成，根本原因是推理在离散 token 空间进行、而图像生成在连续空间操作，两者存在模态失配。这篇提出的 LARC 框架直接在连续隐状态上做推理，分两阶段训练：课程监督微调把 token 级推理逐步转为隐式推理，再用信息增益强化学习在无真值监督下自进化隐式推理。在多个文生图基准上，LARC 全面提升生成质量、指令遵循与组合保真度，GenEval 上比 BAGEL 高 7 个百分点，并呈现出清晰的测试时扩展趋势，对统一多模态模型与推理扩展感兴趣的读者值得一读。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.42109",
+   "title": "Regret-Optimal Wasserstein-Robust Linear Regression",
+   "authors": [
+    "Sloan Nietert",
+    "Daniel Kuhn"
+   ],
+   "url": "https://arxiv.org/abs/2610.42109",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "已接收 NeurIPS 2026。分布鲁棒优化最小化的是最坏风险，但未必最小化超额风险（即遗憾），这篇研究 2-Wasserstein 扰动下的多元最小二乘回归，系统刻画了这一差距。作者先给出小扰动极限下的实例最优速率，证明 DRO 在残差有效秩有界时仍达 minimax 速率、但在某些情形下会以维度相关因子次优；进而证明 minimax 遗憾优化与谱范数正则化两种方法都能达到 minimax 速率，并给出精确凸重构、加速近端算法与高概率有限样本保证。数值实验验证了两种方法对 DRO 的分离，是分布鲁棒与遗憾理论方向一篇扎实的理论工作。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2610.42028",
+   "title": "CausalXRL: Explainable Reinforcement Learning through Causal Graph Reasoning",
+   "authors": [
+    "Yanming Zhang",
+    "Eric Papenhausen",
+    "Klaus Mueller"
+   ],
+   "url": "https://arxiv.org/abs/2610.42028",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "已接收 ICML 2026 主会全文。强化学习性能强但可解释性差，这篇提出的 CausalXRL 用因果图推理给出透明、分层、可结构化的智能体决策解释，以提升信任并便于调试与改进。定量实验表明它在提供保真解释的同时能高效学习因果结构；在即时战略基准 MicroRTS 上的专家研究中，参与者认为它有助于检查高层策略。对可解释强化学习、智能体行为分析感兴趣的读者值得关注。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2610.41835",
+   "title": "ReuScope: Auditing Data Reuse and Evaluation Sensitivity in Capsule Vision 2024",
+   "authors": [
+    "Eunseob Choi",
+    "Kyeonghun Kim",
+    "Hyuk-Jae Lee",
+    "Nam-Joon Kim"
+   ],
+   "url": "https://arxiv.org/abs/2610.41835",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "已接收 NeurIPS 2026 数据集与评测 Track。以胶囊内镜竞赛 Capsule Vision 2024 为案例，ReuScope 提出一套审计数据复用与评估敏感性的协议：字节级相同文件跨越公开训练-验证边界，全部 Kvasir-Capsule 录像在两个分区中都出现。移除相关训练行后，公开验证集平衡准确率从 82.5% 跌至 61.2%，但换评估人群后比较结论反转，说明公开验证集的跌幅衡量的是对数据源移除的敏感性、而非泄漏带来的虚高。方法区分了“观测到的复用”与“条件性能敏感性”，并为每个结论规定了人群、类别支撑与不确定性单位，对做数据集审计与评测方法论的人很有参考价值。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2610.41856",
+   "title": "SimXAI: A Simple Drop-in Layer Increases Interaction Quality and Understanding in Conversational XAI",
+   "authors": [
+    "Van Bach Nguyen",
+    "Qianli Wang",
+    "Nils Feldhus",
+    "Jörg Schlötterer",
+    "Christin Seifert"
+   ],
+   "url": "https://arxiv.org/abs/2610.41856",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "已接收 EMNLP 2026 Findings。对话式可解释 AI 常用 GUS 式多模块流水线，意图识别、对话管理与模板生成彼此分离，难以适应上下文相关的追问。这篇提出的 SimXAI 用一个带工具调用的 LLM 轻量对话层替代全部模块，作为模块化接口复用已有 XAI 资源而非另起一个独立智能体。作者还给出单轮与多轮解析、保真度与上下文化的评估套件；在代表性系统 TalkToModel 上的用户研究中，只替换对话层就让用户任务完成更准确且轮次更少，同时保持了解释保真度。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.42147",
+   "title": "Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention",
+   "authors": [
+    "Ales Kubicek",
+    "Andrea Caciolai",
+    "Liangzu Peng",
+    "Sukrit Sumant",
+    "Benjamin Hoover",
+    "Fraser Greenlee",
+    "Ruairidh M. Battleday",
+    "Radim Urban",
+    "Torsten Hoefler",
+    "James C. R. Whittington"
+   ],
+   "url": "https://arxiv.org/abs/2610.42147",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "智能体长程任务越来越需要超长上下文，但 1M token 以上全注意力代价过高，而现有稀疏索引要么仍是二次代价、要么在超长尺度掉精度。这篇提出的潜在稀疏注意力（LSA）把键在学习到的隐空间中分层聚类，查询只需对簇层次打分，从而让预填充、解码与训练在长上下文下都更快，并提供可蒸馏到预训练模型的 D-LSA 与原生训练的 N-LSA 两种形态。在 10M token 上，D-LSA 单层注意力预填充加速 22.7 倍、解码 4.6 倍（相对全注意力分别为 72.4 倍与 42.5 倍）且精度基本不变；N-LSA 在 128k 下训练单层加速 1.6 倍且精度持平全注意力，是超长上下文落地的实用路线。",
+   "category": "长上下文"
+  },
+  {
+   "arxivId": "2610.42141",
+   "title": "RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory",
+   "authors": [
+    "Shengguang Wu",
+    "Suning Huang",
+    "Cherie Ho",
+    "Ria Doshi",
+    "Hao Zhu",
+    "Serena Yeung-Levy"
+   ],
+   "url": "https://arxiv.org/abs/2610.42141",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "冻结机器人策略套上人工设计的 agent 框架后表现远好于裸策略，但框架至今全靠手工、每换机器人或基准就要重做。这篇提出的 RoboArchitect 让编码模型观察机器人 rollout、诊断失败并迭代修改框架，整个过程不更新任何权重。未见场景成功率从 9.7% 提升到 43.3%（4.5 倍），未见任务从 12.7% 提升到 40.2%（3.2 倍），且演化出的框架自带持久记忆（如有效的抓取深度），在远离策略训练分布的基准上甚至超过微调版本。这说明机器人操纵的大量潜力在 agent 框架层，而框架设计本身可以自动化优化。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2610.42135",
+   "title": "A Better Critic Matters for Distribution Matching Distillation",
+   "authors": [
+    "Zongze Wu",
+    "Xianbang Wang",
+    "Zhengyang Geng",
+    "Mingdeng Cao",
+    "Zhoutong Zhang",
+    "Richard Zhang",
+    "Eli Shechtman",
+    "Ruiming Cao"
+   ],
+   "url": "https://arxiv.org/abs/2610.42135",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "分布匹配蒸馏用教师分数与在线评论家估计的学生分数之差训练少步学生，但评论家需要多大容量、多少信息此前不清楚。这篇的对照实验表明，固定小评论家而增大教师反而会让学生质量下降甚至训练崩溃；评论家与教师联合缩放可防止崩溃并让学生受益于更大教师。作者还提出步感知评论家 STAC，按生成步估计各步分数而非建模步无关的混合分布。联合缩放与 STAC 结合，在 ImageNet、SDXL/FLUX.2 文生图与 Wan2.1 文生视频的少步蒸馏上均持续改进，对做生成模型蒸馏的人有直接指导意义。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2610.42054",
+   "title": "CRoS: Causality Reward on Scrambled CoTs Improves Accuracy and Reasoning Faithfulness",
+   "authors": [
+    "Xiao Yu",
+    "Justin Chih-Yao Chen",
+    "Zaid Khan",
+    "Hyunji Lee",
+    "Mohit Bansal"
+   ],
+   "url": "https://arxiv.org/abs/2610.42054",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "RLVR 只看结果正确性，不能保证思维链真正因果地促成答案；已有因果度量通过删步或注错来扰动思维链，却会改变每步的信息量，导致分数反映的是对信息变化的敏感而非真实因果性，甚至诱导出信息量更低的思维链。这篇提出的 CRoS 改为只打乱推理步骤顺序、不改内容，从而在保留信息的前提下度量因果性。在 Reasoning Gym 上用 Gemma-3-4B 训练，CRoS 在 5 个未见逻辑与游戏数据集上准确率 46.8%，高于最强基线 43.8%，且思维链质量与保真度指标也全面占优，为后训练奖励设计提供了一个干净的新视角。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2610.42152",
+   "title": "GazeRIB: Systematic Evaluation of Multi-Reader Gaze-Guided Chest X-ray Learning",
+   "authors": [
+    "Nattakorn Kittisut",
+    "Roy M. Gabriel",
+    "Marly van Assen",
+    "Mohammadreza Zandehshahvar",
+    "Carlo N. De Cecco",
+    "Elizabeth A. Krupinski",
+    "Ali Adibi"
+   ],
+   "url": "https://arxiv.org/abs/2610.42152",
+   "publishedAt": "2026-10-30",
+   "zhSummary": "放射科医生的视觉注意力可以监督医学图像学习，但读片专家小组的构成如何影响其价值此前未经检验。这篇评估的 GazeRIB 在训练时遮蔽未被注视区域、推理时用完整图像；8 位专家重复阅读同一批 80 张胸片，对比单人读片与 3/5/8 人小组、7 种架构、10 个随机种子共 910 个模型。所有小组相对无注视基线宏 F1 提升 5.33–7.47 个百分点，而单人均未达显著性；3 人小组已拿到 8 人小组 73–80% 的收益，外部验证中也有提升但效果依赖队列。这对医学影像中“请几位专家标注注视”这一实际问题给出了可操作的答案。",
+   "category": "评测基准"
+  },
+  {
    "arxivId": "2610.40641",
    "title": "From extreme weather to agricultural consequences with agentic AI",
    "authors": [
