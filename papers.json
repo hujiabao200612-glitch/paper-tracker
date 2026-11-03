@@ -1,6 +1,160 @@
 {
  "papers": [
   {
+   "arxivId": "2611.02003",
+   "title": "MIRA: Mutual Information guided calibration for Reliable Test-Time Adaptation",
+   "authors": [
+    "Hyeongyu Kim",
+    "Mingyeong Jang",
+    "Youngjun Song",
+    "GeonHui Han",
+    "Dosik Hwang"
+   ],
+   "url": "https://arxiv.org/abs/2611.02003",
+   "publishedAt": "2026-11-01",
+   "category": "推理",
+   "zhSummary": "已接收 NeurIPS 2026。测试时适应（TTA）只用无标签目标数据在线更新已部署模型，但基于熵的传统方法容易被过度自信的错误预测带偏，在分布偏移下越适越糟。MIRA 用轻量最后一层高斯扰动探测预测的可靠性：对同一批目标数据复用一次特征提取，在源分类器周围采样扰动分类器，形成局部预测分布，再用互信息与预测一致性为每批数据挑选扰动尺度。随后以互信息加权的熵损失做适应，压低扰动敏感或低置信样本的影响，从而抑制脆弱预测的误导。方法无需源数据、重训、集成或离线后验拟合，可即插即用于现有熵最小化 TTA，在分布偏移基准上同时提升了准确率、校准度和对数似然。"
+  },
+  {
+   "arxivId": "2611.01939",
+   "title": "VLSplat: Vision-Language Guided Object-Centric 3D Gaussian Splatting via Scene Graph",
+   "authors": [
+    "Yuntae Jeon",
+    "Younho Jeon",
+    "Sujin Jin",
+    "Sungho Jo",
+    "Seunghee Park"
+   ],
+   "url": "https://arxiv.org/abs/2611.01939",
+   "publishedAt": "2026-11-01",
+   "category": "视觉语言模型",
+   "zhSummary": "已接收 NeurIPS 2026。把 2D 语义提升到 3D 高斯泼溅（3DGS）时，现有方法主要依赖 2D 分割监督、缺乏物体级先验，学到的表征容易被局部掩码证据主导，丢失物体的整体结构。VLSplat 引入视觉语言模型提供的物体级语义先验，并用物体组场景图精炼高斯表征：组内精炼抑制同一物体组内的语义噪声，组间获取则从相邻组引入结构相关的候选，扩展物体的支撑区域。在室内场景数据集上的实验表明，该方法提升了物体级类别的语义一致性与结构完整性，值得做 3D 场景理解与开放词汇 3D 感知的读者关注。"
+  },
+  {
+   "arxivId": "2611.01926",
+   "title": "TAC-CoT: Tool-Empowered Implicit Chain-of-Thought via Interleaving Explicit Tokens",
+   "authors": [
+    "Juseon Do",
+    "Sangmin Bae",
+    "Jeesu Jung",
+    "Hwanjun Song"
+   ],
+   "url": "https://arxiv.org/abs/2611.01926",
+   "publishedAt": "2026-11-01",
+   "category": "推理",
+   "zhSummary": "已接收 EMNLP 2026 主会长文。显式思维链推理开销大，而隐式思维链把文字推理换成紧凑连续 token 后，又难以支撑智能体调用工具所需的显式通信接口。TAC-CoT 把显式推理轨迹替换为紧凑的隐式推理段，只在工具调用、观测结果和最终答案处保留文本 token，二者交错进行，从而在不逐字说出每步推理的情况下完成工具使用。在智能体数学与问答基准上，该方法准确率最高提升 8.8 个点，前向次数最多减少 6.8 倍，且在单工具与多工具场景下都改善了工具使用质量。对隐式推理与智能体结合感兴趣的读者值得一读。"
+  },
+  {
+   "arxivId": "2611.01878",
+   "title": "Don't Guess, Ask Wisely: Benchmarking and Training Proactive Elicitation in Open-Domain LLM Conversations",
+   "authors": [
+    "Rongyu Zhang",
+    "Mutian Bao",
+    "Jinjian Zhang",
+    "Yuetian Du",
+    "He Xu",
+    "Wei Zhou",
+    "Xiaojun Zhu",
+    "Ming Kong",
+    "Jie Liu",
+    "Linjian Mo",
+    "Qiang Zhu"
+   ],
+   "url": "https://arxiv.org/abs/2611.01878",
+   "publishedAt": "2026-11-01",
+   "category": "智能体",
+   "zhSummary": "已接收 EMNLP 2026 口头报告。用户提问含糊时，大模型本应先追问再作答，但对真实用户-助手对话的评测显示，7 个 8B 到前沿规模的模型中，面对欠明确提问主动追问的比例不到 11%。作者提出 VagueBench：给每个种子提问标注结构化意图与细节单元，再通过可控删除语言线索生成意图含糊与完全含糊两种变体，从而得到已知的隐藏信息集，用于评测“何时问、问什么”。配套的 DialogGRPO 把多轮追问组织为对话状态有向无环图，用结合即时信息增益与前瞻价值的稠密逐轮奖励做离线强化学习。结果显示它在 88% 以上的含糊提问上成功 elicitation 出缺失信息，且在完整提问上不过度追问，还能零样本泛化到 MultiWOZ 2.4 与 AmbigQA。"
+  },
+  {
+   "arxivId": "2611.01858",
+   "title": "Learning-to-Memorize: Dynamic Context Management for Long-Horizon Autoregressive Video Generation",
+   "authors": [
+    "Haowei Zhu",
+    "Qijie Wang",
+    "Jia Li",
+    "Xing Wang",
+    "Tianyu Zhao",
+    "Jiexi Wang",
+    "Xurui Peng",
+    "Xinglong Wu",
+    "Junhai Yong",
+    "Bin Wan"
+   ],
+   "url": "https://arxiv.org/abs/2611.01858",
+   "publishedAt": "2026-11-01",
+   "category": "图像视频生成",
+   "zhSummary": "已接收 NeurIPS 2026。自回归视频生成在短片段上已很出色，但长视频会因误差累积而失真：滑窗缓存丢掉早期帧、固定 sink 帧又锚定过时内容，都会导致保真度下降、运动停滞与多样性降低。L2M 提出可学习的上下文记忆管理框架，按预测的重要性动态保留、淘汰与演化历史帧：重要性预测路由器估计每帧的相关性，退化感知训练增强对含噪上下文的鲁棒性，基于 EMA 重要性分数的记忆初始化与演化机制让高质量帧替换陈旧锚点。在固定 KV 缓存预算下，该方法用教师-学生蒸馏与稀疏正则训练，实验显示长时程视频生成的质量与时间一致性均优于基线，是长视频生成中上下文管理的实用思路。"
+  },
+  {
+   "arxivId": "2611.01846",
+   "title": "Z-Cache: Accelerating Diffusion Transformers via Self-Reflection",
+   "authors": [
+    "Zegang Cheng",
+    "Zhikai Wang",
+    "Jiacheng Liu",
+    "Xiaobing Tu",
+    "Chang Zou",
+    "Junjie Chen",
+    "Yue Ma",
+    "Zhiyuan Ma",
+    "Jinkui Ren",
+    "Likai Zou",
+    "Linfeng Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.01846",
+   "publishedAt": "2026-11-01",
+   "category": "高效推理与部署",
+   "zhSummary": "已接收 NeurIPS 2026 海报。扩散 Transformer 是目前最强的视觉生成模型，但计算成本巨大；特征缓存通过复用前序步骤的特征来加速，却会带来生成质量下降。Z-Cache 的关键观察是：缓存带来的误差在每次完整计算后会急剧减小。于是它先预测未来缓存步骤的特征并做一次完整计算，再回到缓存步骤、结合前后两次计算结果重新预测特征，从而修正缓存误差。实验表明，Z-Cache 在保持与原始模型相当的生成质量的同时显著提速，例如在 FLUX-dev 文生图上达到 6.22 倍加速，代码已开源，对扩散模型部署加速有直接参考价值。"
+  },
+  {
+   "arxivId": "2611.01736",
+   "title": "RSI-Env: An Open-Ended Environment for Recursive Self-Improvement of Agents",
+   "authors": [
+    "Wanying Qu",
+    "Zhiyuan Fan",
+    "Jiyao Liu",
+    "Jiang Zhou",
+    "Jianghan Shen",
+    "Yanwei Fu",
+    "Dongrui Liu"
+   ],
+   "url": "https://arxiv.org/abs/2611.01736",
+   "publishedAt": "2026-11-01",
+   "category": "递归自改进 RSI",
+   "zhSummary": "递归自改进（RSI）设想智能体系统自主改进自身模型与工具链、再由更新后的系统继续改进自己，但现有方法往往限制优化目标、可编辑组件或评测流程，难以实现开放式探索与跨代连续性。RSI-Env 提供了一个支持模型与工具链协同改进的持久环境：自主训练、工具链修改与研究状态保留，独立的 Host Controller 管理服务、评测与版本控制，每个被接受的模型-工具链版本接管下一轮改进。作者设置了开放通用、能力导向、基准引导三种场景，从 Qwen3.8-27B 与最小工具链出发做对比：在无基准反馈的开放通用场景下，Self 使 GPQA Diamond 从 65.2% 升至 73.2%、AIME 2026 从 53.3% 升至 56.7%，且知识 Self 在多次系统更新中持续进步。这是 RSI 方向少见的开放式实证工作，值得追踪该方向的读者细读。"
+  },
+  {
+   "arxivId": "2611.01735",
+   "title": "CacheWeave: Learning to Recompute for Efficient Position-Independent KV Caching",
+   "authors": [
+    "Yueyang Pan",
+    "Qianchao Zhu",
+    "Yuliang Liu",
+    "Teng Ma",
+    "Sanidhya Kashyap"
+   ],
+   "url": "https://arxiv.org/abs/2611.01735",
+   "publishedAt": "2026-11-01",
+   "category": "高效推理与部署",
+   "zhSummary": "位置无关缓存（PIC）能在不同位置与请求间复用 chunk KV 缓存，但独立编码会丢失跨 chunk 交互、损害精度，而单纯的 PIC 训练或基于规则的重算都无法稳定恢复完整预填充的精度。CacheWeave 的做法是：先把完整主干适配到 PIC，再冻结主干、基于适配后模型的 oracle 训练一个模型原生的块选择器，用紧凑的缓存 chunk 特征与问题隐状态选出与 KV 块对齐的连续 token 块做重算，避免 copy-on-write 放大。配套的 CacheWeave-Serve 支持私有与共享 KV 缓存、GPU 内完成选择与重算。在 5% 重算预算下，它比 CacheBlend 与 ProphetKV 平均高 7.2 与 3.5 个点，单请求 TTFT 最高比完整预填充快 16.1 倍，对 KV 缓存复用与推理 serving 优化很有参考意义。"
+  },
+  {
+   "arxivId": "2611.01696",
+   "title": "Restoring Semantic Fidelity for Training-Free High-Resolution Image Generation in Diffusion Transformers",
+   "authors": [
+    "Junjie Li",
+    "Zengbin Wang",
+    "Gaoxiang Li",
+    "Muyi Sun",
+    "Yixin Zhang",
+    "Man Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.01696",
+   "publishedAt": "2026-11-01",
+   "category": "图像视频生成",
+   "zhSummary": "已接收 ACM MM 2026。扩散 Transformer 文生图模型直接用于超出训练分辨率时，常出现语义退化——有意义的语义内容消失；现有免训练高分辨率方法也未能彻底解决，且常用的结构引导方法缺乏对中间轨迹中结构与细节的建模。作者提出免训练框架：文本-视觉解耦尺度注意力（TVSDA）保留文本 token 的全局感受野、同时让图像 token 感受野与训练分辨率对齐，恢复高分辨率下的语义生成能力；结构-细节引导（SDG）则通过尺度与时间维度的引导显式建模结构信息与精细细节。实验显示，该方法在结构连贯性与细节保真度上显著优于现有免训练 DiT 高分辨率生成方法，代码已开源。"
+  },
+  {
    "arxivId": "2610.41833",
    "title": "PGGT-Loc: Primitive-Grounded Geometry Transformer for Feed-Forward Camera Localization",
    "authors": [
