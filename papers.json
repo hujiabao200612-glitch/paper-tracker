@@ -1,6 +1,172 @@
 {
  "papers": [
   {
+   "arxivId": "2611.05348",
+   "authors": [
+    "Qizhen Lan",
+    "Yu-Chun Hsu",
+    "Yuxiang Wei",
+    "Lijing Zhu",
+    "Zenan Sun",
+    "Liang He",
+    "Lishan Yu",
+    "Xiaoqian Jiang"
+   ],
+   "category": "AI for Science",
+   "publishedAt": "2026-11-03",
+   "title": "OpenBrain: An Auditable Generated-Label Release for Whole-Brain MRI Parcellation",
+   "url": "https://arxiv.org/abs/2611.05348",
+   "zhSummary": "已接收 NeurIPS 2026（评估与数据集方向）。这篇工作针对自动生成的全脑 MRI 分区标签“能用但说不清哪例可信”的问题，发布了可审计的数据集 OpenBrain，覆盖 3.5 万余例经溯源验证的公开脑影像数据。每条记录不只给分区结果，还附带多个委员会模型的分区、来源与授权信息、免参考质量评估指标和综合风险评分与可信度分级。实验表明，按风险评分筛选低风险样本训练，能稳定提升分区精度。值得看的点在于它把“数据发布”本身做成了可筛选、可复核的证据体系，对做医学影像数据工作的人很有参考价值。"
+  },
+  {
+   "arxivId": "2611.05319",
+   "authors": [
+    "Zhen Tao",
+    "Xun Zhou",
+    "Xuhui Chen",
+    "Ziyue Qiao",
+    "Qingqiang Sun"
+   ],
+   "category": "智能体",
+   "publishedAt": "2026-11-03",
+   "title": "HARP: Training-Free Dual-Profile Agentic Communication for LLM-Based Recommendation",
+   "url": "https://arxiv.org/abs/2611.05319",
+   "zhSummary": "已接收 NeurIPS 2026。这篇工作把基于大模型的推荐重新表述为用户与物品之间的智能体通信过程，指出以往只有用户侧有结构化画像、画像信号只进重排提示词、且画像在预热后就被冻结这三个不对称问题。作者提出的 HARP 无需额外训练，在冻结的大模型骨干上补齐三个环节：为物品侧自动抽取对称画像、把画像层面的相似信号用于召回阶段、以及按新交互持续同步用户画像。这一思路把推荐系统里的“画像”从静态文本升级为可通信、可更新的双边表示。关注智能体与推荐交叉方向的读者值得一读。"
+  },
+  {
+   "arxivId": "2611.05202",
+   "authors": [
+    "Daniel Aibinder",
+    "Azmi Haider",
+    "Dan Rosenbaum"
+   ],
+   "category": "AI for Science",
+   "publishedAt": "2026-11-03",
+   "title": "Empirical Bayes Flow Matching for Continuous Cryo-EM Heterogeneity",
+   "url": "https://arxiv.org/abs/2611.05202",
+   "zhSummary": "已接收 NeurIPS 2026。这篇工作研究如何只从间接且带噪的观测中学习高维隐变量的生成先验，应用场景是冷冻电镜中连续构象差异的建模，其中三维原子结构从未被直接观测到，只能从二维投影图像推断。作者提出的经验贝叶斯流匹配方法用蒙特卡洛随机逼近的期望最大化框架交替进行后验采样与模型更新，不再依赖在干净数据上预训练，也能处理非线性的观测过程。方法在受控的逆问题和模拟冷冻电镜数据上都得到了验证。对生成模型与科学计算交叉感兴趣的读者，这是一篇方法论扎实的工作。"
+  },
+  {
+   "arxivId": "2611.05157",
+   "authors": [
+    "Niall Jeffrey",
+    "Benjamin D. Wandelt"
+   ],
+   "category": "AI for Science",
+   "publishedAt": "2026-11-03",
+   "title": "Macrocanonical Generator Networks: Data-Efficient Neural Surrogates for Amortized Physics Simulation",
+   "url": "https://arxiv.org/abs/2611.05157",
+   "zhSummary": "已接收 NeurIPS 2026。许多科学模拟计算成本很高，限制了其在模拟推断与不确定性量化中的应用，这篇工作提出用神经网络学习快速且数据高效的替代模型。方法的核心是让生成器在期望意义上匹配目标物理过程的多尺度统计量，从而保留真实的样本间波动，同时把原来每个样本都要做的内层优化摊销到一次训练中，训练完成后每个样本只需一次前向传播即可生成。作者还从理论上分析了训练动力学与对称性保持，并给出了小学习率下熵保持的结论。这对想用生成模型加速物理模拟的读者很有启发。"
+  },
+  {
+   "arxivId": "2611.05120",
+   "authors": [
+    "Jens Püttschneider",
+    "Simon Heilig",
+    "Asja Fischer",
+    "Timm Faulwasser"
+   ],
+   "category": "机器学习理论与优化",
+   "publishedAt": "2026-11-03",
+   "title": "Towards an Optimal Control Foundation of Early Exits - Turnpikes and ResNets",
+   "url": "https://arxiv.org/abs/2611.05120",
+   "zhSummary": "已接收 NeurIPS 2026。这篇工作为“提前退出”这一高效推理技术建立最优控制理论基础：把输出层与中间层的损失联合优化看作一个控制问题。作者证明，按这种方式训练的残差网络会出现“转折点”现象，即达到指定损失所需的层数存在与总深度无关的上界，这也解释了不同深度网络内部表征的相似性。进一步，作者把这一现象与“过度思考”问题联系起来，并为基于熵和最大概率的提前退出准则提供了理论依据。实验验证了转折点的存在及其对提前退出性能的影响，理论与推理效率交叉的读者值得一读。"
+  },
+  {
+   "arxivId": "2611.05066",
+   "authors": [
+    "Junzhe Chen",
+    "Tian Qin",
+    "Eugenie Shi",
+    "Tianshu Zhang",
+    "Qiang Ju",
+    "Lijie Wen"
+   ],
+   "category": "视觉语言模型",
+   "publishedAt": "2026-11-03",
+   "title": "VIGOR: Visual Gain Ordering for Hallucination Mitigation in Multimodal Discrete Diffusion Language Models",
+   "url": "https://arxiv.org/abs/2611.05066",
+   "zhSummary": "已接收 NeurIPS 2026。这篇工作针对多模态离散扩散语言模型的幻觉问题，指出幻觉不只是 token 预测错误，也是一种“过早承诺”：去噪过程中某些位置因语言先验而非视觉证据被过早揭开，进而误导后续生成。作者提出的 VIGOR 无需训练、即插即用，在每一步去噪中对比原图条件与视觉消融条件下的置信度，优先揭开那些更受图像证据支撑的位置。在两个多模态扩散模型上的实验表明该方法能持续降低幻觉。对扩散式多模态模型和幻觉缓解感兴趣的读者值得关注。"
+  },
+  {
+   "arxivId": "2611.05377",
+   "authors": [
+    "Jisoo Kim",
+    "Chaehyun Kim",
+    "Junsu Kim",
+    "Jiho Park",
+    "Seongchan Kim",
+    "Eunbeen Hong",
+    "Soowon Son",
+    "Fu-En Yang",
+    "Seungryong Kim"
+   ],
+   "category": "具身智能与机器人",
+   "publishedAt": "2026-11-03",
+   "title": "DreamX: Video Diffusion Model is a Universal Latent Action Learner",
+   "url": "https://arxiv.org/abs/2611.05377",
+   "zhSummary": "这篇工作把预训练视频扩散模型重新利用为通用的隐动作学习器，目标是从视频中抽取跨执行方式、跨身体形态都一致的动作表示。以往的隐动作模型常把动作与外观纠缠在一起，限制了跨形态迁移，而 DreamX 利用视频模型的时空特征与生成先验，抽取出与外观解耦的紧凑隐动作，并把每帧视频大幅压缩为少量 token。由此得到的隐空间可作为人类与机器人、不同环境与动作参数化之间的共享动作接口，在相关基准上取得了隐动作模型中的最好成绩，且在一个场景编码的动作能在另一场景继续生效。对具身智能与视频生成交叉方向的读者很有吸引力。"
+  },
+  {
+   "arxivId": "2611.05313",
+   "authors": [
+    "Dian Jin",
+    "Jinluan Yang",
+    "Kairong Han",
+    "Baohong Li",
+    "Zijing Hu",
+    "Yi He",
+    "Wenlin Zhong",
+    "Yunze Tong",
+    "Minqin Zhu",
+    "Linchuan Li",
+    "Yanan Niu",
+    "Kun Kuang"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-11-03",
+   "title": "MDSKILL: Learning to Internalize Skill Memory through Multi-View Distillation for Efficient Dynamic Agent Self-Evolution",
+   "url": "https://arxiv.org/abs/2611.05313",
+   "zhSummary": "这篇工作面向会自我进化的智能体，解决技能记忆难以真正内化为策略的问题：以往把过往经验写成文本提示辅助强化学习，再用自蒸馏内化，但自生成的记忆常带有噪声、冗余甚至冲突的知识，直接蒸馏反而可能损害性能。作者提出的 MDSKILL 把技能记忆组织为状态 grounding、动作规划与执行控制三个互补视角，用动态指标筛选高质量技能，再通过多分支蒸馏把互补的经验知识整合进同一策略。实验在三个智能体基准上验证了该方法在有限训练预算下仍能高效实现持续自我进化。关注智能体自改进方向的读者值得一读。"
+  },
+  {
+   "arxivId": "2611.05306",
+   "authors": [
+    "Peter Belcak",
+    "Saurav Muralidharan",
+    "Jindong Jiang",
+    "Yonggan Fu",
+    "Wonmin Byeon",
+    "Hanrong Ye",
+    "Ryan Angilly",
+    "Ali Taghibakhshi",
+    "Shih-Yang Liu",
+    "Siru Ouyang",
+    "Greg Heinrich",
+    "Pavlo Molchanov"
+   ],
+   "category": "长上下文",
+   "publishedAt": "2026-11-03",
+   "title": "You don't need long context",
+   "url": "https://arxiv.org/abs/2611.05306",
+   "zhSummary": "这篇技术报告挑战了“长上下文越大越好”的直觉，指出在前沿开源模型上，靠后的 token 生成成本可达靠前 token 的数倍。通过频繁压缩上下文，作者在多类长时程与长输入任务上证明，前沿模型在保持短上下文时几乎不损失任务精度，甚至在长时程软件工程任务中，每步只保留极短上下文也不会崩溃。基于这些发现，作者进一步提出了“语义状态空间模型”的概念，质疑长上下文模型本身的必要性。这篇报告的结论若成立，会对长上下文推理的成本与架构设计产生直接影响，值得认真讨论。"
+  },
+  {
+   "arxivId": "2611.05358",
+   "authors": [
+    "Luxi He",
+    "Pengcheng Jiang",
+    "Jifan Zhang",
+    "Jiawei Han",
+    "Danqi Chen"
+   ],
+   "category": "AI 安全与可解释性",
+   "publishedAt": "2026-11-03",
+   "title": "Suppressing Misaligned Behaviors in Language Models, Durably",
+   "url": "https://arxiv.org/abs/2611.05358",
+   "zhSummary": "这篇工作研究一个实际又棘手的问题：当模型出现不良行为后，事后压制的效果能维持多久。为此作者构造了两种“模型生物”——一种只在特定提示线索下作弊，另一种在不安全代码微调后广泛输出有害内容——并从即时压制效果、继续训练下的持久性、对通用能力的保留三个维度系统比较了微调、强化学习与梯度上升遗忘等标准方法。基于对齐浅层性的先前工作，作者提出更持久的压制需要让模型能从更广泛的失齐状态中恢复，并据此设计了新的对抗强化方法。这对关心模型安全与对齐持久性的读者是一篇很有针对性的工作。"
+  },
+  {
    "arxivId": "2611.03618",
    "title": "Strategist: Evolving Reasoning with Agents",
    "authors": [
