@@ -1,6 +1,146 @@
 {
  "papers": [
   {
+   "arxivId": "2611.05373",
+   "title": "Aligning Language Models with General Preferences: An Empirical Study of Direct Nash Optimization",
+   "authors": [
+    "Austin Tsai",
+    "Saurav Nanda",
+    "Ganapathy Parthasarathy",
+    "Bhuvnesh Kumar",
+    "Parivesh Choudhary"
+   ],
+   "url": "https://arxiv.org/abs/2611.05373",
+   "publishedAt": "2026-11-03",
+   "category": "后训练与对齐",
+   "zhSummary": "这篇对直接纳什优化（DNO）做了独立复现与实证研究：DNO 把对齐看作双人偏好博弈的纳什均衡，其实用版 DNO-Prct 循环做在线采样、LLM 打分、大间隔偏好对选取与 DPO 式对比更新。三轮迭代后，Llama 3.1 8B 在 AlpacaEval 2.0 上对 GPT-4o 的长度控制胜率从 31.7% 升至 45.3%，且调优后的 8B 模型在各项胜率上都超过了 Llama 3.1 70B；用同家族开源模型做标注仍能保留 62% 至 82% 的增益，说明打分环节不一定依赖闭源模型。消融还表明，去掉教师金标准回答或数据回看会掉 6 到 10 个点。值得看的是它对“能否摆脱闭源教师做对齐”给出了实证答案，同时也坦承了单轮实验、GPT-4o 既当老师又当裁判的局限。"
+  },
+  {
+   "arxivId": "2611.05345",
+   "title": "Adversarial Speculative Reasoning Improves Long Horizon Agents",
+   "authors": [
+    "Hongyin Luo",
+    "Wei Fang",
+    "Lijie Yang",
+    "Owen Stepan",
+    "Daniel Suit",
+    "Jeff Krapf",
+    "Dana Wensberg",
+    "Jack O'Brien"
+   ],
+   "url": "https://arxiv.org/abs/2611.05345",
+   "publishedAt": "2026-11-03",
+   "category": "推理",
+   "zhSummary": "这篇挑战了一个常识：推测解码不只是不改变模型行为的加速器。作者发现，在长程 agent 任务中，验证窗口内的数值噪声会累积，草稿接受与否在 30 步后就能改变模型的输出分布，从而随机地影响推理精度。他们的解法是反向利用这一点：训练草稿模型在关键推理点“故意被拒绝”，让关键 token 由目标模型在最低噪声条件下重新采样，相当于把精度预算主动分配给最重要的思考步骤。该方法只训练 0.06% 至 0.28% 的参数，就在复杂 agent 编程基准上提升了端到端成功率，且不改变目标模型本身。值得看的是它把推理系统优化从纯工程问题变成了精度分配问题。"
+  },
+  {
+   "arxivId": "2611.05344",
+   "title": "A Circuit for In-Context Learning",
+   "authors": [
+    "Andrew Gao",
+    "William Gao"
+   ],
+   "url": "https://arxiv.org/abs/2611.05344",
+   "publishedAt": "2026-11-03",
+   "category": "AI 安全与可解释性",
+   "zhSummary": "这篇给出了上下文学习（ICL）的一条完整回路解释：在任意标签的少样本句子分类任务中，模型把标签 token 的残差流当作键值记忆——每个标签 token 编码自身身份，中层注意力头把前一个演示样本的类别作为键写入其中，查询时再据此取回类别。作者在三个 3 至 4B 参数的 Transformer 上验证了这套组合方式，并附了代码与交互式讲解。此前的工作多是找到候选零件，这篇则讲清了零件如何组装成完整的学习过程。值得看的是它把 ICL 从“黑箱涌现”推进为可追踪的机制，对理解提示学习与可解释性都很有启发。"
+  },
+  {
+   "arxivId": "2611.05304",
+   "title": "LoopVQ: Sub 1-bit KV Cache Quantization for Looped Transformers",
+   "authors": [
+    "Minsoo Cheong",
+    "Sungjoo Yoo"
+   ],
+   "url": "https://arxiv.org/abs/2611.05304",
+   "publishedAt": "2026-11-03",
+   "category": "高效推理与部署",
+   "zhSummary": "循环 Transformer 靠重复使用同一组层来换取参数效率，但每轮循环仍要各自存 KV，于是 KV 缓存随循环步数线性增长，成为主要内存瓶颈。这篇观察到循环轴上的 KV 高度冗余、且各循环步对量化的敏感度差异很大，据此提出 LoopVQ：把多步的通道联合做向量量化，并微调码本去拟合全精度模型的输出。在 0.5 比特每元素时它优于现有 KV 向量量化方法，联合 TaSQ 后即使在 0.25 比特下仍保留大部分 BF16 精度。作者还在 SGLang 中落地：32K 上下文下解码延迟近乎减半，峰值吞吐最高提升 4.3 倍与 6.1 倍。值得看的是它针对循环架构的特性做了专用的压缩设计，而非照搬通用量化方案。"
+  },
+  {
+   "arxivId": "2611.05294",
+   "title": "Wonder 4: A Mixture-of-Experts Recipe for Image Quality Enhancement",
+   "authors": [
+    "Yunan Wu",
+    "Bin Sun",
+    "Partha Acharjee",
+    "Xiaoyu Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.05294",
+   "publishedAt": "2026-11-03",
+   "category": "图像视频生成",
+   "zhSummary": "真实照片常常同时模糊、有噪、压缩失真、带划痕又低分辨率，而且不同退化在不同区域的严重程度各不相同、修正方式还互相冲突。Wonder 4 用混合专家（MoE）来应对：每个模块含 13 个专家，路由器把每个图像块送给其中 5 个，无需退化分类器、掩码、提示词或任务标签。关键改进在训练规则上：作者不用语言模型里常见的负载均衡（那会把每种修正涂满全图），只给每个专家设最低使用份额，低于下限才提升其路由分数。最终它在 DIV2K 与 Flickr2K 的三组测试设定上，LPIPS、DISTS 与 NIQE 均取得最佳。值得看的是它把 MoE 的路由思想从“分任务”转成了“分区域、分退化”。"
+  },
+  {
+   "arxivId": "2611.05279",
+   "title": "Möbius: A Unified Motion-Language Model Bridging Understanding and Generation",
+   "authors": [
+    "Jiazhi Shu",
+    "Chengfeng Zhao",
+    "Jinyi Wang",
+    "Yubo Zhao",
+    "Zhiyang Dou",
+    "Ronghui Li",
+    "Yu Lu",
+    "Xinwei Jiang",
+    "Zijiao Zeng",
+    "Yuan Liu"
+   ],
+   "url": "https://arxiv.org/abs/2611.05279",
+   "publishedAt": "2026-11-03",
+   "category": "视觉语言模型",
+   "zhSummary": "Möbius 想做一个真正统一的人体运动模型：理解、生成、编辑都在同一框架内完成。此前所谓的统一运动模型多是半统一——理解走语言模型，生成则交给独立的扩散模块。这篇把整个扩散过程放进与运动理解相同的多模态表示空间，让干净运动、带噪运动与文本共同参与共享注意力，再用角色专属参数分流理解与生成两条流，并且直接处理连续帧级的原始运动。值得看的是它对“统一”做了更彻底的尝试，为运动理解与生成共享表征提供了新范式。"
+  },
+  {
+   "arxivId": "2611.05263",
+   "title": "JHiMA-WebRL: A Joint Hierarchical Multi-Agent Reinforcement Learning Framework for Long-Horizon Web Tasks",
+   "authors": [
+    "Shanka Subhra Mondal",
+    "Jiayun Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.05263",
+   "publishedAt": "2026-11-03",
+   "category": "智能体",
+   "zhSummary": "长程网页任务需要高层规划与视觉接地执行配合，但以往多智能体系统里的规划器通常不与执行器一起更新。这篇提出 JHiMA-WebRL：先用强教师模型从多模态 GUI 轨迹中构造结构化子任务监督，同时微调任务分解器与子任务条件执行器，再把 GRPO 扩展成分层版本，在 WebArena 环境中联合优化两者。由 7B 执行器加 7B 分解器组成的 14B 系统在 WebArena-Lite-v2 上达到 37.2% 的平均成功率，超过同协议下经 RL 微调的 32B ScaleCUA（24%）。消融表明联合更新分解器优于只更新执行器。值得看的是它说明：对长程 agent 而言，角色分工加联合训练可以是比单纯堆规模更有效的路线。"
+  },
+  {
+   "arxivId": "2611.05163",
+   "title": "RoboTryOn: Synthesizing Dexterous Robot Demonstrations from Human Videos via Virtual Try-On",
+   "authors": [
+    "Seungyong Lee",
+    "Suhyeok Jang",
+    "Minyoung Kim",
+    "Jinwoo Shin"
+   ],
+   "url": "https://arxiv.org/abs/2611.05163",
+   "publishedAt": "2026-11-03",
+   "category": "具身智能与机器人",
+   "zhSummary": "机器人基础模型适配新任务仍高度依赖遥操作演示，而第一视角人类视频是可扩展的替代来源，却存在视觉与动作鸿沟。RoboTryOn 把人机转换类比为虚拟试衣：试衣保留人、换掉衣服，它保留演示动作、把人换成目标机器人——先把人类视频转成目标机器人的视频，再用带深度特征的逆动力学模型从合成视频中推断动作标签用于策略学习。实验覆盖多个人形机器人 embodiment：用合成数据训练的策略在新任务（含高难度双手操作）上的成功率从 2% 提升到 60%，且零真实机器人演示；成本约为遥操作的三分之一，性能与纯遥操作数据相当。值得看的是它为机器人数据规模化提供了一条低成本的新路径。"
+  },
+  {
+   "arxivId": "2611.05270",
+   "title": "iGC: Antibody Optimization via Reinforcement Learning over a Learned Somatic Hypermutation Prior",
+   "authors": [
+    "Thao Nguyen",
+    "Robert G. Alberstein",
+    "Ewa Nowara",
+    "Homa MohammadiPeyhani",
+    "Holly R. Steach",
+    "Sarah A. Robinson",
+    "Yuval Shechter",
+    "Donald W. Lee",
+    "Jason A. Vander Heiden",
+    "Franziska Seeger",
+    "Andrew Leaver-Fay",
+    "Richard Bonneau",
+    "Joshua Yao-Yu Lin"
+   ],
+   "url": "https://arxiv.org/abs/2611.05270",
+   "publishedAt": "2026-11-03",
+   "category": "AI for Science",
+   "zhSummary": "抗体亲和力成熟是 B 细胞经体细胞高频突变（SHM）与选择不断进化的自然过程，但现有计算方法要么不直接优化结合力，要么忽略真实的突变轨迹。iGC（in silico 生发中心）用两阶段强化学习把两者结合：先从 B 细胞谱系树的父子对中学习 SHM 突变先验，再以 KL 正则约束的 RL 策略优化抗原结合，并用 Reward-Tax 元梯度抑制奖励剥削。结果上，突变先验在突变位点预测上超过最强基线两倍以上，RL 优化后仍保持 SHM 序列结构，并在亲和力与多样性之间取得较好的平衡。值得看的是它把免疫学的真实进化约束带进了抗体优化，对 AI for Science 里“符合生物学规律的生成”是个扎实的例子。"
+  },
+  {
    "arxivId": "2611.05348",
    "authors": [
     "Qizhen Lan",
