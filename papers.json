@@ -1,6 +1,204 @@
 {
  "papers": [
   {
+   "arxivId": "2611.06918",
+   "title": "From Pixels to Actions - Towards Native Vision-Language-Action Policies",
+   "authors": [
+    "Weichen Fan",
+    "Haiwen Diao",
+    "Penghao Wu",
+    "Siyuan Hu",
+    "Ziqi Huang",
+    "Tianqi Liu",
+    "Mingze Sun",
+    "Ziyi Wang",
+    "Zhongang Cai",
+    "Hanming Deng",
+    "Quan Wang",
+    "Lei Yang",
+    "Lewei Lu",
+    "Fangzhou Hong",
+    "Zhaoxi Chen",
+    "Dahua Lin",
+    "Ziwei Liu"
+   ],
+   "url": "https://arxiv.org/abs/2611.06918",
+   "publishedAt": "2026-11-04",
+   "category": "具身智能与机器人",
+   "zhSummary": "传统 VLA 先用视觉编码器把图像压缩成固定表示再推理动作，容易丢失局部几何、边界、深度等对操作至关重要的精细信号。这篇提出无编码器的原生架构 NEO-VLA：图像经轻量 patch 卷积切分后与语言在主干网络中联合演化，flow-matching 动作专家可从不同深度的指令条件视觉表示中取信息。实验表明，原生架构在多项任务上一致优于编码器式对照，说明动作策略不应只继承固定的视觉终点，而应直接接入不断演化的视觉计算。关注机器人策略架构设计的人值得一读。"
+  },
+  {
+   "arxivId": "2611.06905",
+   "title": "Reinforcement Learning Enables Scaling Generalist Robot Policy Improvement",
+   "authors": [
+    "Michal Korniak",
+    "Marco Bagatella",
+    "Ralf Römer",
+    "Michal Nauman",
+    "Yarden As",
+    "Pranav Vignesh",
+    "Manan Agarwal",
+    "Leander Diaz-Bone",
+    "Piotr Zalewski",
+    "Mikołaj Czarnecki",
+    "Lenart Treven",
+    "Shashwat Saxena",
+    "Sreyas Venkataraman",
+    "Sarvesh Patil",
+    "Zhiyuan Zhou",
+    "Daniel Marta",
+    "Oier Mees",
+    "Nur Muhammad Mahi Shafiullah",
+    "Carmelo Sferrazza",
+    "Bhavya Sukhija",
+    "Angela P. Schoellig",
+    "Andreas Krause",
+    "Max Simchowitz",
+    "Andrew Wagenmaker"
+   ],
+   "url": "https://arxiv.org/abs/2611.06905",
+   "publishedAt": "2026-11-04",
+   "category": "强化学习",
+   "zhSummary": "通用机器人策略预训练后往往仍需针对部署场景做适配，而已有的迭代自改进强化学习大多只针对单任务。这篇追问：通用策略能否在部署阶段同时在多个不同任务上实现通用改进，以及什么样的算法配方能做到这一点。作者给出一套多任务改进配方并做了系统验证，结果表明强化学习可以在保持通用性的同时规模化地提升部署表现。这为“先大规模预训练、再用强化学习在部署中持续打磨”的机器人落地路线提供了实证支撑。"
+  },
+  {
+   "arxivId": "2611.06768",
+   "title": "PyRUA-REAL: Robot Exploration and Adaptive Learning through RSI in the Real World",
+   "authors": [
+    "Qiang Wang",
+    "Jianxin Bi",
+    "Shulong Jiang",
+    "Ruiyang Si",
+    "Wenbo Huang",
+    "Kaiqi Chen",
+    "Jiaxin Li",
+    "Liyun Li",
+    "Xuanyi Li",
+    "Daquan Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.06768",
+   "publishedAt": "2026-11-04",
+   "category": "递归自改进 RSI",
+   "zhSummary": "这篇把具身递归自改进搬进了真实世界：编码智能体在物理交互中探索、改代码、再部署，交互经验沉淀为持久记忆和可复用的可执行技能，指导后续的探索与改进。研究系统考察了智能体如何协作、什么样的执行反馈最利于代码精修，以及任务描述与已有技能如何影响鲁棒性与任务迁移。这是递归自改进从“模型自我改进”走向“真实机器人自我改进”的实证一步，值得持续跟踪。"
+  },
+  {
+   "arxivId": "2611.06876",
+   "title": "SpecCompact: Accelerating LLM Agent Context Compaction with Slot-Parallel Semantic Speculative Verification",
+   "authors": [
+    "Yulu An",
+    "Yifei Feng",
+    "Xiangyang Yin"
+   ],
+   "url": "https://arxiv.org/abs/2611.06876",
+   "publishedAt": "2026-11-04",
+   "category": "高效推理与部署",
+   "zhSummary": "长程智能体的上下文压缩是个延迟瓶颈：用大模型给越来越长的交互历史做摘要本身就很慢。这篇观察到结构化摘要槽位可以独立生成，于是提出 SpecCompact：用微调的小模型并行起草各槽位，目标模型逐行验证并修复被拒内容，后续起草沿用更新后的槽位前缀，同时减少重复上下文处理与模型调用。在 AppWorld 与 τ³ 基准上实现 2.04–5.63 倍的压缩加速。长程智能体部署中上下文管理的实用优化。"
+  },
+  {
+   "arxivId": "2611.06483",
+   "title": "What Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents?",
+   "authors": [
+    "Kejian Zhu",
+    "Zhuoran Jin",
+    "Shangqing Tu",
+    "Tianyi Men",
+    "Yupu Hao",
+    "Jiachun Li",
+    "Kang Liu",
+    "Jun Zhao"
+   ],
+   "url": "https://arxiv.org/abs/2611.06483",
+   "publishedAt": "2026-11-04",
+   "category": "智能体",
+   "zhSummary": "多轮智能体强化学习在长程任务上效果显著，但其收益到底来自哪里一直说不清楚。这篇用 Pass@(K,T) 在采样广度与交互深度两个维度上剖析：轨迹级强化学习的优势依赖充足的轮次预算，预算收紧时收益明显缩水；它并不均匀提升单步决策质量，强项集中在纠错与长程韧性。作者还提出训练时变化交互预算的 BudgetMix RL，以缓解部署中的预算依赖风险。对“强化学习到底给智能体带来了什么”的一次清醒拆解。"
+  },
+  {
+   "arxivId": "2611.06481",
+   "title": "ArcRAG: Agentic Compositional Retrieval over Knowledge Graphs",
+   "authors": [
+    "Jyotin Goel",
+    "Abhinav Arun",
+    "Tejas Prakash Agarwal",
+    "Bhaskarjit Sarmah",
+    "Stefano Pasquali"
+   ],
+   "url": "https://arxiv.org/abs/2611.06481",
+   "publishedAt": "2026-11-04",
+   "category": "RAG 与检索",
+   "zhSummary": "图谱检索增强生成（GraphRAG）的检索策略往往绑定自家图谱构建管线，换一种构建方式是否还奏效很少被检验。这篇提出 ArcRAG：在推理时从问题提到的实体出发，动态归纳出查询局部的图接口（节点标签、关系描述、属性键），据此规划多跳遍历并以 Cypher 执行与修复，完全不依赖构建期特定的 schema。在 MuSique、HotpotQA、TriviaQA 三个语料上以不同构建方式验证了跨构建可移植性。做 GraphRAG 落地时值得参考的设计思路。"
+  },
+  {
+   "arxivId": "2611.06425",
+   "title": "D3D: Decoupled Diffusion Drafting for Asynchronous Speculative Decoding",
+   "authors": [
+    "Baoyou Chen",
+    "Ruiqiao Mei",
+    "Guancong Lin",
+    "Tao Song",
+    "Weihao Yuan",
+    "Qun Liu",
+    "Siyu Zhu"
+   ],
+   "url": "https://arxiv.org/abs/2611.06425",
+   "publishedAt": "2026-11-04",
+   "category": "高效推理与部署",
+   "zhSummary": "目标条件扩散起草器有个串行瓶颈：每轮新块都要等目标模型的隐状态，导致起草与验证只能串行，限制了加速。这篇提出独立的扩散起草器 D3D：用块式去噪加辅助自回归监督，在不需要目标隐状态的情况下生成长接受前缀，从而可以在验证的同时起草后继块，实现异步推测解码。再按层对接受长度的影响逐步剪枝，剪掉 36 层中的 5 层仍保留 99% 以上的平均接受长度。在 Qwen3-8B 目标模型、7 个基准上取得加速，是推测解码方向的新思路。"
+  },
+  {
+   "arxivId": "2611.06817",
+   "title": "Open-HumanScale: An Open Recipe for Scaling Human and Robot Experience for Embodied Foundation Models",
+   "authors": [
+    "Juncheng Ma",
+    "Jiaxin Li",
+    "Jiankai Tu",
+    "Bo Liang",
+    "Guodong Lv",
+    "Yufan Deng",
+    "Junzhe Tang",
+    "Liangzhu Yang",
+    "Chen Bian",
+    "Zicong Cao",
+    "Baohao Zhu",
+    "Jianxin Bi",
+    "Tengfei Yan",
+    "Yinyuan Zhang",
+    "Kewei Zhang",
+    "Xinglong Chen",
+    "Kaiqi Chen",
+    "Duomin Wang",
+    "Xiaotian Tang",
+    "Liang Tan",
+    "Li Li",
+    "Yuan Xu",
+    "Haosen Yang",
+    "Yuqi Wang",
+    "Jingfei Xia",
+    "Songyan Huang",
+    "Zhiyang Dou",
+    "Zhen Dong",
+    "Enze Xie",
+    "Tat-Seng Chua",
+    "Daquan Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.06817",
+   "publishedAt": "2026-11-04",
+   "category": "具身智能与机器人",
+   "zhSummary": "第一人称人类视频是机器人操作先验的可扩展来源，但把原始数据规模转化为可泛化的机器人策略需要严格的数据筛选与训练配方。这篇给出首个完全开放的规模化配方：5 万小时经手部动作与自然语言密集标注的精选语料 Open-HumanScale-50K，并系统研究纯人类视频预训练，发现预训练数据量与下游机器人成功率之间呈对数线性 scaling law。据此训练的 HumanWAM-Vanilla 仅用人类视频预训练，经机器人后训练后在 RoboTwin 2.0 上达到 92.08% 成功率。数据与配方双开放，值得做具身预训练的人关注。"
+  },
+  {
+   "arxivId": "2611.06403",
+   "title": "Ruby-OPD: Enhancing Pronunciation Controllability and Accuracy for Flow-Matching Text-to-Speech via On-Policy Distillation",
+   "authors": [
+    "Rui Hu",
+    "Xiaolong Lin",
+    "Zhenpeng Zhan"
+   ],
+   "url": "https://arxiv.org/abs/2611.06403",
+   "publishedAt": "2026-11-04",
+   "category": "语音",
+   "zhSummary": "日语语音合成中发音准确性与细粒度可控性难以兼得：日语混用汉字与假名、多音字多，传统级联系统发音可控但丢语义韵律，零样本模型直接读原文更自然却多音字易错。这篇用 Ruby 文本表示（注音）结合正字法扰动，同时保留表层形式与目标发音，再以在线策略蒸馏做第二阶段优化。在发音可控性与准确性上取得改进。做多语言语音合成或日语语音的人值得一看。"
+  },
+  {
    "arxivId": "2611.05373",
    "title": "Aligning Language Models with General Preferences: An Empirical Study of Direct Nash Optimization",
    "authors": [
