@@ -1,6 +1,175 @@
 {
  "papers": [
   {
+   "arxivId": "2611.08409",
+   "title": "Conformal Prediction for Time-Dependent PDEs",
+   "authors": [
+    "Joshua Stiller",
+    "Annika Schneider",
+    "Eyke Hüllermeier"
+   ],
+   "url": "https://arxiv.org/abs/2611.08409",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "已接收 NeurIPS 2026。本文研究时间依赖偏微分方程代理模型的不确定性量化，指出传统保形预测在时间演化场景下会系统性低估覆盖率：函数空间中相邻时刻的分布可能相互奇异，精确覆盖保证在理论上就不可能。作者进一步证明离散化后分布间总变差距离随网格分辨率指数饱和，并给出基于加权保形预测的有限样本覆盖保证方法。值得看：把保形预测的失效机理讲透彻了，对做科学机器学习、洪水预报等安全关键应用的研究者有直接指导意义。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.08369",
+   "title": "NPCBench: A Clinical Apprenticeship Benchmark for Multimodal Care-Pathway Reasoning in Nasopharyngeal Carcinoma",
+   "authors": [
+    "Pengkai Wang",
+    "Wei-Wei Zhang",
+    "Yan Li",
+    "Min Tang",
+    "Zhitian Hou",
+    "Zeyu Liu",
+    "Guanghao Zhu",
+    "Yuanyi Wang",
+    "Yanggan Gu",
+    "Wenjun Wang",
+    "Minheng Ni",
+    "Congkai Xie",
+    "Zhijie Sang",
+    "Jianmin Wu",
+    "Ying Sun",
+    "Hongxia Yang"
+   ],
+   "url": "https://arxiv.org/abs/2611.08369",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "已接收 NeurIPS 2026（评测与数据集 Track）。现有医疗基准多考孤立知识点，NPCBench 首次按专科规培路径设计鼻咽癌临床基准：从指南知识、病例规划到纵向随访、CarePath 整合与开放式问诊，包含 4777 个组件与问诊条目和 100 名患者的 CarePath 队列、417 项评分任务。评测要求诊断与护理答案在整条照护路径上同时正确，检验模型能否结合多模态证据跟踪病情变化。值得看：医疗 AI 评测从单题问答走向全程照护能力，是临床基准设计的新范式。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.08302",
+   "title": "Dynamic Optimistic Constrained OCO with Memory via Delay Equivalence",
+   "authors": [
+    "Mohammed Abdullah",
+    "George Iosifidis",
+    "Salah Eddine Elayoubi",
+    "Tijani Chahed"
+   ],
+   "url": "https://arxiv.org/abs/2611.08302",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "已接收 NeurIPS 2026。本文研究带记忆与时变约束的在线凸优化（COCO-M），提出一种乐观算法，利用不可信预测同时控制通用动态遗憾与累积约束违反。关键技巧是把记忆约化为延迟、把状态依赖梯度视为延迟反馈，得到首个同时适应环境非平稳性与预测精度的界，并放宽了以往函数可分等限制性假设。值得看：在线学习与非随机控制的理论工作，记忆—延迟约化本身也有独立价值。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.08273",
+   "title": "Accelerating Safe Reinforcement Learning with Massive Parallelism",
+   "authors": [
+    "Joonyoung Lim",
+    "Younghwan Yoo"
+   ],
+   "url": "https://arxiv.org/abs/2611.08273",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "已接收 NeurIPS 2026。本文研究大规模并行下的安全强化学习：大量环境短时程 rollout 虽然提升吞吐，却与约束 MDP 的全回合代价约束不匹配。作者把交错重置建模为短轨迹片段的相位混合分布，刻画了相位覆盖带来的偏差，并提出相位聚合代价估计器，从短 rollout 批量中重建回合级代价估计，再结合有限样本不确定性做约束收紧。实验基于 MJX 的 Safety Gym，性能与非并行实现相当。值得看：让安全 RL 能真正用上大规模并行训练，对机器人与自动驾驶的安全策略训练有实用价值。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2611.08453",
+   "title": "Unpacking the Compute Efficiency of Strong-to-Weak OPD against GRPO",
+   "authors": [
+    "Zeyu Leo Liu",
+    "Yang Li",
+    "Bo Pang",
+    "Emre Can Acikgoz",
+    "Xuan-Phi Nguyen",
+    "Anurag Koul",
+    "Srijan Bansal",
+    "Erik Nijkamp",
+    "Shafiq Joty",
+    "Semih Yavuz"
+   ],
+   "url": "https://arxiv.org/abs/2611.08453",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文系统比较在线策略蒸馏（OPD）与 GRPO 的计算效率：以训练 FLOPs 衡量，外部后训练教师指导的 OPD 在相同设置下通常不如 GRPO，且常出现回答变长问题。但换一种教师后结论反转：用学生自己的 GRPO 检查点作教师，OPD 能以少 50 倍的蒸馏 FLOPs 恢复该检查点的数学准确率，且在更大规模学生、代码任务和另一模型家族上均成立。值得看：澄清了蒸馏与 RL 的效率之争，“自我蒸馏”可能是低成本复现 RL 效果的实用路线。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.08417",
+   "title": "Benchmarks as Software: Terminal-Bench and the Case for Continuous Benchmarks",
+   "authors": [
+    "E. Kelly Buchanan",
+    "Crystal Zhou",
+    "Scott W. Linderman",
+    "Christopher Ré"
+   ],
+   "url": "https://arxiv.org/abs/2611.08417",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出“基准维护债”概念：编码智能体基准即使发布时经过严格验证，也会随模型进步和评测基础设施变化而逐渐失真。作者设计了一套持续验证工作流，结合社区反馈、任务产物、智能体轨迹、自动 oracle 检查与人工把关修复，并应用于 Terminal-Bench 2.0，审计发现约 30% 的任务存在问题。修复后的 Terminal-Bench 2.1 使评测准确率变化超过 10 个百分点。值得看：对所有做智能体评测的人都是警醒——基准不是一劳永逸的，需要像软件一样持续维护。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.08373",
+   "title": "SLA: Scaling Spatial-Language-Action Model via Continual Pre-training",
+   "authors": [
+    "Fuhao Li",
+    "Wenxuan Song",
+    "Qizhou Huang",
+    "Ziyang Zhou",
+    "Jingbo Wang",
+    "Junwu E",
+    "Pengwei Wang",
+    "Yan Wang",
+    "Shunbo Zhou",
+    "Haoang Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.08373",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出空间—语言—动作模型 SLA，把隐式空间对齐做到持续预训练阶段：以预训练的 pi05 策略为起点，联合优化动作预测与中间视觉表征、冻结 3D 感知模型空间表征之间的对齐，并在下游后训练中保持这种对齐。作者统一整理了多源异构机器人数据集，并引入特征依赖门控来自适应聚合多层 VLA 的视觉表征。值得看：VLA 多从 2D 视觉语言预训练继承表征，SLA 把三维空间理解做成可迁移的基础能力，是具身基础模型的重要方向。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.08362",
+   "title": "SpecCTMC: Exact Speculative Simulation of Diffusion Language Model Continuous-Time Markov Chains",
+   "authors": [
+    "Siva Rajesh Kasa",
+    "Yasong Dai",
+    "Sumit Negi",
+    "Hongdong Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.08362",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "掩码扩散语言模型可并行生成文本，但独立采样多 token 会破坏依赖关系、改变输出分布；精确的连续时间采样又需每 token 一次顺序模型评估。本文提出无训练的推测式采样器 SpecCTMC，无需单独草稿模型：用已有模型预测提出连续 token 更新，并行评估中间状态，再用精确的接受—校正流程筛选。作者证明该方法完整保留底层连续时间马尔可夫链的事件时间、生成顺序与 token 值的联合分布。在 LLaDA-8B 与 Dream-7B 上，顺序模型评估次数减少 1.73–4.38 倍。值得看：扩散语言模型推理加速的精确解法，不牺牲分布正确性。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.08338",
+   "title": "GPWM: Modeling the World as 3D Particle Motion",
+   "authors": [
+    "Robert Ren",
+    "Matthew Bronars",
+    "He Zhu",
+    "Yikai Tang",
+    "Jianing Zhang",
+    "Sergey Zakharov",
+    "Pavel Tokmakov",
+    "Katerina Fragkiadaki"
+   ],
+   "url": "https://arxiv.org/abs/2611.08338",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出生成式粒子世界模型 GPWM，直接在三维物理空间中预测场景演化，生成粒子与刚体的运动轨迹，而非像视频世界模型那样生成画面外观。单一表征与架构覆盖刚体、可变形体、布料与颗粒材料，涵盖被动物理与机器人交互；模型是结合流匹配与扩散强制的对象感知多分辨率 Transformer。作者在 2550 万帧的 ParticleWorlds 语料上训练，六个物理域的预测误差平均降低 31%，统一模型甚至超越了各域专家模型。值得看：世界模型从“看视频”走向“懂物理”，是具身智能与仿真方向值得关注的工作。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.08219",
+   "title": "Agent-R$^2$: Scaling Agents for Realistic Productivity Work via Real-Source Data Synthesis",
+   "authors": [
+    "Teng Pan",
+    "Zixuan Wang",
+    "Yuchen Yan",
+    "Qifei Wu",
+    "Yao Chen",
+    "Yingqi Qu",
+    "Ruiqing Zhang",
+    "Yongliang Shen"
+   ],
+   "url": "https://arxiv.org/abs/2611.08219",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文针对智能体难以完成真实生产力任务的问题，提出基于真实来源的数据合成框架 Agent-R²：用真实职业种子、语料库衍生的工作流证据与网络真实文件来合成训练数据，而非人工设定流程或 LLM 生成文件。从 1 万个网络语料候选出发，蒸馏出 4000 个任务实例，每个实例配真实多格式附件与细粒度可交付成果级评测。值得看：智能体后训练缺的不是更多合成任务，而是贴近真实工作的任务与评测，这套方法直接补上了这个缺口。",
+   "category": "智能体"
+  },
+  {
    "arxivId": "2611.08487",
    "title": "User Embeddings are Superpositions of Interpretable Behavioral Modes",
    "authors": [
