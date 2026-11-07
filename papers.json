@@ -1,6 +1,169 @@
 {
  "papers": [
   {
+   "arxivId": "2611.08379",
+   "title": "Module-Aware Optimization for Graph Neural Networks",
+   "authors": [
+    "Guy Hadad",
+    "Haggai Roitman",
+    "Moshe Eliasof",
+    "Bracha Shapira"
+   ],
+   "url": "https://arxiv.org/abs/2611.08379",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "已接收 NeurIPS 2026。本文针对图神经网络（GNN）提出图感知优化器 GraphMuon：Adam、AdamW 做逐坐标更新，Muon 利用权重矩阵结构做正交化更新，但 GNN 权重矩阵的有效几何还受图传播后的表征影响，即使矩阵更新本身归一化良好，作用到图传播特征上仍可能被放大。GraphMuon 在图传播输入的协方差定义的度量下做正交化，并按更新对层表征的实际影响归一化步长，理论上缓解了普通 Muon 的图诱导更新放大问题。在三个大规模 OGB 基准上，GraphMuon 达到目标验证损失的速度比 AdamW 快 1.32–2.42 倍；15 组数据集—架构配置中有 13 组更快，同时保持相当或更优的预测性能。值得看：把 Muon 优化器适配到图结构，是 GNN 训练提速的扎实工作。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.08330",
+   "title": "InstantHand: Feed-Forward 3D Gaussian Splatting for Animatable Hand Avatar Reconstruction from a Single Image",
+   "authors": [
+    "Chanho Kim",
+    "Muhammad Salman Ali",
+    "Kyeonghwan Gwak",
+    "Muhammad Shaheryar",
+    "Incheol Park",
+    "Jeongwan On",
+    "Seungryul Baek"
+   ],
+   "url": "https://arxiv.org/abs/2611.08330",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "已接收 NeurIPS 2026。本文提出前馈框架 InstantHand，只需一张图片即可构建可动的三维高斯手部 avatar，无需多视角采集或逐人优化。针对图像平均损失对 alpha 泄漏监督不足、导致手指轮廓变粗的问题，作者提出 Soft Alpha Band 正则，把监督集中到剪影边界；针对从图像特征回归的颜色会漂向学习先验的问题，用可靠性门控的外观迁移按每个高斯的渲染贡献保留观测颜色、未观测区域再用先验补全。整个 avatar 构建仅需 2.84 秒，渲染达 161 FPS，在 InterHand2.6M 上与逐人优化的基线相当，在 HanCo 零样本评测中也有竞争力。值得看：单图秒级建可动手部 avatar，虚拟化身与手势交互方向的实用进展。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.08477",
+   "title": "EgoGeneralist: Unifying Egocentric Action-Video Tasks through Video-Native Modeling",
+   "authors": [
+    "Yanlin Jin",
+    "Bowen Yang",
+    "Cheng Zhang",
+    "Yifan Yang",
+    "Zhe Li",
+    "Jianfei Cai",
+    "Kai Zhu"
+   ],
+   "url": "https://arxiv.org/abs/2611.08477",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出 EgoGeneralist，把预训练视频生成器适配为统一的第一人称动作—视频通用框架，覆盖动作条件视频生成、姿态估计与动作—视频联合生成等五项任务。关键设计有二：角色自适应的动作渲染器提供视频原生的动作表征，让度量 3D 动作既可作空间控制信号、也可作生成目标；跨流动作—视频耦合用轻量适配建立度量运动与视觉动态的紧密对应，同时保留预训练的视觉先验。尽管只在受控实验室录制数据上适配，模型仍能泛化到多样的未见场景与交互，兼顾动作控制与视觉质量。值得看：把视频生成先验与度量 3D 人体动作打通，是第一人称视频理解与生成的统一路线。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2611.08308",
+   "title": "RM-VLM: From Natural-Language Task Descriptions to Vision-Grounded Reward Machines",
+   "authors": [
+    "Roko Parac",
+    "Christos Ziakas",
+    "Leo Ardon",
+    "Alessandra Russo"
+   ],
+   "url": "https://arxiv.org/abs/2611.08308",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出 RM-VLM，把奖励机（reward machine）这一刻画非马尔可夫任务的奖励形式推广到无需手工标注函数的场景：大语言模型根据自然语言任务描述生成奖励机，视觉语言模型担任标注函数，在图像观测上为奖励机的命题做视觉 grounding；再用基于 VLM 的价值估计评估朝奖励机各转移的进展，导出稠密奖励信号。方法在非马尔可夫网格导航、机器人操作与 3D 物体收集三个领域上评测，任务成功率在全部领域上都稳定超过现有的基于 VLM 的奖励方法。值得看：让奖励机从手工工程走向“语言描述即任务”，为具身 RL 的奖励设计提供了可复用的范式。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2611.08286",
+   "title": "Interactive Visual Gym: Evaluating Visual Interaction Models with Simulated Users in Interactive Worlds",
+   "authors": [
+    "Chenhao Zheng",
+    "Zixian Ma",
+    "Kai Li",
+    "Kanchana Ranasinghe",
+    "Jieyu Zhang",
+    "Artemis Panagopoulou",
+    "Weikai Huang",
+    "Jianxu Shangguan",
+    "Yuanyuan Tan",
+    "Silvio Savarese",
+    "Juan Carlos Niebles",
+    "Ranjay Krishna",
+    "Ran Xu",
+    "Honglu Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.08286",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出 Interactive Visual Gym，首次把视觉交互模型的评测放进闭环：助手在进行中的物理任务里提供支持，其回应会改变后续用户行为与任务结果，而现有基准多用离线回放，捕捉不到这种效应。框架用三个模拟器还原烹饪、家庭操作与手机界面任务，并配以带人格条件的用户模拟，能协作也会犯可控的执行错误与计划外行为；实例化的 IVG-Bench 含 315 个交互场景。评测发现最强的 Gemini 4 Argon 也只能在时限内完成 53.4% 的任务，事实 grounding 与可操作指导均有明显短板；人类研究显示交互质量指标与参与者偏好的一致性达 78.5%。值得看：视觉交互评测从离线打分走向闭环仿真，还验证了闭环训练能提升模型表现。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.08372",
+   "title": "MOMASPLAT: Dynamic Novel-View Demonstration Augmentation for Mobile Manipulation",
+   "authors": [
+    "Sateesh Kumar",
+    "Arnav Balaji",
+    "Arpit Bahety",
+    "Skand Peri",
+    "Georgios Pavlakos",
+    "Roberto Martín-Martín"
+   ],
+   "url": "https://arxiv.org/abs/2611.08372",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出 MOMASPLAT，解决移动操作中示教数据对相机视角敏感的问题：机器人很少能从与采集示教时完全相同的底座位姿执行操作，而现有的新视角合成增强只假设静态场景，无法重渲染接触后被操作物体的动态变化。MOMASPLAT 利用移动操作采集天然提供的多视角观测，分别重建静态场景与被操作物体，再从未见过的底座位姿渲染完整操作轨迹，并用运动学重定向生成几何一致的合成示教与变换后的动作。在五个真实移动操作任务上，该方法把最强基线对未见底座位姿的平均成功率提升一倍以上，在基线全部失效的大位移下仍保持非零成功率。值得看：让视角增强覆盖操作全过程，是移动操作数据扩增的关键一步。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.08383",
+   "title": "FedReason: Large Language Models as Weight-Space Meta-Aggregators for Heterogeneous Federated Learning",
+   "authors": [
+    "Ali Mohammadi Ruzbahani",
+    "Abbas Yazdinejad",
+    "Hadis Karimipour"
+   ],
+   "url": "https://arxiv.org/abs/2611.08383",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出 FedReason，让大语言模型在联邦学习中担任权重空间的元聚合器：服务器每十轮调用一次 LLM，LLM 在受限沙箱中运行代码分析各客户端权重，可在 500 张图的代理集上打分候选方案，最终提交一段简短的 Python 聚合程序；输出无效时回退 FedAvg，完整权重张量不出服务器。在 CIFAR-10/100 的 168 次实验中，FedReason 在标签偏移下平均比 FedAvg 高 1.26 个百分点；三个客户端恶意翻转符号时能从首轮就排除全部恶意客户端，接近 FLTrust 的水平；但无代理反馈时精度会从 73.8% 暴跌至 38.8%。值得看：用 LLM 动态选择聚合规则的新思路，也暴露了它对代理反馈的强依赖。",
+   "category": "分布式训练"
+  },
+  {
+   "arxivId": "2611.08433",
+   "title": "MedGraph: Maintaining Patient State with Graph Memory for Long-Term Medical Dialogue",
+   "authors": [
+    "Donghua Zhang",
+    "Zizheng Wang",
+    "Ze Dong",
+    "Yiding Feng",
+    "Siyu Qian"
+   ],
+   "url": "https://arxiv.org/abs/2611.08433",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出 MedGraph，面向跨多次就诊的长期医疗对话的图记忆：作者先分析五种记忆系统在纵向医疗对话中的错误，发现三大成因——检索到的证据状态过时、混入他人的健康事实、缺少回答所依赖的安全事实。MedGraph 从每轮会话抽取带日期的事实、按所属人归属，并把用药、诊断与测量记录连成保留历史状态的链；检索时以患者的数据链为单位排序，按问题所问的时间点读取，并附上原始对话文本，患者档案则随每个问题列出全部已记录安全事实。在 MedMemoryBench 上，MedGraph 在 GPT 与 Qwen 两种主干下均为最高准确率，比五种基线中最强的分别高 10.5 与 10.4 个百分点。值得看：医疗对话记忆从“存文本”走向“按人、按时间维护状态”，是医疗助手落地的关键能力。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.08269",
+   "title": "Accepted but Wrong: Silent Failures of LLM Code Repairs after API Migrations",
+   "authors": [
+    "Xiaobo Chen",
+    "Genliang Zhu",
+    "Ziyuan Wang",
+    "Chu Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.08269",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文做了一项预注册研究，揭示 LLM 代码修复中“能跑但结果错”的静默失败：覆盖 CPython、Node.js 与 SQLite 的 60 处文档化变更、73 个任务，全部候选都在真实运行时上对照隐藏契约执行。仅用典型输入的全断言门控会放行 41% 的错误修复；按发布说明写一条边界输入可把放行率压到 6.5%，而未见过程序的盲写 GPT-5.6-luna 生成的三条输入也能达到 7.0%。但在加入 233 个在典型输入上与旧输出一致的硬干扰项后，仍有约 15–17% 的错误程序通过；自测帮助有限。值得看：给 LLM 代码修复的评测敲了警钟——“跑通了”远不等于“修对了”，边界输入才是关键防线。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.08425",
+   "title": "Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing",
+   "authors": [
+    "Michal P. Podolinsky",
+    "Yunhao Yang",
+    "Daniel Little",
+    "Hong Lu",
+    "Rohan Siva",
+    "Olin Goudey",
+    "Neel P. Bhatt",
+    "Matthias Scheutz",
+    "Ufuk Topcu"
+   ],
+   "url": "https://arxiv.org/abs/2611.08425",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出 VLA-Tug，为视觉—语言—动作（VLA）模型配一个轻量运行时故障监测器：VLA 在分布偏移下很脆弱，意外失败可能损坏设备或危及人身，而现有方法难以同时做到及时、校准、有信息量且能在边缘运行。VLA-Tug 在 VLA 主干的隐层上加轻量探针，用轨迹中故障前的片段做监督，在相同误报率下把早期故障检测提升最多 30%，且对漏检与误报率给出有界保证；它还能预测故障模式以便采取纠正动作，在未见任务上 top-3 准确率比多数基线高最多 44%。作者还发布了 3,180 个带标注的操作片段数据集。值得看：给具身模型装上“故障预警仪表盘”，是 VLA 真机部署不可或缺的安全件。",
+   "category": "具身智能与机器人"
+  },
+  {
    "arxivId": "2611.08414",
    "title": "Spectral and Subspace Dynamics of LoRA in Supervised Fine-Tuning and Reinforcement Learning",
    "authors": [
