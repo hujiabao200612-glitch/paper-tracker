@@ -1,6 +1,168 @@
 {
  "papers": [
   {
+   "arxivId": "2611.08414",
+   "title": "Spectral and Subspace Dynamics of LoRA in Supervised Fine-Tuning and Reinforcement Learning",
+   "authors": [
+    "Chenruo Liu",
+    "Zihan Wang",
+    "Yijun Dong",
+    "Qi Lei"
+   ],
+   "url": "https://arxiv.org/abs/2611.08414",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文追踪数学推理任务上 LoRA 更新的奇异谱与子空间，比较 SFT 与 RL 两个阶段的动态差异：RL 在所有学习率下都会集中谱分布，SFT 在中等学习率下则扩展谱；RL 在小学习率下旋转奇异子空间的速度也远快于 SFT。作者通过逐一插值两个阶段的要素，锁定群均值基线相减是造成这两处差异的根源，并用二次多指标模型揭示了其机理：基线相减使相干拟合与梯度噪声的平衡向谱集中和快速子空间旋转倾斜，同时迫使风险最优学习率偏低。基于这一认识，作者为 SFT 和 RL 各自定制了 LoRA 更新策略。值得看：把 SFT 与 RL 的 LoRA 动态差异讲透彻了，对调参和设计后训练流程有直接指导意义。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.08407",
+   "title": "Social Humanoid: Socially Responsive Human-Humanoid Interaction",
+   "authors": [
+    "Vongani H. Maluleke",
+    "James Ni",
+    "Kie Horiuchi",
+    "Lea Wilken",
+    "Jiahui Lei",
+    "Evonne Ng",
+    "Roei Herzig",
+    "Jitendra Malik",
+    "Trevor Darrell",
+    "Angjoo Kanazawa"
+   ],
+   "url": "https://arxiv.org/abs/2611.08407",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "本文提出面向人形机器人的社交互动系统 Social Humanoid（CoRL 2026），让 29 自由度的 Unitree G1 能根据人类搭档的动作生成并执行具有社交响应性的全身运动。高层策略用共享 token 化表征对人与人形机器人的运动做序列建模，既能实时反应，也能在搭档被遮挡时预测其动作；低层全身跟踪控制器负责在真机上执行。为训练该系统，作者设计了两阶段自适应重定向流程，把双人动捕数据转为人—人形机器人交互数据，建成 260 小时的 HHI 基准。值得看：人形机器人从独自行动走向与人协同，是具身交互方向的重要一步。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.08413",
+   "title": "T3R: Training-Free Two-Stage Token Refinement Towards Efficient and Robust VLA Models",
+   "authors": [
+    "Mohammed Hassan",
+    "Zhenyang Chen",
+    "Zheng Wang",
+    "Zhixin Zhu",
+    "Tianlong Chen",
+    "Yingyan",
+    "Lin",
+    "Chaojian Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.08413",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "VLA 模型每步决策要处理数百个视觉 token，多相机下计算开销大，无关背景还会干扰动作预测。本文提出无需训练的两阶段 token 精炼框架 T3R：第一阶段用分割引导的 token 剪枝去掉空间上无关的视觉 patch，减少计算并消除干扰上下文；第二阶段用显著性引导的注意力偏置，把注意力重新分配到与动作决策最相关的视觉区域和语言指令上。剪枝先给出更干净的候选集，注意力偏置再突出最关键的证据，兼顾准确率与效率。值得看：不训练就能给 VLA 模型提速增稳，是具身模型落地的实用方法。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2611.08307",
+   "title": "Measured Coupling for Parallel Decoding in Diffusion Language Models",
+   "authors": [
+    "Tal Oved",
+    "Lior Wolf"
+   ],
+   "url": "https://arxiv.org/abs/2611.08307",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "扩散语言模型每步可并行写多个 token，但要判断哪些 token 可以安全地一起提交。均值场解码用一对位置预测是否相似作代理来惩罚，本文直接改用耦合本身：提交一个 token 会在多大程度上改变模型对另一个位置的置信度。耦合通过主前向过程中的廉价探针测得，无需训练或额外模型，可直接接入同一均值场规则。在三个模型、四个基准上，该方法比均值场解码需要的步数少得多，多数设置下更快，平均准确率仅下降 1.1 个点。值得看：扩散语言模型并行解码的精确化方案，兼顾速度与分布正确性。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.08290",
+   "title": "AutoCompress: Automated Hardware-Guided Model Compression",
+   "authors": [
+    "Sheldon Liang",
+    "Ali Taghibakhshi",
+    "Saurav Muralidharan",
+    "Sharath Turuvekere Sreenivas",
+    "Ashwath Aithal",
+    "Pavlo Molchanov",
+    "Nima Tajbakhsh"
+   ],
+   "url": "https://arxiv.org/abs/2611.08290",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "LLM 剪枝既要保质量，又要满足延迟、吞吐与显存等硬件与负载约束，但现有流程多以参数量为目标，需要人工挑选模型尺寸，而参数量并不能预测这些指标。本文提出硬件引导的压缩框架 AutoCompress，把约束直接纳入可微架构搜索，联合优化全局与逐层结构，生成异构架构，并用经端到端实测验证的 serving 引擎代价模型指导搜索。在长上下文本地编程、批量数据中心服务和延迟敏感的游戏内交互三类场景中，AutoCompress 相比最先进的 Minitron 剪枝框架，八个基准的平均准确率分别提升 6.57、2.35 和 0.57 个百分点。值得看：把剪枝从“压参数量”变成“按硬件指标压”，是模型部署的实用路线。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.08240",
+   "title": "FewStepRL: Fine-tuning Few-step Diffusion Models with Reinforcement Learning",
+   "authors": [
+    "Haitao Lin",
+    "Minsi Ren",
+    "Yang Li",
+    "Xingtong Ge",
+    "Zheyuan Hu",
+    "Peiyan Hu",
+    "Tailin Wu"
+   ],
+   "url": "https://arxiv.org/abs/2611.08240",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "强化学习已成为扩散模型的标准后训练方法，但多数 RL 目标每轮都要用当前策略 rollout，而多步采样器的 rollout 成本往往主导训练。少步模型能降低这一成本，但它们建模的是区间上的平均速度，现有 RL 目标却是为瞬时速度与多步采样器设计的。本文分变换、分解、适配三阶段，把 RL 目标系统地适配到少步模型：先把目标统一到 x 空间表达，再把梯度分解为向参考点的自回归与奖励增强两项，最后按少步结构做适配。值得看：为少步扩散模型的 RL 后训练补上了系统化的方法论，技术报告篇幅 86 页，细节充分。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.08237",
+   "title": "Terminal-style Mathematical Modeling Bench: The First Agentic and Verifiable Benchmark for Mathematical Modeling",
+   "authors": [
+    "Xiaojun Wu",
+    "Cehao Yang",
+    "Xuhui Jiang",
+    "Chengjin Xu",
+    "Jia Li",
+    "Jian Guo"
+   ],
+   "url": "https://arxiv.org/abs/2611.08237",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "数学建模要求把开放式现实问题变成假设、模型、求解与论证，答案只有同时接近可信参考且物理可行才有意义；现有基准要么只评求解片段，要么用 LLM 评委打分，数字都未经核验。本文提出首个同时做到智能体化、可验证、终端化的数学建模基准 TB-MathModel，覆盖 18 道真实的 CUMCM 与 MCM 赛题（2023–2025），每题附原始题干、官方附件与图表，智能体在容器化终端中返回一个 JSON 成果，按与特等奖论文复现结果的数值核心打分。评分设计了方向感知单侧计分（优于锚点不扣分）与两层可行性验证（含 624 条 Lean 4 义务），硬门槛不通过直接归零。值得看：把数学建模评测从“看报告写得像不像”变成了可复现的硬指标。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.08231",
+   "title": "From Twisted Facts to Rogue Agents: Can LLMs Reliably Detect Multi-Dimensional Hallucinations?",
+   "authors": [
+    "Hanyu Qiu",
+    "Ze Liu",
+    "Zhe Zhao",
+    "Kuang Xiong",
+    "Blaze Chen",
+    "Zhenxiang Yan",
+    "Renfen Hu"
+   ],
+   "url": "https://arxiv.org/abs/2611.08231",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "大模型输出的幻觉往往细微且高风险，但现有评测多只看文本事实，缺乏对智能体轨迹中忠实性幻觉的系统检验。本文提出大规模双语基准 HaluCheck，包含 4.2 万多个实例，覆盖文本中的事实幻觉与智能体轨迹中的忠实性幻觉，并提供检测、定位与纠正三个层次的细粒度标注。14 个模型的实验表明，模型具备基础的样本级检测能力，但在细粒度定位、纠正与智能体幻觉检测上仍显吃力；思维链、联网搜索与 SFT 各有部分提升，但都不能彻底解决问题。值得看：为 LLM 可靠性评测补上了智能体场景的一块，是幻觉检测方向的扎实基准。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.08281",
+   "title": "Multimodal-SEA: Benchmarking AI Agent Security under Multimodal Social Engineering Attacks",
+   "authors": [
+    "Zhitao He",
+    "Chi Him Zhang",
+    "Chengru Han",
+    "Yi R Fung"
+   ],
+   "url": "https://arxiv.org/abs/2611.08281",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "个人 AI 智能体面临伪造多模态内容的社会工程攻击，但现有评测多集中于文本对话，对智能体在多模态攻击下的内在安全性研究不足。本文提出交互式基准 Multimodal-SEA，包含 608 个基于真实诈骗案例设计的专家任务，覆盖 14 个领域、152 种攻击场景，任务分四个难度等级，兼顾中英文社会文化背景。评测在模拟应用中进行，攻击结果以可验证的工具执行日志为准；配套的多模态攻击框架可控制攻击进程与内容构造，实现可控红队测试。七个主流多模态模型的评测显示，现有模型在多模态社会工程攻击面前普遍脆弱。值得看：把智能体安全评测从文本扩展到多模态社会工程，是安全方向值得关注的基准。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.08179",
+   "title": "Knowing When to Teach: Learning from Teachable Prefixes in Multilingual Reasoning Distillation",
+   "authors": [
+    "Jaewon Cho",
+    "Minseo Yoon",
+    "Jinyoung Park",
+    "Jinwoo Seo",
+    "Jaewon Chu",
+    "Alice Oh",
+    "Hyunwoo J. Kim"
+   ],
+   "url": "https://arxiv.org/abs/2611.08179",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "用自身推理做自我蒸馏（OPSD）能提升推理能力，但把它用到多语言推理时，教师要跨语言提供有用反馈；学生中途出错积累后，教师可能顺着错误步骤走下去而非纠正，作者称之为教师漂移（Teacher Drift），且在低资源语言中出现得更早。本文提出可教化在策略自我蒸馏（TOPSD），用师生似然估计漂移开始的位置，只选取漂移前的可教前缀进行监督，并验证教师能否从该前缀恢复正确答案，仅对通过验证的前缀应用蒸馏。在多语言数学推理实验中，该方法有效缓解了教师漂移。值得看：把自我蒸馏的失效机理讲清楚并给出可操作的修复，对多语言推理后训练有直接参考价值。",
+   "category": "推理"
+  },
+  {
    "arxivId": "2611.08409",
    "title": "Conformal Prediction for Time-Dependent PDEs",
    "authors": [
