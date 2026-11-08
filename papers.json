@@ -1,6 +1,178 @@
 {
  "papers": [
   {
+   "arxivId": "2611.08472",
+   "title": "XStack: A Benchmark for ML Repo Migration",
+   "authors": [
+    "Linrong Cai",
+    "Taiming Lu",
+    "Haozhe Chen",
+    "Zhuang Liu"
+   ],
+   "url": "https://arxiv.org/abs/2611.08472",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "针对机器学习代码在 PyTorch/NVIDIA 与 JAX/TPU 两大生态间迁移的难题，本文提出 XStack 基准，考查智能体能否把整个 PyTorch 仓库迁移为可在干净 TPU 机器上运行的 JAX 仓库。评测以源仓库已发表的结果为准绳，由人工标定评分标准，覆盖框架与硬件的双重跨越、长程任务与整库级改造。实验显示，即便是最强的智能体也难以完成迁移，说明这是一项对长程规划与跨框架调试能力要求很高的任务。值得看：它把一个真实的工程痛点变成了衡量智能体长程能力的硬基准。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.08458",
+   "title": "Latent RL Priors for Data-Efficient Dexterous Manipulation",
+   "authors": [
+    "Yixiao Wang",
+    "Peiyi Chen",
+    "Mustafa Mukadam",
+    "Shreekant Gayaka",
+    "Masayoshi Tomizuka",
+    "Son Tran"
+   ],
+   "url": "https://arxiv.org/abs/2611.08458",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "灵巧操作仅靠少量视觉演示很难学好，而仿真中的强化学习能借助特权信息学到丰富的控制行为。本文提出 Latent RL Prior 两阶段框架：先在特权预训练中把大规模 RL 轨迹蒸馏为以本体感知和隐任务上下文为条件的流匹配动作解码器，再冻结解码器、只用动作监督学习把图像映射到隐上下文。同一解码器还能通过学习协调的视觉上下文在双臂之间共享。值得看：它把仿真 RL 的控制知识高效复用到视觉策略学习中，显著降低了灵巧操作对演示数据的需求。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.08449",
+   "title": "VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding",
+   "authors": [
+    "Yu-Cheng Chou",
+    "Shihao Wang",
+    "Jin Huang",
+    "Chi-Pin Huang",
+    "Chiao-An Yang",
+    "Xianzhe Fan",
+    "Jing Wang",
+    "Zhiqi Li",
+    "Yuanguo Kuang",
+    "Ruijie Zheng",
+    "Johan Bjorck",
+    "Sifei Liu",
+    "Hang Su",
+    "Abhishek Badki",
+    "Lei Zhang",
+    "Alan Yuille",
+    "Linxi \"Jim'' Fan",
+    "Jan Kautz",
+    "Zhiding Yu"
+   ],
+   "url": "https://arxiv.org/abs/2611.08449",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "物理 AI 任务需要视觉语言模型输出点、框、轨迹等视觉规划，但自回归模型逐 token 生成坐标，预测越丰富成本越高。本文提出 VFlash，用 Flash Primitive Decoding 一次前向就生成整个视觉基元：轻量草稿器按基元类型、维度和长度自适应布局，并行预测坐标。关键发现是空间精度并不要求复现自回归模型的精确 token 序列。在机器人与自动驾驶相关的视觉规划任务上，VFlash 在保持精度的同时大幅提速。值得看：它为视觉语言模型的空间推理提供了一条更快更便宜的解码路线。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.08394",
+   "title": "Synthesis of Ovarian Cancer Multi-Omics Datasets: A Biology-Informed Evaluation Framework",
+   "authors": [
+    "Déborah Boyenval",
+    "Alina Malyutina",
+    "Jaana Oikkonen",
+    "Sammeli Liikkanen",
+    "Sampsa Hautaniemi"
+   ],
+   "url": "https://arxiv.org/abs/2611.08394",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "入选 NeurIPS 2026 GenAI4Health 研讨会，并收录于 ML4H 2026 Findings。本文不提出又一个生成架构，而是为卵巢癌多组学合成数据建立生物学上有意义的评测框架：评估合成的 RNA 表达与拷贝数变异配对数据是否保留了真实的生物结构。框架在 DECIDER 高级别浆液性卵巢癌纵向队列上验证，考察模态内保真度与 RNA-CNV 配对一致性，并以真实训练集与留出集的一致性为参照。值得看：在生成模型加速发展的背景下，它把焦点从“能生成”转向“生成的东西在生物学上是否可信”，为合成医学数据提供了可复用的评判标准。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.08209",
+   "title": "RoboARCade: Benchmarking Agentic Robot Control",
+   "authors": [
+    "Satvik Sharma",
+    "Hengyuan Hu",
+    "Mihika Kamat",
+    "Dorsa Sadigh",
+    "Jeannette Bohg"
+   ],
+   "url": "https://arxiv.org/abs/2611.08209",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "随着多模态能力提升，智能体开始直接充当机器人策略，但缺乏衡量其长程操控能力的基准。本文提出 RoboARCade：在 MuJoCo 单一仿真后端上搭建覆盖三种机器人本体的长程操作任务，考查上下文适应、记忆与精确控制，并通过放宽初始条件加大难度。评测显示领先模型仍有很大提升空间：GPT-6 Astra 得分 49.8%，Claude Fable 5.1 为 43.6%。值得看：它首次系统区分了不同智能体在真实机器人控制上的能力差距，并为新任务与新接口留了可扩展的设计。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.08216",
+   "title": "ProQuant: Progressive Quantization-aware Training for Edge MLLMs",
+   "authors": [
+    "Yufei Xue",
+    "Yushi Huang",
+    "Jiawei Shao",
+    "Pingcheng Dong",
+    "Yonghao Tan",
+    "Shiyao Li",
+    "Kwang-Ting Cheng",
+    "Jun Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.08216",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "多模态大语言模型难以部署在边缘设备上，训练后量化在 W8A8 尚可，但低比特（如 W4A8）下性能严重下滑，尤其对适合边缘的小模型。本文提出 ProQuant，一种面向低比特 MLLM 的权值-激活量化感知训练框架，通过对齐有限微调数据与预训练数据的分布来稳定训练。实验表明，ProQuant 在低比特量化下显著优于训练后量化方法，让小尺寸 MLLM 在边缘设备上保持可用性能。值得看：它把量化感知训练真正做到了多模态低比特场景，是边缘端部署 MLLM 的实用进展。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.08196",
+   "title": "SMART: State-based Multi Agent Reasoning Traces for Verification-oriented Problem-Solving",
+   "authors": [
+    "Sai Vallurupalli",
+    "Francis Ferraro"
+   ],
+   "url": "https://arxiv.org/abs/2611.08196",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "复杂问题常常超出有限上下文，需要从外部获取解题所需的知识。本文提出多智能体框架 SMART：通过结构化角色提示与多种大语言模型，捕捉问题中实体的隐含状态，整理出多样、互补且与解法相关的前提知识，再用这些经真实世界验证的前提引导解题推理。实验显示，在三个复杂科学断言数据集上，验证性能最高提升 20%，且前提扎根真实知识本身就能带来约 5% 的提升。值得看：它说明多智能体协作整理知识状态，是提升可验证推理的有效路径。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.08185",
+   "title": "Multimodal Hierarchical Mixture-of-Experts for 3D Medical Vision-Language Modeling",
+   "authors": [
+    "Gizem Mert",
+    "Szymon Płotka",
+    "Pedro R. A. S. Bassi",
+    "Wenxuan Li",
+    "Zongwei Zhou",
+    "Jarosław B. Ćwikła",
+    "Arkadiusz Sitek",
+    "Ewa Szczurek"
+   ],
+   "url": "https://arxiv.org/abs/2611.08185",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "已接收 WACV 2027。医学三维扫描与报告具有层次结构，诊断线索集中在特定解剖区域的不同组织层级，但现有医学视觉语言模型大多忽略这一结构。本文提出 MedHiVE：用层次化视觉-语言软混合专家结合对比学习，同时建模细粒度解剖结构与全局扫描上下文。框架首次让视觉与文本 token 都经过按解剖尺度组织的两级软 MoE 路由，并用报告导出的解剖级对比对齐做训练。值得看：它把“按解剖层级路由”的思想引入 3D 医学视觉语言模型，为医学影像理解提供了一个结构更贴合临床的建模方式。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2611.08156",
+   "title": "La-JEPA: Compact Robot Policies with Latent World Modeling",
+   "authors": [
+    "Mateo Clémente",
+    "George Z. Xue",
+    "Amin Abyaneh",
+    "Liheng Ma",
+    "Rui Heng Yang",
+    "Tongtong Cao",
+    "Zhanguang Zhang",
+    "Yingxue Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.08156",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "世界-动作模型常改编预训练视频生成器，视觉-语言-动作模型则依赖预训练视觉语言主干，两者都把策略架构与推理成本绑定在为生成而设计的大 Transformer 上。本文提出 La-JEPA：一个紧凑的世界-动作模型，策略 Transformer 在预训练 V-JEPA 2.1 编码器的特征空间中从头训练，训练时联合预测未来特征与动作，推理时只生成动作。在 RoboTwin 2.0 与 LIBERO-Plus 上，它在无具身预训练的策略中达到最优性能。值得看：它证明了为控制而生的小模型可以摆脱生成式大模型的包袱，是具身策略轻量化的重要探索。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.08177",
+   "title": "BabyTheorist: A Benchmark for Learning to Theorize the World from Observation Alone",
+   "authors": [
+    "Doojin Baek",
+    "Junyeob Baek",
+    "Mingyu Jo",
+    "Hosung Lee",
+    "Taegu Kang",
+    "Gyubin Lee",
+    "Sungjin Ahn"
+   ],
+   "url": "https://arxiv.org/abs/2611.08177",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "机器是否真正理解世界，一个关键能力是从纯观察中习得可复用的理论并迁移到新情境。本文提出 BabyTheorist 基准：从隐藏的组合程序生成连续的前后视觉观察流，学习者训练时只能看到状态转移，看不到程序标签、任务身份或示例集。基准可控地调节程序语言、课程难度与高频模式，专门评测“观察式理论学习”。值得看：它把“从观察中总结规律”这一能力单独抽出来做可控评测，为研究机器的世界理解提供了一个新标尺。",
+   "category": "评测基准"
+  },
+  {
    "arxivId": "2611.08379",
    "title": "Module-Aware Optimization for Graph Neural Networks",
    "authors": [
