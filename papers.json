@@ -1,6 +1,148 @@
 {
  "papers": [
   {
+   "arxivId": "2611.08486",
+   "title": "Do You Miss the Nights We Spent Crafting Figures? Rethinking Teaser and Framework Figures in the Age of Generative AI",
+   "authors": [
+    "Xiaoqi Zhao",
+    "Youwei Pang",
+    "Kailai Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.08486",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "生成式 AI 正在改变科研论文配图的生产方式，但它是否拉低了图表的表达质量？本文回顾了 200 篇论文中的 371 张动机图与框架图，用一个多模态评判器从沟通与设计六个维度打分，并尝试在忠实原文的约束下用 AI 重绘全部图表。结果显示原图质量并无随时间统一下降；AI 重绘后清晰度平均提升 0.428 分（五分制），但美学连贯性下降 0.111 分，且附加解释能澄清对比关系，却解决不了排版层次与视觉经济性问题。值得看：它用数据回应了“AI 作图是否让论文图变差”的焦虑，结论是 AI 适合辅助探索、作者仍需把控表达意图。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2611.08452",
+   "title": "ReproBridge: Building Reproducibility into ML Research Artifacts",
+   "authors": [
+    "Yubo Wang",
+    "Rui Meng",
+    "Jaehyun Nam",
+    "Tomas Pfister",
+    "Jinsung Yoon"
+   ],
+   "url": "https://arxiv.org/abs/2611.08452",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "复现机器学习实验难在流程散落在论文、代码与附件中，编码智能体常靠“补细节”而非靠产物本身完成复现。本文提出标准化可复现产物设计——精炼代码库、环境配置、实验启动器与复现指南，以及构建它的智能体工作流 ReproBridge，并发布 ReproBridge-Bench（36 篇论文、387 个实验、1029 个任务，每任务 5 个人工验证的参考分数）。在四个模型上，精炼产物把平均复现成功率从 76.4% 提升到 92.6%，下游 API 花费平均降低 19.7%，且各模型成功率差距从 21.6 个百分点收窄到 3.9 个。值得看：它把“可复现”从口号变成可度量的产物标准与基准。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.08428",
+   "title": "The Power of Meta Access in the Software of the Future --- Demonstrated on LLM Chat UIs and Chat AI",
+   "authors": [
+    "Julian Kunkel",
+    "Ali Doosthosseini"
+   ],
+   "url": "https://arxiv.org/abs/2611.08428",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "聊天仍是 LLM 任务的默认界面，但模型只看得到对话，看不到界面本身。本文提出“元访问”（meta access）：给助手一个结构化、带权限的界面视图，并划分了从功能教学、元数据访问、摘要检索、确认式修改到全面编排的层级阶梯。作者在 Meta Chat 原型中落地了这一想法：基于摘要、设置与相关消息构建有界上下文，支持可确认、可撤销的修改，并把聊天从“一个对话的窗口”变成整个工作空间的控制层。值得看：它为聊天之外的下一代助手界面给出了一套清晰的概念框架，并提醒通用智能体框架能改自身设置，需要独立的控制平面边界。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.08390",
+   "title": "SCALE: Real-Time Latent Communication for Cyber-Physical Agents",
+   "authors": [
+    "Shanghao Shi",
+    "Jian Xiao",
+    "Ching-Hsiang Chan",
+    "Sanjoy Baruah",
+    "Sastry Kompella",
+    "Yevgeniy Vorobeychik",
+    "William Yeoh",
+    "Ning Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.08390",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "潜通信让智能体直接交换中间表征而非原始数据或文本，但现有方法面向 LLM 智能体，未考虑信息物理智能体的带宽约束与异构任务时限。本文提出 SCALE：利用物理世界时空连续性，用相似度匹配跨消息的 token 以复用信息、避免冗余传输，再刻画不同传输量的语义收益与通信成本，用实时调度器在带宽与任务时限约束下联合决定发送哪些消息、发多少 token。在三个信息物理基准与一只蜘蛛机器人实机案例上，SCALE 在带宽受限网络中同时提升了任务性能与按时交付率。值得看：它把“智能体协作”从文本层下沉到带宽受限的物理系统，是具身多智能体落地的关键一环。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.08376",
+   "title": "Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout",
+   "authors": [
+    "Tushaar Gangavarapu",
+    "Gil Tabak",
+    "Clemens JS Schaefer"
+   ],
+   "url": "https://arxiv.org/abs/2611.08376",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "线性注意力把上下文压缩进固定大小的 KV 状态，实现线性时间训练与常数内存推理。本文分析发现状态更新对“擦除”的敏感度远低于“写入”：键激活与单位归一化把键能量集中在稀疏通道子集，而值写入覆盖全部通道，因此擦除门可用更低秩参数化；同时慢衰减的状态行范数远大于快衰减行，主导无加权读出。基于此提出 Muir：把全部门融合成按敏感度分配的低秩投影，用匹配滤波读出门重加权状态行，并把省下的参数投入更宽的前馈网络。在 166M–1.34B 参数规模上，Muir 困惑度比 GDN-2 低 1.8–2.0%，并能从 4K 训练长度外推到 1000 万 token 流而无困惑度漂移。值得看：它从敏感度分析出发改进线性注意力，是高效架构方向上扎实的机理驱动工作。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2611.08335",
+   "title": "Discovering Learning Rules that Shape Others",
+   "authors": [
+    "Hong Jun Lee",
+    "Ziyan Wang",
+    "Jun Wang",
+    "Stefanos Leonardos",
+    "Yali Du"
+   ],
+   "url": "https://arxiv.org/abs/2611.08335",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "一般和博弈中自利学习者可能陷入对所有人都不利的结局，LOLA 等“塑造对手学习”的方法能促成合作，但部署时需要访问对手的参数、策略或奖励。本文把单智能体元学习发现更新规则的思路扩展到一般和博弈，提出 DUOS：元训练一条更新规则，让智能体在整个生命周期内最大化自身期望回报，内层网络只用智能体自己的经验更新。据称这是首个为一般和博弈中的智能体发现更新规则的方法；实验显示该规则在不读取对手策略与参数的情况下表现出与对手塑造一致的行为，并在锦标赛中归一化平均分与自博弈双双排名第一。值得看：它把“塑造对手”从需要窥探对手，变成了只靠自身经验就能学会的更新规则。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2611.08294",
+   "title": "ManimCode: Learning Visual Self-Correction for Educational Animation",
+   "authors": [
+    "Zhengyang Liang",
+    "Lizi Liao"
+   ],
+   "url": "https://arxiv.org/abs/2611.08294",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "Manim 能精确地程序化生成教学动画，但渲染成功不等于没有视觉缺陷、缺失讲解或内容错误，而现有智能体框架多依赖大模型反复渲染修订。本文构建 ManimData：通过渲染引导的流水线迭代生成、执行、评审与修订 Manim 程序，得到 24034 条渲染验证、质量过滤的记录，保留中间程序、执行错误、视觉 critique 与修正轨迹。再用角色条件监督微调训练出 4B 模型 ManimCode，并用强化学习进一步训练修订器。ManimCode 在两个测试集上的渲染成功率达 96.6% 与 97.0%，远高于未训练同尺寸模型的 52.6% 与 82.0%；接入两个长视频生成系统后，完成视频数从 19/117 提升到 107/117。值得看：它把“视觉自我纠错”做成可训练的能力，是小模型做好长教学视频的实用路径。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.08262",
+   "title": "The Geometry of Simulated Perspectives: Dissociating Representation and Behaviour in a Multimodal Language Model",
+   "authors": [
+    "Mathis Immertreu",
+    "Fitim Abdullahu",
+    "Thomas Kinfe",
+    "Claus Metzner",
+    "Helmut Grabner",
+    "Patrick Krauss",
+    "Achim Schilling"
+   ],
+   "url": "https://arxiv.org/abs/2611.08262",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "多模态语言模型能模拟不同观察者，但给定的视角如何重塑其内部表征、又是否决定其判断，仍不清楚。本文在 Qwen3-VL-8B-Instruct 上研究人设条件下的视觉趣味性判断：100 张图片、53 种提示条件，系统改变人设内容与引入人设的语言框架，同时记录行为评分与逐层隐藏状态。结果显示表征几何随处理深度系统重组：浅层主要编码图像身份，人设特异结构出现在深层；提示框架对内部表征的影响强于人设身份，而人设内容对行为判断的影响更大。值得看：它揭示了内部表征距离未必反映行为相关性，是理解多模态模型“模拟视角”机制的一次精细解剖。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2611.08226",
+   "title": "\"Blind Compliance\": Coercive Control in AI Jailbreaking",
+   "authors": [
+    "Acacia L. Ackles",
+    "Elliott Whitson"
+   ],
+   "url": "https://arxiv.org/abs/2611.08226",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "越狱攻防已陷入“更窄的护栏”与“更精巧的结构化提示”之间的循环，而现有讨论大多只关注系统最终是否输出了有害内容。本文换了一个视角：借鉴人际暴力研究中的“强制控制”理论，提出一套强制控制类别框架，区分具身与非具身的控制形式，并映射出现代 AI 训练范式如何结构性地内嵌了这些非具身强制控制动态、又如何被一类基于人设的越狱所利用。作者据此把 AI 安全与对齐重新框定为不只是技术安全问题，更是权力与控制关系动态上演的又一个场域。值得看：它为越狱研究提供了一个来自社会科学的全新分析透镜。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.08153",
+   "title": "A Generative Foundation Model for Multimodal Tokamak Tasks",
+   "authors": [
+    "Yingshuai Ji",
+    "Haodong Feng",
+    "Guohong Deng",
+    "Gelin Bian",
+    "Yue Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.08153",
+   "publishedAt": "2026-11-05",
+   "zhSummary": "托卡马克实验记录波形、剖面、场与标量等多种测量，用于重建等离子体、预测演化、反推控制信号与估计破裂风险，但现有模型大多针对单一任务与固定输入输出。本文扩展 TokaMark 基准，新增执行器动作反演与破裂预测两组任务，形成 20 个 MAST 任务、六组显式 schema，并提出生成式托卡马克基础模型 GenToka：用共享条件扩散 Transformer 联合生成 schema 选定的目标，信号专用编解码器保留各类信号的原生形态。评测显示，GenToka 相对 TokaMind 在前四组任务上宏平均归一化均方根误差降低 4.7%，第五组降低 17.7%，第六组窗口级 F1 提升 8.4%。值得看：它为聚变等离子体预测与控制提供了一条可复用的多模态生成式路径。",
+   "category": "AI for Science"
+  },
+  {
    "arxivId": "2611.08472",
    "title": "XStack: A Benchmark for ML Repo Migration",
    "authors": [
