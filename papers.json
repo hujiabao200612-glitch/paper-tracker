@@ -1,6 +1,138 @@
 {
  "papers": [
   {
+   "arxivId": "2611.09847",
+   "title": "Computer-Use Agents Are Embodied Generalists",
+   "authors": [
+    "Pranjal Aggarwal",
+    "Sean Welleck"
+   ],
+   "url": "https://arxiv.org/abs/2611.09847",
+   "publishedAt": "2026-11-06",
+   "category": "智能体",
+   "zhSummary": "这篇论文提出一个颇具颠覆性的观点：具身智能不需要专门的机器人架构，电脑操作智能体（CUA）本身就是具身通用智能体。作者把物理环境渲染成屏幕画面，让 CUA 用截图、键盘鼠标操作来完成具身任务；仅更换软件、不做任何针对性调优，同一套 CUA 设计就在四项 ECCV 研讨会竞赛中分别拿下第一、第二、第三和第六名。这说明 CUA 在软件上学到的视觉定位、精确点击与探索能力可以直接迁移到具身任务上。作者据此主张，具身 AI 也可以像通用模型取代专用方法那样，收敛到单一通用模型上。值得一看的观点性论文，对思考 agent 与具身的统一路线很有启发。"
+  },
+  {
+   "arxivId": "2611.09872",
+   "title": "On the Reliability of Majority-Vote Pseudo-Labels in Test-Time Reinforcement Learning",
+   "authors": [
+    "Haoyu Wang",
+    "Ru Wang",
+    "Yuanyuan Wang",
+    "Jiaxian Guo",
+    "Mingming Gong"
+   ],
+   "url": "https://arxiv.org/abs/2611.09872",
+   "publishedAt": "2026-11-06",
+   "category": "后训练与对齐",
+   "zhSummary": "测试时强化学习（TTRL）让预训练模型在无标签目标领域数据上用自生成的多数投票伪标签自我适应，但这些伪标签到底有多可靠一直缺乏分析。这篇论文把多数投票监督的误差分解为群体多数偏差和随提示变化的有限采样波动，并指出前者在无外部监督时本质上不可识别，于是聚焦缓解后者。作者提出 PC-Dr.DPO：根据观测到的投票可靠性对提示内稳健重加权做条件化，让采样敏感的提示更新更保守；还引入缓存机制减少在线适应中的自监督遗忘。在六个数学与知识推理基准、五个模型底座上，PC-Dr.DPO 在 30 个设置中的 24 个达到或超过最强 TTRL 基线。做测试时训练、自监督对齐的读者值得细读。"
+  },
+  {
+   "arxivId": "2611.09798",
+   "title": "Test-Time Compute Scales Better with Parallel Agent Teams",
+   "authors": [
+    "Junlin Wang",
+    "Haozhe Chen",
+    "Ang Li",
+    "Rahul Chalamala",
+    "Zhuang Liu"
+   ],
+   "url": "https://arxiv.org/abs/2611.09798",
+   "publishedAt": "2026-11-06",
+   "category": "推理",
+   "zhSummary": "测试时扩展有两种常见花法：Best-of-N 采样大量独立 agent 取最优，但很快饱和；一个大型协作团队分数更高，但规模增大后也不再提升。这篇论文提出折中方案——并行 agent 团队：并行采样多个小型团队，保留表现最好的团队的结果，兼得两者的好处。在从 GPU 内核编写到形式化证明、漏洞利用开发等 12 项长程任务上测试，用 27B 模型、100 个 agent 的预算时，10 人并行团队明显优于两种基线。结论简洁实用：测试时算力花在“多支小团队并行”上，扩展性最好。关注 agent 测试时扩展的研究者和实践者都值得一看。"
+  },
+  {
+   "arxivId": "2611.09825",
+   "title": "BitDecoding-FP4: Native FP4 KV Cache Decoding via Algorithm-System Co-Design",
+   "authors": [
+    "Dayou Du",
+    "Woon Yee Ng",
+    "Guangming Sheng",
+    "Nick Lau",
+    "Jianyi Cheng",
+    "Luo Mai"
+   ],
+   "url": "https://arxiv.org/abs/2611.09825",
+   "publishedAt": "2026-11-06",
+   "category": "高效推理与部署",
+   "zhSummary": "KV 缓存是长上下文 LLM 服务中显存容量与带宽的主要瓶颈，4-bit 微缩放格式（NVFP4、MXFP4）虽能压缩缓存并跑在 FP4 Tensor Core 上，但算法与系统之间一直存在鸿沟：现有 FP4 KV 系统用朴素量化导致精度大跌，而保精度的 4-bit 算法又依赖向量码本、查表开销拖慢解码吞吐。BitDecoding-FP4 用算法—系统协同设计打通这一环，针对三类误差来源做缓解，其中双残差查询量化把查询拆成两个 FP4 张量，在原生 FP4 解码下同时保住精度与速度。做长上下文推理部署、KV 缓存压缩的读者值得关注，这是把 FP4 真正落到解码路径上的工作。"
+  },
+  {
+   "arxivId": "2611.09722",
+   "title": "FOSCAR: Accelerating Decode Attention over 2- and 4-Bit KV Caches through Affine Folding",
+   "authors": [
+    "Donglin Zhuang",
+    "Pragaash Ponnusamy",
+    "Xiaoxia Wu",
+    "Shuaiwen Leon Song",
+    "Zhongzhu Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.09722",
+   "publishedAt": "2026-11-06",
+   "category": "高效推理与部署",
+   "zhSummary": "大模型解码时每个生成 token 都要流式读取 KV 缓存，把缓存压到 2-bit 或 4-bit 虽能减少显存流量，却未必换来延迟下降：现有 2-bit 融合核在 H100/B200 上只能达到峰值 HBM 带宽的 31%/15% 以下，瓶颈在于每个 KV 值都要先换算 scale 与 offset 再喂给 Tensor Core，指令发射吞吐跟不上。FOSCAR 的关键想法是仿射折叠：不逐值换算，而是根据量化方案把 scale 与 offset 折叠到解码注意力矩阵乘法的另一个操作数或输出上，从而绕开逐值转换的开销。思路干净、直指系统瓶颈，是低比特 KV 推理加速里值得留意的一篇。"
+  },
+  {
+   "arxivId": "2611.09700",
+   "title": "Attend at the Right Resolution: Head-Adaptive Sparse Attention via Query-Key Interaction Structure",
+   "authors": [
+    "Wajih Hassan Raza",
+    "Ahsan Bilal",
+    "Yidan Shen",
+    "Renjie Hu",
+    "Xin Fu",
+    "Yu Wen"
+   ],
+   "url": "https://arxiv.org/abs/2611.09700",
+   "publishedAt": "2026-11-06",
+   "category": "长上下文",
+   "zhSummary": "注意力是长上下文大模型的主要扩展瓶颈，稀疏注意力通过只让每个查询关注部分上下文来降本，但能否找准相关区域是关键；现有免训练方法多依赖运行时相关性估计，选择维度和粒度则由固定启发式决定。这篇论文换了一个视角：直接利用预训练注意力头 query-key 算子的内在交互结构，让每个头自适应地决定关注的分辨率与范围，而不是套用统一规则。方法无需训练，针对不同头的结构差异做头自适应稀疏选择。做长上下文高效注意力、稀疏注意力设计的读者可以重点看它的结构分析思路。"
+  },
+  {
+   "arxivId": "2611.09548",
+   "title": "CoMoFlow: Controllable Protein Conformational Ensemble Generation via Explicit Collective-Mode Modeling",
+   "authors": [
+    "Yusong Wang",
+    "Zheyuan Gu",
+    "Ailiang Lin",
+    "Minghao Shao",
+    "Yicheng Xu",
+    "Jiang Cai",
+    "Prayag Tiwari",
+    "Mingkun Xu"
+   ],
+   "url": "https://arxiv.org/abs/2611.09548",
+   "publishedAt": "2026-11-06",
+   "category": "AI for Science",
+   "zhSummary": "蛋白质构象系综生成要刻画蛋白质在单一静态结构之外的结构变化，近期基于流的方法效率不错，但对协同结构变化是隐式建模，系综保真度受限，也难以直接控制。CoMoFlow 显式建模集体变化模式：先从平衡结构构建蛋白质特异的集体模式，学习其系数在分子动力学系综中的分布，再用采样的集体变化通过特征条件与先验重中心化来引导 SE(3) 流匹配。在 ATLAS 和从头设计蛋白上的实验表明，CoMoFlow 在重建分子动力学构象分布与协同结构变化上优于强流基线，同时能直接控制目标构象变化。AI for Science、蛋白质结构方向值得收录的一篇。"
+  },
+  {
+   "arxivId": "2611.09634",
+   "title": "Steerable Multi-Objective Group-Relative Preference Optimization with Jointly Trained Low-Rank Adapters",
+   "authors": [
+    "Constantinos Karouzos",
+    "Nikolaos Aletras"
+   ],
+   "url": "https://arxiv.org/abs/2611.09634",
+   "publishedAt": "2026-11-06",
+   "category": "后训练与对齐",
+   "zhSummary": "实际部署中，不同用户对相互竞争的目标（如有帮助与无害）有不同权衡，但标准后训练方法通常只产出针对固定目标权重的单一策略。这篇论文提出 LambdaMix：用群组相对在线强化学习，为每个目标在冻结底座上联合训练一个低秩适配器；一个偏好向量既选择生成回复的适配器混合，也加权各自归一化的奖励来更新适配器。一次训练即可支持推理时随时改变偏好，无需重新训练。方法参数高效、思路清晰，对多目标对齐、可控偏好后训练感兴趣的读者值得一看。"
+  },
+  {
+   "arxivId": "2611.09625",
+   "title": "Encoding Memory in World Models with Test-Time Model-Based Reinforcement Learning",
+   "authors": [
+    "Maxime Burchi",
+    "Fayaz Ali Dharejo",
+    "Radu Timofte"
+   ],
+   "url": "https://arxiv.org/abs/2611.09625",
+   "publishedAt": "2026-11-06",
+   "category": "强化学习",
+   "zhSummary": "基于模型的强化学习（MBRL）已在多个领域表现强劲，但需要长期记忆与规划的任务上仍难以超越人类水平。这篇论文跳出常见的架构设计思路，提出测试时基于模型的强化学习（TT-MBRL）：在测试时用梯度下降把当前 episode 观测的记忆编码进世界模型参数中，让智能体为每个 episode 学到一个专属的世界模型。记忆不再只靠架构承载，而是直接写进测试时更新的参数里。为长期记忆的 MBRL 提供了一个新角度，关注世界模型与测试时适应的读者值得一看。"
+  },
+  {
    "arxivId": "2611.09828",
    "title": "Designing Effective Monitor-Based Interventions for Mitigating Reward Hacking During RL",
    "authors": [
