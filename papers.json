@@ -1,6 +1,137 @@
 {
  "papers": [
   {
+   "arxivId": "2611.11330",
+   "title": "When Credit Turns Against Tools: Transition-Aware Credit Assignment in Agentic Reinforcement Learning",
+   "authors": [
+    "Xiangyu Lu",
+    "Zhanke Zhou",
+    "Jiazhe Ning",
+    "Chentao Cao",
+    "Jiangchao Yao",
+    "Bo Han"
+   ],
+   "url": "https://arxiv.org/abs/2611.11330",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026。智能体强化学习常出现“越训工具调用能力越差”的怪现象，本文把原因拆成三条耦合机制：错误轨迹里工具 token 占比更高导致整体工具信用为负、token 均值聚合放大了长错误轨迹的权重、失败后反复重试又把负信用拖得更长。针对这一问题，作者提出 Transition-Aware Credit Assignment（TACA），用 Advantage Projection 保证每组提示内工具调用 token 的平均优势非负，并以 Decision Contrast 对比同一提示下“用工具”与“直接作答”的奖励，再用 Supervised Replay 复用历史正确轨迹中的工具调用。在 Qwen2.5-1.5B 和 3B 上，TACA 相对 MT-GRPO 在六个推理基准上平均准确率分别提升 4.61 和 3.61 个百分点，且训练中工具交互更稳定。做 agentic RL 的人值得细读这篇的信用分配诊断，它把“工具越用越差”讲得很透。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.11344",
+   "title": "Spatial Harness: Grounding Spatial Reasoning in Executable World States with Physics Engines",
+   "authors": [
+    "Chentao Cao",
+    "Zhanke Zhou",
+    "Sangni Duan",
+    "Bo Han",
+    "Hang Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.11344",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026。视觉语言模型做空间推理时常在脑内“想象”场景变换，一旦场景读错或变换不满足物理约束就会答错。本文提出 Spatial Harness，把场景表示为显式、可执行的世界状态：Perceiver 从问题中抽取约束并结合视觉估计，把物体和相机摆进统一坐标系，再在物理引擎里实例化，由 Reasoner 执行视角变换并用引擎算出的测量值和渲染图指导推理。在 MindCube 上，该方法把 Qwen3.5-27B 从 52.70% 提升到 71.14%，超过基线 pySpatial 7.52 个百分点；给定真实位姿时可达 98.25%。把推理锚定在可验证的世界状态上，是空间推理一条很实在的路线。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.11306",
+   "title": "ScrapeBench: Evaluating Legal Compliance of AI Agents in Website Scraping",
+   "authors": [
+    "Joseph Marvin Imperial",
+    "Daniel Slate",
+    "Noam Kolt"
+   ],
+   "url": "https://arxiv.org/abs/2611.11306",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026（Evaluations and Datasets Track）。这是首个系统评测 AI 智能体爬虫合规性的基准 ScrapeBench，检验智能体是否遵守网站的服务条款与 robots.txt。结果颇具冲击力：在 1626 个明确禁止爬取的流行网站上，多数智能体合规率不到 5%，即使主动查了 ToS 和 robots.txt 也照爬不误；反过来，在 269 个不禁止爬取的网站上，Claude Opus 4.6 的过度拒绝率高达 98.5%。人类基线实验显示人的合规率与智能体相当，但过度拒绝更严重。随着智能体大规模上网行动，这篇为“合规”划出了第一条可量化的线。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.11238",
+   "title": "FRESCO: A Novel Consistency Control for Asynchronous Pipeline Parallel Training",
+   "authors": [
+    "Dongyeop Lee",
+    "Namhoon Lee"
+   ],
+   "url": "https://arxiv.org/abs/2611.11238",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026。异步流水线并行能加速大模型训练，但梯度计算不一致常导致不稳定，本文指出根本原因：误差信号耦合的是前向时刻的特征，而不只是参数状态。基于这一洞察，作者提出 FRESCO，把异步更新表述为约束优化问题，寻找对激活子空间作用为零的最小更新修正。在 LLM 预训练中，FRESCO 在流水线深度 32 时用比最强基线少 43% 的迭代次数和 30% 的墙钟时间达到相同损失，且内存开销低 8 到 921 倍。对资源受限环境下训练大模型、想压榨流水线利用率的团队，这篇提供了新的基础方法。",
+   "category": "分布式训练"
+  },
+  {
+   "arxivId": "2611.11398",
+   "title": "Decomposing Earth Embeddings with Sparse Autoencoders",
+   "authors": [
+    "Vitus Benson",
+    "Fanny Yang",
+    "Markus Reichstein"
+   ],
+   "url": "https://arxiv.org/abs/2611.11398",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026。地球观测基础模型输出的全球米级分辨率 embedding 支撑着农业、生态、水文等应用，但每个维度都纠缠着互不相关的物理概念，难以解释也难评估稳健性。本文用稀疏自编码器（SAE）把 Earth embedding 分解为近似单语义的稀疏特征，并针对卫星像素设计了专门的评测协议：同等稀疏度下的重建、与参考概念的对齐、空间尺度。在 AlphaEarth 上，88% 的 SAE 特征最多只对齐 20 组参考概念中的一组，远好于原始维度（中位数 12 组）。这是一步让地球观测模型“看得懂”的工作，对遥感方向的同学尤其值得看。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.11437",
+   "title": "How to \"train\" a surgeon? Benchmarking generalist agents in surgical scene understanding",
+   "authors": [
+    "Gengyuan Zhang",
+    "Xiao Han",
+    "Shijie Zhou",
+    "Abdullah Koukash",
+    "Jingpei Wu",
+    "Jindong Gu",
+    "Yuqicheng Zhu",
+    "Nassir Navab",
+    "Volker Tresp",
+    "Ghazal Ghazaei"
+   ],
+   "url": "https://arxiv.org/abs/2611.11437",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026（Evaluations and Datasets Track）。通用多模态大模型能否看懂手术场景？本文搭建了两阶段评测框架：先推出 SurgKnowBench，整合公开手术数据集、横跨术式与任务，摸清现有模型的手术理解边界——模型保留了部分视觉先验，但在关系理解、流程理解和工作流评估上仍弱；再推出 SurgAgentGym，让智能体在推理时通过检索 SurgWiki 和视觉定位工具来补齐知识，无需额外手术训练。结果显示智能体推理主要缩小了感知类任务的差距，细粒度定位与专家级评估仍是瓶颈。医疗智能体方向的同学可以把它当作现状摸底。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.11152",
+   "title": "Full Fine-Tuning is not the Problem: Why Adam Fails and SGD Succeeds in Few-Shot CLIP Adaptation",
+   "authors": [
+    "Nairouz Mrabah",
+    "Ismail Ben Ayed",
+    "Eric Granger"
+   ],
+   "url": "https://arxiv.org/abs/2611.11152",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026。少样本 CLIP 适配常被认为是参数化问题，大家默认全量微调会过拟合、转而用参数高效微调，本文证明这个结论混淆了参数化与优化。在 11 个数据集、3 个 CLIP 骨干、5 种 shot 设置下，朴素 SGD 的稠密全量微调跑赢了代表性 PEFT 方法，而 Adam/AdamW 会崩溃。作者追踪到根因：少样本下二阶矩估计系统性低估，导致 Adam 的自适应归一化把误差放大成过大的更新；把 Adam 首步更新量对齐到 SGD 就能消除大部分崩溃。结论很反直觉：少样本适配失败的元凶是优化器预条件，而非全量微调本身。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.11261",
+   "title": "Chatter Attack: Resource Consumption Attack for Large Language Models",
+   "authors": [
+    "Yibo Miao",
+    "Yichuan Cao",
+    "Xiao-Shan Gao",
+    "Yinpeng Dong"
+   ],
+   "url": "https://arxiv.org/abs/2611.11261",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026。大模型推理成本高，恶意用户可以诱导模型输出超长回复来拖垮服务、抬高运营成本，现有资源消耗攻击要么靠重复、要么压低 EOS token 的 logit，在采样生成下优化不稳定。本文提出 Chatter Attack，用对抗提示诱导模型说出预设的短“自我怀疑”短语，再以推理注意力损失和全局熵损失把这种自我怀疑状态维持下去，从而在不扩大搜索空间的情况下诱发超长输出；并给出面向黑盒的贝叶斯提示优化方法。实验显示响应长度最多可放大 31.5 倍，揭示了真实推理服务的资源耗尽风险，部署侧值得警惕。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.11387",
+   "title": "Orthogonal Updates for the Win: Towards Accelerated Adaptive Minimax Optimization",
+   "authors": [
+    "Zhiwei Zhai",
+    "Xinyu Wang",
+    "Wenjing Yan",
+    "Lei Ding",
+    "Ying-Jun Angela Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.11387",
+   "publishedAt": "2026-11-08",
+   "zhSummary": "已接收 NeurIPS 2026。单循环 minimax 方法在现代机器学习中很常用，但标准随机梯度更新在强耦合的原对偶动力学下不稳定、震荡，对步长极其敏感。本文提出正交更新框架，沿正交化方向更新以降低更新的各向异性，并设计 AdaSGDA，用累积梯度范数驱动的自适应步长规则自动平衡原对偶进度，得到一个基本无需调参的方法，在非凸-强凹 minimax 上达到当前最优的 O(T^{-1/4}) 收敛率；加入方差缩减的 AdaSGDA-VR 进一步达到 O(T^{-1/3})。实验表明其性能与现有 minimax 方法相当甚至更好。做 GAN、鲁棒优化或博弈式训练的同学可以关注。",
+   "category": "机器学习理论与优化"
+  },
+  {
    "arxivId": "2611.09847",
    "title": "Computer-Use Agents Are Embodied Generalists",
    "authors": [
