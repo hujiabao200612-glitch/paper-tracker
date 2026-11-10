@@ -1,6 +1,141 @@
 {
  "papers": [
   {
+   "arxivId": "2611.12852",
+   "authors": [
+    "Tianze Luo",
+    "Haofeng Huang",
+    "Yuan Yao"
+   ],
+   "category": "图像视频生成",
+   "publishedAt": "2026-11-09",
+   "title": "What kills $v$-prediction? A Patch-wise PCA Perspective on Pixel-Space Flow Matching",
+   "url": "https://arxiv.org/abs/2611.12852",
+   "zhSummary": "已接收 NeurIPS 2026（Spotlight）。这篇论文追问像素空间流匹配里 v-prediction 训练困难的真正原因：通过逐块 PCA 分析，作者发现速度在次要主成分上几乎完全由带噪输入决定，形成带宽瓶颈，迫使深层主干去保留与主成分建模竞争的信息。相比之下，x-prediction 之所以有效，是因为它自带原始输入旁路，且学到的表征会自发聚焦主方向；在低秩观测下，x-prediction 相当于一个隐式条件均值解码器。基于这一认识，作者提出 Raw-injected Transformer（RiT），用轻量原始条件解码器加输出端 shortcut 把语义建模与原始状态传播分开，让 v-prediction 重新奏效，并在 ImageNet 256×256 上取得有竞争力的效果。对做扩散/流匹配生成模型的人来说，这篇对预测目标与架构带宽之间关系的剖析很值得读。"
+  },
+  {
+   "arxivId": "2611.12729",
+   "authors": [
+    "Leon A. Trochelmann",
+    "Sajad Movahedi",
+    "Shiwei Liu",
+    "Antonio Orvieto"
+   ],
+   "category": "大模型预训练与 Scaling",
+   "publishedAt": "2026-11-09",
+   "title": "KiteNorm: Variance Regularisation for Stable and Scalable Post-LN Transformers",
+   "url": "https://arxiv.org/abs/2611.12729",
+   "zhSummary": "已接收 NeurIPS 2026。Post-LayerNorm 架构本有潜力，但一直难以扩展到深层大模型：此前的工作多在初始化时改善条件数，可一旦用大学习率训练，稳定性还是会恶化，导致 Post-LN 始终赢不过强 Pre-LN 基线。KiteNorm 从 LayerNorm 雅可比矩阵的界出发，指出隐状态方差增长是梯度消失与秩坍缩的推手，于是用残差缩放加方差正则化全程维持稳定，并以标量化双归一化给跳连与残差分支分别配可学习尺度。在 1.3B 参数以内的解码器 Transformer 上，KiteNorm 在最优学习率下稳定胜过领先基线，且随深度、宽度、批量与训练预算扩展的 scaling law 都更占优。关注 Transformer 架构与训练稳定性的读者值得一看。"
+  },
+  {
+   "arxivId": "2611.12825",
+   "authors": [
+    "Jihwan Jeong",
+    "Guy Tennenholtz",
+    "Yinlam Chow",
+    "Chih-Wei Hsu",
+    "Craig Boutilier"
+   ],
+   "category": "强化学习",
+   "publishedAt": "2026-11-09",
+   "title": "MaxIM: Maximally Informative Incremental Summarization via Reinforcement Learning",
+   "url": "https://arxiv.org/abs/2611.12825",
+   "zhSummary": "已接收 NeurIPS 2026。AI 系统常要在有限记忆里维护无界交互历史，但用标准 RL 优化记忆表示极其困难：稀疏延迟奖励带来严重的信用分配瓶颈。MaxIM 把增量摘要表述为容量受限的信息论奖励塑造问题：以价值次优性界为依据，把序贯信息损失的上界转化为最大化未来任务相关目标的预测对数似然，并引入递归一致性条件，用与观测历史的互信息锚定摘要的真实性；再以参数化的非对称 critic 计算逐步变分互信息界，提供稠密奖励。在长程科学阅读与多轮对话基准上，MaxIM 在事实 grounded 程度、综合评分与下游任务效用上都超过 RL、SFT 与提示词基线，且不需要昂贵的人类偏好标签。对做长上下文记忆与 agent 记忆的读者很有参考价值。"
+  },
+  {
+   "arxivId": "2611.12643",
+   "authors": [
+    "Omer Hemo",
+    "Ido Sefi",
+    "Mirco Mutti",
+    "Aviv Tamar",
+    "Kfir Y. Levy"
+   ],
+   "category": "强化学习",
+   "publishedAt": "2026-11-09",
+   "title": "Simulation-aided Reinforcement Learning with Control Variates",
+   "url": "https://arxiv.org/abs/2611.12643",
+   "zhSummary": "已接收 NeurIPS 2026（Poster）。RL 依赖真实环境数据，昂贵且带噪；仿真器能产出大量数据，但直接把仿真经验与真实经验混合，往往因仿真偏差把策略带偏，反而损害性能。这篇提出一种保守的仿真辅助学习方法：基于控制变量（control variates），只用仿真数据降低学习过程的方差，而不让它直接塑造学习目标。作者先在策略评估这一 RL 基本模块上建立方法，再把它接入 actor-critic 做策略改进，并扩展到离线 RL 场景。在多个 MuJoCo 基准任务上，该方法优于标准仿真混合做法。做 sim-to-real 或仿真辅助 RL 的读者值得关注。"
+  },
+  {
+   "arxivId": "2611.12530",
+   "authors": [
+    "Bingkun Liu",
+    "Paul Haider",
+    "Federico Benitez",
+    "Mihai A. Petrovici",
+    "Walter Senn"
+   ],
+   "category": "强化学习",
+   "publishedAt": "2026-11-09",
+   "title": "K-prop: Deep Online Learning by Backpropagating Temporal Kernels",
+   "url": "https://arxiv.org/abs/2611.12530",
+   "zhSummary": "已接收 NeurIPS 2026。带自递归的泄漏神经网络在时间处理上很自然，但由于梯度的时间依赖复杂，一直缺乏高效的在线训练方法。K-prop 通过反向传播核增益（kernel gains），把实时循环学习（RTRL）的计算与内存开销大幅压下来，在序列学习、分类与强化学习任务上优于已有的 RTRL 近似方法，性能与随时间反向传播（BPTT）相当。作者还分析了其唯一近似对梯度质量的影响，并给出 K-prop 保持准确有效的条件。对在线学习、类脑计算与循环网络训练感兴趣的读者值得一看。"
+  },
+  {
+   "arxivId": "2611.12524",
+   "authors": [
+    "Jens Parslov",
+    "Marco Schouten",
+    "Dim P. Papadopoulos"
+   ],
+   "category": "评测基准",
+   "publishedAt": "2026-11-09",
+   "title": "EditJudge-Bench: Auditing VLM Image-Edit Judges with Synthetic Ground Truth",
+   "url": "https://arxiv.org/abs/2611.12524",
+   "zhSummary": "已接收 NeurIPS 2026（Evaluations & Datasets Track）。视觉语言模型越来越多地被用作图像编辑评测的自动裁判，但其可靠性一直缺乏系统审计：真实编辑图没有可控的 ground truth，编辑质量、副作用与成功程度全纠缠在一起。EditJudge-Bench 用 Blender 渲染了 1382 组合成前/后图像对，编辑按九类真实用户请求参数化，每处改动都有来自已知 3D 场景参数的精确真值，从而把“裁判的感知能力”与“编辑器的质量”隔离开来。对 25 种裁判配置的评测暴露了不小的问题：广泛使用的 VIEScore 模板配 GPT-4o 只有 69.0% AUROC，微调裁判仅 51.7–66.3%，旋转、形状等空间编辑尤其难，图文顺序等提示格式选择可让分数摆动 14.1 分。尽管全是合成数据，其上的裁判排名与两个真实图像人类偏好基准高度相关（ρ=0.95 与 0.71）。做 VLM 评测或图像编辑的读者值得读。"
+  },
+  {
+   "arxivId": "2611.12527",
+   "authors": [
+    "Sang-Hoon Lee",
+    "Ha-Yeong Choi"
+   ],
+   "category": "语音",
+   "publishedAt": "2026-11-09",
+   "title": "WaveGen: Truly End-to-End Waveform Generation via Internal Spectral Trajectory Learning",
+   "url": "https://arxiv.org/abs/2611.12527",
+   "zhSummary": "已接收 NeurIPS 2026。这篇提出 WaveGen，一个完全端到端的基于扩散的文本到波形框架：通过 Spectral Forcing 在单个模型内联合学习内部频谱轨迹与目标波形轨迹，直接生成波形，不依赖神经音频编解码器、梅尔谱声码器或 VAE 潜变量等中间表示，文本-语音对齐也在模型内部完成，无需时长预测器等外部模块；同时也不依赖 BERT 文本嵌入、Wav2Vec 2.0 语义表示或语义蒸馏。作者把模型从 0.1B 扩展到 0.6B 参数验证了端到端 TTS 的可扩展性，仅用单一架构、开源数据与一阶段训练，就在 Emilia 训练集上达到 SOTA，在 Seed-en 基准上 WER 1.47、SIM 0.75。代码与权重已开源，对语音合成路线的读者很有参考价值。"
+  },
+  {
+   "arxivId": "2611.12832",
+   "authors": [
+    "Chang Lu",
+    "Mengjiao Zhang"
+   ],
+   "category": "大模型预训练与 Scaling",
+   "publishedAt": "2026-11-09",
+   "title": "What the Loss Curve Misses: FP4 Pretraining Slows the Acquisition of Rare Facts",
+   "url": "https://arxiv.org/abs/2611.12832",
+   "zhSummary": "低精度预训练通常只看验证损失来评判，但损失相同是否意味着学稀有知识的效率也相同？作者从头训练了使用模拟 4-bit 矩阵乘法的 Transformer，在曝光次数可控的合成人物传记与混入网页文本的数据上做对照：NVFP4 要比 BF16 多 1.32 倍与 1.52 倍的曝光才能达到相同的稀有事实召回，而验证损失只差 0.5% 与 2%。进一步拆解发现，零均值梯度噪声能复现仅量化反向传播的代价；Adam 二阶矩估计里的噪声像降低了学习率、代价会消退，而更新量里的噪声会降低信噪比、承担约三分之二的代价直到训练结束；提高学习率也补不回来。作者建议，评估低精度训练方案时应把稀有事实习得与损失一起度量。做低精度训练与预训练的读者值得读。"
+  },
+  {
+   "arxivId": "2611.12552",
+   "authors": [
+    "Weimin Wu",
+    "Han Liu"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-11-09",
+   "title": "SciMARS: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery",
+   "url": "https://arxiv.org/abs/2611.12552",
+   "zhSummary": "多智能体系统在闭环科学发现里协调分析、实验设计与验证，但有两个短板：没有共享记忆，智能体会丢失观测、重复劳动；固定的角色流程、交接与记忆策略即使有证据留存也会重复犯错。SciMARS 用共享证据图加独立的组件编辑器实现任务内递归自适应：角色与协作方式可调，SciMARS + Memory 再加一个编辑器，管智能体如何记录、检索与接收证据；候选探针则指导下一轮 harness 的组合与选择。在实验数据回放与数字孪生评估中，SciMARS + Memory 在 Autonomous Science Bench 上用 GPT-6-Astra 解决 12/18、GLM-5.3 解决 2/18，优于基础多智能体团队的 8/18 与 1/18；在 ScienceAgentBench 与 AppWorld 上也分别以 14/38 与 11/20 胜过基线的 11/38 与 5/20。关注递归自改进与科学智能体的读者值得一看。"
+  },
+  {
+   "arxivId": "2611.12886",
+   "authors": [
+    "Haozhi Yuan",
+    "Handong Li",
+    "Yifan Zhang",
+    "Qianshan Wei"
+   ],
+   "category": "智能体",
+   "publishedAt": "2026-11-09",
+   "title": "Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning",
+   "url": "https://arxiv.org/abs/2611.12886",
+   "zhSummary": "智能体 RL 与多教师同策略蒸馏是后训练的两条互补路线，但对视觉智能体而言，工具使用带来两个具体难题：模型可能忽略工具返回的有用观测，而接地不良的动作又会限制后续蒸馏可用的证据。Reframe 把观测状态本身（而不只是输出分布）作为对齐对象：第一阶段 Ground-Drop-GRPO 用证据感知奖励训练空间与时间专家，并随机去掉原始视觉输入，逼模型去获取有根据的证据、利用返回的观测；第二阶段 Observation-Gated-MOPD 在 rollout 中途把有缺陷的工具动作替换为规范动作，从修复后的观测处恢复蒸馏。两阶段互补，且都不需要任务特定的 SFT 冷启动。在 14 个图像与视频基准上，Reframe 优于 Mix-RL 与朴素 MOPD；消融表明 GD-GRPO 相比基于结果的 GRPO 提升了观测依赖度与工具增益。做视觉智能体后训练的读者值得读。"
+  },
+  {
    "arxivId": "2611.11330",
    "title": "When Credit Turns Against Tools: Transition-Aware Credit Assignment in Agentic Reinforcement Learning",
    "authors": [
