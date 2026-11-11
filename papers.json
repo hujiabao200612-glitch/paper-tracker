@@ -1,6 +1,150 @@
 {
  "papers": [
   {
+   "arxivId": "2611.14514",
+   "title": "Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations",
+   "authors": [
+    "Ziang Liu",
+    "James J. Kim",
+    "Yijia Dai",
+    "Jennifer J. Sun"
+   ],
+   "url": "https://arxiv.org/abs/2611.14514",
+   "publishedAt": "2026-11-10",
+   "category": "智能体",
+   "zhSummary": "已接收 NeurIPS 2026。这篇论文针对 LLM 智能体做开放式科学发现时的一个盲点：现有方法逐点检验假设，证伪一个假设后却不知道该信哪个替代解释。作者提出 Contrastive Discovery，把单个假设换成“对比集”——一组互斥且穷尽的竞争解释，每次实验按其证据如何重新分配信念来打分，直到信念集中到某一个解释上。在六个领域中，对比集把 73% 的被证伪候选解析到了具体替代解释上，同等实验预算下比逐点方法多解决 67% 的问题；38 位人类专家的盲评在 78% 的已解决问题上与之选择一致。对做科学发现智能体的人来说，这篇把“证伪后怎么办”变成了可操作的方法，很值得读。"
+  },
+  {
+   "arxivId": "2611.14504",
+   "title": "Emergent Biological Capabilities in a Foundation Model for Molecular Interactions",
+   "authors": [
+    "Adi Mashiach"
+   ],
+   "url": "https://arxiv.org/abs/2611.14504",
+   "publishedAt": "2026-11-10",
+   "category": "大模型预训练与 Scaling",
+   "zhSummary": "已接收 NeurIPS 2026（Oral）。这篇把“涌现能力”的范式扩展到了生物学：Bonbon 是在约 3.2 万亿 token 的蛋白-配体配对序列上训练的分子互作基础模型。仅凭单一表征空间，它零样本展现出三个层次的涌现能力——功能层面的作用机制、残基层面的结合位点定位、化学键层面的共价/非共价区分，且都能泛化到分布外复合物。六个尺度（42M 到 1.6B 参数）的对照实验显示，所有能力都在最大尺度上陡然出现，而预训练损失只是平滑下降，说明只看损失的 scaling law 预测不了能力何时涌现。更实在的是，同一套冻结表征在结合与亲和力预测上达到 SOTA 且比共折叠方法快五个数量级，九个疾病靶点的湿实验验证取得了 61.5% 的剂量反应命中率。对关注 scaling 与 AI for Science 交叉点的人来说，这是一篇很硬的证据。"
+  },
+  {
+   "arxivId": "2611.14493",
+   "title": "Comparative Analysis of Agent Evaluation Frameworks: Stability, Detection, and Discovery in Enterprise Analytics Agents",
+   "authors": [
+    "Howard Zhang",
+    "Chuck Arvin",
+    "Logan Brown",
+    "Mihir Bhatia",
+    "Neelu Choudhary",
+    "Lily Miao"
+   ],
+   "url": "https://arxiv.org/abs/2611.14493",
+   "publishedAt": "2026-11-10",
+   "category": "智能体",
+   "zhSummary": "已接收 KDD 2026。这篇系统比较了企业级分析智能体的三种评测框架：基于轨迹的 LLM 评审、纯文本 LLM 评审加红队、确定性启发式规则。研究分三阶段进行：稳定性上 97% 的配置达标且与智能体无关；已知风险检测上，轨迹法 F1 达 0.90，纯文本法召回相当但误报多 5 倍；未知风险发现上，三种方法共挖出 24 个新故障，且功能测试与安全红队零重叠。结论是评测框架能看到的信息决定了评测质量，功能评测与安全评测互补，LLM 评审能发现人类评审漏掉的细微错误。作者建议双框架策略：轨迹法做功能评估，红队做安全验证。对在生产环境部署智能体、需要搭建评测体系的团队来说，这篇的实测数据很有参考价值。"
+  },
+  {
+   "arxivId": "2611.14440",
+   "title": "UGG: Unified Generative Geometry Model",
+   "authors": [
+    "Amani Kiruga",
+    "Zhiyi Li",
+    "Ruojin Cai",
+    "Hansen Lillemark",
+    "Xiaoshan Wu",
+    "Ayush Tewari",
+    "Yilun Du"
+   ],
+   "url": "https://arxiv.org/abs/2611.14440",
+   "publishedAt": "2026-11-10",
+   "category": "图像视频生成",
+   "zhSummary": "已接收 NeurIPS 2026。这篇提出 UGG，一个统一的 4D 场景理解生成框架，把 RGB 视频与深度、相机位姿等几何表征放在同一个生成模型里联合建模。关键技巧是对不同模态和时间步使用不同的噪声水平，从而把视觉生成和几何预测都表述为同一个模型内的条件补全问题。这样模型能从标注子集各异的异构数据集中学习，还能在推理时对多个可能的场景假设做搜索，用观测到的 RGB 帧中提取的几何证据来改进几何预测。实验在相机控制视频生成、深度估计和相机位姿预测上都超过了非统一的基线，尤其是在稀疏观测的困难设定下。对做 4D 生成与几何理解的人来说，统一建模的思路值得关注。"
+  },
+  {
+   "arxivId": "2611.14407",
+   "title": "Causal Concept Explanations for Deep Neural Models",
+   "authors": [
+    "Josh Rountree",
+    "Pulkit Verma",
+    "Oswin So",
+    "Chuchu Fan",
+    "Julie A. Shah"
+   ],
+   "url": "https://arxiv.org/abs/2611.14407",
+   "publishedAt": "2026-11-10",
+   "category": "AI 安全与可解释性",
+   "zhSummary": "已接收 NeurIPS 2026。这篇指出概念解释长期停留在相关性层面：一个概念解释可能既非必要也非充分，却看起来正确、实则误导。作者提出 Causal Concept Wrapper Network（CCW-Net），首次把经济学、医学里的干预中介分析用作训练目标，让概念解释对模型输出的因果效应与实际输出对齐；中介分析同时被用作评估工具，量化每个概念对输出的因果贡献。训练目标包含三个因果对齐标准：必要性（无关概念效应归零）、充分性（相关概念能完整重建输出）、独立性（总效应可线性分解）。在飞机控制、驾驶和图像分类任务上的实验表明，CCW-Net 让概念解释从“可解释”走向“可量化因果”，对自动驾驶等需要认证与部署透明模型的安全关键场景很有意义。"
+  },
+  {
+   "arxivId": "2611.14126",
+   "title": "Hierarchical Graph Representation Learning with Pooling-Induced Substructures",
+   "authors": [
+    "Luca Sbicego",
+    "Xiaowen Dong",
+    "Dorina Thanou"
+   ],
+   "url": "https://arxiv.org/abs/2611.14126",
+   "publishedAt": "2026-11-10",
+   "category": "推理",
+   "zhSummary": "已接收 NeurIPS 2026。这篇针对图神经网络在层次化图任务上的短板：图池化本应把图粗化为层次表征，但现有方法往往不显式保留池化诱导出的子结构，导致效果不稳定。作者提出 Pooled-Substructure-Aware GNN，显式保留并处理结构池化发现的子结构，并在 Weisfeiler-Lehman 检验意义上提升了池化 GNN 的表达能力。为解决评测难题，他们还引入了两个层次结构可控的合成数据集和一个度量真实基准中层次模式普遍程度的指标。在具有相关层次结构的任务上，新方法超过了匹配的池化基线，在结构简单的基准上保持竞争力。对做图学习与结构推理的人来说，子结构显式建模的思路值得一看。"
+  },
+  {
+   "arxivId": "2611.14118",
+   "title": "TAMEing the Open-World Personalization: Towards Open-Set Personalized MLLM Assistant",
+   "authors": [
+    "Rongpei Hong",
+    "Jian Lang",
+    "Ting Zhong",
+    "Fan Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.14118",
+   "publishedAt": "2026-11-10",
+   "category": "视觉语言模型",
+   "zhSummary": "已接收 NeurIPS 2026。这篇把多模态大模型的个性化重新表述为开放集问题：现有方法只针对静态预定义的个性化概念集，需要用户手动频繁扩展，在真实动态场景中不可行。作者提出 TAME-O，首个长上下文开放集个性化 MLLM 助手，核心是一个无需训练、即插即用的概念调和技能（CR Skill），能在长期人机交互中自动解锁新概念，同时避免与已解锁概念混淆，让模型不断掌握新概念并逐步精细化已知概念的建模。在开放集个性化设定下的大量实验验证了方法的有效性。对做个性化助手、多模态交互的人来说，开放集的提法切中了落地时的真实痛点。"
+  },
+  {
+   "arxivId": "2611.14498",
+   "title": "Measuring Robustness and Efficiency in a Connectome-Constrained Fly Visual System Model: Linking an Adversarial and a Perceptual Illusion",
+   "authors": [
+    "Alexandre Garcia-Duran",
+    "Alejandro Rodriguez-Garcia",
+    "Manuel Molano-Mazón",
+    "Alexandre Hyafil",
+    "Srikanth Ramaswamy",
+    "Janne K. Lappalainen"
+   ],
+   "url": "https://arxiv.org/abs/2611.14498",
+   "publishedAt": "2026-11-10",
+   "category": "评测基准",
+   "zhSummary": "已接收 NeurIPS 2026。这篇用果蝇视觉系统的突触连接组约束循环神经网络（FlyNet），检验类脑布线是否能在更低算力下更鲁棒。结果是 FlyNet 虽然仍会被对抗攻击攻破，但相对算力而言，对常见视频损坏的鲁棒性超过 RAFT，而 FLOPs 少了多达五个数量级。进一步分析发现，连接组约束主要带来的是效率收益而非鲁棒性收益；反向 phi 错觉与对抗纹理破坏的是同一批低层运动表征，说明两类扰动共享同一个回路弱点。对关注类脑计算、模型效率与鲁棒性关系的人来说，这篇把对抗失效机制变成了可检验的生物学假设，很有启发性。"
+  },
+  {
+   "arxivId": "2611.14326",
+   "title": "When Should Agents Remember? Falsification-Gated Self-Evolution for LLM Agents",
+   "authors": [
+    "Runxuan Tang",
+    "Haoyu Gao",
+    "Yuyan Ding",
+    "Junyi Yao",
+    "Zihao Zheng",
+    "Zecheng Sheng",
+    "Liwei Hou"
+   ],
+   "url": "https://arxiv.org/abs/2611.14326",
+   "publishedAt": "2026-11-10",
+   "category": "递归自改进 RSI",
+   "zhSummary": "这篇追问智能体自改进的核心问题：经验总结出的教训，什么时候才配写进长期记忆？现有方法常把局部成功直接写入记忆，而局部成功并不可靠。作者提出 Falsification-Gated Self-Evolution（FGSE），把每条候选经验表述为带前提、行为改变、预期效果与验证器的结构化假设，先在临时状态下应用，再经过目标迁移、证伪与回归探针检验，最后按实测收益与风险决定提交、修正或拒绝。在 Web、App、工具使用与长期记忆基准上，FGSE 取得了 39.8 的 WebArena 成功率和 78.8 的 AppWorld 平均完成度，同时把证伪失败降到 5.0%、回归损伤降到 1.3%。对做自进化智能体的人来说，“先证伪再提交”的机制设计得很扎实。"
+  },
+  {
+   "arxivId": "2611.14399",
+   "title": "REAL Loss: Optimizing Real Expected Acceptance Length for Speculative Decoding",
+   "authors": [
+    "Yu Tian"
+   ],
+   "url": "https://arxiv.org/abs/2611.14399",
+   "publishedAt": "2026-11-10",
+   "category": "高效推理与部署",
+   "zhSummary": "这篇针对推测解码的训练目标：推理加速取决于期望接受长度（EAL），但交叉熵、KL 散度等常用目标只关注分布匹配，而近期的块级目标也只是 EAL 的近似，甚至会因协方差缺口把梯度方向带反。作者分析了这一缺口并推导出 REAL 损失，用路径权重做无偏估计、Rao-Blackwellization 降方差，直接优化真实的 EAL。在 Qwen3.6-35B-A3B 目标模型与 Domino 起草器的对照实验中，REAL 在 9 个任务子集、5 个随机种子下全面超过 WTV、VSD 等基线。关键是收益只来自改训练损失，不用改起草器结构或推理流程，落地成本很低。对做推理加速的人来说，这篇值得一读。"
+  },
+  {
    "arxivId": "2611.12852",
    "authors": [
     "Tianze Luo",
