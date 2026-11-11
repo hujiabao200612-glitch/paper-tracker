@@ -1,6 +1,157 @@
 {
  "papers": [
   {
+   "arxivId": "2611.14236",
+   "title": "StaRSE: Compact Russian Sentence Embeddings with a Sign-Coded Static Encoder",
+   "authors": [
+    "Boris Malashenko",
+    "Ivan Jarsky",
+    "Egor Soldatov",
+    "Vladislav Luzhnov",
+    "Sviatoslav Stumpf",
+    "Vladislav Shmatkov",
+    "Viacheslav Shalamov",
+    "Andrey Stankevich",
+    "Valeria Efimova"
+   ],
+   "url": "https://arxiv.org/abs/2611.14236",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "已接收 SIGIR 2026 ReNeuIR Workshop。面向俄语检索场景的紧凑静态句向量编码器：把 token 方向存为符号位、范数单独存储，部署时完全去掉 Transformer 推理，句子编码只需对带范数缩放的符号方向做均值池化。在 RuMTEB 上任务均值 51.16，比最强静态基线高近 8 分；模型仅 11.3 MiB，CPU 上每句平均延迟 0.08 毫秒。适合需要在 CPU 或频繁刷新 embedding 的检索场景，代价是目前只针对俄语做了微调。",
+   "category": "RAG 与检索"
+  },
+  {
+   "arxivId": "2611.14515",
+   "title": "AutoScaffold: AI-Guided Scaffolding for Reinforcement Learning of Language Models",
+   "authors": [
+    "Zijian Zhang",
+    "Rizhen Hu",
+    "Jiangweizhi Peng",
+    "Shiyang Li",
+    "Sujay Bhatt",
+    "Sihan Zeng",
+    "Mingyi Hong"
+   ],
+   "url": "https://arxiv.org/abs/2611.14515",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "针对可验证奖励强化学习（RLVR）的训练框架：结果奖励只给一个分数，大量训练经验被浪费。AutoScaffold 让冻结的教师模型定期检查学生的训练经历、诊断瓶颈，自动生成两类支架——跨任务共享的策略和针对难题的单独提示，并随学生进步调整支持强度，评估时撤掉支架。在 ALFWorld、搜索问答、数学推理和 GPU 核生成四类任务上，用支架训练的学生在无支架评估中全面超过对应的 RL 基线。值得看的是“AI 教 AI”的思路：支架设计不再依赖人工和领域知识。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.14511",
+   "title": "Pyrite: Building and Benchmarking Protein-Ligand Pose Ranking Agents",
+   "authors": [
+    "Megha Srivastava",
+    "Michael H. Lim",
+    "Allison M. Keys",
+    "Pranav Murugan",
+    "Nate Gruver"
+   ],
+   "url": "https://arxiv.org/abs/2611.14511",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "NeurIPS 2026 生物发现智能体研讨会论文。药物发现里配体-蛋白结合姿态排序的基准与智能体：提出 1500 对姿态的成对排序基准 Pyrite，配 3D 可视化与物理打分的专家化学家也只能做到接近随机水平。两个 LLM 智能体 PyriteReasoner（直接文本推理比较）和 PyriteFeaturizer（生成代码构造特征再做逻辑回归）分别达到 67% 与 74% 准确率，超过专家表现；GRPO 还能进一步提升开源权重模型。说明 LLM 引导的特征发现比直接推理更适合这类结构化科学任务。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.14492",
+   "title": "ReTrace: Distilling Tool-Using Agents into Planner-Free Workflows",
+   "authors": [
+    "Kaiyuan Hou",
+    "Yang Ping Kuo",
+    "Indranil Bhattacharya",
+    "Rohith Nama",
+    "Arushi Gupta",
+    "Carlos D. Castillo",
+    "Prathap Ramachandra",
+    "Xiaofan Jiang",
+    "Francesco Carbone"
+   ],
+   "url": "https://arxiv.org/abs/2611.14492",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "业务流程自动化中 LLM 智能体每步都要调模型选下一步，延迟和成本都高。ReTrace 从 SOP 文本和少量已记录的智能体运行轨迹中抽取每步背后的条件，合并成紧凑的规则文档，再编译成可执行工作流——运行时由代码而非 LLM 决定下一步。在 79 个生产流程上完成率 93.8%（智能体为 96.8%），单任务成本低 24%；在 τ²-Bench 上成功率 75.8%，运行时间从 170 秒降到 1.3 秒。把“会推理的智能体”蒸馏成“可复用的确定性流程”，是 agent 落地的务实路线。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.14488",
+   "title": "Is Your Robot's Memory Just a Clock? Temporal Shortcuts in Memory-Augmented VLA Policies",
+   "authors": [
+    "Chubin Zhang",
+    "Bo An"
+   ],
+   "url": "https://arxiv.org/abs/2611.14488",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "记忆增强的 VLA 策略常按时间均匀采样历史帧并打上时间戳，作者发现这会让机器人把“等待”误认为“工作已完成”——在 RoboMME 计数任务里让机器人短暂暂停或抖动手腕，成功率就从 47/50 跌到 16/50，称为“幻觉进展”。根源是演示数据节奏均匀，流逝时间本身成了进度的捷径信号；去掉时间编码也治不好，因为空事件帧仍会占据记忆槽位。提醒做具身记忆时不能只按时间采样，值得做机器人方向的人细读。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.14436",
+   "title": "Metric-Aligned Group Relative Policy Optimization for Explainable Deepfake Detection",
+   "authors": [
+    "Luka Dragar",
+    "Peter Peer",
+    "Vitomir Štruc",
+    "Borut Batagelj"
+   ],
+   "url": "https://arxiv.org/abs/2611.14436",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "已被 ACM Multimedia 2026 相关研讨会（MRAC '26）接收。针对可解释 deepfake 检测：先用视觉基础模型集成做真假分类，再由 Qwen3-VL-8B 生成基于视觉证据的解释，伪造图再压缩成面向非专家的简短摘要；并用与评测指标对齐的 GRPO 优化两个解释器。GRPO 把复杂 BERTScore-F1 从 0.686 提升到 0.712，grounding 指标也同步提高，投稿在该项排名第一。把“先判别再解释”解耦、再用 RL 对齐评测指标的做法值得借鉴。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.14421",
+   "title": "Earlybird: Predictive Streaming Speech Recognition in 29M Parameters",
+   "authors": [
+    "Sahil Mahendrakar"
+   ],
+   "url": "https://arxiv.org/abs/2611.14421",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "流式语音识别通常要等说话人说完一个词后 90–400 毫秒才输出，语音助手每毫秒都关键。Earlybird 只有 2900 万参数（4-bit 下 16.8MB），训练时用随机截断的音频、要求模型预测截至当前应出的全部词并猜后两个词。在 LibriSpeech 干净集上，中位词比说话人说完提前 90 毫秒被正确预测，69% 的词在说完前就已预测正确，远超已发布流式模型（3–25%）。对实时语音助手和端侧部署很有参考价值，模型已开源。",
+   "category": "语音"
+  },
+  {
+   "arxivId": "2611.14387",
+   "title": "Blurring the Block Boundaries: Overlapping Block Denoising for Efficient Diffusion Language Models",
+   "authors": [
+    "Amir Mann",
+    "Jonathan Fhima",
+    "Shaked Brody",
+    "Or Avitan",
+    "Asif Zamir",
+    "Shahar Tsiper",
+    "Niv Nayman"
+   ],
+   "url": "https://arxiv.org/abs/2611.14387",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "扩散语言模型（DLM）按块去噪时每块都要等最慢的 token，下一块无法提前开始。B3 让两个块在同一次前向中并行精炼，并实时校准、何时“打开”下一块；训练无关、无超参，可接入任意自编辑块扩散模型。在 10 个数据集上生成质量与基线持平，提速 11.5–14.5%。DLM 推理加速的一条轻量路线。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.14246",
+   "title": "SinkState: On-the-Fly SVD of Recurrent States for Efficient Hybrid LLM Serving",
+   "authors": [
+    "Haolin Jiang",
+    "Weihang Li",
+    "Zhongzhu Zhou",
+    "Jinwen Pan",
+    "Santosh Pandey",
+    "Hang Liu"
+   ],
+   "url": "https://arxiv.org/abs/2611.14246",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "混合模型（softmax 注意力 + 线性注意力）把历史压缩进定长循环状态，但线性层的 QKV 集中在稳定的低维子空间——状态实际是低秩的，而现有推理系统仍以稠密形式读写，显存流量随 batch 增大主导解码成本。SinkState 在推理全程用自适应低秩形式存循环状态，配合缓冲更新与局部 SVD，并在 CPU 上异步合并剩余分量。在 4B–120B 的四个混合模型上，循环状态峰值显存最高降 2.6 倍（平均 1.9 倍），解码提速最高 1.58 倍。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.14256",
+   "title": "A Cross-Scenario Survey and Analysis of Self-Evolving Multimodal Agents",
+   "authors": [
+    "Jingjing Jiang"
+   ],
+   "url": "https://arxiv.org/abs/2611.14256",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "首个跨场景比较自进化多模态智能体的综述：把多模态推理、生成、GUI/Web 导航和具身操作四个场景下的自改进机制放在同一框架里分析——经验生成、反馈获取、更新巩固三阶段循环，并区分机制可迁移的边界。结论是每种机制本质上是用任务结构资源（如可验证结果、输出等价性）换取稀缺要素，跨场景可分为可移植、有条件、被阻塞或冗余四类。对想做自进化 agent 的人，这篇提供了机制选型的地图。",
+   "category": "递归自改进 RSI"
+  },
+  {
    "arxivId": "2611.14514",
    "title": "Contrastive Discovery: Open-Ended Scientific Discovery over Competing Explanations",
    "authors": [
