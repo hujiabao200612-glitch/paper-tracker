@@ -1,6 +1,181 @@
 {
  "papers": [
   {
+   "arxivId": "2611.14424",
+   "title": "DnNP: Denoising Input Uncertainty in Neural Processes",
+   "authors": [
+    "Fatemeh Tohidian",
+    "Chengzhi Shi",
+    "Soomi Lee",
+    "Matthew Elia",
+    "Amy Mueller",
+    "Stratis Ioannidis",
+    "Jennifer Dy"
+   ],
+   "url": "https://arxiv.org/abs/2611.14424",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "已接收 NeurIPS 2026。神经过程（NP）是擅长不确定性量化的元学习模型，但默认输入无噪声，与真实传感器场景不符。作者提出去噪神经过程 DnNP，显式建模输入不确定性，用变分推断联合学习去噪与元学习。在真实 PM2.5 空间插值实验中，相对标准 NP 的 RMSE 最多降低 30%、NLL 最多降低 73%。理论上证明了带噪输入下的贝叶斯最优预测器属于 DnNP 模型类，而固定观测方差的即插即用模型存在不可消除的 KL 差距。值得看：把“输入噪声”这一现实问题 principled 地纳入神经过程框架，理论与真实数据实验兼备。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.14364",
+   "title": "ARE-bench: Benchmarking Agents' Research Ability in Real-World Researcher Sessions and Workspaces",
+   "authors": [
+    "Jiahang Lin",
+    "Wanying Ren",
+    "Wanghan Xu",
+    "Huayu Sha",
+    "Yang Shu",
+    "Zhonghang Lu",
+    "Chengjun Pan",
+    "Yi Dong",
+    "Shichun Liu",
+    "Yuyang Hu",
+    "Shihan Dou",
+    "Honglin Guo",
+    "Huijie Lv",
+    "Pujun Zheng",
+    "Zhe Sun",
+    "Yuankai Ying",
+    "Yiding Wang",
+    "Jiahao Chen",
+    "Zhixiong Yang",
+    "Dingbo Yuan",
+    "Yicheng Zou",
+    "Zhecan Wang",
+    "Guoxiu He",
+    "Xiaoyu Xing",
+    "Qi Zhang",
+    "Tao Gui",
+    "Xuanjing Huang"
+   ],
+   "url": "https://arxiv.org/abs/2611.14364",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "研究型智能体在干净基准上分数越来越高，但真实科研是“在进行中的项目里推进一小步”。ARE-bench 用 75 个来自研究者真实项目会话与工作空间的任务（覆盖 7 个研究阶段、1173 个二值检查项），评测智能体能否在尊重既有决策与未完成文件的前提下推进项目。7 个前沿模型中，最强的也只在 66.2% 的任务上通过全部检查项；一旦计入历史与工作空间约束，通过率从约 69% 跌至 28.4%–40.0%。结论是：不考察上下文约束的评测会系统性高估研究智能体。值得看：它揭示了当前 agent 评测与真实科研交付之间的关键缺口。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.14365",
+   "title": "From Video Frames to Robot Meta-Frames: A Unified Latent Interface for World Action Models",
+   "authors": [
+    "Guoqiang Liang",
+    "Yiqi Lin",
+    "Yanzhe Chen",
+    "Kevin Yuchen Ma",
+    "Mike Zheng Shou"
+   ],
+   "url": "https://arxiv.org/abs/2611.14365",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "预训练视频扩散模型是世界-动作模型（WAM）的良好底座，但把机器人本体感受、动作等低维信号注入视频潜空间时，现有做法各信号占一帧或外挂编解码器，效率低。作者发现信号注入本质是分布对齐问题：频域打包的潜变量最贴合预训练扩散模型的先验。提出的 MetaWAM 把全部机器人信号折叠进一帧统一“元帧”，无需改架构即可同时支持策略、世界模型与价值预测。在 RoboCasa 上成功率 68.9%，推理延迟降低 39%，三项真实 Franka 任务达 85.0%。值得看：用一个干净的接口设计同时解决了效率与多任务统一问题。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.14122",
+   "title": "Hx2Dx: From Anamnesis to Diagnosis - A Multimodal Arena for Conversational Clinical Reasoning in LLMs",
+   "authors": [
+    "Federico Ravenda",
+    "Mirko Cesarini",
+    "Daniele Montagnani",
+    "Volodymyr Karpenko",
+    "Antonietta Mira",
+    "Andrea Raballo"
+   ],
+   "url": "https://arxiv.org/abs/2611.14122",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "大语言模型在静态病例上诊断准确率已达专家水平，但临床诊断是边问边查的迭代过程。Hx2Dx ARENA 用 1000 例《新英格兰医学杂志》病例构建交互式问诊基准，模型需通过问诊、体检与检查逐步缩小鉴别诊断。评测发现所有模型在交互设置下准确率都低于静态设置，差距主要来自“会不会问对问题”。这说明 LLM 推理本身不弱，短板在假设驱动的信息搜集。值得看：它点出了医疗 LLM 安全落地前必须补齐的一环。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.14307",
+   "title": "TaoMate-R1: Temporal Role Specialization for Streaming Multi-Reference Video Generation",
+   "authors": [
+    "Qijun Gan",
+    "Chenwei Zhang",
+    "Xinyang Li",
+    "Meiguang Jin",
+    "Junfeng Ma"
+   ],
+   "url": "https://arxiv.org/abs/2611.14307",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "流式多参考视频生成要先按给定人物与物体建场景，再随指令变化续写，场景切换处容易跳变。TaoMate-R1 按时间角色分工组织适配参数：建场景与续写各用一套独立的低秩适配器，并用自梯度强制（Self Gradient Forcing）联合训练。在 10 条约两分钟的流上，场景边界亮度跳变均值从 1.96 降至 0.613，时间一致性指标同步提升。值得看：把“按角色分工而非按操作分工”的思路用于流式生成，效果直接体现在边界稳定性上。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.14355",
+   "title": "CLADE: Category-Level Answering from Deficient Evidence in Retrieval-Augmented Language Models",
+   "authors": [
+    "S M Rayeed",
+    "Charles V. Stewart",
+    "Yao Ma"
+   ],
+   "url": "https://arxiv.org/abs/2611.14355",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "RAG 系统常检索到“粒度太粗”的段落：能定位到疾病家族，却给不出具体疾病。作者发现模型面对这类“可解的不充分证据”时不是 abstain 或继续检索，而是直接猜测，猜错率约一半；在 PrimeKG 生物医学问题上，家族级段落使 abstention 降低 13.8 个点。置信度过滤、换更大模型、明确指令要求 abstain 都无法解决。利用本体论可把端到端恢复率从 10.0% 提升到 26.8%，但仍有大量空间未解决。值得看：它揭示了 RAG 可靠性的一个隐蔽失效模式，并指明了本体论辅助的出路与局限。",
+   "category": "RAG 与检索"
+  },
+  {
+   "arxivId": "2611.14469",
+   "title": "C$^2$-Routing: Complementary Cropping and Compression for Efficient Vision-Language Inference",
+   "authors": [
+    "Guorui Lu",
+    "Qinyu Chen"
+   ],
+   "url": "https://arxiv.org/abs/2611.14469",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "VQA 任务中视觉 token 开销大，简单裁剪会丢信息，压缩则丢细节。C²-Routing 发现裁剪与压缩互补：裁剪突出小目标与局部细节，整图压缩保留大目标与全局上下文；方法按输入图像与问题自适应二选一，并用安全门在不确定时回退到原图。在 3 个 VLM、18 个数据集上，视觉 token 预算已封顶的前提下又减少 36.53% 的 FLOPs 与 42.36% 的视觉 token，任务分数平均仅下降 0.77%。全部实验在 RTX 3090 上完成，对消费级 GPU 友好。值得看：模型无关的输入缩减方法，黑盒 VLM 也能直接用。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.14356",
+   "title": "EngineAgent: Agentizing On-Device LLM Inference Engines with Inference Stack Hierarchy Awareness and Hardware Abilities",
+   "authors": [
+    "Zhengxiang Huang",
+    "Yujie Sun",
+    "Shengheng Chen",
+    "Zhaode Wang",
+    "Chaoyue Niu",
+    "Zeyu Zhao",
+    "Chengfei Lv",
+    "Fan Wu",
+    "Guihai Chen"
+   ],
+   "url": "https://arxiv.org/abs/2611.14356",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "端侧 LLM 推理引擎要适配新模型与异构硬件，改动横跨转换、图构建、算子与后端，现有编码智能体常漏掉跨层依赖、难以定位端侧故障。EngineAgent 先构建层次感知的引擎索引并预验证各后端流程，再由 builder 协调跨层改动、auditor 驱动设备端验证迭代调试。在 12 项任务（3 个移动端 LLM、4 组引擎-后端组合）上端到端成功率 75%，而最强编码智能体基线仅 33.3%，且平均耗时与 API 成本更低。值得看：把“引擎知识”与“模型实现”解耦，是 agent 落地系统工程的一个扎实范例。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.14106",
+   "title": "ProofCoder: Continuous Reasoning for Automated Software Verification",
+   "authors": [
+    "Martim Afonso",
+    "Inês Lynce",
+    "Maurizio Morisio",
+    "João F. Ferreira"
+   ],
+   "url": "https://arxiv.org/abs/2611.14106",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "形式化验证中，LLM 证明合成常被锁在固定的 tactic 生成循环里，系统包办检索与回溯。ProofCoder 把定理证明当作编码任务：模型在整个证明搜索中持续推理，根据证明助手反馈自主决定搜集信息、检查证明状态、修订片段或回溯。在 280 个 AutoRocq 基准任务上，证明成功率从最优基线的 47% 提升到 60%（相对提升 27.7%），成本约为一半。消融表明“持续推理”是关键：去掉它后解题更少、成本更高、回溯多 4–6 倍。值得看：它说明自动化验证需要的不仅是更好的 tactic 选择，更是持续推理与反馈驱动的修正能力。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.14397",
+   "title": "A Margin Perspective on LoRA: Robustness to Catastrophic Forgetting and Adapter Merging (MaLoRA)",
+   "authors": [
+    "Ziqing Xu",
+    "Hancheng Min",
+    "Lachlan Ewen MacDonald",
+    "Salma Tarmoun",
+    "Enrique Mallada",
+    "Weijie Su",
+    "Rene Vidal"
+   ],
+   "url": "https://arxiv.org/abs/2611.14397",
+   "publishedAt": "2026-11-10",
+   "zhSummary": "LoRA 除了省参数，还被观察到抗灾难性遗忘、且多个适配器可合并，但机理不清。作者从 margin 视角给出统一理论解释：在近正交任务设定下，最优 LoRA 适配器在适中的正则区间内与 max-margin 解对齐；由此得到预训练与微调数据的 margin 权衡闭式表达，并导出训练无关的合并规则 MaLoRA。真实架构与数据集上的实验证实了理论预测，MaLoRA 在多项合并基线上持平或更优。值得看：把两个经验现象收进一个理论框架，并直接给出可用的合并方法。",
+   "category": "后训练与对齐"
+  },
+  {
    "arxivId": "2611.14519",
    "title": "Medical Image Segmentation: Foundation Model Adaptation versus Task-Specific Training",
    "authors": [
