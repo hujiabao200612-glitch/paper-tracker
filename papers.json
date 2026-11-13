@@ -1,6 +1,171 @@
 {
  "papers": [
   {
+   "arxivId": "2611.17287",
+   "title": "Negative-Only Policy Optimization for One-Sided Verifiable Rewards",
+   "authors": [
+    "Jiacheng Xu",
+    "Shuo He",
+    "Fuxiang Zhang",
+    "Chaojie Wang",
+    "Bo An"
+   ],
+   "url": "https://arxiv.org/abs/2611.17287",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "已接收 NeurIPS 2026（Spotlight）。针对可验证奖励强化学习中验证器只能证伪、不能证实的问题，本文提出单边可验证性设定：被验证为错的样本是可信反例，而“通过验证”的样本可能含有大量假阳性。方法 NOPO 只用可信负样本更新策略，把正样本当作无标签样本处理，结合参考相对的负抑制损失与按未证伪比例缩放更新的组级适配器。在代码、逻辑与数学基准上，NOPO 在无真实奖励时仍优于基线，且增益在推理时扩展与跨基准迁移中保持。值得看：直面 RLVR 验证器不可靠这一现实痛点，给出了原则性的修正方案。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.17323",
+   "title": "AgentSSL: Can MLE Agents Leverage Unlabeled Data?",
+   "authors": [
+    "Ethan Lin",
+    "Akanksha Sarkar",
+    "Ziang Liu",
+    "Kristin Branson",
+    "Jennifer J. Sun"
+   ],
+   "url": "https://arxiv.org/abs/2611.17323",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "已接收 NeurIPS 2026。研究 MLE 智能体在标签稀缺、无标签数据丰富的半监督场景下能否发挥作用，作者把半监督学习建模为程序搜索问题。结果显示，即使反馈微弱，智能体也能组合改编经典半监督技术写出有效代码，在 12 个设置中的 8 个上超过最强人工基线，最高提升 21.8%。但程序选择是关键瓶颈，按智能体自身反馈指标选程序时性能最多下降 47%，作者为此发布了包含近 1.7 万个程序的 ProgramSelectBench。值得看：把智能体从全监督拓展到半监督场景，并诚实揭示了“选程序比写程序更难”的问题。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.17331",
+   "title": "TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models",
+   "authors": [
+    "Chin-Yang Lin",
+    "Ryo Hachiuma",
+    "Jaesung Choe",
+    "Min-Hung Chen",
+    "Yu-Chiang Frank Wang",
+    "Yen-Yu Lin",
+    "Wei-Chen Chiu",
+    "Yu-Lun Liu",
+    "Cheng Sun"
+   ],
+   "url": "https://arxiv.org/abs/2611.17331",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "已接收 NeurIPS 2026（Spotlight）。针对解码器式大视角合成模型渲染慢的问题，本文提出测试时烘焙（TTB）：把跨视角注意力中的全局场景信息“烘焙”进一个轻量 MLP，实现快速高质量的新视角解码。关键是复用测试时训练的快权 MLP 显式学习注意力映射而非替代注意力，并把上下文 token 解耦为仅含相机信息的渲染 token 与含图像内容的目标 token，消除模态错位。方法在多个基准上达到最高 23 倍渲染加速，同时保持与最优方法相当的质量。值得看：把 TTT 思想用在 3D 视角合成上，速度与质量兼得。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.17052",
+   "title": "Auditing AI peer reviewers: a benchmark on real scientific papers",
+   "authors": [
+    "Íñigo Zubeldia",
+    "Boris Bolliet",
+    "Francisco Villaescusa-Navarro",
+    "Pablo Villanueva-Domingo",
+    "Miles Cranmer"
+   ],
+   "url": "https://arxiv.org/abs/2611.17052",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "已接收 NeurIPS 2026。针对 LLM 审稿已大规模使用但缺乏评估的问题，本文构建了一个基准：向真实论文注入数学、数值、引用与通用四类错误，衡量各审稿系统的检出率与误报率。还提出多智能体审稿系统 Skepthical，用检索验证引用、用计算机代数验证数学、用执行代码验证数值。在天体物理与机器学习两个语料、共 357 个注入错误上评估了 12 个审稿系统，发现模型选择影响最大，同一提示下三个前沿模型的检出率相差约 50 个百分点。值得看：给“AI 审稿到底靠不靠谱”提供了第一个可量化的答案，基准与注入错误均已开源。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.16905",
+   "title": "Factored One-sided Adam-Moment for Practical and Scalable SOAP",
+   "authors": [
+    "Jaemyung Yu",
+    "Byeongho Heo",
+    "Sangdoo Yun",
+    "Dongyoon Han"
+   ],
+   "url": "https://arxiv.org/abs/2611.16905",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "已接收 NeurIPS 2026。二阶优化器 SOAP 收敛快但显存与特征分解开销大，作者提出轻量变体 FOAM：只做输入侧预条件，丢掉输出侧 Kronecker 因子，并以基于行列统计的因子化 Adam 矩估计替代稠密二阶矩。在 1.24 亿到 7.6 亿参数的 LLM 预训练中，FOAM 与 SOAP、Muon 的验证损失相当，只用 SOAP 一半的优化器状态，wall-clock 与 Muon 同级，且在三倍学习率范围内保持稳健。值得看：让二阶优化器以接近 AdamW 的成本落地，代码已开源。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.17107",
+   "title": "Disentangling Spurious Correlations: How IRM Handles Diverse Shortcuts in Text Classification",
+   "authors": [
+    "Paul Grunenwald",
+    "Benoît Crabbé",
+    "Guillaume Wisniewski",
+    "Pirmin Lemberger"
+   ],
+   "url": "https://arxiv.org/abs/2611.17107",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "已发表于 EMNLP 2026 主会。针对 ERM 训练的模型容易利用方言标记等虚假相关、损害分布外泛化的问题，本文系统评估不变风险最小化（IRM）在文本分类中到底能不能抑制捷径。在标签生成特征、混杂与选择偏倚三种因果机制下，IRM 均能有效拒绝捷径，即使环境变化有限、标签噪声增大时也成立。进一步在 Bias in Bios 的性别职业关联与 ActorCorr 的演员名捷径上验证，IRM 能缓解较真实的文本捷径，但语义特征需要谨慎校准不变性惩罚。值得看：给争论已久的“IRM 在 NLP 里到底有没有用”一个基于因果框架的扎实回答。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.17298",
+   "title": "Consistent Video-to-Video Translation via Explicit Correspondences",
+   "authors": [
+    "Gaurav Parmar",
+    "Zhengqi Li",
+    "Richard Zhang",
+    "Jun-Yan Zhu",
+    "Srinivasa Narasimhan",
+    "Eli Shechtman",
+    "Yotam Nitzan"
+   ],
+   "url": "https://arxiv.org/abs/2611.17298",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "已接收 ECCV 2026。针对实时视频到视频翻译只能用固定长度因果窗口、丢失长程一致性的问题，本文提出基于显式对应的方法 vid2vid-long：利用输入视频本身提供的跨帧参考，计算输入的 patch 级对应关系，引导检索已生成输出的对应区域，并通过对应交叉注意力加以利用。实验表明，该方法在多个近期视频模型上持续提升长程时间一致性，同时保持生成质量与实时性能。值得看：用输入视频自带的对应关系解决长程一致性，思路简洁且不牺牲速度。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.17041",
+   "title": "From Delegation to Coordination: Learning Efficient Multi-Agent Deep Research",
+   "authors": [
+    "Yuyang Wu",
+    "Yang Liu",
+    "Zequn Xie",
+    "Junjie Wang",
+    "Dan Yang",
+    "Zehao Tan",
+    "Ding-Chu Zhang",
+    "Junming Yang",
+    "Yue Shen",
+    "Jian Wang",
+    "Jinjie Gu"
+   ],
+   "url": "https://arxiv.org/abs/2611.17041",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "多智能体深度研究系统靠主智能体分发子任务并行搜索，但现有训练只优化主智能体或给所有智能体发同一团队奖励，会奖励误导性汇报、惩罚有用汇报。作者提出 LEAD-RL，主从智能体联合训练并按贡献分配信用：训练时用评分标准评估每份子智能体报告的研究价值，据此调节其继承的团队优势，最终答案正确性仍是唯一团队奖励。在 BrowseComp 上比共享团队信用的联合训练高 2.49 个百分点，关键路径成本降低 24.5%。值得看：把“谁的功劳”算清楚，是多智能体协作训练的关键一步。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.17068",
+   "title": "Discovering Effective Agent Memory Designs through Program Evolution",
+   "authors": [
+    "Xinheng Ding",
+    "Seyyed Saeid Cheshmi",
+    "Ziyang Zhang",
+    "Tairan Chen",
+    "Wenya Xie",
+    "Yu Hou",
+    "Rui Zhang",
+    "Zirui Liu"
+   ],
+   "url": "https://arxiv.org/abs/2611.17068",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "智能体记忆设计多靠人工经验，作者提出 MAPE 框架，用程序演化从最小种子自动发现整套记忆程序，通过标准化生命周期接口与诊断—提议循环迭代改进。在 LoCoMo 与 LongMemEval 上比人工基线绝对准确率最高提升 12%，且只需 35% 的服务成本。分析总结出两条通用设计模式：保留原始对话作为可检索证据、按查询意图组织检索证据，把组合模块移植到五个现有记忆系统后全部提升。值得看：用演化搜索替代人工调记忆，结论可直接指导记忆系统设计。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.17320",
+   "title": "Learning When Diffusion Language Models Should Regenerate",
+   "authors": [
+    "Minhae Oh",
+    "Jeonghye Kim",
+    "Jinwoo Koo",
+    "Yeongoon Kim",
+    "Jimin Seo",
+    "Minsik Seol",
+    "Jungwoo Lee"
+   ],
+   "url": "https://arxiv.org/abs/2611.17320",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "扩散语言模型可用重掩码 revisiting 生成文本，但何时、改哪里一直缺乏依据。作者在数独上的诊断发现，隐藏状态含有 token 置信度暴露不出的错误信息，且孤立地重掩码单个错误常因上下文不变而重现。由此提出验证器 DiVR，预测部分生成序列能否到达正确答案，决定何时重生成一个 block、保留哪个候选，生成器本身保持不变。在 LLaDA-8B 上，五个推理基准平均准确率从 35.3% 提升到 43.4%，成本仅为贪心解码的 1.9–3.5 倍，低于同类搜索基线。值得看：给扩散语言模型配了一个“何时返工”的判断器，是推理时扩展的新思路。",
+   "category": "推理"
+  },
+  {
    "arxivId": "2611.16099",
    "title": "CupOFMoCA: Coupled Objective-Guided Discrete Flows for Molecular Conjugate Assembly",
    "authors": [
