@@ -1,6 +1,169 @@
 {
  "papers": [
   {
+   "arxivId": "2611.16694",
+   "title": "When Expert Disagreement Hurts: Prestige and Selectivity in LLM Decision Revision",
+   "authors": [
+    "Yupeng Tang",
+    "Mingfeng Lin"
+   ],
+   "url": "https://arxiv.org/abs/2611.16694",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "已接收 NeurIPS 2026。研究考察了大模型在遭遇“专家反对”时修正决策的行为：作者设计两轮对照实验，固定问题、证据和初始答案，只改变修正语境（中性反思、匿名异议、署名领域专家的异议）。结果显示，五款模型在专家异议下无一通过“选择性修正”门槛，准确率最多下降 16.1 个百分点；“专家”标签本身会诱发更多反转，却不一定提升正确率。结论是仅凭反转次数无法判断修正是否有害，评估修正流程需要配对的条件指标。这对依赖多智能体辩论与自我修正的 agent 系统设计有直接警示意义。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.16502",
+   "title": "SignRot: LLM Quantization with Massive Outlier-Aware Sign-Adjusted Rotation",
+   "authors": [
+    "Jaehun Gim",
+    "Jaewoo Kim",
+    "Gyuwan Kim",
+    "Seo Yeon Park"
+   ],
+   "url": "https://arxiv.org/abs/2611.16502",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "已接收 NeurIPS 2026。针对大模型低比特量化的顽疾“海量异常值”：现有基于 Hadamard 旋转的方法在异常值主导时会出现分布碎片化，均匀量化效果大打折扣。作者提出 SignRot，识别异常通道并统一对应 Hadamard 行的符号，把双峰分布压成单峰，再配合非对称激活量化吸收均值偏移。方法只需一次校准前向、推理时仅增加逐元素符号翻转，可即插即用于任何基于 Hadamard 的量化方案；在 LLaMA3-70B 上超过 SpinQuant。改动极小却直击量化精度的关键瓶颈，值得做模型压缩与部署的读者关注。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.16487",
+   "title": "HeMeR: Heterogeneous Memory Reconciliation for Embodied Agents via Structured KV Reuse",
+   "authors": [
+    "Saehun Chun",
+    "Wonje Choi",
+    "Jinwoo Jang",
+    "Taeyoon Kwack",
+    "Honguk Woo"
+   ],
+   "url": "https://arxiv.org/abs/2611.16487",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "已接收 NeurIPS 2026（Oral）。具身智能体决策时要同时调用陈述性、程序性和工作记忆，现有做法每次都把更新后的记忆当作全新输入重算 KV 缓存，浪费严重。作者提出 HeMeR，在动态更新的记忆上下文与可复用的 KV 状态之间做“调和”，只重算受记忆变化影响的部分，保留未变内容的 KV。真实机器人部署中任务成功率达 83.20%，单步推理时间从 2.94 秒降至 1.87 秒。Oral 报告，记忆系统与高效推理的交叉点值得关注。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.16882",
+   "title": "Pretraining Data Statistics Shape the Phases of Learning Entity Comparison in Language Models",
+   "authors": [
+    "Yik Siu Chan",
+    "Jing Huang",
+    "Yanai Elazar",
+    "Atticus Geiger"
+   ],
+   "url": "https://arxiv.org/abs/2611.16882",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "已接收 NeurIPS 2026。预训练数据如何塑造模型的学习过程？作者以实体比较任务为案例，在 163M 参数小模型上做可控实验，发现学习分为三个阶段：先按频率选实体，再按提示中的位置选，最后才真正学会正确答案；三个阶段的出现由训练数据的统计特性因果决定。改变实体频率分布（如把 Zipf 分布换成均匀分布）会削弱频率阶段、加速学习；三阶段动态在开源模型 OLMo-2 32B 中同样出现。这项工作把“数据决定学习动力学”从直觉变成了可验证的因果结论。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2611.16871",
+   "title": "DPA: Decentralized Primal Averaging with Quasi-Global Momentum for Highly Heterogeneous Data",
+   "authors": [
+    "Diyako Ghaderyan",
+    "Stefan Werner"
+   ],
+   "url": "https://arxiv.org/abs/2611.16871",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "已接收 NeurIPS 2026。去中心化训练中各节点数据高度异质时，现有方法在稀疏通信图上精度下滑严重。作者提出 DPA（去中心化原始平均），把中心化原始平均与局部准全局动量结合，用三条耦合序列做优化、梯度评估和输出平均，无需额外传输追踪变量；还给出通信量与 DSGD 相当的单轮变体 DPA-1G。理论上证明了非凸光滑目标的收敛界与线性加速条件，实验在 CIFAR-10/100 上优于 DSGD、梯度追踪等基线，异质性越高、图越稀疏优势越大。做分布式训练和联邦学习的值得一看。",
+   "category": "分布式训练"
+  },
+  {
+   "arxivId": "2611.16642",
+   "title": "Dataset Distillation via Drifting",
+   "authors": [
+    "George Cazenavette",
+    "Angelina Quan",
+    "Giannis Daras",
+    "Antonio Torralba",
+    "Vincent Sitzmann"
+   ],
+   "url": "https://arxiv.org/abs/2611.16642",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "已接收 NeurIPS 2026。数据集蒸馏的目标是用少量合成样本替代大规模真实数据，现有方法大多围绕分类器目标优化蒸馏数据。本文另辟蹊径：让蒸馏样本在特征提取器的隐空间里“漂移”，既靠近真实数据分布、又彼此远离，直接逼近每类数据的分布本身。漂移后的数据对真实分布的覆盖明显优于现有方法，同时仍是强有力的训练样本；方法还可作为可视化工具帮助理解模型，并已扩展到图像之外。论文还提出了基于分布的评估指标，值得做数据高效学习的读者关注。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.16361",
+   "title": "MutAtlas: A PDB-Wide Energy-Guided Atlas of Protein Mutation Effects",
+   "authors": [
+    "Ruihan Guo",
+    "Chaoran Cheng",
+    "Zhanghan Ni",
+    "Neil He",
+    "Bangji Yang",
+    "Ge Liu"
+   ],
+   "url": "https://arxiv.org/abs/2611.16361",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "已接收 ICML 2026。蛋白质突变效应预测对蛋白质工程和疾病变异解读至关重要，但实验测得的突变数据非常稀疏。作者构建了覆盖整个 PDB 的突变增强数据集，穷举实验解析结构上的单位点替换，并对齐物理能量模型、蛋白质语言模型和逆折叠模型的突变信号。分析发现不同来源的突变分布存在系统性分歧，源于归纳偏置冲突而非随机噪声；据此提出的无监督多源偏好蒸馏框架在 ProteinGym 上取得零样本最佳成绩，且训练全程未用实验标签。数据集与评估流程已开源。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.16409",
+   "title": "Experience-Handoff Reinforcement Learning for Recursive Self-Improvement",
+   "authors": [
+    "Doyoung Kim",
+    "Byeongguk Jeon",
+    "Kailin Zhang",
+    "Sherry Yang"
+   ],
+   "url": "https://arxiv.org/abs/2611.16409",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "大模型智能体常用强化学习训练，但标量奖励丢掉了试错过程中的细粒度环境信息（如错误日志）；现有做法用反思或压缩把经验传给后续 rollout，却不学习“交接物”本身的构造。本文提出经验交接强化学习（Experience-Handoff RL）：在固定的 ACE 支架下训练同一模型兼任行动、反思与手册策展三种角色，按候选经验对未来 rollout 的下游效果评估其价值并联合优化。在多个智能体基准上优于基线方法。核心启示是智能体训练不仅要优化当前 rollout 的动作，还要优化留给未来自己的经验，是递归自改进方向上很干净的一步。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2611.17336",
+   "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+   "authors": [
+    "Yanke Song",
+    "Shuo Chen",
+    "Chris Rockwell",
+    "Guande He",
+    "Nan Liu",
+    "Desai Xie",
+    "Tianpei Gu",
+    "Yong-Hyun Park",
+    "Aryan V S",
+    "Dennis Yuren Menn",
+    "Ming-Hsuan Yang",
+    "Xun Huang"
+   ],
+   "url": "https://arxiv.org/abs/2611.17336",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "前沿视频生成模型都在 VAE 隐空间工作，时空压缩虽让训练可行，却限制了高分辨率、可控性与交互性：分辨率翻倍则 token 数翻四倍、条件只能作用于帧组、响应必须等完整帧块。本文提出 PixVid，把预训练隐视频模型“抬升”到像素空间逐帧生成：保留扩散 Transformer，把 VAE 解码器换成卷积头直接渲染像素。关键发现是预测干净视频（而非速度）加更大的噪声偏移；在 Wan2.1-14B 微调后与隐空间基线相当，相同 token 下分辨率翻倍，且支持逐帧响应。视频生成从“隐空间”走向“像素空间”的一次有力尝试。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.16591",
+   "title": "Singularity-Bench: Can Agents Build Agents?",
+   "authors": [
+    "Yang Zhou",
+    "Krish Agarwal",
+    "Zhuoming Chen",
+    "Zerui Wang",
+    "Zhenyu Zhang",
+    "Wenshuang Li",
+    "Xinpeng Wei",
+    "Zhichen Zeng",
+    "Jingyu Liu",
+    "Jue Wang",
+    "Sen Wu",
+    "Ziheng Jiang",
+    "Zhen Dong",
+    "Han Cai",
+    "Binhang Yuan",
+    "Ying Sheng",
+    "Ce Zhang",
+    "Bo Li",
+    "Beidi Chen"
+   ],
+   "url": "https://arxiv.org/abs/2611.16591",
+   "publishedAt": "2026-11-13",
+   "zhSummary": "前沿智能体已能完成长程现实任务，开始反过来改进自身运行的系统，但现有基准动作空间窄、环境简化、验证不可靠。本文提出 Singularity-Bench：六个端到端任务覆盖预训练、中训练、后训练、推理、智能体支架与集群编排，要求智能体从最小起点实现核心系统，并与人类工程基线在相同硬件上对比；还通过红队测试暴露了 Harbor 框架的奖励作弊漏洞并给出加固版 Breakwater。11 个智能体中，Opus 5.5 搭配 Claude Code 在全部六项上达到或超过人类基线，其余平均仅 0.58。直接追踪“智能体何时能端到端接管 AI 开发”，话题性与方法论兼备。",
+   "category": "评测基准"
+  },
+  {
    "arxivId": "2611.17287",
    "title": "Negative-Only Policy Optimization for One-Sided Verifiable Rewards",
    "authors": [
