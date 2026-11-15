@@ -1,6 +1,174 @@
 {
  "papers": [
   {
+   "arxivId": "2611.17160",
+   "title": "XBot-Omni: An Omni-Modal Model for Embodied Understanding and Interaction",
+   "authors": [
+    "Kerui Gu",
+    "Xing Fu",
+    "Shuoyang Sun",
+    "Cheng Peng",
+    "Jingru Duan",
+    "Huayu Gu",
+    "Zhenyu Chen",
+    "Jiaxin Huang",
+    "Cheng Wen",
+    "Rui Zhen",
+    "Kairui Chen",
+    "Zhihui Peng",
+    "Shaoli Huang"
+   ],
+   "url": "https://arxiv.org/abs/2611.17160",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇提出 XBot-Omni，一个面向具身交互的全模态模型：Thinker 理解文本、图像、音频和视频，Talker 生成语音，新增的 Actor 模块直接输出协调的身体动作与面部表情，三者端到端串联，避免分阶段设计带来的信息损失。Actor 以流式方式复用 Thinker 与 Talker 的原生表征，只引入很小的延迟开销。在七个基准上的评测显示，它在通用与机器人中心视频理解上都很强，生成的动作自然且与表达协调。值得看的点在于，它把“会说话”扩展为“会动、会表情”，是具身智能体从理解走向表达的一步。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.16589",
+   "title": "STVLA: Spatial-aware and Temporal-memory forVision-Language-Action Models",
+   "authors": [
+    "Zhuo Han",
+    "Yeqiang Wang",
+    "Xinran Wang",
+    "Hongwei Han",
+    "Yi Xiong",
+    "Zunian Wan",
+    "Jianbo Mao",
+    "Huan Peng",
+    "Yongcheng Liu",
+    "Wei Shan",
+    "Maoqing Yao"
+   ],
+   "url": "https://arxiv.org/abs/2611.16589",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇针对视觉-语言-动作（VLA）模型在操作任务中记不住场景变化的问题，提出 STVLA：把预训练视觉几何基础模型的特征与视觉表征一起存入时序记忆，让策略在决策时能回忆过去的场景结构。历史选择用一个有数学依据的打分规则，兼顾与当前观测的相关性和记忆的互补信息。在 LIBERO、LIBERO-Mem、MIKASA-Robo 和 SimplerEnv Bridge 四个基准上均为同类最高平均成功率，真机叠方块、整理物品、手机打包任务上比 π0.5 分别高出 58.33、30.00 和 35.00 个百分点。把场景几何放进记忆，是提升需要空间精度与任务历史的操作任务的实用思路。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.16426",
+   "title": "SoScale: Second-Order Scale Search for FP4 Quantization",
+   "authors": [
+    "Pengxiang Zhao",
+    "Xing Li",
+    "Hui-Ling Zhen",
+    "Weizhe Lin",
+    "Xianzhi Yu",
+    "Zhenhua Dong"
+   ],
+   "url": "https://arxiv.org/abs/2611.16426",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇做 FP4 量化：MXFP4、NVFP4、HiF4 等格式把 4 位浮点载荷与分块缩放码结合，精度对局部缩放方式非常敏感，默认的最大绝对值缩放会把宝贵的 FP4 量化级浪费在罕见异常值上。SoScale 提出二阶权重缩放码搜索，在 Hessian 感知的层重建目标下搜索硬件合法的缩放码，并结合 GPTQ 风格的误差补偿，按缩放对层输出的影响来选码。在 Qwen3 系列模型上，SoScale 在三种 FP4 格式下都稳定减少了量化带来的下游性能损失。对需要把大模型压到 4 位部署的场景，这是一份直接可用的方法参考。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.16714",
+   "title": "Towards Green Text Generation: Memory-Based Speculative Decoding",
+   "authors": [
+    "Antal van den Bosch"
+   ],
+   "url": "https://arxiv.org/abs/2611.16714",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇研究投机解码的能效：提出 Olifant，一个基于记忆分类器的草稿模型，只看四个 token 的窗口、在 CPU 上不到 0.3 毫秒就能预测下一个 token，不需要 GPU、反向传播或加速器显存。在欧盟法律文本上，领域匹配的 Olifant 接受率达 38.1%，吞吐提升 2.43 倍、每 token 能耗降低 2.51 倍；即使配合带 KV 缓存的验证器，仍有 1.25 倍吞吐提升和全场最低能耗。研究还指出 KV 缓存把时间与能量解耦，能量最优的草稿长度比速度最优的更短。想在消费级硬件上低成本跑大模型推理，这篇的“草稿越便宜越好”结论值得参考。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.16183",
+   "title": "Data-Efficient LLM Safety Alignment Guided by Interpretable Features",
+   "authors": [
+    "Hongyu Li",
+    "Zhan Yu",
+    "Zhe Zhao",
+    "Kimmo Yan",
+    "Xiong Kuang",
+    "Renfen Hu"
+   ],
+   "url": "https://arxiv.org/abs/2611.16183",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇针对大模型安全对齐需要海量微调数据、且容易过度拒答的问题，提出 Less is Safer（LIS）：用稀疏自编码器（SAE）激活筛选出覆盖多样可解释安全特征的提示，再通过多智能体对抗合成生成“无害却会引发不必要拒答”的提示，得到仅 2.4K 条样本的数据集。LIS 在四个安全基准和五个过度拒答基准上的总体表现超过了 26K 的 TRIDENT-Core、19K 的 TRIDENT-Edge 乃至 262K 的 WildJailbreak。消融实验表明，安全数据与抗过度拒答数据缺一不可。它说明安全对齐的关键不在数据量，而在特征覆盖与对抗样本设计。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.16627",
+   "title": "Folio: Recoverable Multi-Resolution Context Folding for Long-Horizon Language Agents",
+   "authors": [
+    "Yubo Ruan",
+    "Tao Peng",
+    "Jiao Zhang",
+    "Chuanguo Ma",
+    "Lei Xu",
+    "Han Zhou",
+    "Wenwu Wang",
+    "Xiafei Lv",
+    "Xingjie Zhou",
+    "Guiju Fan",
+    "Hao Wang",
+    "Fenghui Zhang",
+    "Mao Miao",
+    "Shuo Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.16627",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇解决长程语言智能体历史塞满上下文窗口的问题，提出上下文管理器 Folio：运行时记录三个关联层级——模型顺手写的简短回合笔记、运行时写的事件清单、以及原始记录，折叠时按程序选择较粗粒度的旧视图，折叠处打印索引，恢复工具可按需取回证据。折叠触发点会显式标价，计入保留预算。在 75 个 LOCA-bench 任务上，Folio 完成 66 个，高于模型摘要压缩的 54 个和 Claude Code、Codex 等的 49–59 个，用时约为其一半，成本低 2.4 倍，单次折叠中位数仅 0.6 秒。长程智能体里“压缩历史”这个环节，用结构化记录代替反复重写摘要是更便宜的做法。",
+   "category": "长上下文"
+  },
+  {
+   "arxivId": "2611.16935",
+   "title": "Universal Infectious Disease Forecasting with Mantis 2",
+   "authors": [
+    "Carson Dudley",
+    "Reiden Magdaleno",
+    "Yutong Bi",
+    "Anthony Valencia",
+    "Xiaofeng Liu",
+    "Marisa Eisenberg"
+   ],
+   "url": "https://arxiv.org/abs/2611.16935",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇做通用传染病预测：此前的基础模型 Mantis 完全用模拟疫情训练，能跨疾病预测，但模拟数据何时有用、如何与观测数据互补一直不清楚。作者系统改变模拟与观测数据的配比，发现模拟数据在本地监测历史有限时价值最大，随观测增多优势递减，且能减少极端大的预测误差。基于此构建的 Mantis 2 联合模拟与观测训练，可同时预测未来 16 周的六个变量，在 30 个预测任务上取得最佳的总体概率精度，比最强对照模型少漏约 30% 的疫情峰值。公共卫生预测里模拟与真实数据的配比问题，这篇给出了实证答案。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.16526",
+   "title": "Lost in Delegation: Studying the Effectiveness of Task Orchestration in Generative Search",
+   "authors": [
+    "Tamara Stojanovska",
+    "Elisabeth Kirsten",
+    "Leon Swazinna",
+    "Muhammad Bilal Zafar"
+   ],
+   "url": "https://arxiv.org/abs/2611.16526",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇研究智能体系统里的任务委派何时有效：用按知识截止期划分的数据集比较多种委派模式，发现委派并不能稳定提升准确率，效果随模型与任务而异。当任务涉及编排模型不知道的截止期后知识时，委派反而会大幅降低准确率，而同一模型直接使用工具的表现更好。作者归纳出反复出现的失败模式：委派的查询被扭曲、工具使用低效、智能体之间信息丢失。结论是有效的编排既需要校准“何时委派”的决策，也需要智能体之间有效的信息交换。做多智能体系统的人值得读，避免把委派当成默认正确的设计。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.16961",
+   "title": "The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
+   "authors": [
+    "Zhengxu Yu",
+    "Ke Xu",
+    "Meng Fang",
+    "Haitham Ammar",
+    "Weilin Luo",
+    "Jun Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.16961",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇换了一个自适应推理的思路：不决定“想多少”，而是决定“想还是不想”——混合决策模型（HDM）要么靠单次前向的隐式思考直接作答、不生成任何 token，要么在值得时做完整自回归推理。轻量的自路由模块估计“思考的价值”，即慢模式相对快模式的期望收益，超过按请求设定的价格才启用慢模式；无逐决策标签的智能体任务则用 CDPO 强化学习方法从回合回报训练路由模块。在 JevBench 上 HDM-4B 得分 0.857、耗时中位数减少 72.5%，MiniWoB 上 token 成本降低 80.1%。想省推理成本又不想牺牲准确率，这篇的零-or-全部范式提供了新选择。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.16375",
+   "title": "Recursive State-Augmented Language Models: Persistent Latent-State Adaptation of Pretrained Language Models",
+   "authors": [
+    "Omer Haq"
+   ],
+   "url": "https://arxiv.org/abs/2611.16375",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "这篇提出递归状态增强语言模型（Recursive SALM）：用一个随每次观测演化的持久潜状态来生成对预训练语言模型的适配，让模型在有限上下文之外也能利用早期的交互信息。读-转移-写三模块结构分离了观测编码、潜状态动态与预测器适配，并给出确定性与随机性两种形式。实验只验证了确定性版本与冻结的 GPT-2 small：在四轮假设推理任务上，潜状态门控 LoRA 达到 89.1% 准确率，与全上下文 LoRA 基线的 88.0% 相当，而早期证据仅通过一个 64 维状态传递。规模尚小，但“用演化潜状态代替无限上下文”的思路与递归自改进方向直接相关。",
+   "category": "递归自改进 RSI"
+  },
+  {
    "arxivId": "2611.17321",
    "title": "BrickFlow: Connectivity-Guided Brick Reconstruction",
    "authors": [
