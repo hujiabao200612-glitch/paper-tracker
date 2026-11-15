@@ -1,6 +1,157 @@
 {
  "papers": [
   {
+   "arxivId": "2611.17332",
+   "title": "ArchSpace: Recording, Reviewing, and Referencing LLM Architecture Research",
+   "authors": [
+    "Jie Wang",
+    "Tong Zhu",
+    "JiaHao Kuang",
+    "Zhe Xu",
+    "Yunkai Chai",
+    "Dehong Zheng",
+    "Yu Cheng",
+    "Tao Ji",
+    "ZhouHan Lin",
+    "Qi Zhang",
+    "Bowen Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.17332",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "大模型架构研究长期缺乏公开记录：工业界的架构创新常只见结果不见取舍，学术界又受算力所限只能做小规模单点对比。ArchSpace 是一个公开平台，把每项架构提案的实验与推理过程记录下来、交由社区评审、供后续工作引用，并用缩放定律从小规模实验预测大模型损失，避免昂贵的大规模训练。平台还提供了初始参考基线，让它开箱即用。值得看：它把“架构创新”从一次性论文变成了可积累、可复用的公共知识库，对关注 Scaling 与架构演进的人尤其有用。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2611.17309",
+   "title": "Classical Energies Learn to Reason 1,000x Faster than Looped Models",
+   "authors": [
+    "Benjamin Hoover",
+    "Hugh Blayney",
+    "James C. R. Whittington"
+   ],
+   "url": "https://arxiv.org/abs/2611.17309",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "循环模型是推理研究的一条热门路线，但在数独、迷宫等简单推理题上训练不稳定、速度慢、参数与算力开销大。本文用经典 Hopfield & Tank 能量函数的可学习版本 CRAM 替代循环结构：能量下降自带早停、算力随题目难度自适应、训练时无需对求解器求导，权重还具有可解释性。在单块 GPU 上，CRAM 仅用 42 毫秒与 132 毫秒训练就分别在 Sudoku-Extreme 与 Maze-Unique 上达到 99.996% 与 100% 的正确率，训练速度比循环模型快 1000 倍以上，推理 FLOPs 也少 282 倍。值得看：它既给“能量模型做推理”提供了有力证据，也提醒学界不要只盯着循环结构这一条路。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.17161",
+   "title": "Cited but Unused: Parametric Provenance in Retrieval-Augmented Generation",
+   "authors": [
+    "Tanzeel Abbas",
+    "Tehseen Zia",
+    "David Windridge"
+   ],
+   "url": "https://arxiv.org/abs/2611.17161",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "RAG 系统常给回答附上引用，但引用未必真实反映答案来源。本文用反事实替换法度量“参数溯源”：把检索段落中的事实换成错误版本再重新提问，看模型是否仍给出原答案。结果发现，在两个模型家族中，1.2%–15.7% 的可引用主张实际来自模型的参数记忆而非检索上下文，且比例随模型规模增大而上升；而常用的 NLI 验证方法在这一任务上的表现与随机猜测无异。作者认为问题是结构性的：模型先凭记忆作答，再挑一个与答案一致的引用贴上去。值得看：它揭示了 RAG 引用可信度的系统性漏洞，对做可验证生成与引用评估的人是必读。",
+   "category": "RAG 与检索"
+  },
+  {
+   "arxivId": "2611.17194",
+   "title": "eDMD: Endpoint Distribution Matching for Few-Step Diffusion Distillation",
+   "authors": [
+    "Tong Zhao",
+    "Xianfang Zeng",
+    "Yucheng Han",
+    "Ruoyu Wang",
+    "Mingkun Lei",
+    "Gang Yu",
+    "Chi Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.17194",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "分布匹配蒸馏（DMD）是把扩散模型蒸馏为少步学生模型的主流方法，但现有方法让辅助的 fake 模型在中间去噪状态上训练，导致学生的更新信号与中间分布纠缠，即使最终输出已与教师一致，匹配项仍不为零。本文提出端点分布匹配蒸馏 eDMD：只用学生的最终输出训练一个共享 fake 模型，再用它纠正每一步去噪。理论分析证明，只有当学生最终输出分布与教师一致时，匹配项才恰好消失。值得看：它修掉了多步蒸馏中一个隐蔽的方向偏差问题，对做扩散模型加速与蒸馏的人有直接参考价值。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.17172",
+   "title": "SpotDiff: A Plug-and-Play Framework for Zero-Shot Change Detection in Remote Sensing Imagery",
+   "authors": [
+    "Anit Upadhyaya",
+    "Ata Akbari Asanjan",
+    "Chaitanya Jalluri",
+    "Subash Yeggina",
+    "Jeremy Kravitz"
+   ],
+   "url": "https://arxiv.org/abs/2611.17172",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "遥感变化检测通常依赖大量时序对齐的像素级标注，难以扩展到新区域与新平台。SpotDiff 是一个免训练、即插即用的零样本变化检测框架，组合了多个视觉基础模型：DINOv3 提供语义鲁棒特征，AnyUp 将特征重建到像素分辨率，SAM 3 提供文本引导的感兴趣区域，推理时多尺度策略 SWIMS 让小目标检测更可靠；最后在候选区域内比较两期影像的重建特征，全程无需任何可学习参数与变化标签。据称它是首个使用通用特征上采样器做变化检测的方法，仅这一项就比双线性上采样提升 13.8 个 F1 点。值得看：它展示了“基础模型组合”在遥感这一标注昂贵领域的实用打法。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.17152",
+   "title": "AeroZoo: A Benchmark of Well-Posed Flow Problems for Foundation Models of Aerodynamics",
+   "authors": [
+    "Peter Sharpe",
+    "Carmelo Gonzales",
+    "Corey Adams",
+    "Mehdi Ataei",
+    "Sanjay Choudhry"
+   ],
+   "url": "https://arxiv.org/abs/2611.17152",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "神经代理模型在 CFD 领域一直缺乏能检验“空气动力学基础模型”成色的基准：现有数据集只在一个设计族、一个流场里变化，模型在 DrivAerML 上加大规模、加长训练几乎不降误差。本文推出 AeroZoo：3815 个非定常雷诺平均 Navier-Stokes 方程的时间平均解，覆盖 7 类几何、8 种包围构型与 10³–10⁸ 雷诺数，每个样本都以求解器接收的形式给出完整适定 PDE 问题；其中 2816 个时间平均稳定的样本构成标准基准，含两项任务与 22 个按几何划分的冻结切分。值得看：它是面向空气动力学基础模型的第一块“试金石”，也为科学机器学习提供了可复现的评估标准。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.17115",
+   "title": "CapLite: Prompt-Injection Defense for Small Language Model Agents without Model-Written Security Artifacts",
+   "authors": [
+    "Zimo Xu",
+    "Wenzhuo Liu",
+    "Hideki Nakayama"
+   ],
+   "url": "https://arxiv.org/abs/2611.17115",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "现有防提示注入方法（如 CaMeL、Progent）要求智能体自己的模型先写出安全策略、依赖图等“安全工件”再由代码执行，但小模型根本写不好这些工件：实测 15 个开源模型中，Progent、IPIGuard 与 DRIFT 的策略在多数模型上都可被攻破，CaMeL 的程序在高达 68% 的回合里无法运行。本文的 CapLite 改为从工具 schema 直接推导策略、在读取任何工具结果前提交写操作，且只有用户请求中明确提到的写操作才放行，从而保证写完整性：注入文本无法新增写操作，也无法把写操作发向用户未指定的对象。在 13935 个被攻击的 AgentDojo 回合中无一攻击成功。值得看：它给小模型智能体提供了一条不依赖模型“自觉”的安全防线。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.17142",
+   "title": "FORGE: Force-Aware Multi-Granularity Control for Efficient Humanoid Loco-Manipulation",
+   "authors": [
+    "Liangjun Xing",
+    "Ke Fan",
+    "Kailin Li",
+    "Bin Wang",
+    "Xiaojie Niu",
+    "Qingwei Ben",
+    "Jiafei Cao",
+    "Wei Yao",
+    "Yebin Liu",
+    "Jingbo Wang",
+    "Weinan Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.17142",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "人形机器人边走边操作需要同时兼顾移动、平衡与接触，遥操作采集演示又很困难。FORGE 是一套力感知的多粒度控制系统，命令空间从粗到细覆盖速度导航、平面落脚点、腕部姿态跟踪与可选的力条件输入；训练不需要全身人体运动轨迹或关节角参考，部署时只需稀疏的双腕相对骨盆位姿、粗运动命令与期望腕部负载。为处理持续接触，FORGE 用动量观测器加模拟接触力监督学到的修正项，在无腕部力传感器的情况下从本体感知估计腕部等效交互力。值得看：它把“力感知”做进了人形 loco-manipulation 的实用控制栈，对具身智能落地有直接参考。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.17103",
+   "title": "Joint Null-Space Projection for Data-Free Model Merging",
+   "authors": [
+    "Tian Xia"
+   ],
+   "url": "https://arxiv.org/abs/2611.17103",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "把多个微调 checkpoint 合并成一个多任务模型时，不同任务的任务向量会互相干扰，现有方法（平均、幅度剪枝、符号选举）都是逐元素操作，忽略了每个 delta 在隐层特征上是低维更新。本文把合并重构为子空间干扰问题：对每个二维权重矩阵，取各任务 delta 的 top-r 右奇异子空间，删去每个任务向量落在其他任务子空间并集中的分量，得到联合零空间投影（JNSP），闭式、与顺序无关、无需任何数据与前向传播。在 8 个 CLIP 图像分类任务上，JNSP 合并 ViT-B/16 专家平均准确率达 89.45%，比最强的无训练参数级基线 TIES-Merging 高 11.88 个点。值得看：方法简洁且效果显著，是模型合并方向一个干净有力的新基线。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.16933",
+   "title": "Kezek: Splitting Mono Two-Person Conversations into Per-Speaker Tracks for Full-Duplex Dialogue Data",
+   "authors": [
+    "Bagzhan Karl",
+    "Alizhan Karl"
+   ],
+   "url": "https://arxiv.org/abs/2611.16933",
+   "publishedAt": "2026-11-12",
+   "zhSummary": "全双工语音对话模型需要“一人一轨”的对话数据，但现实中的对话录音大多是单声道混音。Kezek 把一段恰好两人的单声道录音拆成每人一轨、保留原始时长与时间对齐，重叠与“嗯”“对”这类短回复也归属到说话人自己的轨道上。它分两阶段工作：先由双人语音活动模型结合说话人指纹一次性判定“谁在何时说话、谁是谁”，再由条件时域分离器执行该判定，且输出恒等于输入之和。在 Open Yap 测试集上，Kezek 保留短回复的比例为 0.83，优于 pyannote→DialogueSidon 开源流程的 0.69。值得看：它为全双工对话数据的规模化生产补上了一块关键基础设施。",
+   "category": "语音"
+  },
+  {
    "arxivId": "2611.17160",
    "title": "XBot-Omni: An Omni-Modal Model for Embodied Understanding and Interaction",
    "authors": [
