@@ -1,6 +1,179 @@
 {
  "papers": [
   {
+   "arxivId": "2611.18561",
+   "title": "FETTUCCINE: Fast and efficient brain-to-text decoding on mobile devices",
+   "authors": [
+    "Jonathan D. McCart",
+    "Pranav I. Deevi",
+    "Mehdi Azabou",
+    "Nanda H. Krishna",
+    "Caleb A. McKinney",
+    "Nicholas S. Card",
+    "Sergey D. Stavisky",
+    "Chethan Pandarinath"
+   ],
+   "url": "https://arxiv.org/abs/2611.18561",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026。面向失语患者的脑机接口语音神经假肢长期依赖笨重的语言模型栈，延迟高且不稳定，难以用于日常对话。FETTUCCINE 改用轻量自动语音识别模型做端到端的脑电信号到文本解码，在公开颅内语音假肢数据上词错率低至 4.39%，优于以往端到端方法，并首次在商用手机上实现脑到文本解码，速度达 370 倍实时。模型还能通过微调适应神经信号随时间的漂移，并用梯度显著图定位与解码最相关的神经特征。值得看：它把脑机通信从实验室推向了可随身携带的移动设备，对医疗 AI 与高效推理都有启发。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.18559",
+   "title": "BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations",
+   "authors": [
+    "Genki Kinoshita",
+    "Ko Nishino"
+   ],
+   "url": "https://arxiv.org/abs/2611.18559",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026。人类动作表征学习长期依赖人工假设的自监督信号，如数据增强不变性与掩码恢复，超参数敏感。BAL 改用人类行为本身的自然时序结构作为监督信号，在语义抽象的隐空间里双向自回归预测动作序列，并把预测目标分解为全局语义与局部动作两部分以防止表征坍缩。实验表明，学到的表征在动作描述、预测与插值任务上多数指标优于基线。值得看：它为动作理解提供了一种不依赖人工先验的自监督范式。",
+   "category": "自监督学习"
+  },
+  {
+   "arxivId": "2611.18453",
+   "title": "Black-Box Uncertainty Quantification for Large Language Models via Ensemble-of-Ensembles",
+   "authors": [
+    "Wang Ma",
+    "Debarun Bhattacharjya",
+    "Junkyu Lee",
+    "Nhan H Pham",
+    "Harsha Kokel",
+    "Qiang Ji"
+   ],
+   "url": "https://arxiv.org/abs/2611.18453",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026。大模型可靠应用需要区分提示本身的歧义与模型真正的知识缺口，但贝叶斯与深度集成方法在 LLM 尺度上代价过高且需要白盒访问，现有黑盒方法又只能给出单一标量。作者提出双层集成：内层对固定提示做随机采样、外层对提示做语义保持的扰动，在连续嵌入空间中用全协方差定律精确分解偶然与认知不确定性，且只需黑盒采样。在五个短问答基准和四个指令微调模型上，估计器与强白盒基线相当，还能通过受控干预验证两类不确定性分别响应提示歧义与知识缺口。值得看：它让闭源大模型的不确定性量化第一次有了可解释的分解。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.18346",
+   "title": "VLAN: Vision-Language Accessible Navigation",
+   "authors": [
+    "Jie Hu",
+    "Yu Zheng",
+    "Wenzhi Wu",
+    "Weixing Feng",
+    "Cunlei Cheng",
+    "Jiaming Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.18346",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026（评估与数据集 Track）。无障碍通行能力取决于使用者身体而非场景本身，但现有导航基准只针对固定形态评估。VLAN 包含 1000 个场景、2 万条导航轨迹与 16 万关键帧，覆盖人形、四足机器人及视障与行动障碍人群等多种形态，并按可通行、绕行、高风险与阻断四档标注障碍物。评测发现现有视觉语言模型难以针对不同用户画像一致地调整障碍物判断与路径选择。值得看：它把具身导航的评估从“能不能到”推进到“对这个人是否安全合适”。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.18261",
+   "title": "Structural Self-Teaching for Compositional Generation in Unified Multimodal Models",
+   "authors": [
+    "Jaeyoo Park",
+    "Bohyung Han"
+   ],
+   "url": "https://arxiv.org/abs/2611.18261",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026。统一多模态模型在生成端常出现缺失物体、属性绑定错误与空间错位，而其理解端却能准确定位提示词中的短语。SST 把理解路径内部注意力图中的短语级定位转化为训练时结构监督：短语局部对比对齐让生成区域与目标图像对应区域对齐，结构脚手架在训练中调制生成路径的中间空间状态、推理时移除。该方法无需外部结构标注、无推理时开销，在多个统一多模态模型上均优于同数据 LoRA 微调。值得看：它展示了用模型自身的理解能力反哺生成的有效路径。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.17955",
+   "title": "WebArena-Pro: A Heterogeneous, Multimodal, Reproducible Benchmark for Web Agents",
+   "authors": [
+    "Imene Kerboua",
+    "Fatemeh Pesaran Zadeh",
+    "Xing Han Lù",
+    "Weijian Qi",
+    "Alexander Miller",
+    "Junyi Song",
+    "Yunjia Tian",
+    "Dongjin Kang",
+    "Seyeon Choi",
+    "Marzia Nouri",
+    "Ewen Gueguen",
+    "Matteo Boglioni",
+    "Fengyuan Liu",
+    "Zeyi Liao",
+    "Mengqi Yuan",
+    "Yue Li",
+    "Alexandre Lacoste",
+    "Alexandre Drouin",
+    "Spandana Gella",
+    "Huan Sun",
+    "Gunhee Kim",
+    "Siva Reddy"
+   ],
+   "url": "https://arxiv.org/abs/2611.17955",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026（评估与数据集 Track）。现有可复现的网页智能体基准覆盖应用少、只支持文本与视觉模态，而在线基准又因页面漂移无法复现。WebArena-Pro 包含 300 个任务、横跨 6 大领域的 20 个自托管网页应用，首次把音频与视频作为核心观测模态纳入评测，并支持任务隔离与并行复现。评测中表现最好的智能体组合达到 62.3% 的任务成功率。值得看：它是目前覆盖最广、模态最全的可复现网页智能体基准。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.17921",
+   "title": "RecMem: Recurrent Memory Compression for Long-Sequence Generative Recommendation",
+   "authors": [
+    "Haoyi Hu",
+    "Gaoyang Guo",
+    "Yunjia Xi",
+    "Wen Chen",
+    "Weiwen Liu",
+    "Jian Wu",
+    "Yuning Jiang",
+    "Weinan Zhang"
+   ],
+   "url": "https://arxiv.org/abs/2611.17921",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026。生成式推荐受益于长交互历史，但直接处理长历史的代价随长度增长。RecMem 把历史片段压缩进固定数量的记忆槽：双分支编解码器共享底层、槽级遗忘门控更新记忆，推荐监督保留预测信息、流一致性训练对齐顺序与打包两种处理方式。在 MerRec 上，RecMem 仅用 16 个记忆槽与 216 词元解码上下文，就保留了 1200 词元基线 87.9% 的 Recall@10 与 97.0% 的 Recall@200。值得看：它为长上下文建模提供了一种与历史长度无关的记忆压缩方案。",
+   "category": "长上下文"
+  },
+  {
+   "arxivId": "2611.17910",
+   "title": "Adversarially Attacking Symbolic Vocabulary Vulnerabilities In LLM Planners",
+   "authors": [
+    "Stephen Obadinma",
+    "Xiaodan Zhu"
+   ],
+   "url": "https://arxiv.org/abs/2611.17910",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026。大模型做自动规划时常依赖符号词汇中的常识线索，如动作与谓词名称，一旦词汇被混淆，规划能力便不可靠。作者设计了 Symbolic Swapper 攻击模型，自动生成使用非标准符号词汇的混淆规划域，系统性地破坏强推理模型的规划能力。实验表明，攻击可使基座模型乃至鲁棒规划框架的规划表现下降超过 70%，揭示了模型“理解任务领域”与“真正能规划”之间的落差。值得看：它为评估智能体规划的真实鲁棒性提供了一个尖锐的测试方法。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.18562",
+   "title": "Training Reasoning Models in Simulation to Natively Use Real Robots",
+   "authors": [
+    "Jiaming Tang",
+    "Zhuoyang Zhang",
+    "Junxian Guo",
+    "Fangzhou Zhao",
+    "Yilong Zhao",
+    "Zekai Li",
+    "Xingyang Li",
+    "Yuyang Zhao",
+    "Song Bian",
+    "Zhijian Liu",
+    "Song Han"
+   ],
+   "url": "https://arxiv.org/abs/2611.18562",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "一篇用强化学习让开放权重推理模型直接操作真实机器人的工作。作者搭建了机器人后训练引擎 PEAR，完全在仿真中用机器人强化学习训练 27B 推理模型：模型像计算机操作智能体一样观察环境、链式思考并直接输出末端执行器位姿，全程无需人类演示。仿真中学到的技能能迁移到未见过的机器人、真实世界与新指令上：在 LIBERO 上成功率从 1.6% 提升至 74.4%，在真实双臂机器人上 60% 的试验成功，而基座模型全部失败。值得看：它展示了机器人操作能力也可以像计算机操作一样通过大规模强化学习获得。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2611.18176",
+   "title": "ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents",
+   "authors": [
+    "Yundi Cai",
+    "Zihan Wang",
+    "Chenxi Han",
+    "Yi Cheng",
+    "Houde Liu",
+    "Zilei Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.18176",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "大语言模型与视觉-语言-动作（VLA）策略各自预训练、简单拼接后常出现推理与动作脱节：VLA 会偏离 LLM 的子任务意图，或在 LLM 纠正后撤销已恢复的良好状态。ESI 把模块化智能体整体作为后训练对象，用环境交互自动精炼 LLM 的提示、共享技能接口与 VLA 参数，形成自我改进飞轮。在 10 个 RoboDojo 任务上，ESI 平均得分 62.03、成功率 49.41%，超过所有已发表的混合具身智能体。值得看：它把“协作本身”变成了监督信号，是具身智能体自我进化的具体实现。",
+   "category": "递归自改进 RSI"
+  },
+  {
    "arxivId": "2611.17332",
    "title": "ArchSpace: Recording, Reviewing, and Referencing LLM Architecture Research",
    "authors": [
