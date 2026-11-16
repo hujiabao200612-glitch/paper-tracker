@@ -1,6 +1,169 @@
 {
  "papers": [
   {
+   "arxivId": "2611.18252",
+   "title": "ParetoM$^3$: Learning on the Pareto Set under Preference Guidance via Min-Max-Min Optimization",
+   "authors": [
+    "Pei Tang",
+    "Songtao Lu"
+   ],
+   "url": "https://arxiv.org/abs/2611.18252",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 NeurIPS 2026。研究带偏好引导的多目标优化问题，即在多个冲突目标的弱 Pareto 集上最小化给定的偏好函数。提出基于 merit 函数的惩罚型 min-max-min 形式（M³ 问题），把偏好优化与弱 Pareto 最优约束统一到单一目标，并给出单循环一阶算法 ParetoM³，在局部 KL 假设下证明了非渐近收敛率。实验覆盖合成基准、图像分类、回归和数学推理，表明该方法能稳定找到符合偏好的弱 Pareto 最优解且实用性能强。值得看：多目标 RLHF 与对齐里“按偏好选 trade-off”常缺理论保证，这篇把偏好优化与 Pareto 最优性统一起来并给了收敛分析。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.18370",
+   "title": "f-Divergence Self-Play for Tabular Anomaly Detection via Large Language Models",
+   "authors": [
+    "Hoang Tran Vuong",
+    "Linh Ngo Van",
+    "Dang Nguyen",
+    "Thin Nguyen",
+    "Phuoc Nguyen",
+    "Mehrtash Harandi",
+    "Trung Le"
+   ],
+   "url": "https://arxiv.org/abs/2611.18370",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "已接收 ICML 2026。针对表格异常检测中数值、类别、文本特征混杂、难以刻画“正常”分布的问题，提出自博弈微调框架 DiSPaT。以 f-散度最小化为理论基础：策略不断生成伪异常样本，判别器学习区分真实正常样本与生成样本，交替优化逐步拉近模型分布与真实正常分布。在多个基准上，DiSPaT 一致优于此前的 LLM 方法、深度学习方法与经典无监督检测器。值得看：把 LLM 用到表格异常检测这一冷门但实用的场景，并用自博弈给出了比一次性 SFT 更强的“正常性”刻画。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.18553",
+   "title": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
+   "authors": [
+    "Aayush Marasini",
+    "Barsat Khadka",
+    "Nick Rahimi"
+   ],
+   "url": "https://arxiv.org/abs/2611.18553",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "提出 WeightBench 评测集，系统考察大语言模型直接读写其他神经网络权重的能力（权重空间编程），共 42 项任务，覆盖读权重、修权重、从零写权重、识别不可能的编辑、无数据压缩五条赛道，被读写的网络从 2K 参数的控制策略到 7B 参数的语言模型。实验发现前沿 agent 已能读小网络、写出可用的控制策略，但还修不了语言模型、做不了无数据压缩，也分不清“不可能的编辑”和“难的编辑”。Claude Opus 5.5 宏观得分 0.535，GPT-6.1-sol 为 0.568。值得看：权重空间编程是 agent 能力的新前沿，这套基准首次把它量化了。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.18533",
+   "title": "ModHarness-RL: Recasting Harnesses as Learnable and Evolving Programs for Agentic RL",
+   "authors": [
+    "Zelin He",
+    "Siyu Zhu",
+    "Jacob Helwig",
+    "Yujian Liu",
+    "Li An",
+    "Rohit Jain",
+    "Shiyu Chang",
+    "Alborz Geramifard"
+   ],
+   "url": "https://arxiv.org/abs/2611.18533",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "指出 agent 强化学习高度依赖 harness（决定模型看到什么交互历史、得到什么引导的脚手架），但现有方法多用手写且训练全程固定的 harness。提出 ModHarness-RL，把 harness 的压缩（如何把历史组装进上下文）与引导（行为偏离时给什么提示）都表示为可学习、可随训练演进的程序：候选程序从近期轨迹中提出、经执行验证、再在历史轨迹上回放。在 CodeSearch、ALFWorld 和 BIRD SQL 上，1.5B–8B 模型在多数设定下优于固定 harness 基线。值得看：把“训练 agent 的脚手架本身”也变成学习对象，是 agentic RL 训练范式上有意思的一步。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.18494",
+   "title": "ARCHER: From Rationale Imitation to Executable Reasoning in Small Language Models",
+   "authors": [
+    "Dhruv Dixit",
+    "Khushi Patel",
+    "Congcong Xu",
+    "Min Song"
+   ],
+   "url": "https://arxiv.org/abs/2611.18494",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "面向小语言模型数学推理不可靠的问题，提出两阶段框架 ARCHER：先把自由形式的思维链编译成含推理步骤、计算器调用、确定性运行观测与验证动作的类型化动作轨迹，让监督目标从“模仿解释文本”变为学习“工具接地的推理策略”；再用非对称分层强化学习，以答案正确性、工具接地、过程纪律与轨迹一致性等分组奖励精炼策略。在 5 个 10B 以下骨干模型上，相对最强工具增强基线宏观平均提升 5.51 个百分点，MATH-500 提升 8.95 点，AIME-2024/2025 各提升约 5.3 点。值得看：小模型做数学推理的瓶颈常在“算错、步骤不可审计”，可执行轨迹加分层奖励是条扎实的路线。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.18482",
+   "title": "MMFlash: Faster Speculative Decoding for Vision-Language Models",
+   "authors": [
+    "Sicheng Feng",
+    "Zigeng Chen",
+    "Song Wang",
+    "Gongfan Fang",
+    "Xinchao Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.18482",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "把推测解码扩展到视觉语言模型：先用 KL 散度定义 token 级“视觉依赖度”，发现视觉依赖越高的 token 接受率越低（最高四分位仅 22%，最低 46%），且多模态训练后差距仍在。提出 MMFlash，自适应地给视觉依赖高、草稿模型预测差的 token 加权，并对长视频输入用稀疏注意力减少冗余计算。在多个多模态基准上实现最高 3.58 倍无损加速，相对 EAGLE-3、DFlash 分别最多快 195.4% 与 17.1%。值得看：VLM 推理加速的关键瓶颈被定位到视觉依赖 token 上，这个诊断本身就有启发性。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.18397",
+   "title": "Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent",
+   "authors": [
+    "Run Luo",
+    "Kuan Zhang",
+    "Qi Deng",
+    "Yukun Chen",
+    "Zhihao Yang",
+    "Yufei Zhang",
+    "Renrong Hu",
+    "Yi Zhang",
+    "Guiyu Ma",
+    "Tianyu Fan",
+    "Longze Chen",
+    "Hao Sun",
+    "Jiaming Li",
+    "Jiaming Yang",
+    "Xiaohao Liu",
+    "Tao Tan",
+    "Minzheng Wang",
+    "Hangtian Jia",
+    "Shuai Yuan",
+    "Lvdi Wang",
+    "Xiao Liu",
+    "Chao Ma",
+    "Yuting Zou",
+    "Yinhe Zheng",
+    "Xiaobo Xia",
+    "Dawei Jiang",
+    "Shaoqing Ren"
+   ],
+   "url": "https://arxiv.org/abs/2611.18397",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "提出面向长时程实时游戏任务的通用视觉-语言-动作基础模型 Gamer：端到端架构结合感知、记忆管理与多步推理；先在数万小时的键鼠交互轨迹上继续预训练，再用稀疏思考指令微调降低冗余计算，最后以稳定的多轮强化学习训练长时程交互策略，云边推理引擎支持多环境并发与低延迟在线推理。在多个高难度 3D 开放世界游戏中达到与熟练玩家相当的泛化与操作效率，在 2D 游戏基准上也有竞争力。值得看：把游戏当作通用 agent 的试验场，用“重复的键鼠轨迹加规模化训练”验证了跨数字与物理世界的通用 agent 路线。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.18330",
+   "title": "Marimba: A System One Model for Speech",
+   "authors": [
+    "Solano Amadori"
+   ],
+   "url": "https://arxiv.org/abs/2611.18330",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "提出轻量语音决策接口 Marimba：基于冻结的 Qwen3-ASR 0.6B 特征，对“词是否出现、轮次是否结束、语言是什么”等问题给出类型化判定；词汇问题用 ASR 转录零样本打分，非词汇问题用问题条件头与第 18 层轮次结束读出，语言识别直接用 ASR 自身的语言分数。在会话测试集上解码器 AUROC 达 0.80–0.92，公开朗读语音 0.92–0.97，说话人变化检测 AUROC 0.966–0.980，优于 ECAPA 基线。代码与权重均已开源。值得看：语音 agent 常缺一个“何时轮到我说话”的可靠判断，这个小模型接口把一类零散的语音判定任务统一了起来。",
+   "category": "语音"
+  },
+  {
+   "arxivId": "2611.18419",
+   "title": "LECAT: Measuring LLM Category Learning from Pretraining Data",
+   "authors": [
+    "Jimin Mun",
+    "Maarten Sap",
+    "Yanai Elazar"
+   ],
+   "url": "https://arxiv.org/abs/2611.18419",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "研究大语言模型如何从预训练数据中习得人类能轻松运用的类别知识（如“飞机很快”可推广到红飞机、但不适用于坏掉的飞机）。提出 LeCat 框架，区分记忆域内类别知识、泛化到未见实例、在恰当语境中灵活运用三类能力，并追踪预训练文本中不同“知识表达形式”（逐字重复、例外等）对习得的影响。研究发现：增强上下文与类别-特征共现（PMI）有助于大学习，逐字规则式表述反而损害灵活运用；用 68M 模型从头训练的受控实验证实了这一点。值得看：揭示了预训练数据“怎么写”会决定模型学到的是死记硬背还是可迁移的类别知识。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2611.18549",
+   "title": "JVT: Just Video Transformer makes pixel-space video diffusion simple",
+   "authors": [
+    "Jianjun Zhou",
+    "Hua Geng",
+    "Haoyu Guo"
+   ],
+   "url": "https://arxiv.org/abs/2611.18549",
+   "publishedAt": "2026-11-16",
+   "zhSummary": "提出 JVT，一个极简的大 patch DiT 风格 Transformer，直接在像素空间做视频扩散，不用预训练自编码器、辅助细节器、级联阶段或 U-Net 跳连。系统考察视频 patch 嵌入、register token 与自适应层归一化等设计选择，在类别条件与无条件生成上达到与潜空间扩散基线相当的质量。像素空间建模还天然支持像素对齐的多模态联合生成：演示了相机条件下的 RGB-视差联合生成，提升了相机跟随效果并直接给出场景几何。值得看：视频生成长期依赖潜空间压缩，这篇证明“够简单的像素空间 DiT”也能打，且为多模态联合生成留了自然接口。",
+   "category": "图像视频生成"
+  },
+  {
    "arxivId": "2611.18561",
    "title": "FETTUCCINE: Fast and efficient brain-to-text decoding on mobile devices",
    "authors": [
