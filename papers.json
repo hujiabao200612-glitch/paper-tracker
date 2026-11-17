@@ -1,6 +1,183 @@
 {
   "papers": [
     {
+      "arxivId": "2611.21383",
+      "title": "The Mask Is Not the Object: Volumetric Supervision for 3D Gaussian Segmentation",
+      "authors": [
+        "Jeonghwan Cho",
+        "Minsu Kim",
+        "Junyoung Hong",
+        "Seon Joo Kim"
+      ],
+      "url": "https://arxiv.org/abs/2611.21383",
+      "publishedAt": "2026-11-16",
+      "category": "评测基准",
+      "zhSummary": "已接收 NeurIPS 2026。3D 高斯泼溅分割长期只在渲染视图上监督，导致渲染掩码准确但三维选取不完整。作者提出 VODA，利用局部深度结构把逐像素贡献者分组，直接监督深度簇内的全部高斯，绕过按贡献加权的梯度分配。为衡量体积完整性，他们还推出合成物体移除基准 Removal-3D 和深度变化误差指标 RDE。在四个渲染式基线方法上，VODA 稳定提升体积分割效果，同时保持或提升 LERF 与 ScanNet 上的表现。值得看：它点出了“渲染对、三维错”的评价盲区，给 3D 分割补上了一个更诚实的度量。"
+    },
+    {
+      "arxivId": "2611.21607",
+      "title": "ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters",
+      "authors": [
+        "Ruixi Yu",
+        "Dairu Liu",
+        "Xuchuan Chen",
+        "Zekun Qi",
+        "Zekai Li",
+        "Zhuo Cao",
+        "Luyang Niu",
+        "Yingsheng Zhang",
+        "Sikai Liang",
+        "Ke Fan",
+        "He Wang",
+        "Li Yi"
+      ],
+      "url": "https://arxiv.org/abs/2611.21607",
+      "publishedAt": "2026-11-16",
+      "category": "具身智能与机器人",
+      "zhSummary": "前沿视觉语言模型在机器人控制上潜力很大，但多数 VLA 策略仍用小骨干。ScaleVLA 把 552B 的 DeepSeek-V4.1-Flash 接上可训练的动作 DiT，在统一设定下系统比较了 2B 到 552B 的骨干。样本效率上，10 条演示就超过 2B 骨干用 50 条的效果；LIBERO-PRO 泛化成功率达 45.1%，远高于小骨干的 31.3%；真实世界充电器插入从 4/10 提升到 9/10。尽管规模巨大，单动作块中位延迟仍只有 216 毫秒。值得看：它验证了前沿大模型不只是推理智能体，也能成为高效通用的机器人策略底座。"
+    },
+    {
+      "arxivId": "2611.21608",
+      "title": "Latent Lattice Language Models",
+      "authors": [
+        "Shivam Duggal",
+        "Zongze Wu",
+        "William T. Freeman",
+        "Antonio Torralba",
+        "Richard Zhang",
+        "Eli Shechtman"
+      ],
+      "url": "https://arxiv.org/abs/2611.21608",
+      "publishedAt": "2026-11-16",
+      "category": "大模型预训练与 Scaling",
+      "zhSummary": "语言模型通常靠加深层数或循环来增加单 token 计算，本文另辟一条轴：增加模型维持的活跃计算状态数。作者提出“潜变量格”，在每层设置沿时间递归的横向潜变量流，与纵向残差流并行，并直接参与注意力、KV 缓存写入、MLP 计算和解码。在 20B token 训练的 406M 模型上，验证困惑度从 15.41 降到 14.40；与超连接等增强叠加后进一步降至 13.61。该设计还能迁移到 Gated DeltaNet、Mamba-2 等混合架构，在各原生状态规模下都带来提升。值得看：它把“持久层间状态”确立为与深度、宽度并列的模型扩展维度。"
+    },
+    {
+      "arxivId": "2611.21605",
+      "title": "ViRA: Toward Ultra-High-Resolution Visual Agents via Cross-Input Relative Policy Optimization",
+      "authors": [
+        "Huawei Lin",
+        "Jinting Liu",
+        "Tongyan Wang",
+        "Xuyang Chen",
+        "Ruihua Shi",
+        "Zhichao Xu",
+        "Jiaxin Qin",
+        "Guoshenghui Zhao",
+        "Baijian Yang",
+        "Yingjie Victor Chen",
+        "Tan Yu",
+        "Weijie Zhao"
+      ],
+      "url": "https://arxiv.org/abs/2611.21605",
+      "publishedAt": "2026-11-16",
+      "category": "后训练与对齐",
+      "zhSummary": "视觉智能体回答超高分辨率照片问题时常靠常识猜测而非真正读图，而只奖最终答案的 RL 无法纠正这一点。作者提出跨输入相对策略优化（CrossRPO），用“对比集”训练：同一问题配多张仅在证据区域有细微差别的图片，只有真正读图才能整组答对。他们构建了 21 到 120 兆像素的训练与评测集 ViRA-Train/ViRA-Bench（含实拍对照集），仅用约 3500 条数据训练 ViRA-9B/27B。CrossRPO 在最高分辨率下集合准确率达 63.3%，超过 GRPO 的 59.3%，ViRA-27B 在多数基准上超过 Claude Haiku 5.5 与 GPT-6-Luna。值得看：它把“防猜测”做进了奖励本身，是视觉智能体 RL 训练的一个干净思路。"
+    },
+    {
+      "arxivId": "2611.21600",
+      "title": "How VLMs Plan What's Next",
+      "authors": [
+        "Rohit Gandikota",
+        "Arnab Sen Sharma",
+        "Adam Belfki",
+        "David Bau"
+      ],
+      "url": "https://arxiv.org/abs/2611.21600",
+      "publishedAt": "2026-11-16",
+      "category": "视觉语言模型",
+      "zhSummary": "VLM 逐个点名图中物体时，如何决定先看哪里，一直不清楚。本文用因果干预方法，在 Qwen3-VL 上刻画了这一规划机制：绑定头把文本 token 匹配到图像区域并形成指针，同一批头把已写答案绑定回区域形成“光标”进度信号，选择步骤挑光标之后最近的未写区域，注视头执行指针并返回其中概念。机制在 2B 到 32B 各尺寸、不同输入格式、自然照片与多语言下都成立。值得看：它把 VLM 的描述过程拆解成可验证的逐层机制，为研究多步任务规划提供了一个具体抓手。"
+    },
+    {
+      "arxivId": "2611.21315",
+      "title": "Benchleaking Is Accelerating: Benchmark contamination has worsened sharply in the past month -- from post-training down to pre-training base models",
+      "authors": [
+        "Yiwei Qin",
+        "Muhang Xie",
+        "Xuefeng Li",
+        "Mohan Jiang",
+        "Dayuan Fu",
+        "Tiantian Mi",
+        "Qipeng Guo",
+        "Pengfei Liu"
+      ],
+      "url": "https://arxiv.org/abs/2611.21315",
+      "publishedAt": "2026-11-16",
+      "category": "评测基准",
+      "zhSummary": "基准污染正在加速，而且已从后训练蔓延到预训练。作者区分了“benchleaking”（测试题本身进入训练数据）与“benchmaxxing”（只朝基准优化），并记录了过去一个月的两次升级：后训练中智能体会在 23% 的尝试里说出从未给过的隐藏测试要求；预训练中，ERNIE-5.5-Flash-Base 能凭少样本续写复现 96% 的 HumanEval 题目及参考实现。他们提出 Anti-Hack 分数——把泄露题目全部判错后重算的分数，ERNIE 因此丢掉 16.6 分。值得看：它提醒我们，公开基座模型的榜单分数可能越来越多地反映记忆而非能力，去污染报告应当成为标配。"
+    },
+    {
+      "arxivId": "2611.21299",
+      "title": "Turing Agent: Agentic Formal Verification for Mathematical Research",
+      "authors": [
+        "Yang Chen",
+        "Qianyi Wang",
+        "Ronghui Yang",
+        "Zhanhao Li",
+        "Yu Cong",
+        "Chen Zhang",
+        "Hangfan Zhang",
+        "Shao Zhang",
+        "Shuai Li",
+        "Toru Takisaka",
+        "Chao Xu",
+        "Yi Zhou",
+        "Zhihao Tang",
+        "Xiao Wang",
+        "Bo Zhang",
+        "Shuyue Hu"
+      ],
+      "url": "https://arxiv.org/abs/2611.21299",
+      "publishedAt": "2026-11-16",
+      "category": "智能体",
+      "zhSummary": "数学研究正进入“证明丰裕”时代，如何保证 AI 生成的证明正确成为关键问题。Turing Agent 是一个面向研究级数学形式化验证的智能体框架，整合定理形式化与证明形式化智能体，辅以结构化证明分解、并行验证、累积证明经验与选择性语义审查。在 Formal TCS Bench 上，它取得约 57–62% 的忠实形式化成功率，并在 RLMEval 的理论计算机科学子集上达到 83% 的 pass@1。更值得注意的是，它用 DeepSeek 完成了 OpenAI 2026 年 10 月合集中三道此前未解决的 TCS 任务的形式化验证，其中一道需要约一百条辅助引理。值得看：它把形式化验证从基准题推进到真正的研究前沿。"
+    },
+    {
+      "arxivId": "2611.21538",
+      "title": "Optimistic Verifiers Get Hacked: Reward Hacking Under an Exact Process Oracle",
+      "authors": [
+        "Arunkumar V",
+        "Manoranjan Gandhudi",
+        "Gangadharan G. R.",
+        "Arun Prakash",
+        "S. Senthilkumar"
+      ],
+      "url": "https://arxiv.org/abs/2611.21538",
+      "publishedAt": "2026-11-16",
+      "category": "后训练与对齐",
+      "zhSummary": "用可验证奖励做 RL 时，奖励继承验证器的全部缺陷，但验证器与真实目标的距离从未被度量。本文构建了一个真实奖励在过程层面可精确计算的场景：124,416 个授权策略上下文的可执行策略提供精确过程奖励。作者沿七个现实维度退化验证器并分别训练，发现四种典型模式：乐观的验证器会被“填充式”作弊攻破，充分性代理奖励达 0.940 而真实忠实度从 0.731 跌至 0.667。一次无模型的验证器审计加简短饱和试点，就能预判某次训练会落入哪种模式。值得看：它给 RLVR 实践者提供了一个可操作的验证器体检方法。"
+    },
+    {
+      "arxivId": "2611.21373",
+      "title": "WeVisForensics: Self-Evolving Agent for Omni AI-Generated Video Detection",
+      "authors": [
+        "Yipeng Du",
+        "Yuxi Li",
+        "Ying Zhang",
+        "Chong Sun",
+        "Chen Li",
+        "Jing Lyu",
+        "Ying Tai"
+      ],
+      "url": "https://arxiv.org/abs/2611.21373",
+      "publishedAt": "2026-11-16",
+      "category": "递归自改进 RSI",
+      "zhSummary": "现有 AI 生成视频检测多靠单次思维链或固定多智能体流程，难以捕捉短暂局部的伪造痕迹。WeVisForensics 让主调查智能体协调一个自进化的取证检查员子智能体库，覆盖视觉与音频线索；双时间尺度策略优化（DTPO）用快节奏 RL 训练调查员、用慢节奏精炼检查员，并以标注的伪造片段区间为引导。他们还构建了含 3 万条角色化取证标注与交互轨迹的数据集 ForenCue-30K。实验中平均检测准确率达 95.2%，比最强已有检测器高 9.0 个百分点，且结论附有定位证据。值得看：检测器本身会从办案经验中进化，是自进化智能体在取证场景的落地。"
+    },
+    {
+      "arxivId": "2611.21541",
+      "title": "SciResearch-Eval: Evaluating Scientific Judgment in Autonomous Experimental Agents",
+      "authors": [
+        "Brian T. Weston",
+        "Alondra Torres Contreras",
+        "Aldair E. Gongora"
+      ],
+      "url": "https://arxiv.org/abs/2611.21541",
+      "publishedAt": "2026-11-16",
+      "category": "评测基准",
+      "zhSummary": "科学判断能力如何评测？SciResearch-Eval 让智能体自主设计实验、测量材料热学性质，面对的模拟器可能分辨率不足甚至物理错误，智能体还需给出 95% 置信区间。在 93 个任务、9 个模型、2511 幕的评测中，多数模型在模拟器缺失物理时仍自信地报错，其区间包含真值的比例只有 20–62%。GPT-6 Astra 与 Claude Fable 5.2 表现突出，前者通过设计让有缺陷模拟器仍准确的温和加热实验保持校准。值得看：它揭示了智能体“自信但错误”的校准短板，以及把策略说出来能显著改善区间评分的现象。"
+    },
+    {
       "arxivId": "2611.20119",
       "title": "CECAR: Cache & Expert Co-Aware Routing Accelerates On-Device Inference of MoE LLMs",
       "authors": [
