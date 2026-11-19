@@ -1,6 +1,175 @@
 {
  "papers": [
   {
+   "arxivId": "2611.24941",
+   "title": "UltraTex: Aligning Physical Knowledge for High-Fidelity PBR Texture Generation",
+   "authors": [
+    "Jingzhi Bao",
+    "Xiaohe Ma",
+    "Hong Li",
+    "Yuanming Hu",
+    "Xiaoguang Han"
+   ],
+   "url": "https://arxiv.org/abs/2611.24941",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "已接收 ACM Transactions on Graphics（SIGGRAPH Asia 2026）。针对单张参考图生成 3D 网格 PBR 材质贴图的难题，提出级联多视角框架 UltraTex，把物理知识注入基于扩散的 PBR 生成：先联合预测反照率与世界空间法线得到更精细的反照率图，再结合 VLM 隐层特征转化的材质语义先验预测金属度-粗糙度图，并用光度表征对齐引导扩散中间特征贴近可控光照下的真实材质渲染。实验表明其在视觉保真度、材质准确性与物理合理性上优于现有开源与商业方法。值得看：把“材质—光照”解耦做进了生成过程，对游戏与 3D 内容生产中的可重光照材质生成有直接参考价值。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.24938",
+   "title": "Phoenix: Learning Scene Structure Representations for Generalizable World-Action Models",
+   "authors": [
+    "Yupeng Zheng",
+    "Chaoyue Li",
+    "Linbo Wang",
+    "Xiang Li",
+    "Yuhang Zheng",
+    "Xiaotong Su",
+    "Songen Gu",
+    "Yichen Zhang",
+    "Zebin Xing",
+    "Shuai Tian",
+    "Jingxiang Guo",
+    "Jing Li",
+    "Zhiyong Zhao",
+    "Zhongpu Xia",
+    "Qichao Zhang",
+    "Haoran Li",
+    "Shuicheng Yan",
+    "Dongbin Zhao"
+   ],
+   "url": "https://arxiv.org/abs/2611.24938",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "面向通用机器人策略的世界-动作模型新工作。针对重建式视觉表征不强调空间关系与物体状态变化的问题，Phoenix 用双教师蒸馏为 DINOv3 注入几何与时空语义，再以因果 VAE 把场景结构压缩为生成式隐变量，联合预测隐变量、外观隐变量与机器人动作。为研究预训练数据效率，团队整理了约 3.9 万小时第一人称与机器人操作数据；在 LIBERO-Plus 上达 94.8%、RoboTwin 2.0 上 72.4%，覆盖单臂、双臂与灵巧手任务，且小样本适应能力强。值得看：规模化数据加场景结构表征的组合，是世界模型走向通用机器人策略的一条清晰路线。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.24936",
+   "title": "Jailbreak Detection on Large Language Models via Contrastive Prototype Structures",
+   "authors": [
+    "Yan Qiu",
+    "Yuanyuan Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.24936",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "越狱检测的轻量新方法。提出 Jailbreak Detection with Prototype Inference（JDPI），只用二元安全标签做对比学习，构造有害与无害两类原型，按与原型的相对距离做判断，无需再训一个下游分类器。在四个不同输入格式的基准上，对比微调使检测准确率提升 9.1–18.0 个百分点；经数据集适配后，ROC-AUC 超过 Llama Guard 3-8B 基线 0.173–0.310。多轮对话中利用累积历史还能进一步提升对话级准确率，跨数据集迁移也更稳健。值得看：方法简单、可直接落地，且效果超过了现成的专用安全模型。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.24924",
+   "title": "Agentic Harness Engineering Beta: Requirement-Centered Evolution of Agent Harnesses",
+   "authors": [
+    "Jiahang Lin",
+    "Jiahao Chen",
+    "Yiding Wang",
+    "Shichun Liu",
+    "Chengjun Pan",
+    "Shihan Dou",
+    "Honglin Guo",
+    "Yuyang Hu",
+    "Changhao Jiang",
+    "Zhenhua Han",
+    "Hang Yan",
+    "Qi Zhang",
+    "Tao Gui",
+    "Xuanjing Huang"
+   ],
+   "url": "https://arxiv.org/abs/2611.24924",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "智能体脚手架（harness）进化的新方法。针对现有脚手架进化只盯基准分数、容易陷入局部最优的问题，提出以需求为中心的循环 AHE-Beta：模拟用户在多轮使用中提出需求、团队式修改把需求落实为通用改动、只有通过验证与评审的改动才合并。在 held-out 任务上 pass@1 从 21.9% 提升到 33.3%，同时 token 用量减少 40.8%，还优于 Claude Code 等基线；盲测中真实用户在 48 组有效对比里 31 组更偏好 AHE-Beta。收益还可迁移到 GLM-5.3 与 DeepSeek-V4.1-Flash。值得看：把真实工程实践引入智能体脚手架进化，是智能体自我改进方向的扎实进展。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.24846",
+   "title": "Atomic MathReasoner: Instance-Level Composition of Atomic Reasoning Skills for Mathematical LLMs",
+   "authors": [
+    "Jiashu Li",
+    "Tianyu Gao",
+    "Qinglong Liu",
+    "Jinping Wang",
+    "Ye Wei",
+    "Zhiqiang Gao"
+   ],
+   "url": "https://arxiv.org/abs/2611.24846",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "数学推理的新方法。针对数学推理被当作单一整体能力优化的问题，提出实例级原子技能组合框架 AMR：先训练一批能力专属的 LoRA 专家，再用无梯度优化发现多样化的低损失组合原型，经置信度筛选蒸馏出轻量路由器，推理时按题目动态选择组合。在 Qwen2.5-Math-Instruct-7B 上，AtomicMath 平均字段准确率从 64.4% 提升到 68.1%（Level 1），逻辑推理从 39.4% 提升到 46.8%。值得看：把“分技能建模、再按题组合”的思路做实了，对推理模型的微调与组合策略有启发。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.24598",
+   "title": "Chain-of-Thought Hidden States Reveal Task-Solving Directions for Direct Answers",
+   "authors": [
+    "Houman Mehrafarin",
+    "Ioannis Konstas"
+   ],
+   "url": "https://arxiv.org/abs/2611.24598",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "关于思维链机理的新发现。研究发现思维链的隐状态中藏着“任务求解方向”：把能纠正答案的恢复态与失败态区分开，就能为每个问题构造一个方向；把直接回答提示的最后隐状态沿该方向旋转一次，即可在不生成推理步骤的情况下大幅提升直接回答准确率。在 25 个任务上，LLaMA 3.1 8B 直接回答准确率从 46% 升至 85%（思维链为 69%），Qwen 2.5 7B 从 52% 升至 86%，且只用思维链约十分之一的 token。值得看：挑战了“必须显式推理”的默认假设，为推理效率与机理解释都提供了新角度。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.24844",
+   "title": "General progress substitutes for specific training data in language models",
+   "authors": [
+    "Mark Marosi",
+    "Peter Antal"
+   ],
+   "url": "https://arxiv.org/abs/2611.24844",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "关于数据过滤与能力习得的重要发现。研究者刻意在训练中扣留某些技能（如国际象棋应对将军、分子字符串、一门编程语言），发现模型在其他数据上的通用进步可以替代被扣留的数据：从未被训练应对将军的棋类模型，对合法应对的排序几乎与受训模型相当；之后再补训被扣留数据时，所需数据量只是从头训练的一小部分，且随模型进步而递减。对 70 亿参数模型扣留一门编程语言也有同样现象。值得看：直接回应“过滤数据能否阻止危险能力”的安全议题，结论是过滤只能延迟、不能阻止。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2611.24891",
+   "title": "Cap-and-Track: Optimizing LLM Inference Request Dispatch Across Shifting Capacity",
+   "authors": [
+    "Benjamin Novotny",
+    "Doug Szeto",
+    "Chang Wang",
+    "Shicheng Chen",
+    "George Zhihua Yuan",
+    "Bob Kamma",
+    "Michael Ge",
+    "John Xin Zhou",
+    "Andrea Olgiati"
+   ],
+   "url": "https://arxiv.org/abs/2611.24891",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "来自 Meta 生产环境的高效推理工作。针对 LLM 推理调度中固定分发速率随算力变化而失效的问题，提出 Cap-and-Track：用“拒绝”信号感知后端当前接纳上限，以持久优先级队列暂存超量请求，分发器据此探测上调与回退，无需预测输出长度或全局调参。在 Meta 流量整形器的生产 A/B 中，同等流量下比固定速率方案少用 43% 的 H100；系统每天承载超 3 亿在线请求，峰值单日处理 11 亿请求。值得看：来自真实超大规模部署的调度经验，对推理服务设计有直接参考价值。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.24836",
+   "title": "DiWALI: Diffusion Policy Learning in World Models via Latent Action Inference from Human and Robot Play",
+   "authors": [
+    "Akshay L Chandra",
+    "Iman Nematollahi",
+    "Lingyue Zhao",
+    "Daria Kulikova",
+    "Angela P. Schoellig",
+    "Fabien Despinoy",
+    "Abhinav Valada"
+   ],
+   "url": "https://arxiv.org/abs/2611.24836",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "机器人操作学习的新框架。针对机器人动作标注数据稀缺的问题，DiWALI 用逆动力学模型从连续帧中推断隐动作，从而在无动作标签的人类与机器人“玩耍”视频上训练世界模型，再把策略放在想象中用强化学习改进。在 CALVIN 基准上，仅用人类演示训练的策略大幅超过用机器人演示训练的基线；真实机器人实验也证实想象中改进有效。值得看：把人类日常演示转化为机器人技能的关键一步，大幅降低了对机器人标注数据的依赖。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.24862",
+   "title": "Gaspard: Expressive unified speech and gesture synthesis with continuous autoregressive flow-matching and decoupled classifier-free guidance",
+   "authors": [
+    "Téo Guichoux",
+    "Théodor Lemerle",
+    "Catherine Pelachaud",
+    "Nicolas Obin"
+   ],
+   "url": "https://arxiv.org/abs/2611.24862",
+   "publishedAt": "2026-11-18",
+   "zhSummary": "语音与手势联合生成模型。针对以往先生成语音再驱动手势的级联流程、语音生成与手势无关的问题，提出统一模型 Gaspard：基于连续自回归生成与下一步流匹配预测，语音与手势各用专属预测头，并在推理时用解耦的无分类器引导分别调节两路的影响。在大规模多模态数据上训练，客观与主观评测都显示其手势表现强于单模态基线，语音与手势的同步性优于匹配的级联系统。值得看：把“说”与“比划”当作一个联合生成问题，对虚拟人、数字主播等多模态生成有参考价值。",
+   "category": "语音"
+  },
+  {
    "arxivId": "2611.24651",
    "title": "Piccolo: Co-Evolving Decision Models and Data through Recursive Self-Improvement",
    "authors": [
