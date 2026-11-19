@@ -1,6 +1,169 @@
 {
  "papers": [
   {
+   "arxivId": "2611.24651",
+   "title": "Piccolo: Co-Evolving Decision Models and Data through Recursive Self-Improvement",
+   "authors": [
+    "Zhenqing Ling",
+    "Qirui Jiao",
+    "Daoyuan Chen",
+    "Cheng Chen",
+    "Xinji Mai",
+    "Haowen Gao",
+    "Zhuo Zhang",
+    "Xuchen Pan",
+    "Mengsu Ding",
+    "Jiaji Deng",
+    "Yuexiang Xie",
+    "Xiaoming Qin",
+    "Weirui Kuang",
+    "Zhaoyang Liu",
+    "Yaliang Li",
+    "Bolin Ding",
+    "Jingren Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.24651",
+   "publishedAt": "2026-11-18",
+   "category": "递归自改进 RSI",
+   "zhSummary": "阿里巴巴团队提出的递归自改进决策模型家族 Piccolo（0.8B–27B），通过智能体数据工程让模型能力与训练数据协同进化：研究智能体分析模型行为、构造训练数据、开展实验，再用结果优化下一轮方案。Piccolo-27B 以 75.59 分登顶 Decision Index Vision Full 榜首，4B–9B 的小模型经针对性数据筛选也能匹敌 27B 基线。研究还给出三条反直觉结论：主干与训练配方协同适配比模型新旧更重要，持续降低 loss 反而可能损害离散决策准确率。权重与工具已随 Data-Juicer 与 AgentScope 生态开源，为用 RSI 构建前沿决策模型提供了可落地的蓝图。"
+  },
+  {
+   "arxivId": "2611.24578",
+   "title": "BaseRSI: Recursive Self-Improvement of a Base Vision-Language Model via Training-Free Harness Internalization",
+   "authors": [
+    "Mingda Zhang",
+    "Yuanhao Dong",
+    "Qiang Huang",
+    "Rui Qian",
+    "Yanjin Li",
+    "Zhenyu Liu",
+    "Xiao Huang",
+    "Zihao Yang",
+    "Jian Wang",
+    "Pinjia He",
+    "Xiaoying Tang"
+   ],
+   "url": "https://arxiv.org/abs/2611.24578",
+   "publishedAt": "2026-11-18",
+   "category": "递归自改进 RSI",
+   "zhSummary": "提出“递归线束内化”新范式，把递归自改进从模型外的提示词与工具线束推进到模型自身：基座视觉语言模型先改进自己的线束，再通过免训练的权重编辑把线束带来的增益写回自身权重，逐轮自我迭代。核心机制 ReGap 用线束在各 Transformer 层造成的激活差监督每一层，ReKey 则把信号回归写入每层的少量键值神经元，并按模型自身响应度量编辑位置与强度。在 10 个视觉推理基准上，BaseRSI 在分布内与分布外评测中均持续提升基座模型，代码已开源。"
+  },
+  {
+   "arxivId": "2611.24636",
+   "title": "Clover-35B-A3B-Preview Technical Report",
+   "authors": [
+    "DiffuSpace Technical Team"
+   ],
+   "url": "https://arxiv.org/abs/2611.24636",
+   "publishedAt": "2026-11-18",
+   "category": "大模型预训练与 Scaling",
+   "zhSummary": "DiffuSpace 发布的扩散语言模型 Clover-35B-A3B-Preview：总参数 35B、激活仅 3B 的 MoE 架构，支持思考模式生成。它把门控 Delta 网络适配到分块扩散中，用循环记忆结合块内双向注意力，在 7 项智能体指标上领先，SWE-bench Verified 达 73.6、Terminal-Bench 2.1 达 51.7。单张 GB300、BF16、batch size 1 下报告生成速度 680 tokens/s。还提出决策模型变体，一次去噪同时回答一组相关问题，组内全对准确率从 65.4% 提升到 77.0%。代码与权重已公开。"
+  },
+  {
+   "arxivId": "2611.24940",
+   "title": "$Z$-sight: Unifying Vision-Language-Action and Latent World Modeling",
+   "authors": [
+    "Junjie Ye",
+    "Yiqi Zhao",
+    "Muchen Xu",
+    "Celina Shiyu Wang",
+    "Hao Dong",
+    "Ruohai Ge",
+    "Rong Xue",
+    "Benjamin J Kolligs",
+    "Aditya Dutt",
+    "Sasanka Nagavalli",
+    "Nassim A. Samad",
+    "Gaurav S. Sukhatme",
+    "Jyotirmoy V. Deshmukh",
+    "Yue Wang",
+    "Yuliang Guo"
+   ],
+   "url": "https://arxiv.org/abs/2611.24940",
+   "publishedAt": "2026-11-18",
+   "category": "具身智能与机器人",
+   "zhSummary": "统一视觉-语言-动作（VLA）与潜在世界建模的机器人基础模型：直接在 VLM 感知当下所用的视觉 token 空间中预测未来，无需像素重建或外部编码器。先见专家与连续动作专家以混合 Transformer 与 VLM 耦合，联合去噪未来的空间 token 与动作。在人类视频与机器人轨迹上训练后，SIMPLE 任务成功率 81.9%（超最强基线 9.6 个百分点），Unitree G1 六项任务 73.3%（+20.0），每 chunk 仅 110ms。"
+  },
+  {
+   "arxivId": "2611.24925",
+   "title": "Render the Robot, Generate the World: One Video World Model Across Embodiments",
+   "authors": [
+    "Yash Jangir",
+    "Karan Mirakhor",
+    "Renos Zabounidis",
+    "Muhammad Zubair Irshad",
+    "Sergey Zakharov",
+    "Yonatan Bisk",
+    "Homanga Bharadhwaj"
+   ],
+   "url": "https://arxiv.org/abs/2611.24925",
+   "publishedAt": "2026-11-18",
+   "category": "具身智能与机器人",
+   "zhSummary": "与具身无关的视频世界模型 Doppel：以相机对齐的未来身体位形渲染图加数值动作轨迹为条件，让模型专注预测物体运动与交互变化，而非同时学习身体运动。渲染运动为不同具身与动作空间提供了统一的视觉接口。在 8 个数据集、8 种具身（单/双臂、灵巧人形、人手与人体）约 600 小时视频上联合训练一个共享主干。三个机械臂数据集上 PSNR 比纯动作基线高 1.00 dB，分布外评测高 1.20 dB；八具身联合训练在 6 个评测集中的 4 个上优于三机器人模型。"
+  },
+  {
+   "arxivId": "2611.24697",
+   "title": "Depth Before Breadth: Reverse-to-Forward Curriculum with Advantage Decomposition for LLM Agent",
+   "authors": [
+    "Siyuan Du",
+    "Yuxin Liu",
+    "Meng Tang",
+    "Haoran Li",
+    "Yechao Bai",
+    "Feiyang Pan",
+    "Jia He"
+   ],
+   "url": "https://arxiv.org/abs/2611.24697",
+   "publishedAt": "2026-11-18",
+   "category": "智能体",
+   "zhSummary": "针对 LLM 智能体长程任务中稀疏终端奖励导致的信用分配与探索难题，提出“先深后广”的逆向到正向课程学习：用策略诱导的能力区域刻画当前策略能可靠完成任务的状态集，在其边界附近只需几步即可到达更易解的状态。配对优势分别给出“抵达更易解状态”与“从该状态完成任务”的信号，课程沿成功参考轨迹反向扩展能力区域，再通过在线探索推向轨迹外状态。在 ALFWorld 与 WebShop 上，Qwen2.5-1.5B/7B 成功率分别达 90.1%/96.1% 与 80.2%/82.6%，优于同类智能体强化学习方法。"
+  },
+  {
+   "arxivId": "2611.24590",
+   "title": "Think Offline, Act in Real Time: Self-Improving Visual Game Agents through Code",
+   "authors": [
+    "Zipeng Qiu",
+    "Shusheng Xu",
+    "Jiale Li",
+    "Yukun Zhou",
+    "Chenyue Li",
+    "Wenshuang Li",
+    "Tongkai Yang",
+    "Binhang Yuan"
+   ],
+   "url": "https://arxiv.org/abs/2611.24590",
+   "publishedAt": "2026-11-18",
+   "category": "智能体",
+   "zhSummary": "研究视觉游戏智能体如何仅凭屏幕、从少量自我尝试中实时自我改进，对比“模型即策略”与“代码即策略”两种载体：前者用实时分块让已提交动作在模型推理时继续执行，并训练了一个 2B 控制器；后者让模型在尝试之间编写、测试并修订程序，由程序在游戏中实时行动。在 170 个 GameWorld 任务、每轮至多 8 次一分钟执行下，代码即策略平均进度 47.80%，高于训练控制器的 30.90%，且在全部五个游戏类别领先。结论是让模型离线思考、把学到的东西沉淀为实时行动的程序，优于只调控制器权重。"
+  },
+  {
+   "arxivId": "2611.24904",
+   "title": "ShadowTransfer: A Geographic Transfer Benchmark for Overhead Shadow Detection",
+   "authors": [
+    "Shagun Mittal",
+    "Raymond A. Yeh",
+    "Satish Ukkusuri"
+   ],
+   "url": "https://arxiv.org/abs/2611.24904",
+   "publishedAt": "2026-11-18",
+   "category": "评测基准",
+   "zhSummary": "已接收 NeurIPS 2026（Evaluations and Datasets Track）。针对航拍影像阴影检测缺乏跨地域迁移评测的问题，构建了含 4500 个人工验证阴影掩码、覆盖美国三座城市、两种原生分辨率的基准，配套留一城交叉验证协议。实验表明，换到未见城市会使 mIoU 下降 3.5–7.8，8 种自适应方法中有 6 种平均表现反而不如朴素训练。三探针诊断发现失效发生在特征空间、表现为阴影像素置信度坍塌，并可通过重训编码器或解码器恢复。基于诊断提出的即插即用模块 Spectral Information Bottleneck 在 9 个评测单元上与域内上限的平均差距最小（6.42 mIoU），基准、协议、代码与模型均已开源。"
+  },
+  {
+   "arxivId": "2611.24672",
+   "title": "Predicting Species Splits: A Challenging Fine-Grained Benchmark for Category Discovery",
+   "authors": [
+    "Christian Lange",
+    "Joakim Bruslund Haurum",
+    "Bingchen Zhao",
+    "Oisin Mac Aodha"
+   ],
+   "url": "https://arxiv.org/abs/2611.24672",
+   "publishedAt": "2026-11-18",
+   "category": "评测基准",
+   "zhSummary": "已接收 NeurIPS 2026（Evaluations and Datasets Track）。针对类别发现基准日趋饱和、脱离真实发现场景的问题，基于真实的物种分类拆分过程构建大规模细粒度基准 PS-SPLIT：7.9 万张全球社区采集的高质量鸟类图像，覆盖 771 个物种，源自 257 次经专家验证的近期分类拆分，附地理元数据与完整分类层级。由真实拆分产生的类别间视觉差异极其细微，常需专家级知识才能区分。作者还提出“按类别拆分发现”新任务，并适配评估了四种通用类别发现方法，显示现有方法仍有很大提升空间。"
+  },
+  {
    "arxivId": "2611.22941",
    "title": "A Transformer-Derived Iterative Preconditioner",
    "authors": [
