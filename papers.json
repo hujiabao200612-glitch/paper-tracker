@@ -2585,6 +2585,26 @@
       "category": "评测基准"
     },
     {
+      "arxivId": "2611.18856",
+      "title": "Self-Improvement Memory Enables Continual Recursive Self-Improvement",
+      "authors": [
+        "Xin Yu",
+        "Fei Xia",
+        "Jiaqi Pan",
+        "Youbao Tang",
+        "Chengzhi Liu",
+        "Adams Yu",
+        "Sicong Jiang",
+        "Yanfei Chen",
+        "Lingzhou Xue",
+        "Ting Yu"
+      ],
+      "url": "https://arxiv.org/abs/2611.18856",
+      "publishedAt": "2026-11-13",
+      "zhSummary": "谷歌 Cloud AI、DeepMind 与宾州州立大学团队提出的持续递归自改进（CRSI）设定：harness 优化通常固定模型与 benchmark 做一次，但现实中模型和 benchmark 都会换，之前进化好的 harness 未必能直接沿用。办法是给 harness 优化器加一个自改进记忆（SIM），而不是给做题模型加记忆：把每次改动按反复出现的问题归类，记下改的理由、预期与实际效果、评估上下文，下一轮接着用。四个领域上，SIM 在跨数据集与跨模型对比中都优于只沿用 harness 或只记根因的做法；coding 上 10 次独立实验平均多拿 2.36 分（p=0.003）。模型权重全程不变，变的只是外面的 harness——看这篇要抓住这个边界，别把它当成模型自己变强了。",
+      "category": "递归自改进 RSI"
+    },
+    {
       "arxivId": "2611.17287",
       "title": "Negative-Only Policy Optimization for One-Sided Verifiable Rewards",
       "authors": [
