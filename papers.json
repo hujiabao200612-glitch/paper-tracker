@@ -1,6 +1,127 @@
 {
   "papers": [
     {
+      "arxivId": "2611.26601",
+      "title": "SoK: Assessing the Evolution of LLM Capability in Software Vulnerability Research",
+      "authors": [
+        "Amine Lbath",
+        "Manan Suri",
+        "Aurelien Delaitre",
+        "Vadim Okun",
+        "Massih-Reza Amini",
+        "Dinesh Manocha"
+      ],
+      "url": "https://arxiv.org/abs/2611.26601",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这是一篇系统梳理大模型在软件漏洞研究中能力的 SoK 论文。作者借鉴自动驾驶分级思路，建立了一个自主性量表，并按正确性、可获得性与证据强度对已有说法逐项评级。梳理发现，早在 2026 年受限的前沿模型时代，智能体就已能在无人干预下发现、验证并修补真实软件漏洞，而开源权重模型随后也达到了相当的自主水平。它把散落在论文、厂商报告与披露中的零散说法变成可比较的证据，适合关心 AI 安全与代码智能体边界的读者。",
+      "category": "AI 安全与可解释性"
+    },
+    {
+      "arxivId": "2611.26590",
+      "title": "Probing the \"Conscious\" Mind: Selective Access and Global Workspace in Vision-Language Models",
+      "authors": [
+        "Jiahao Huang",
+        "Jun Wang"
+      ],
+      "url": "https://arxiv.org/abs/2611.26590",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这篇论文借用全局工作空间理论，研究视觉语言模型内部的概念表征。作者提出多模态概念透镜 MC-Lens，把视觉编码器与语言解码器的中间状态映射到同一语义空间，比较概念在不同模态下的可及性，并可干预被访问的概念以观察其对下游计算的影响。实验发现，多模态概念信息在中间层可读，且会随任务需要被选择性地访问。想理解 VLM 如何在内部整合图文信息、或做可解释性研究的读者值得一看。",
+      "category": "视觉语言模型"
+    },
+    {
+      "arxivId": "2611.26569",
+      "title": "Text-Aware, Vision-Blind: How Multimodal Image Editing Systems Handle Unsafe Inputs",
+      "authors": [
+        "Ziqing Yang",
+        "Yixin Wu",
+        "Michael Backes",
+        "Yang Zhang"
+      ],
+      "url": "https://arxiv.org/abs/2611.26569",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这篇论文指出多模态图像编辑系统的安全机制存在系统性的“重文本、轻图像”错位。作者构建了包含 5940 组图文指令对的评测集 EditSafetyBench，覆盖 11 类风险与三种编辑意图，并在 Gemini、GPT、Qwen 等四个系统上评测。结果显示，Gemini 对含不安全意图的文本提示拒绝率达 87.1%，而对本身不安全的上传图片仅拒绝 24.2%，GPT 也有类似落差。对做多模态安全、内容审核或图像编辑产品的读者很有参考价值。",
+      "category": "AI 安全与可解释性"
+    },
+    {
+      "arxivId": "2611.26437",
+      "title": "Asuka-FM: A System-Architectural Co-Design Framework for Efficient Text-to-Image Pretraining on Consumer Hardware",
+      "authors": [
+        "Víctor Rodrigo González",
+        "Pablo M. Olmos",
+        "Ignacio Peis",
+        "Alejandro Lancho"
+      ],
+      "url": "https://arxiv.org/abs/2611.26437",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这篇论文把前沿文生图模型的预训练门槛拉低到了消费级显卡。作者针对单张 RTX 4090 上的三大瓶颈——二次注意成本、可变长宽比导致的编译图断裂、冻结 VAE 占用的步延迟——提出系统与架构协同设计的 Asuka-FM。约 2.06 亿参数的双流 DiT 从零预训练只需约 160 GPU 小时、成本不到 55 美元，且性能具有竞争力。代码已开源，适合想在有限算力下复现或研究文生图预训练的实验室与个人开发者。",
+      "category": "高效推理与部署"
+    },
+    {
+      "arxivId": "2611.26438",
+      "title": "Risk-Controlled Test-Time Adaptation for Vision-Language-Action Models",
+      "authors": [
+        "Zixuan Liu",
+        "Hashem Haghbayan",
+        "Zizhan Zheng",
+        "Siavash Khajavi"
+      ],
+      "url": "https://arxiv.org/abs/2611.26438",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这篇论文给检索增强的视觉-语言-动作模型加上了风险可控的测试时自适应。作者提出的 R2-VLA 先学习一个不确定性预测器，判断当前检索到的专家演示是否足以支撑自主执行，不足时主动请求专家帮助；再通过任务级风险控制标定不确定性，满足用户指定的任务成功率要求。方法无需更新模型参数，只靠检索到的演示做上下文适配。对关注具身智能可靠性、希望机器人在不确定时“知道求助”的读者值得一看。",
+      "category": "具身智能与机器人"
+    },
+    {
+      "arxivId": "2611.26376",
+      "title": "Alignment Drives Reuse: Learning Generalizable Robot-Use Agents from Heterogeneous Experience",
+      "authors": [
+        "Ziyue Wang",
+        "Yaopeng Yang",
+        "Liyi Zhou"
+      ],
+      "url": "https://arxiv.org/abs/2611.26376",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这篇论文从“对齐”的角度重新思考机器人技能学习：不同基准与硬件上的交互经验能否共同打磨同一套技能。作者提出 UniCraft，用统一的坐标约定表示场景几何，对齐不同机器人的感知与控制接口，并把各基准任务整理成规范格式，让交互反馈共同精炼共享技能。思路是把视觉语言模型的跨任务泛化能力迁移到机器人操作上，适合关注具身智能泛化与跨本体迁移的读者。",
+      "category": "具身智能与机器人"
+    },
+    {
+      "arxivId": "2611.26346",
+      "title": "Context as a Resource",
+      "authors": [
+        "Xufei Tian",
+        "Han Hu",
+        "Wenli Du"
+      ],
+      "url": "https://arxiv.org/abs/2611.26346",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这篇论文面向常驻个人智能体，提出一种无路由器的上下文虚拟化架构 ClonAct。作者指出，把交错对话与外部事件塞进同一个线性会话会导致跨主题约束串扰与队头阻塞，而路由分层又会带来有损交接与高开销——在真实冲突的仓库合并任务上三轮平均仅 33.3%。ClonAct 通过可插拔的单遍非生成式上下文 MMU、原地上下文单元与带隔离试合并门的突触总线直接虚拟化上下文块。对做多会话智能体架构、长期记忆与上下文管理的读者很有启发。",
+      "category": "智能体"
+    },
+    {
+      "arxivId": "2611.26624",
+      "title": "PlayCraft: Designing Engaging Games from Agent Play Experience",
+      "authors": [
+        "Weihao Cheng"
+      ],
+      "url": "https://arxiv.org/abs/2611.26624",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这篇论文用智能体自己玩游戏的经验来自动设计更有吸引力的游戏。PlayCraft 在“玩”与“造”之间交替：玩家智能体看屏幕、操作手柄、多轮尝试并记录进度、决策与反思；工匠智能体据此评估玩家能力，预测不同熟练度下的表现，并对照目标学习曲线修改游戏。核心是把“精通感”这一参与度来源变成可自动优化的目标。对游戏生成、智能体自我改进或人机交互感兴趣的读者可以看看。",
+      "category": "智能体"
+    },
+    {
+      "arxivId": "2611.26316",
+      "title": "C-LiTE: A Lightweight Foundation Model for Cellular feature learning in Histopathology",
+      "authors": [
+        "Esha Sadia Nasir",
+        "Jiaqi Lv",
+        "Gozde N. Gunesli",
+        "Shan E Ahmed Raza"
+      ],
+      "url": "https://arxiv.org/abs/2611.26316",
+      "publishedAt": "2026-11-19",
+      "zhSummary": "这篇论文为计算病理学做了一个轻量级的细胞级基础模型 C-LiTE。现有病理基础模型多在组织切片块上训练，细胞特征只是隐式获得，而已有细胞级模型要么只覆盖特定细胞群，要么参数量高达数亿。C-LiTE 只有 2200 万参数，采用原生分辨率设计，避免对小细胞裁剪上采样带来的插值伪影与算力浪费。对医疗影像、病理 AI 或轻量基础模型感兴趣的读者值得关注。",
+      "category": "AI for Science"
+    },
+    {
       "arxivId": "2611.26603",
       "title": "Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth",
       "authors": [
