@@ -1,6 +1,181 @@
 {
  "papers": [
   {
+   "arxivId": "2611.27973",
+   "title": "MemOnce: A Scalable Memory Architecture for Large Language Models",
+   "authors": [
+    "Chang Nie",
+    "Chaoyou Fu",
+    "Songlin Liu",
+    "Yiqing Hu",
+    "Caifeng Shan"
+   ],
+   "url": "https://arxiv.org/abs/2611.27973",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "针对大模型长程连续交互中记忆状态膨胀的问题，作者提出可学习的记忆架构 MemOnce。它只缓存少量末层隐藏状态作为紧凑记忆表示，并通过记忆稀疏注意力按需取回相关记忆、动态解码回 KV 缓存，从而把显存占用和计算复杂度都降到线性。实验覆盖多种模型规模与上下文长度，在 1M 上下文下把 Qwen3.5-4B 的记忆缓存压缩 1313 倍、预填充延迟降低 6.9 倍，吞吐提升 3.5 倍。值得看的点在于它同时兼容预训练与后训练适配，为长记忆智能体与持续交互场景提供了一条不牺牲细节的架构路线。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2611.27962",
+   "title": "Model Carving: Training Transformers That Optimize Their Own Topology",
+   "authors": [
+    "Kaden Zheng",
+    "Pratyusha Sharma"
+   ],
+   "url": "https://arxiv.org/abs/2611.27962",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "传统 Transformer 训练时架构固定、只优化权重，作者认为这种均匀堆叠只是惯例而非最优选择。目前投稿 ICLR 2027 审稿中。Model Carving 给每个子层加上可学习的标量门，让训练损失在一次训练中直接“雕刻”掉不需要的组件，得到更小、非均匀的异构网络。在相同训练算力下，雕刻后的模型验证损失低于多用 1.7 倍算力的稠密模型，也优于同尺寸的剪枝或蒸馏模型；推理每 token 节省最高 34% FLOPs、解码快 1.6 倍且质量不降。这篇的看点是把架构选择内化为训练本身，且优势随规模增大而放大。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2611.27924",
+   "title": "BioEmu2: Scalable Emulation of Biomolecular Dynamics",
+   "authors": [
+    "Michael Gastegger",
+    "Adam E. Foster",
+    "José Jiménez-Luna",
+    "Tim Hempel",
+    "Sarah Lewis",
+    "Yu Xie",
+    "Lixin Sun",
+    "Iryna Zaporozhets",
+    "J. Thorben Frank",
+    "Yaoyi Chen",
+    "Michael Plainer",
+    "Ludwig Winkler",
+    "Pedro B. P. S. Reis",
+    "Sven H. Giese",
+    "Roberto Sordillo",
+    "Victor García Satorras",
+    "Eray Inanc",
+    "Kacper Kapuśniak",
+    "Soojung Yang",
+    "Rishwanth Raghu",
+    "Rachel Kim",
+    "Gabriel Dernbach",
+    "Deniz Gunceler",
+    "Hannes Schulz",
+    "Bonnie Kruft",
+    "Marwin Segler",
+    "Christopher M. Bishop",
+    "Cecilia Clementi",
+    "Ryota Tomioka",
+    "Frank Noé"
+   ],
+   "url": "https://arxiv.org/abs/2611.27924",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "结构预测之后，生物大分子的运动与相互作用仍是难题，BioEmu2 是原子级分辨的生物分子动力学生成模型。它把静态结构预测、平衡采样与时间演化统一在一个模型里，采样速度比分子动力学快数个量级，支持蛋白质、核酸、配体、离子等多组分体系和百万道尔顿级复合物。平衡分布与分子动力学参考的自由能误差接近 1 kcal/mol，还能通过残基接触条件或偏置势引导生成、计算稀有态自由能。对做 AI for Science 的读者，这是把动力学模拟从“算不起”推向“可规模化”的关键一步。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.27891",
+   "title": "Speculative Decoding Is Less Speculative Than You Think",
+   "authors": [
+    "Guanning Zeng",
+    "Andrea Zanette"
+   ],
+   "url": "https://arxiv.org/abs/2611.27891",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "推测解码的效率取决于草稿能否命中目标模型实际要走的路径，而不确定性来自模型预测与采样随机性两方面。DICE 发现采样随机性可以在起草前就固定，于是预采样并同步验证随机性，让起草计算集中到当前采样轮次更可能被采用的延续上，并可扩展到异步预取。方法无需额外训练草稿模型，也不改变目标采样分布，在多种设置下达到最优解码吞吐，比强基线最高快 24.6 个百分点。值得看的是它把“随机性可预知”这一简单观察变成了实用的加速手段。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.27876",
+   "title": "LesionAgent: Training-Free Agentic Tumor Tracking and Response Assessment in Longitudinal CT",
+   "authors": [
+    "Maximilian Rokuss",
+    "Jeya Maria Jose Valanarasu",
+    "Alejandro Lozano",
+    "Benjamin Hamm",
+    "Yannick Kirchhoff",
+    "Fabian Isensee",
+    "Klaus Maier-Hein"
+   ],
+   "url": "https://arxiv.org/abs/2611.27876",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "癌症患者每几个月的 CT 复查决定治疗是否继续，读片需要判断哪些是病灶、跨时间的同一病灶、以及是否进展，并对照临床指南。LesionAgent 是无需任务训练的 LLM 智能体，把冻结的 3D 基础模型当工具调用，用带坐标标注的视图在 3D 中行动，在病灶登记表中跨访视记忆每个病灶，并把数值判定交给确定性指南引擎。在四个公开纵向 CT 数据集上，它比所有自动基线追踪更多病灶、测得更准，误判进展的次数从固定规则链的 33/56 降到 2 次；与放射科医生的随访结论一致率达 20/23。亮点在于“脚手架而非模型”起决定作用：同一 LLM 与 3D 模型下，Claude Code 检测 F1 仅 41%，LesionAgent 达 78%。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.27860",
+   "title": "Who Grades the Agent? Privilege Separation for Coding-Agent Benchmarks",
+   "authors": [
+    "Nathan Nour Houlamy",
+    "Mattia Favretto",
+    "Earlence Fernandes",
+    "Mauro Conti"
+   ],
+   "url": "https://arxiv.org/abs/2611.27860",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "编码智能体的评测基准有个根本漏洞：给智能体代码打分往往要运行它的代码，而它可以操纵评测基础设施伪造高分，已有审计工具在十个热门基准中的九个上拿到近满分。SplitBench 借鉴安全系统的权限分离思想，把运行测试与判定结果分开：可信评分器持有标准答案，即使智能体完全接管测试环境也伪造不了通过。180/202 个真实任务可低成本迁移，与原生评分器在 98.7% 的尝试上一致；对抗攻击下拦截了 75% 的作弊尝试。这篇值得所有做智能体评测的人读：分数可信的前提是评分机制本身防篡改。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.27780",
+   "title": "Search-RSI: Expanding Search Worlds Along Multimodal Agents' Capability Frontier",
+   "authors": [
+    "Chengchao Lv",
+    "Yin Wang",
+    "Chunzheng Zhu",
+    "Wanli Chang"
+   ],
+   "url": "https://arxiv.org/abs/2611.27780",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "多模态搜索智能体的训练配方会在线合成多跳任务来“长大”，但默认可搜索的世界是固定不变的——新问题可能本身合理可验证，只是证据不在检索后端，于是智能体查对了却拿零分，久而久之积累大量“不可达负例”。Search-RSI 是递归自改进框架：每轮由当前策略诊断自己部分掌握的任务区域，在那里连同证据一起长出新任务，再按策略自身的分歧决定用于强化学习还是提示引导的示范。在九个多模态搜索基准上，它在静态任务增长饱和的地方继续提升，平均准确率提高约 9.8 个点，且无需外部模型。对关注 RSI 的读者，这是把“世界随能力一起长”落到具体配方的例子。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2611.27689",
+   "title": "Embodied-Harness: Towards Recursive Self-Improvement for Robotic Manipulation",
+   "authors": [
+    "Zhenxuan Fan",
+    "Zhuoya Wang",
+    "Yuqian Yuan",
+    "Wenqiao Zhang",
+    "Juncheng Li",
+    "Jun Xiao",
+    "Siliang Tang",
+    "Yueting Zhuang"
+   ],
+   "url": "https://arxiv.org/abs/2611.27689",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "基于视觉语言模型的机器人操作智能体常受限于记忆组织混乱、失败归因不清、执行经验难以复用。Embodied-Harness 用双智能体框架改进操作：Actor 通过机器人控制接口与环境交互，Reflector 把执行证据转化为可复用的操作指导；分层记忆保留短期执行上下文与长期经验知识，递归的脚手架自改进在多次尝试中不断打磨指导。方法不更新模型参数，只改进执行脚手架。在 RoboTwin 2.0、RoboSPA 与 RMBench 上成功率分别达 82.4%、76.7%、94.4%，真实机器人三项任务平均 96.7%。这篇与 RSI 方向直接相关：自改进的对象从权重变成了“脚手架”本身。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2611.27722",
+   "title": "Beyond Math, Code, and Logic: Do Reasoning Models Transfer to Scientific Argumentation?",
+   "authors": [
+    "Buse Sibel Korkmaz",
+    "Antonio del Rio Chanona"
+   ],
+   "url": "https://arxiv.org/abs/2611.27722",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "推理模型在数学、代码与逻辑基准上很强，但它们能否参与科学论证——识别主张、评估证据、组织回应——一直不清楚。这篇首次系统评估了语言模型在七项科学论证任务上的表现，覆盖论证挖掘、反驳生成与篇章级推理，材料来自研究论文、同行评审与基金申请书。结果显示即使前沿模型在领域相关的论证任务上也明显吃力，说明科学论证能力并非规模的自然涌现。作者进一步提出显式搭建论证推理过程的训练框架，让小模型接近甚至超过大得多的专有系统，并能泛化到未见过的对话场景。值得看的是它把“推理迁移”的边界从数理任务划到了科学话语。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.27645",
+   "title": "Efficient VLA Reinforcement Learning via Subchunk Rollouts in Latent World Models",
+   "authors": [
+    "Nan Tang",
+    "Han-Tao Zhang",
+    "Jing-Cheng Pang",
+    "Hao-Nan Wang",
+    "Hao-Xiang Ren",
+    "Yi-Fei Sheng",
+    "Jun-Yin Ye",
+    "Tian Xu",
+    "Fan-Ming Luo",
+    "Hao-Xin Lin",
+    "Yang Yu"
+   ],
+   "url": "https://arxiv.org/abs/2611.27645",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "基于模型的强化学习能用想象经验改进预训练的视觉-语言-动作策略，但现有方法依赖大规模图像/视频生成世界模型，开销很大。LS-MBPO 用轻量潜空间世界模型加残差建模，提出分层强制缓解递归预测的累积误差，并用潜子块 rollout 把动作块与 VLA 策略的执行接口衔接起来，再配合进度条件分支起点课程从短想象 rollout 中有效学习。在 LIBERO、RoboTwin 与真实 ALOHA 机器人实验中，它在任务表现与训练效率上均优于现有方法。这篇的看点是让 VLA 的模型强化学习在算力上变得实际可行。",
+   "category": "具身智能与机器人"
+  },
+  {
    "arxivId": "2611.26598",
    "title": "Active Feature Acquisition by Distilling an Oracle Teacher",
    "authors": [
