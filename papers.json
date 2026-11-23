@@ -1,6 +1,156 @@
 {
  "papers": [
   {
+   "arxivId": "2611.27900",
+   "title": "Communication-Efficient Federated Learning of Latent Patient Representations from Multi-Institutional EHRs",
+   "authors": [
+    "Zhiyu Yan",
+    "Shiao Liu",
+    "Rahul Mahajan",
+    "Anand Viswanathan",
+    "Christopher D. Anderson",
+    "Rui Duan"
+   ],
+   "url": "https://arxiv.org/abs/2611.27900",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "已接收 NeurIPS 2026。这篇工作针对多机构电子健康记录（EHR）的联邦学习：各机构只共享聚合边际频率和低秩谱摘要，患者级记录不出本地，中心服务器据此恢复共享低秩结构与可解释表征所需的行归一化方向。方法是非迭代的谱方法，作者给出了逐行恢复保证与误差界，其中主导的联邦方差项与相应下界匹配。仿真中它接近集中式 pooled 分析的效果，且随参与机构增多而提升；在真实多机构脑卒中 EHR 数据上，它学到了可解释的患者表征，能区分出临床意义不同的亚组，有望用于亚组特异性护理。值得看的是医疗联邦学习里少见的带理论保证的非迭代方法。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.27622",
+   "title": "Benchmarks' Last Exam",
+   "authors": [
+    "James Zhu",
+    "Zekki Cat"
+   ],
+   "url": "https://arxiv.org/abs/2611.27622",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "这篇工作对 8 个前沿基准的 749 个任务做了逐任务质量审查，并结合 767 次公开模型评测，检验提示、环境与评分器是否对“什么算成功”达成一致。结果发现任务有效性按评分架构急剧分层：经公开纠错修订的闭式问答基准验证有效率达 92.5%，而六个多步任务套件仅为 29.3%。作者还量化了已确认缺陷对分数的偏移方向。值得看的原因很直接：它动摇了只看 leaderboard 总分的可信度，对做评测与后训练的人都是重要的方法论提醒。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.27963",
+   "title": "Non-penetrating World Models",
+   "authors": [
+    "Yuhang Dai",
+    "Yinwei Wu",
+    "Ziyue Lin",
+    "Han Ji",
+    "Xingyi Yang"
+   ],
+   "url": "https://arxiv.org/abs/2611.27963",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "这篇工作研究交互式视频世界模型里的物体穿透问题，并提出了评测基准 NoPeBench。评测发现，没有一个开源模型能可靠地防止穿透；但出乎意料的是，扩散 Transformer（DiT）的隐状态已经编码了“候选动作是否会穿透障碍物”的信息。作者据此提出 NoPeWorld：冻结 DiT，在其隐状态上训一个小预测头判断动作是否安全，不安全的动作被替换为最能保留原意图的安全动作。这个简单方法把六个视频世界模型上的物理违规率平均从 74% 降到 16%，且能零样本泛化到开放域图像、第三人称视角与移动障碍物。代码、基准与模型权重均已开源。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.27911",
+   "title": "Functional Depth Is Learned: Isolating the Computation That Layers Produce Only Together",
+   "authors": [
+    "JaeSeong Kim",
+    "KyungTae Lim"
+   ],
+   "url": "https://arxiv.org/abs/2611.27911",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "这篇工作追问 Transformer 的深度在预训练中到底学到了什么：层数只代表顺序计算的机会，各层仍可能近乎独立地做精修。作者提出一种精确的包含-排除分解，分离出“只有指定的一组层共同作用时才出现”的计算（连通成分），并在 Pythia、OLMo、Amber 的公开 checkpoint 上追踪它。三个发现：预训练过程中跨层协调持续增强；删掉这些连通成分对困惑度的损害大于删同等范数的随机方向，在 35 个模型-阶数组合中全部成立；成对表征相似度与连通协调负相关，但两者不可互换。结论是架构深度提供顺序计算的机会，而预训练逐步在其中组织起跨层依赖。",
+   "category": "大模型预训练与 Scaling"
+  },
+  {
+   "arxivId": "2611.27797",
+   "title": "EvoTER: Evolving Embodied Agents via Tool-Use Experience and Reflection",
+   "authors": [
+    "Yingting Zhou",
+    "Yuyin Zhou",
+    "Yongliang Wang",
+    "Haoran Li",
+    "Dongbin Zhao"
+   ],
+   "url": "https://arxiv.org/abs/2611.27797",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "这篇工作让具身智能体在不更新模型参数的前提下，靠工具使用经验自我进化技能。EvoTER 由三角色循环驱动：Explorer 记录工具使用轨迹，Diagnoser 把成功与失败提炼为工具选择、参数计算、后置条件检查与恢复等方面的技能，Validator 只保留在新会话中确实提升整任务成功率的修订。仿真中整任务成功率从 53.6% 提升到 80.4%；真实世界实验里，长程任务成功率从 20% 提升到 80%–100%，且进化后的技能库能纳入仿真开发之后才引入的新工具功能。值得看的是它把“局部修补成功”等同于“整任务进步”的常见误区显式区分开了。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.27710",
+   "title": "Abstract What Varies, Reuse Longer Patterns: Efficient Offline Chain-of-Thought Compression",
+   "authors": [
+    "Shibo Wang",
+    "Yuzhe He",
+    "Yifeng Zhao",
+    "Yunjiao Zhou",
+    "Zepeng Ning",
+    "Hanzhang Zhou",
+    "Kezhi Mao",
+    "Junlang Qian"
+   ],
+   "url": "https://arxiv.org/abs/2611.27710",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "这篇工作做离线思维链（CoT）压缩：逐样本压缩会在相似表达上反复消耗压缩器预算，而直接复用完全相同的文本又会漏掉名字、数字或公式变化时的更长共享表达。作者提出 CRAFT，把问题特异细节抽象成槽位，从而发现跨样本共享的“部分词汇化表达模板”，每个模板家族只压缩一次代表，再把编辑套用到各次出现上。与逐样本重写相比，CRAFT Rewrite 中位压缩器预算减少 90.7%，中位精度损失仅 1.21 个百分点。做推理蒸馏或数据合成时，这种“先找模板再压缩”的思路有直接参考价值。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.27915",
+   "title": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
+   "authors": [
+    "Chi Yan",
+    "Guoyang Zhao",
+    "Wentao Yuan",
+    "Yixiao Ge",
+    "Yanning Zhou",
+    "Dan Xu"
+   ],
+   "url": "https://arxiv.org/abs/2611.27915",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "这篇工作提出首个面向度量 3D 空间推理的几何感知双目视觉语言模型 StereoVLM。现有 VLM 多从无标定的单目或多目图像推断 3D 结构，度量推理本质上是歧义的；标定双目提供的跨视角几何能消除这种歧义。StereoVLM 采用分层学习范式：跨视角对应与视差估计，再到标定条件下的度量深度感知与语义空间推理；作者还发现视差监督比直接双目深度监督在未见环境上泛化更好。StereoVLM-8B 在新基准 Stereo3D-Bench 上深度精度 δ1 达 95.17%，并在五个空间基准上平均提升 3.54 分、RoboCasa 操作成功率提升 4.3 个百分点。",
+   "category": "视觉语言模型"
+  },
+  {
+   "arxivId": "2611.27738",
+   "title": "Average-Depth Variable Execution via Request-Local Token Routing",
+   "authors": [
+    "Pengjie Zheng",
+    "Mengwei Xie",
+    "Huan Yang",
+    "Si Wu",
+    "Pengfei Hu",
+    "Feng Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.27738",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "这篇工作解决层跳过推理里的预算分配问题：一个请求的预算没有规定如何在各生成 token 之间分配层执行。作者提出 AVERT，让不同 token 执行不同层数，同时使每个请求的平均执行深度匹配一个连续预算值；路由器按当前 token 状态与请求预算决定是否执行 Transformer 块，跳过的 token 走轻量残差适配器且不写 KV。单个 checkpoint 可在同一 batch 里服务不同预算的请求。在 3 个 LLaMA 骨干、6 个质量指标、13 个预算下，234 组对比中有 206 组最优或并列最优；混合预算 batch 的每 token 解码时间降低 4.3%–21.2%。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.27808",
+   "title": "$\\mathtt{DistP}$: Scaling Local-Update Training with Zero-Shot Hyperparameter Transfer",
+   "authors": [
+    "Andrej Jovanović",
+    "Alex Iacob",
+    "Philipp Wiesner",
+    "Christophe Roux",
+    "Max Zimmer",
+    "Lorenzo Sani",
+    "Sebastian Pokutta",
+    "Nicholas D. Lane"
+   ],
+   "url": "https://arxiv.org/abs/2611.27808",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "这篇工作把分布式数据并行（DDP）的零样本超参迁移规则推广到局部更新训练：局部更新方法通信效率高，但引入了需要昂贵调参的额外超参。作者提出理论框架 DistP，覆盖不同 worker 数、局部步数与外层优化器：外层用平均时学习率可跨宽度与深度迁移，内层学习率可直接跨同步间隔迁移；全局 batch 增大时分两种机制，局部 batch 增大用平方根缩放，worker 数增加则用固定参考学习率。在 823M 参数语言建模实验中，DistP 在不重调大尺度超参的情况下验证损失降低 8.1%、下游平均精度提升 10%，且拟合的缩放律显示优势随算力预算增大而扩大。",
+   "category": "分布式训练"
+  },
+  {
+   "arxivId": "2611.27652",
+   "title": "Auditing Post-Training Unlearning in Diffusion Language Models using Sparse Autoencoders",
+   "authors": [
+    "Yunha Seo",
+    "Changhoon Kim"
+   ],
+   "url": "https://arxiv.org/abs/2611.27652",
+   "publishedAt": "2026-11-20",
+   "zhSummary": "已接收 NeurIPS 2026 研讨会 InfPriv 2026（非主会）。这篇工作把机器遗忘从自回归大模型扩展到扩散语言模型（DLM）：DLM 通过迭代去噪生成文本，各去噪阶段的部分掩码状态内部表征不断变化，遗忘相关特征的抑制是否应随阶段调整，此前无人研究。作者在 LLaDA-8B-Instruct 上用 WMDP 作为遗忘域基准，以 top-k 稀疏自编码器与去噪状态回放比较静态与阶段自适应特征抑制。结果是谨慎的阴性结论：遗忘相关特征确实随去噪阶段显著变化，但仅追踪这种动态并不能可靠改善遗忘-保留权衡。值得看的是它为 DLM 的事后遗忘提供了第一批实证基础。",
+   "category": "AI 安全与可解释性"
+  },
+  {
    "arxivId": "2611.27973",
    "title": "MemOnce: A Scalable Memory Architecture for Large Language Models",
    "authors": [
