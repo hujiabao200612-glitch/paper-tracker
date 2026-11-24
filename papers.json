@@ -1,6 +1,164 @@
 {
  "papers": [
   {
+   "arxivId": "2611.29467",
+   "title": "Beyond Accuracy: A Diagnostic Benchmark for Hypothesis-Driven Experiment Planning in LLM Agents",
+   "authors": [
+    "Ryo Kuroki",
+    "Amin Mansouri",
+    "Philippe Schwaller"
+   ],
+   "url": "https://arxiv.org/abs/2611.29467",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "已接收 NeurIPS 2026（评估与数据集方向）。针对科学任务上 LLM 智能体的评测只看最终准确率、掩盖推理在哪一步出错的问题，作者提出一套面向“假设驱动的自适应实验规划”的诊断评测框架，以动力学机理识别为实例。框架一方面量化智能体在实验设计空间中的探索模式，另一方面把推理拆解为信念更新、假设区分、判别性实验设计和干预下预测推理四个可单独打分的步骤。在 10 个 LLM 智能体上的测试发现，强智能体在四步上都稳定出色，弱智能体往往能更新信念、区分假设，却难以把结论转化为可执行的实验设计和尖锐的对比预测。值得看：它把“会猜假设”和“会做实验”区分开来，给智能体科学推理提供了一把更细的尺子。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.29600",
+   "title": "Aggregation Dispersion: An Information-Geometric Diagnostic of Oversmoothing in Graph Neural Networks",
+   "authors": [
+    "Abdessalam Ed-dib",
+    "Amine Mohamed Aboussalah"
+   ],
+   "url": "https://arxiv.org/abs/2611.29600",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "已接收 NeurIPS 2026。消息传递图神经网络层数一深、节点表示就会趋同，即过平滑现象；作者从信息几何角度给出一个新的诊断量“聚合离散度”，把每层传播算子看作节点上的游走分布，用 Fisher-Rao 度量下点云在概率单纯形上的收缩程度来度量过平滑。理论上证明该量为零当且仅当传播矩阵秩为一、随深度单调不增，且谱间隙控制其衰减速度；同时它还可作为表示离散度的上界。在 14 种模型配置、11 个数据集上，该诊断量与测试准确率的相关性（|r|=0.721）在 8 个诊断量中最高，且无需训练即可计算。值得看：为过平滑提供了可计算、有理论保证的早期预警指标。",
+   "category": "机器学习理论与优化"
+  },
+  {
+   "arxivId": "2611.29635",
+   "title": "Diversity in Unity, Theory in Practice: Hierarchical Multitask Benchmarks for Chinese Minority Languages",
+   "authors": [
+    "Yijie Li",
+    "Xi Cao",
+    "Yuan Sun",
+    "Quulgan Minggad",
+    "Abdulla Ablikim",
+    "JiaQingCaiWang"
+   ],
+   "url": "https://arxiv.org/abs/2611.29635",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "已接收 ACL 2026。针对藏语、蒙古语、维吾尔语三种中国少数民族语言，作者构建了层次化多任务评测集 CMiLBench，共 24663 条样本、覆盖 5 个难度等级和 17 项任务，涉及基础能力、文化特异性和安全对齐。用自动指标加 LLM-as-a-Judge 的混合框架评测 14 个主流商用与开源大模型后发现，模型在理论能力与实际可用性之间存在明显落差。值得看：这是首个系统评估大模型在国内少数民族语言上表现的基准，为缩小低资源语言的数字鸿沟提供了基础评测资源。",
+   "category": "评测基准"
+  },
+  {
+   "arxivId": "2611.29513",
+   "title": "Recursive Self-Editing: LLMs Program Their Own Weight Edits for Self-Improvement",
+   "authors": [
+    "Linghua Zhang",
+    "Yunhe Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.29513",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "递归自改进方向的新尝试：让模型自己写程序来改自己的权重。SELFWRITE 循环中，每一代模型先在新训练题上审视自己的推理过程，再于持久 Python 会话里检查自身权重与激活，写出一段程序、利用奇异方向、正误答案的激活对比等白盒原语构造低秩权重编辑，全程不用梯度。候选编辑在隐藏门控集上打分，只有严格优于当前模型的编辑才会被合并，编辑后的模型继续写下一代编辑。在 Qwen3 模型与 DAPO-Math 数学题上，五代循环把门控准确率从 73.95% 提升到 76.45%，未见过的测试集也有提升。值得看：它证明语言模型无需梯度也能写出对自己权重有用的改动，是 RSI 从“改数据、改流程”走向“改权重”的一步。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2611.29716",
+   "title": "Fin-RSI: A Unified Library of Financial Skills, Checks, and Self-Improvement for LLM Agents",
+   "authors": [
+    "Wanghao Ye",
+    "Shwai He",
+    "Sihan Chen",
+    "Yiting Wang",
+    "Bowei Tian",
+    "Guoheng Sun",
+    "Ziyi Wang",
+    "Ziyao Wang",
+    "Yexiao He",
+    "Zheyu Shen",
+    "Meng Liu",
+    "Yuning Zhang",
+    "Meng Feng",
+    "Yifei Dong",
+    "Yanhong Qian",
+    "Yang Wang",
+    "Siyuan Peng",
+    "Yilong Dai",
+    "Zhenle Duan",
+    "Joshua Liu",
+    "Lang Xiong",
+    "Aarosh Das",
+    "Zhaoyi Liu",
+    "Daeun Jung",
+    "Aditya Sarkar",
+    "Parastoo Pilevar",
+    "Xiaochuan Gong",
+    "Yancheng Zhu",
+    "Yingying Fan",
+    "Qiong Wang",
+    "Ang Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.29716",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "金融智能体方向的统一工具库 Fin-RSI：把市场分析、预测、组合构建与交易研究等金融技能收进同一套 Python 库，用统一接口跨模型、跨智能体框架调用。智能体可用自然语言发现合适工具、复用经过测试的实现，并通过检查与反馈改进自己生成的程序；开发者扩展新工具时也不必为每个模型重做集成。在 20 个开源权重模型、6 类交易持仓任务上，工具发现把产出有效程序的回合比例从 9.7% 提升到 29.2%，14B 以上模型从 23.6% 提升到 64.6%。值得看：把“自改进”落到金融工具调用这一具体场景，并开源了库与评测基准。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2611.29651",
+   "title": "Which Loopholes Get Found? Predicting Reward Hacking of LLM Judges Before RL Training",
+   "authors": [
+    "Xuanyi Lyu",
+    "Yuezhou Zhao",
+    "Qing Qin"
+   ],
+   "url": "https://arxiv.org/abs/2611.29651",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "用 LLM 做裁判训练策略时，策略会学会钻裁判的漏洞，但静态探测只能发现裁判接受“{”这类退化答案，却预测不了策略最终会钻哪一个。作者提出“暴露度”指标：起始策略产出某漏洞模式的倾向乘以裁判对该模式的误报率，二者乘积最高的模式就是 GRPO 训练中最先被利用的漏洞。在 36 次 GRPO 实验、7 个裁判上，有利用行为的 12 次实验中首次被利用的模式全部是暴露度最高的那个；即使只在微调数据中混入 3% 左右的漏洞样本，暴露度仍能准确预测首个被利用的模式及其出现窗口。值得看：在 RL 训练开始前审计暴露度，就能提前锁定策略最可能钻的第一个空子，相当于给奖励 hack 做了一次“事前体检”。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.29646",
+   "title": "JKO-GRPO: Augmenting GRPO with Wasserstein Proximal Steps for Flow-Matching VLAs",
+   "authors": [
+    "Jiyong Kwon",
+    "Yikun Bai",
+    "Amirhossein Mollaali",
+    "Guang Lin"
+   ],
+   "url": "https://arxiv.org/abs/2611.29646",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "针对 π₀、π₀.₅ 这类流匹配视觉-语言-动作（VLA）模型，现有 Flow-GRPO 只用优势加权采样动作，却忽略了动作之间的距离信息。JKO-GRPO 把每步采样的一组动作看作经验分布，用 Wasserstein 近端步（JKO 步）做策略改进：以组内相对优势构造传输目标，再把确定性流采样器回归到这些目标上，并结合裁剪后的 Flow-GRPO 目标、无需 KL 正则。方法还通过随机时间分支扩展到序列 VLA 控制，在旧策略轨迹上选动作块位置做组级 JKO 更新。值得看：把最优传输的几何思想引入 VLA 的在线强化学习，给动作空间的策略改进补上了距离结构。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.29663",
+   "title": "Exact on Paper: Which LLM Serving Shortcuts Flip Graded Answers, Measured Against the Noise of Reordering the Same Requests",
+   "authors": [
+    "Sharven Rane"
+   ],
+   "url": "https://arxiv.org/abs/2611.29663",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "部署团队常在确认基准准确率不变后就开启前缀缓存、分块预填充、推测解码等推理加速功能，因为引擎文档称它们是“精确”的。但准确率是聚合指标：单项请求的对错可能被翻转而总分不变。作者在 vLLM 上用一个 4B 指令模型、9 种单功能配置对照 5 个复本的基线，逐条评测 3380 个请求，发现 7 个所谓精确功能各翻转了约 1.5%–1.8% 请求的评分结果，与单纯打乱请求顺序带来的噪声相当；而 FP8 KV 缓存翻转了 3.36%，与 FP8 权重相当。改用批不变核后，7 个精确功能在所有请求上完全复现原文，只有 FP8 KV 缓存仍翻转 3.91%。值得看：它提醒部署者，验收推理加速不能只看总准确率，还要对照调度噪声基线或使用批不变核。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.29728",
+   "title": "Reasoning Beyond Imitation: Observation Conditioned Distillation for Video LLMs",
+   "authors": [
+    "Junzhou Chen",
+    "Jindong Wang",
+    "Gang Zhou"
+   ],
+   "url": "https://arxiv.org/abs/2611.29728",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "把强视频大模型的时序推理能力蒸馏给开源学生模型时，师生常因视频采样管线不同而看到不同的时间观测，教师的推理轨迹可能依赖学生根本看不到的证据。作者把这一问题形式化为“条件目标失配”，并揭示由此产生的“推理习得—执行鸿沟”。提出的习得-执行框架先把教师轨迹蒸馏为学生的推理先验，再跨多种观测优化该先验的执行能力，并引入“执行感知参考正则化”：先验在当前观测下可执行时保留原样，不可执行时才允许大幅调整。在多个视频大模型骨干与 6 个视频推理基准上，该方法一致优于监督蒸馏与标准 RL 优化，增益还延伸到域外基准。值得看：它点出了视频推理蒸馏中一个常被忽略的观测失配问题，并给出可落地的解法。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.29664",
+   "title": "Position-Skipped Distillation of Sparse-Attention Indexers: Train Short, Serve Long",
+   "authors": [
+    "Fu Dai",
+    "Haodi Quan",
+    "Kamal Taha"
+   ],
+   "url": "https://arxiv.org/abs/2611.29664",
+   "publishedAt": "2026-11-22",
+   "zhSummary": "Top-k 稀疏注意力依赖索引器为每层挑选值得注意的缓存 token，而索引器通常要在完整服务长度上从稠密注意力蒸馏，训练代价很高。作者发现，短序列蒸馏的索引器泛化到长上下文失败，主因是旋转位置编码（RoPE）而非内容匹配退化；于是提出“位置跳过蒸馏”：让索引器与冻结教师只看短序列，但位置 ID 中随机插入一段空隙，从而从未真正处理超过短训练长度的序列。在 DeepSeek-V2-Lite 与 Qwen3-30B-A3B 上，8K 蒸馏的索引器在 32K 内与 32K 蒸馏的版本困惑度差距约 0.5，64K 时与 64K 蒸馏版相当，而每 token 训练算力省约 6 倍。另将索引器键量化到 3–4 比特且无需重训，4 比特下困惑度变化至多 0.05、扫描提速 1.6–2.2 倍。值得看：为长上下文稀疏注意力提供了一条显著更便宜的训练路线。",
+   "category": "长上下文"
+  },
+  {
    "arxivId": "2611.27900",
    "title": "Communication-Efficient Federated Learning of Latent Patient Representations from Multi-Institutional EHRs",
    "authors": [
