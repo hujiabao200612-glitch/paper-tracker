@@ -1,6 +1,202 @@
 {
  "papers": [
   {
+   "arxivId": "2611.30965",
+   "authors": [
+    "Jianyu Wu",
+    "Yizhou Wang",
+    "Encheng Su",
+    "Jinouwen Zhang",
+    "Pengze Li",
+    "Lintao Wang",
+    "Chen Tang",
+    "Aoran Wang",
+    "Wanli Ouyang",
+    "Shixiang Tang"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-11-23",
+   "title": "Beyond Self-Consistency: Recursive Self-Improvement at Test Time",
+   "url": "https://arxiv.org/abs/2611.30965",
+   "zhSummary": "提出 Test-Time Recursive Self-Improvement（TT-RSI），一个无标签的测试时自改进框架。它包含两个相互加强的部分：In-Context RSI 让模型反复用上一轮完整解答作参考重解同一问题，推理算力沿着自己的推理链积累；In-Weight RSI 把逐轮改进蒸馏进权重，突破初始错误多数的限制。实验显示平均准确率比基座模型提升 13.89%，超过最强的自一致性方法。值得看：它把测试时计算从“独立采样再投票”变成了“沿着自己的推理不断改”，是 RSI 主线在测试时方向上的直接进展。"
+  },
+  {
+   "arxivId": "2611.31117",
+   "authors": [
+    "Jiajun Fan",
+    "Neil He",
+    "Qinglong Zheng",
+    "Changyi Yang",
+    "Tong Wei",
+    "Andy Mao",
+    "Zetian Li",
+    "Chaoran Cheng",
+    "Hui Ren",
+    "Ruihan Guo",
+    "Xianrui Zhong",
+    "Xizheng Yu",
+    "Jingyuan Li",
+    "Xi Zhu",
+    "Kaiqu Liang",
+    "Chang Xu",
+    "Zun Qian",
+    "Zidi Xiong",
+    "Yuezhu Zhao",
+    "Xu Huang",
+    "Ge Liu"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-11-23",
+   "title": "Self-Upgrading Embodied Agents",
+   "url": "https://arxiv.org/abs/2611.31117",
+   "zhSummary": "提出首个能在任务间隙靠改自己权重自我升级的具身智能体。白天 27B 智能体在家居环境工作，夜里复盘自己的执行记录，把浪费的步骤追溯到隐状态里的一个方向，只改写一个权重张量。每次改动先由它自己当考官，在练习任务上对照未改动的自己检验，只有通过的才保留。多轮下来任务完成率显著提升、步数和 token 更少，且每步成本不变。值得看：自改进的对象从“提示词和流程”变成了权重本身，且带自我检验防崩坏，是 RSI 从概念走向落地的关键一步。"
+  },
+  {
+   "arxivId": "2611.31048",
+   "authors": [
+    "Jiaze Li",
+    "Jingyang Chen",
+    "Wenhao Zhao",
+    "Haoran Xu",
+    "Zhenlong Yuan",
+    "Dianmo Sheng",
+    "Yuanxing Zhang"
+   ],
+   "category": "递归自改进 RSI",
+   "publishedAt": "2026-11-23",
+   "title": "Distill the Correction, Not the Rewrite: Hindsight Twins for Self-Improving Text-to-Image Models",
+   "url": "https://arxiv.org/abs/2611.31048",
+   "zhSummary": "文生图模型可以从自己的错误里学习，但已有的自蒸馏方法会把评论者改写提示时顺带加的无关细节一起学进去。作者提出 Hindsight Twins（HinT）：把评论者的修订模板分别填上“intended fix”和“observed error”，只蒸馏两者的速度差，并对齐模板外 token 的状态。在 Qwen-Image、SD3.5-M、FLUX.2 上，HinT 在保持对齐增益的同时把评论者引入的偏见压到基座水平，且连续 12 轮自训练持续提升，而对照基线会衰减。值得看：它点出了自改进里“学到了修正还是学到了噪声”这个关键区分，并给出可操作的解法。"
+  },
+  {
+   "arxivId": "2611.31098",
+   "authors": [
+    "Jinzhong Gu",
+    "Jiakai Chen",
+    "Xinyi Cao",
+    "Yan Shen",
+    "Hangke Sui",
+    "Shutian Zheng",
+    "Xiang Xiao",
+    "Haoran Lu",
+    "Fan Xu",
+    "Lu Shi",
+    "Daochen Shi",
+    "Ruihua Zhang",
+    "Wei Zhan",
+    "Masayoshi Tomizuka",
+    "Ruihai Wu"
+   ],
+   "category": "智能体",
+   "publishedAt": "2026-11-23",
+   "title": "Real2Worlds2Real: Scaling Self-Improving Agentic Real2Sim2Real for Robot Manipulation",
+   "url": "https://arxiv.org/abs/2611.31098",
+   "zhSummary": "提出一个自改进的智能体框架，把真实到仿真再到真实（Real2Sim2Real）扩展到多样任务。智能体根据有限的视觉观测和任务描述搭建逼真的数字孪生，再扩展成多样、可物理执行的“数字表亲”，并用视觉与执行反馈不断修正几何与物理行为，同时把验证过的流程沉淀为可复用技能。实验显示世界保真度与真实迁移效果都提升，且世界多样性和交互数据越多效果越好。值得看：它把“自改进”落到了机器人数据生成这一瓶颈环节，技能复用还提升了长程任务成功率。"
+  },
+  {
+   "arxivId": "2611.31198",
+   "authors": [
+    "Rui Sun",
+    "Junhua Huang",
+    "Luca Zancato",
+    "Md Mofijul Islam",
+    "Kai-Wei Chang"
+   ],
+   "category": "智能体",
+   "publishedAt": "2026-11-23",
+   "title": "ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents",
+   "url": "https://arxiv.org/abs/2611.31198",
+   "zhSummary": "多模态搜索智能体依赖少量手工工具，但新问题、新证据格式出现时工具库是固定不变的。ToolSmith 让智能体在精简的基础工具库之上自动生成并复用新工具模块。在 3 个域内和 10 个域外多模态搜索基准上，它一致优于基础工具库，且模型越大增益越大。值得看：工具从“人手工维护”变成“智能体自己长出来”，是搜索智能体走向开放域的关键一步。"
+  },
+  {
+   "arxivId": "2611.31201",
+   "authors": [
+    "Xiao-Ming Wu",
+    "Kang Liao",
+    "Yuexiao Ma",
+    "Taolin Zhang",
+    "Mingqian Zhou",
+    "Nuo Chen",
+    "Ziming Li",
+    "Yihang Luo",
+    "Rui Li",
+    "Zhonghua Wu",
+    "Tianyu Xie",
+    "Xiawu Zheng",
+    "Zhongang Cai",
+    "Zhi Hou",
+    "Chen Change Loy"
+   ],
+   "category": "具身智能与机器人",
+   "publishedAt": "2026-11-23",
+   "title": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness",
+   "url": "https://arxiv.org/abs/2611.31201",
+   "zhSummary": "前沿多模态模型可以直接当机器人策略用，但什么样的 harness 设计才有效一直不清楚。作者系统研究了提示、规划、动作执行、工具调用四个环节，提炼出六条经验，核心是优先利用模型原生的视觉推理和工具调用能力，而不是手工堆规划、技能或动作先验。在 RoboLab-120 上成功率 83.3%，比最强基线高 26.2 个百分点，真实机器人零样本试验 15/20 成功。值得看：它给“前沿模型当策略”这个新范式提供了第一份可直接照着做的配方。"
+  },
+  {
+   "arxivId": "2611.31209",
+   "authors": [
+    "Jingxi Chen",
+    "Yujia Chen",
+    "Cornelia Fermuller",
+    "Yiannis Aloimonos",
+    "Wen-Sheng Chu",
+    "Du Tran"
+   ],
+   "category": "图像视频生成",
+   "publishedAt": "2026-11-23",
+   "title": "WorldLatent: A Unified 4D Latent Space for World Perception and Generation",
+   "url": "https://arxiv.org/abs/2611.31209",
+   "zhSummary": "4D 时空视觉缺少统一的表征协议，感知与生成各走各的管线。WorldLatent 用一个多模态 VAE 把 4D 外观、几何与动态压缩进同一个结构化隐空间，感知与生成变成同一隐空间上的互补去噪过程，一个生成模型在一次训练里同时学会两种能力。在代表性 4D 基准上达到专家级零样本感知水平。值得看：它把语言模型里“统一 token 表征”的成功经验搬到 4D 世界模型，是世界模型走向基础模型的一条路线。"
+  },
+  {
+   "arxivId": "2611.31105",
+   "authors": [
+    "Tianyi Huang",
+    "Samuel Xu",
+    "Ivy Gu",
+    "Nathan Huang",
+    "Siqi Zhang"
+   ],
+   "category": "高效推理与部署",
+   "publishedAt": "2026-11-23",
+   "title": "LiveLoRA: Exact KV Cache Migration Across LoRA Updates for LLM Agents",
+   "url": "https://arxiv.org/abs/2611.31105",
+   "zhSummary": "更新 LLM 的 LoRA 适配器时，正在服务的会话要么混用新旧版本 KV 缓存，要么全量重算历史，代价都很高。LiveLoRA 用冻结的下层解码块与固定的 K/V 适配器下投影，让每 token 的基础投影和低秩坐标跨版本保持不变，只重算最后一个 token 即可完成迁移，并证明了与全量重算的等价性。在 Qwen2.5-3B 上比全量重算快约 69 倍，解码开销仅约 4.8%。值得看：它让长期运行的智能体会话可以无缝升级适配器，是部署侧一个实打实的痛点解法。"
+  },
+  {
+   "arxivId": "2611.31228",
+   "authors": [
+    "Daniel Theron"
+   ],
+   "category": "推理",
+   "publishedAt": "2026-11-23",
+   "title": "Language Models Steer on Injected Uncertainty Tokens, but Fail to Self-Monitor In Situ",
+   "url": "https://arxiv.org/abs/2611.31228",
+   "zhSummary": "让模型在推理时口头报出逐步置信度、触发回溯纠错的做法越来越流行，但它默认模型能监测自己的错误。作者在 4 个开源模型、15200 次数学尝试上检验发现：模型几乎监测不到自己的错误，置信度在出错步骤上基本不降，首次出错时置信度仍高达 95%–99.9%；但注入一个低置信度标签却能显著提升后续纠错率。结论是监测与控制是脱节的：模型能被外部不确定性信号引导，却不会自己察觉错误。值得看：它给所有依赖“模型自报置信度”的纠错机制泼了一盆必要的冷水。"
+  },
+  {
+   "arxivId": "2611.31094",
+   "authors": [
+    "Xuanlei Zhao",
+    "Hailun Xu",
+    "Kai Wang",
+    "Yang Luo",
+    "Yingxuan Ren",
+    "Zirui Zhu",
+    "Yuxuan Lou",
+    "Kun Xu",
+    "Yan Wang",
+    "Kanchan Sarkar",
+    "Yang You"
+   ],
+   "category": "大模型预训练与 Scaling",
+   "publishedAt": "2026-11-23",
+   "title": "Unlocking the Power of Loops in Pretrained LLMs with Loop Residuals",
+   "url": "https://arxiv.org/abs/2611.31094",
+   "zhSummary": "循环 Transformer 用共享层块迭代增加计算量，但此前只在从头训练时有效，对已训练好的 LLM 微调成循环收益很小。LoopRes 让每层循环直接 attend 到更早循环的输出，并给每个循环加可训练的 loop-aware key 区分它们，同时把残差窗口限制在最近 W 个循环。在 6 个预训练模型、9 个基准上，2 倍算力下 Qwen3-1.7B 比 SFT 提升 29.1%，且收益随规模扩大而更陡。值得看：它把“循环”从一个需要从头训练的架构选择，变成了能直接用在现有模型上的实用方法。"
+  },
+  {
    "arxivId": "2611.29467",
    "title": "Beyond Accuracy: A Diagnostic Benchmark for Hypothesis-Driven Experiment Planning in LLM Agents",
    "authors": [
