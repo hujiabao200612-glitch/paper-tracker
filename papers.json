@@ -1,6 +1,168 @@
 {
  "papers": [
   {
+   "arxivId": "2611.34928",
+   "title": "Diverse Alternative Reasoning Traces for Hard Math Problems",
+   "authors": [
+    "Lukas Aichberger",
+    "Adam Golinski",
+    "Arno Blaas",
+    "Arwen Bradley",
+    "Jacob Springer",
+    "Mehrdad Farajtabar",
+    "Michael Kirchhof",
+    "Sinead Williamson"
+   ],
+   "url": "https://arxiv.org/abs/2611.34928",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "已接收 NeurIPS 2026 Workshop。数学推理的后训练通常只用验证通过的采样轨迹，但难题的正确轨迹在蒙特卡洛采样下非常稀少。DART 从被拒轨迹出发，按位置加权不确定性定位薄弱的推理步骤，用参考答案引导生成刻意不同的替代步骤，再补全整条轨迹。在未解出的 DeepMath-103K 难题上，DART 比同量采样多恢复 37% 的问题，每条被接受轨迹的成本低 30%。用 DART 挖掘的数据后训练 Llama-3.1-8B，在 MATH-500 与 AIME 六项评估中有五项取得最高点估计。值得看：它把“失败轨迹”变成了有效训练信号，为推理后训练的数据挖掘提供了新思路。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.34751",
+   "title": "What Is a Theory Worth to an LLM Solver? Measuring, Inducing, and Merging Theories in Context",
+   "authors": [
+    "Jun Gao",
+    "Shuchao Bi"
+   ],
+   "url": "https://arxiv.org/abs/2611.34751",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "这篇研究“理论”对 LLM 解题到底值多少钱。把正确的理论写进上下文，Qwen3-14B 在模式等待时间问题上的 pass@1 从 0.37 升到 0.83，正确解的中位 token 从 10.2k 降到 6.3k，而同等长度的例题没有帮助。增益随模型变强和预算变长而缩小，且在长预算下几乎完全来自“能在预算内做完”。为区分“归纳”与“回忆”，作者植入未发表的定理，让模型先用代码探索再写理论：强模型在一个问题族上恢复了 60% 的理论增益，另一个 48%，第三个几乎为零。值得看：它用量化实验划出了理论知识的价值边界，也揭示了模型自主归纳理论的短板。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.34656",
+   "title": "Do We Still Need Reinforcement Learning When We Can Read the World Model?",
+   "authors": [
+    "Mingchao Zhang",
+    "Miduo Cui",
+    "Kangze He",
+    "Yuanjun Li",
+    "Dapeng Li",
+    "Ce Zhang",
+    "Chuanchen Luo",
+    "Xue Yan",
+    "Mingzhe Xing",
+    "Zhumin Chen",
+    "Hangyu Mao",
+    "Bin Zhang",
+    "Zhiwei Xu"
+   ],
+   "url": "https://arxiv.org/abs/2611.34656",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "这篇挑战了强化学习在序贯决策中的必要性。作者让 LLM 编码智能体直接阅读环境源代码，把环境知识翻译成可执行决策规则，再用在线反馈或离线数据迭代打磨策略，全程不做任务专用的 RL 训练。在多个决策基准上，合成策略达到甚至超过传统 RL 方法，且所需交互经验大幅减少。进一步分析表明这些规则可解释、且随反馈不断演化；去掉源代码访问的对照实验证明了“可读世界模型”的关键作用。值得看：它提出了一条“读代码、写规则”的决策范式，对世界模型与智能体的结合方式提出了新问题。",
+   "category": "强化学习"
+  },
+  {
+   "arxivId": "2611.34746",
+   "title": "BRIAR: Martingale Belief Smoothing on Bifurcation-Guided Reasoning Trees",
+   "authors": [
+    "Tianyi Yang",
+    "Haoran Zhang",
+    "Yifan Chen",
+    "Zixuan Li"
+   ],
+   "url": "https://arxiv.org/abs/2611.34746",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "RLVR 虽然推动了长链推理，但标准优化器在整条轨迹上盲目分配 rollout 算力和信用。作者发现关键的结构事实：在策略内验证器下，推理前缀的通过概率构成一个有界 Doob 鞅，其可学习信用方差在“跑偏”和“已确定”两端都趋于零。基于此提出 BRIAR：沿置信度最高的结果分叉前沿扩展推理树，把算力引向未解决的决策点；用边界缩放的异方差建模节点价值，并以线性时间 RTS 平滑算出全局后验。第三，它只在吸收点之后施加零和后缀优势，保证吸收前的推导不受影响。值得看：把鞅论引入 RLVR 的信用分配，理论扎实且直指长链推理的两个典型病灶。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.34841",
+   "title": "Knowledge-Base Gradient Descent: Self-Structuring Learning through Question Answering",
+   "authors": [
+    "Masahiro Kato"
+   ],
+   "url": "https://arxiv.org/abs/2611.34841",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "这篇研究知识库如何“自组织”：问答的预期答案指导持久知识库的结构演化，结构可以是图谱模式，也可以是关联文档的组织方式。提出的方法叫 Knowledge-Base Gradient Descent：诊断当前知识库回答与预期答案的差异，提议结构编辑，重建知识库后只保留能降低学习损失的编辑；通过对候选编辑随机化，把损失变化表示为选择概率的导数。实验用成捆研究论文的大文档，更新后的图谱模式在所有文档上都提升了 held-out 问题的 Answer F1。值得看：把“梯度下降”的思想搬到知识库结构学习上，是自改进知识库的一条新路线，与递归自改进方向直接相关。",
+   "category": "递归自改进 RSI"
+  },
+  {
+   "arxivId": "2611.34762",
+   "title": "TASK Memory: Beyond Text-Only Memory with Activation Steering and Knowledge Editing against Memory Hallucination",
+   "authors": [
+    "Jinkun Zhao",
+    "Wenjun Wu"
+   ],
+   "url": "https://arxiv.org/abs/2611.34762",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "LLM 智能体越来越依赖外部记忆，但记忆明明检索到了，回答却与之矛盾——作者称之为“使用时记忆幻觉”。在五个开源模型上，这类幻觉源于参数知识与外部记忆的冲突，表现为三类：无视记忆（高达 46%）、错误套用（高达 24%，结合权重编辑时达 49%）、版本混淆（53% 的修订事实回答仍用旧值）。提出的 TASK 记忆把文本笔记、激活 steering 与知识编辑结合在同一个“模型内地址”上：文本存内容，可移除的知识编辑提供地址并支持多跳组合，成对 steering 向量逐查询决定采纳记忆还是保留模型自己的答案。值得看：首次系统刻画了智能体记忆的使用时幻觉，并给出了一套可落地的三层修复方案。",
+   "category": "智能体"
+  },
+  {
+   "arxivId": "2611.34698",
+   "title": "A Failure-Driven Data Flywheel for Post-Training Vision-Language-Action Models",
+   "authors": [
+    "Yuhao Luo",
+    "Zihao Sheng",
+    "Zilin Huang",
+    "Zhengyang Wan",
+    "Boyue Wang",
+    "Ruolin Yang",
+    "Shuai Wang",
+    "Sikai Chen"
+   ],
+   "url": "https://arxiv.org/abs/2611.34698",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "预训练的 VLA 模型往往满足不了新平台的全部行为要求，而没有大规模部署车队的小团队又拿不到足够的失败数据。作者提出失败驱动的数据飞轮：在重建的真实场景中插入任务相关实体，构造数据中缺失的目标场景，按每项行为要求评估模型，绘制失败地图；每轮按失败率分配更大的数据生成配额，持续迭代。在自动驾驶的遮挡行人出现与停车让行场景中，五轮后训练使关键阶段无碰撞率从 0.261 提升到 0.579（AutoVLA），从 0.390 提升到 0.765（ReCogDrive），且在配对控制场景中不必要的刹车率没有上升。值得看：把“从失败中学习”做成可执行的闭环数据引擎，对具身模型后训练有直接借鉴意义。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.34934",
+   "title": "Attack Policy Selection can Mislead Monitor Evaluators",
+   "authors": [
+    "Charlie Griffin",
+    "Oliver Makins",
+    "Asa Cooper Stickland",
+    "Alessandro Abate",
+    "Yarin Gal",
+    "Abby D'Cruz",
+    "Xander Davies"
+   ],
+   "url": "https://arxiv.org/abs/2611.34934",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "AI 监控器（识别智能体危险行为的分类器）常常用攻击策略生成的对话记录来评估，而这篇指出评估方式本身可能误导结论。作者以一个已下线的 OpenAI 监控器为案例：测得的漏报率对攻击策略的生成方法和优化程度高度敏感，单一方法内随优化程度从 0.5% 变到 20.8%，不同方法在最优水平下从 6.4% 到 23.0%。所有攻击策略只针对代理监控器开发，但结果都迁移到了未见过的 GPT-5.4 目标监控器上。结论是：只用基础攻击方法的评估会让人对监控器强度产生虚假信心；把某个具体结果解读为部署表现的证据需要额外论证。值得看：对智能体安全评估的方法论提出了尖锐质疑，评估设计者必读。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.34930",
+   "title": "A gene informed benchmark for BioScoring of pathology foundation models",
+   "authors": [
+    "Paul Vilars",
+    "Vincent Quoc-Huy Trinh",
+    "Maria Vakalopoulou",
+    "Dimitris Samaras",
+    "Stergios Christodoulidis",
+    "Mahdi S. Hosseini"
+   ],
+   "url": "https://arxiv.org/abs/2611.34930",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "病理基础模型通常只按分类、检索等下游任务比较，无法说明模型到底学到了什么生物学。作者提出 BioScore：用同一组织的空间转录组作参考，稀疏自编码器把编码器的 patch embedding 拆成稀疏特征并聚类，对 52 种由标志基因定义的细胞身份，度量某一簇特征跟随其表达的特异性。自编码器训练完全无监督，因此匹配说明模型仅凭图像就表征了细胞身份。8 个病理模型得分全部高于 3 个自然图像模型（0.299–0.371 对 0.214–0.232），配对检验还在病理模型中分出三个层级。值得看：首次用量化指标检验病理模型学到的生物学内容而非任务分数，对 AI for Science 的评估思路有启发。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.34943",
+   "title": "Tracking Any Point with Agentic Visual Reasoning",
+   "authors": [
+    "Xuweiyi Chen",
+    "Jin Yao",
+    "Linzhan Mou",
+    "Lei Gong",
+    "Di Liu",
+    "Cheng Zhang",
+    "Ziqiao Ma",
+    "Sihan Xu",
+    "Adam W. Harley",
+    "Shengyi Qian",
+    "Zezhou Cheng"
+   ],
+   "url": "https://arxiv.org/abs/2611.34943",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "通用 VLM 在目标检测、视频识别上已超过专家模型，但点对应仍是短板：需要在像素级定位同一物理表面点，跨越外观变化甚至消失后重现。作者提出 AgenTAP：一个 VLM 智能体直接预测点坐标与可见性，并主动推理视频内容，从自身估计出发自主选择检查对象，用所得证据验证点身份并修正预测。搭载 GPT-6 Astra 时，它在点定位与可见性预测上均超过专家视觉模型，且无需针对对应任务微调。作者还用它重连断裂轨迹，构建了长时第一人称视频的 3D 点轨迹数据集 EgoTAP-4D，加入 D4RT 训练后提升了平均 3D 跟踪性能。值得看：展示了“智能体式视觉推理”在精细视觉任务上的潜力。",
+   "category": "视觉语言模型"
+  },
+  {
    "arxivId": "2611.34848",
    "title": "Put the World Back: Timestamps Matter in Time Series Reasoning",
    "authors": [
