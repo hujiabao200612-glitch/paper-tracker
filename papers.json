@@ -1,6 +1,172 @@
 {
  "papers": [
   {
+   "arxivId": "2611.34914",
+   "title": "Cairn: Object-Centric 3D Trajectory Priors for Steering Frozen VLAs",
+   "authors": [
+    "Agelos Kratimenos",
+    "Kostas Daniilidis",
+    "Evangelos Chatzipantazis"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "具身智能与机器人",
+   "zhSummary": "这篇工作让冻结的视觉-语言-动作模型（VLA）在新布局下也能可靠操作：它不微调 VLA，而是在测试时用一个学到的物体中心 3D 轨迹先验引导它，沿途绕开障碍、调整姿态穿过缝隙。先验与 VLA 构成双向反馈的分层规划器，VLA 的预期运动会选择并重塑轨迹，轨迹再反过来引导 VLA 的去噪过程。实验中，冻结的 π0.5 在 1941 个含位移物体与障碍的 LIBERO 场景上成功率从 24.5% 跃升至 95.1%，超过了在训练布局上微调过的 π0.5；在真实 Franka 机械臂上，仅用仿真训练的先验也能带它绕过障碍完成极限距离的放置。值得看的点在于“冻结大模型 + 轻量先验测试时引导”这条路线，为 VLA 的泛化提供了一个不损伤已有能力的实用方案。",
+   "url": "https://arxiv.org/abs/2611.34914"
+  },
+  {
+   "arxivId": "2611.34671",
+   "title": "DemoFoundry: Toward Scalable Photorealistic Robot Data with Coding Agents and Generative Rendering",
+   "authors": [
+    "Ruixiang Wang",
+    "Xinyue Yao",
+    "Xuanning Zhou",
+    "Yueci Deng",
+    "Yongyi Su",
+    "Kui Jia"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "智能体",
+   "zhSummary": "机器人学习缺的是既真实又带可靠动作标注的演示数据，这篇工作用编码智能体加生成式渲染来批量合成。编码智能体一方面从已有机器人片段构建真实—代理视频对来训练视频渲染器，另一方面直接写出可执行的交互程序，在物理仿真中生成带对齐状态与动作的代理视频，再由渲染器转成照片级真实的观测。自动的任务执行检查只保留成功的轨迹用于渲染与策略学习。用合成数据训练的策略优于纯仿真训练，并接近同等数量真实演示的性能。值得关注的是它把“写代码的智能体”变成了机器人数据工厂的关键环节，为规模化合成机器人数据提供了一条可行的路。",
+   "url": "https://arxiv.org/abs/2611.34671"
+  },
+  {
+   "arxivId": "2611.34655",
+   "title": "Nav4Manip: From Navigation to Dexterous Mobile Manipulation through Co-Evolution",
+   "authors": [
+    "Yusen Feng",
+    "Zixi Kang",
+    "Zhijun Yin",
+    "Changxiao Liu",
+    "Tianhong Gao",
+    "Jiazhao Zhang",
+    "Jiahang Liu",
+    "Libin Liu",
+    "Zhizheng Zhang",
+    "He Wang"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "具身智能与机器人",
+   "zhSummary": "灵巧移动操作要求导航足够精确、且导航与操作能相互促进，这篇工作提出双向耦合的协同进化系统 Nav4Manip。导航模型 Nav4Manip-N 经过多任务协同调优、拒绝采样微调与基于 AI 反馈的强化学习三阶段训练，学会预测操作感知的可供性并用操作反馈改进导航；操作侧则训练世界—动作模型完成下游灵巧操作。作者还建立了 Nav-N-Manip 基准与大规模导航—操作配对轨迹数据集。在公开视觉—语言导航基准与新基准上均达到最优，真机实验完成了多样的灵巧移动操作任务。这篇值得看，因为它把“导航为操作服务、操作反哺导航”的闭环做成了可训练的系统，而非两个模块的简单拼接。",
+   "url": "https://arxiv.org/abs/2611.34655"
+  },
+  {
+   "arxivId": "2611.34915",
+   "title": "Memory Is Not Ground Truth: Revising Navigation Authority under Unreliable VLM Evidence for Persistent Semantic Navigation",
+   "authors": [
+    "Sumukh Shrote",
+    "Shenbagaraj Kannapiran",
+    "Eric Eaton",
+    "Camillo Jose Taylor"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "具身智能与机器人",
+   "zhSummary": "持久记忆能帮野外机器人少做重复搜索，但记忆过时后还该不该继续导航？这篇工作用 Boston Dynamics Spot 实测发现，VLM 的漏检证据高度模糊：漏检率因目标而异、相邻重访常复现同一结果，甚至目标在场与已移除的实验会产生完全相同的漏检历史。作者提出一种依赖感知、可逆的记忆更新机制，避免对相关漏检重复计数，不再把缺乏支撑的记忆当作导航目标，但也不断言物体不存在，后续正面证据还能恢复记忆使用。在三组真机对照中，基线每次都选了过时记忆当目标，而该方法三次都选了语义前沿探索。这篇与“合理怀疑”问题直接相关：它不把检测失败等同于物体不存在，而是把记忆的可行动性单独建模，思路值得借鉴。",
+   "url": "https://arxiv.org/abs/2611.34915"
+  },
+  {
+   "arxivId": "2611.34741",
+   "title": "ELMO: Emergent Representations In Imitation Learning Via Dynamic Hierarchical Action Chunking",
+   "authors": [
+    "Jasper Gerigk",
+    "Yang Xu",
+    "Nicholas Rhinehart",
+    "Igor Gilitschenski"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "具身智能与机器人",
+   "zhSummary": "机器人轨迹天然由“伸手、抓取、抬起”等不同语义阶段组成，但用均方误差训练策略会把所有动作一视同仁，掩盖这种结构。这篇工作提出 ELMO，端到端地把轨迹编码为扎根于当前环境的语义编码：联合训练一个 VLA 规划器与观测条件解码器，在动态切分的动作块上学习有语义的动作空间，无需单独预训练。在 LIBERO-Plus 上比同类方法高 9.6 个百分点，CALVIN 平均任务长度高 0.75；在其无捷径仿真与真机泛化基准 Blocks 上达到 38.6% 成功率，而所有基线都低于 5%。值得看的是它把“动作的语义结构”变成了可学习的表示，为模仿学习提供了一个更贴近任务意图的建模角度。",
+   "url": "https://arxiv.org/abs/2611.34741"
+  },
+  {
+   "arxivId": "2611.34920",
+   "title": "$μ$-Bench: Benchmarking Multi-User Task Completion in Shared Interaction Voice Agents",
+   "authors": [
+    "Qihao Lin",
+    "Guanxu Chen",
+    "Shuhang Zheng",
+    "Xiaoya Lu",
+    "Jingyi Yang",
+    "Terumi Chiba",
+    "Wenyi Yu",
+    "Chao Zhang",
+    "Zhuan Shi",
+    "Jing Shao"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "评测基准",
+   "zhSummary": "共享空间里的语音助手要同时满足多个用户的请求，还要守住各自的权限与隐私边界，这篇工作给出了第一个针对多用户闭环全双工语音交互的评测基准 μ-Bench。模拟参与者按各自的目标、知识与权限行动，并对助手的语音与工具结果作出反应；覆盖 20 个领域、100 个场景、800 个案例，其中 408 个带工具调用。联合任务成功要求所有用户目标、隐私边界与终止状态同时成立。13 个语音助手实测中，闭源系统最高约 62%–65%，开源模型不到 20%，且群体越大联合成功率越低。这篇值得看，因为它把“多用户、多轮、带权限”的真实共享场景变成了可验证的评测，暴露了开源语音助手在多轮归因与线程管理上的短板。",
+   "url": "https://arxiv.org/abs/2611.34920"
+  },
+  {
+   "arxivId": "2611.34711",
+   "title": "Spec2Weights: Certifying Networks that a Language Model Writes from a Specification",
+   "authors": [
+    "Soumik Bhattacharjee",
+    "Musa Tur Farazi",
+    "Md Nasir Uddin",
+    "Tishna Sabrina",
+    "Chowdhury Mohammad Rakin Haider"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "AI 安全与可解释性",
+   "zhSummary": "语言模型能直接从文字描述写出小型 MLP、CNN、RNN 或 GNN 的权重，无需数据与梯度步，但写出的网络到底对不对？这篇工作给出了在 float32 实际运算下证明网络精确性的方法：浮点安全引理让穷举成为证明，分层误差界覆盖非短二进制分数的权重，再结合动态规划、SMT 证明与归纳法。15 个写出的网络中有 12 个被证明在整个输入域上精确（最多 10^16 个输入），每个证明不到一分钟 CPU。30 个新规约中，Claude Opus 5.5 首次提交就有 25 个被证明精确，27B 开源模型通过 23 个。值得看的是它把“模型写代码/写权重”从经验正确推进到可证明正确，并明确给出了网络失效的边界条件。",
+   "url": "https://arxiv.org/abs/2611.34711"
+  },
+  {
+   "arxivId": "2611.34941",
+   "title": "Improving and Expanding Video Editing Capabilities Without Videos",
+   "authors": [
+    "Ji Xie",
+    "Yanhao Jia",
+    "Xiangpeng Yang",
+    "Martin Q. Ma",
+    "Sihan Xu",
+    "Erik Cambria",
+    "Louis-Philippe Morency"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "图像视频生成",
+   "zhSummary": "图像编辑模型已能跟随各种指令，视频编辑却受限于成对源视频与编辑视频难以收集。这篇工作提出图像到视频迁移（I2VT），让视频编辑器“扮演”图像编辑器：把图像当作单帧视频来编辑，图像编辑器在每步去噪中引导视频编辑器的预测，从而只用单张图像、无需新视频与架构改动就能完成高效后训练。训练时只见单帧图像，测试时却能把学到的能力用于整段视频并保持时间一致性。作者还扩展了 OpenVE-Bench，新增动作、表情、身体运动与场景重光四类编辑任务；三个视频编辑器上的实验均达到新最优。值得看的是它用“单帧扮演”绕开了视频成对数据瓶颈，是迁移学习在视频生成中的一个干净思路。",
+   "url": "https://arxiv.org/abs/2611.34941"
+  },
+  {
+   "arxivId": "2611.34730",
+   "title": "WorldInteract: Controllable Streaming Video Generation for Multi-Material Interactions",
+   "authors": [
+    "Ahmed Hatem",
+    "Caoliwen Wang",
+    "Robert Hoang",
+    "Siyuan Chen",
+    "Spencer Szabados",
+    "Zike Wu",
+    "Xiyang Tan",
+    "Shenyifan Lu",
+    "Rafael Bischof",
+    "Bernd Bickel",
+    "Renjie Liao",
+    "Peter Yichen Chen"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "图像视频生成",
+   "zhSummary": "视频世界模型要做出可交互的物理世界，但不同材质的运动规律与接触响应一直缺乏可控的建模。这篇工作提出 WorldInteract，把跨材质交互拆成材质相关行为生成与接触响应计算：外力与接触冲量通过共享的速度增量接口表达，物理控制器预测接触并根据质量与恢复系数算出速度增量，因果生成器再执行这些增量。这样一来，无需覆盖各种材质组合的监督接触视频，也能复用从无交互视频中学到的材质行为。模型在 3 万条仿真视频、22 类材质上训练，并用可验证物理奖励的 Material-Aware RL 进一步精炼，在 Physics-IQ 上大幅超过现有方法，对真实图像的推力控制也更可靠。值得看的是它把物理先验拆进生成管线的方式，为可控视频世界模型提供了一个可扩展的框架。",
+   "url": "https://arxiv.org/abs/2611.34730"
+  },
+  {
+   "arxivId": "2611.34843",
+   "title": "Probing Visual Idiosyncrasies in Text-to-Image Models",
+   "authors": [
+    "Yongqian Peng",
+    "Hongjie Li",
+    "Yichao Zhou",
+    "Chi Zhang",
+    "Yixin Zhu"
+   ],
+   "publishedAt": "2026-11-25",
+   "category": "图像视频生成",
+   "zhSummary": "顶尖文生图模型的画质已难分高下，但它们的输出是否还带有模型特有的“指纹”？这篇工作发现，标准 ResNet-50 能以 100% 的准确率分辨四款顶级开源文生图模型的生成图像，而人类在成对任务上只有 62.61%。这些线索肉眼并不明显，也不依赖特定分类器，能经受严重图像损坏与分布外提示。作者追溯到三个层次：低层纹理统计、物体布局与深度、反照率，以及提示之外的风格与背景偏好；给人类一句提示就能把准确率提高 9.03 个百分点。这篇值得看，因为它既为模型归因与相似度度量提供了工具，也提醒人们：人类偏好评测中假定的“匿名性”可能并不成立。",
+   "url": "https://arxiv.org/abs/2611.34843"
+  },
+  {
    "arxivId": "2611.34907",
    "title": "Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation",
    "authors": [
