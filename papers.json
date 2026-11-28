@@ -1,6 +1,199 @@
 {
  "papers": [
   {
+   "arxivId": "2611.34907",
+   "title": "Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation",
+   "authors": [
+    "Shaoteng Liu",
+    "Shuai Yang",
+    "Wei Huang",
+    "Luozhou Wang",
+    "Song Han",
+    "Yukang Chen"
+   ],
+   "url": "https://arxiv.org/abs/2611.34907",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "实时自回归视频生成可以边播边接受新提示，但长故事里人物、物体和场景容易走样。Agentic LongLive 给它配了一个异步记忆 agent：在独立 GPU 上只读已出现的提示，为每个人物、物体和场景维护文字状态与演化图像，在下一镜头开始前把全局记忆图与分镜头记忆图预填进生成器的注意力汇。关键设计是记忆 agent 从不看已生成的视频，视频的错误不会被写回记忆；负责写实体卡片的小语言模型用强化学习与下游视频结果校准的图像奖励训练。值得看：它是 NVIDIA 团队把 agent 记忆做进实时视频流的尝试，解决了“直播式”生成无法提前读剧本、无法重拍的难题。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.34912",
+   "title": "LiveVAE: Causal Window Attention Makes Efficient Streaming Video VAE",
+   "authors": [
+    "Jiachen An",
+    "Sijie Zhao",
+    "Le Li",
+    "Hongyu Liu",
+    "Zhiyuan Li",
+    "Tianyu Yang",
+    "Xiaoyu Kong",
+    "Xunliang Cai",
+    "Yong Zhang",
+    "Chi-Man Pun",
+    "Xiaoming Wei",
+    "Xiaodong Cun"
+   ],
+   "url": "https://arxiv.org/abs/2611.34912",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "视频扩散模型越跑越快，视频 VAE 却成了交互式生成与编辑流水线的延迟瓶颈。作者分析预训练视频 VAE 的有效感受野，发现编解码一个图像块几乎只依赖其空间与时间邻域，并不需要全局时空建模。据此提出 LiveVAE：基于因果窗口注意力的流式编解码器，单帧计算量大幅下降，流式 KV 缓存保持有界；通过解耦的编解码器蒸馏再联合微调，保留预训练潜空间，可作为原 VAE 的直接替换。在 MiniMax-H3 上实现 5.2 倍加速。值得看：它用“局部性”这一简单观察，把 VAE 从视频生成流水线的瓶颈变成了可插拔的加速模块。",
+   "category": "高效推理与部署"
+  },
+  {
+   "arxivId": "2611.34894",
+   "title": "What a Drop Reveals: Sim-to-Real Material Estimation for Deformable Objects from Video",
+   "authors": [
+    "Ziyue Peng",
+    "Yanxi Hu",
+    "Junyoung Kim",
+    "Andrew Chen",
+    "Jin Yang",
+    "Chandrajit L. Bajaj",
+    "Etienne Vouga",
+    "William T. Freeman",
+    "Qixing Huang",
+    "Brandon Y. Feng"
+   ],
+   "url": "https://arxiv.org/abs/2611.34894",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "一个物体落地时如何变形，能透露它是什么材料做的。本文只用一段真实的掉落视频，就估计可变形物体的密度归一化刚度，发生塑性变形时还能估计屈服应力，预测器只在仿真中训练。核心发现颇具反直觉：仿真中验证最准的几何输入（提升到 3D 的轨迹）在真实掉落视频上反而最差，换更好的深度估计也修不好；而短的 2D 光流轨迹在仿真里毫无提升，迁移到真实视频却最好。结论是：材料信息应该从两个域都能稳定测量的感知量里读，而不是从仿真中最有信息量的量里读。值得看：它对 sim-to-real 的验证方法论提出了直接挑战。",
+   "category": "AI for Science"
+  },
+  {
+   "arxivId": "2611.34884",
+   "title": "FineDex: Bridging Fine-Grained Human-Object Interaction Generation to Dexterous Humanoid Manipulation",
+   "authors": [
+    "Yujia Zeng",
+    "Yuxin Chen",
+    "Yuzhen Song",
+    "Runhan Huang",
+    "Chensheng Peng",
+    "Yiyang Shao",
+    "Koushil Sreenath",
+    "Masayoshi Tomizuka",
+    "Yilun Du"
+   ],
+   "url": "https://arxiv.org/abs/2611.34884",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "灵巧操作的核心是手指级控制，但现有方法常把五指手退化成夹爪，或直接复制人类演示的手指用法。FineDex 让手指级意图既可表达又可执行：学习遵循手选择、单指与接触点等细粒度指令的人体、手部与物体协调运动；再把生成的交互作为可执行先验，让 agent 在物理数字孪生中通过练习发现物理可行的接触策略。测试时无需针对每个实例重训，即可泛化到新的细粒度指令与物体配置。实验在人-物交互生成质量与细粒度可控性上达到最优，灵巧操作成功率也有大幅提升。值得看：它把“生成”与“执行”打通，是人形机器人灵巧操作的一条新路线。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.34750",
+   "title": "SOLVE: Sparse, Ordered Keyposes Make LLM Agents Versatile and Efficient Robot Manipulator",
+   "authors": [
+    "Xiang Li",
+    "Hongyu Zhou",
+    "Ya-Li Li",
+    "Tao Li",
+    "Rui Zhang",
+    "Junjie Lai",
+    "Weihua Zhang",
+    "Shengjin Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.34750",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "LLM agent 做机器人操作常被高昂的推理成本、逐级密集控制与工具瓶颈拖累。SOLVE 是无须训练的 agent 策略：多模态 LLM 每次调用只写一串稀疏有序的 6-DoF 末端关键位姿，观察执行结果后再写下一串，运动规划器在关键位姿间插值。关键位姿的数量与间距由 agent 自行决定，兼顾快速长程运动与精细操作；它用稀疏深度查询定位关键位姿，能容忍多视角三角化、双目或单目深度等噪声来源的误差，还能从执行反馈中反思并提炼规则。结果在 RoboDojo 达到 74.5%、RoboLab 84.5% 的最优成绩，平均每回合仅 1.7 美元。值得看：它把“稀疏关键位姿”做成了 LLM 操作 agent 的高效范式。",
+   "category": "具身智能与机器人"
+  },
+  {
+   "arxivId": "2611.34758",
+   "title": "Reading Fine-Tuning Diffs Through Lenses: Model Diffing for Backdoor Detection",
+   "authors": [
+    "Maximilian Petrowitsch",
+    "Ben Connors",
+    "Chris Kapulkin"
+   ],
+   "url": "https://arxiv.org/abs/2611.34758",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "微调过程可能植入后门，如何从模型差异中把它揪出来？本文建立了一套基于 token 读出的通用评分体系，统一比较基于权重、激活与输出的模型差异方法，并用 J-lens 及其改进版 J++-lens 强化了权重与激活方法。最强方法是把权重差通过基模型的 J++-lens 解码，在 12 组设定中的 11 组里把命名后门的 token 排进前十。作者还发现，输出与激活类方法一旦在微调时惩罚后门词在干净输入上的概率就会失效，而权重类方法不受影响。值得看：它既给出了实用的后门检测工具，也揭示了不同检测路线的脆弱性。",
+   "category": "AI 安全与可解释性"
+  },
+  {
+   "arxivId": "2611.34756",
+   "title": "Collect for Coverage, Replay with Evidence: Adaptive and Efficient On-Policy Distillation for Long-Horizon Agents",
+   "authors": [
+    "Haowen Hou",
+    "Gen Li",
+    "Ruilin Li",
+    "Yicheng Liu",
+    "Zhen Huang",
+    "Shuai Dong",
+    "Congcong Wang",
+    "Kaiwen Tuo",
+    "Hongrui Wu",
+    "Zelin Peng",
+    "Kanghui Tian",
+    "Ji Zhao",
+    "Dianyi Wang",
+    "Jiaqi Wang"
+   ],
+   "url": "https://arxiv.org/abs/2611.34756",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "长时程 agent 的完全在线在策略蒸馏成本很高，因为每次更新都依赖新鲜的环境 rollout；前缀回放用存储的历史采样学生回答来降低空闲，但存在两处短板。作者分析发现：只用教师轨迹会错过学生自己造成的历史，而更广的历史覆盖又会降低教师可靠性；固定位置的回放调度抓不住发生在任意深度的关键决策。CARE-OPD 用学生播种的教师补全与回答级置信度门控扩大历史覆盖并过滤不可靠更新，再用事后回放分配，依据下游执行证据挑选关键回合。在软件工程等长时程 agent 任务上验证有效。值得看：它把 on-policy 蒸馏的成本问题拆解为覆盖与分配两个可解的子问题。",
+   "category": "后训练与对齐"
+  },
+  {
+   "arxivId": "2611.34680",
+   "title": "Neural Rendering Compiler: Generative Video Models as Programmable Renderers",
+   "authors": [
+    "Yuxia Zhu",
+    "Xinglong Xu",
+    "Hao Liang",
+    "Linzhuang Sun",
+    "Caijun Jia",
+    "Qifeng Cai",
+    "Jincen Luo",
+    "Lei Li",
+    "Alden Cai",
+    "Asher Qin",
+    "Wentao Zhang",
+    "Cheng Tan"
+   ],
+   "url": "https://arxiv.org/abs/2611.34680",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "生成式视频模型正成为强大的渲染器，却缺乏 HTML/CSS 或 Blender 那种可预测的控制接口，能力从训练中隐式涌现，很难判断它到底能可靠执行什么。本文的 NeurCo 会自动探测冻结的视频模型，为每个模型构建专属“能力手册”，说明哪些语义需求它能可靠满足。它把用户意图表示为对象、约束、事件与相机的模型无关中间表示，再编译成针对各模型的执行策略：可靠的需求原样保留，不可靠的被改写或编译为替代执行策略。作者还发布了 VComBench（380 个组合多需求任务），NeurCo 把需求满足率从 Wan 的 46.8% 提升到 52.3%、MiniMax H3 的 66.5% 提升到 69.3%。值得看：它把“编译器”思想引入视频生成控制，让生成模型的可靠性变得可测、可编排。",
+   "category": "图像视频生成"
+  },
+  {
+   "arxivId": "2611.34681",
+   "title": "Find the Clue, Not the Scene: Rethinking Reasoning for Entity Recognition in Vision-Language Models",
+   "authors": [
+    "Kyungmin Min",
+    "Soyeon Kim",
+    "Junseok Kim",
+    "Kyomin Jung"
+   ],
+   "url": "https://arxiv.org/abs/2611.34681",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "会思考的 VLM 回答知识型视觉问题时要先认出图中实体、再回忆相关知识，但长长的思考链里哪一步在拖后腿并不清楚。作者分析发现识别才是瓶颈：四个模型在 ViQuAE 上的错误有 76.3% 源于认错实体，其中 84.9% 只要在问题中给出实体名就能解决；而且识别靠的是“实体回忆线索”（如圣彼得的钥匙这类能唤起实体记忆的显著视觉细节），而非对图像的一般描述。据此提出 ClueRL：在 GRPO 基础上把优势定位到思考链中的实体回忆线索，强化模型主动寻找并利用这类线索。值得看：它把 VLM 推理的改进点精确锚定在识别环节，对“思考型 VLM 到底在想什么”给出了可操作的诊断。",
+   "category": "推理"
+  },
+  {
+   "arxivId": "2611.34862",
+   "title": "BOP-Refer: Benchmark for Monocular 3D and 2D Object Grounding",
+   "authors": [
+    "Tomas Hodan",
+    "Vineet Bhat",
+    "Martin Sundermeyer",
+    "Jonathan Tremblay",
+    "Yash Patel",
+    "Médéric Fourmy",
+    "Stephen Tyree",
+    "Junwen Huang",
+    "Varun Burde",
+    "Martin Cífka",
+    "Eric Brachmann",
+    "Vincent Lepetit",
+    "Stan Birchfield",
+    "Jiri Matas",
+    "Carsten Rother"
+   ],
+   "url": "https://arxiv.org/abs/2611.34862",
+   "publishedAt": "2026-11-25",
+   "zhSummary": "现有 VLM 评测多停留在 2D 框，单目 3D 定位能力缺乏统一标尺。BOP-Refer 是首个单目 3D 与 2D 物体指代表达基准，覆盖 9 个 BOP 数据集的日常与工业物体，表达由 VLM 生成、人工校验，3D/2D 真值框来自物体 3D 模型与 6DoF 位姿标注。作者评测了 Gemini、GPT、Claude、Qwen、Gemma 等 17 个前沿 VLM：最好的 Gemini 4 Carbon 在 2D 上达到 72.6% AP，3D 上却只有 12.4%，尽管 3D 的 IoU 阈值更宽松。误差主要来自深度方向：预测框中心大体正确，但深度偏差常超过物体本身尺寸，说明度量尺度估计是当前最大短板。值得看：它为具身与机器人应用最需要的单目 3D 定位划了一条清晰的基线。",
+   "category": "评测基准"
+  },
+  {
    "arxivId": "2611.34928",
    "title": "Diverse Alternative Reasoning Traces for Hard Math Problems",
    "authors": [
